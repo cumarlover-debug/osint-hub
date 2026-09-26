@@ -128,7 +128,7 @@ async function main() {
     const types = detect(value);
     if (flags.json) return json({ value, types });
     if (!types.length) return out('Not recognised.');
-    return out(`${bold(taxonomy.inputs[types[0]])}${types.length > 1 ? dim(`  (could also be: ${types.slice(1).map((t) => taxonomy.inputs[t]).join(', ')})`) : ''}`);
+    return out(`${bold(taxonomy.inputs[types[0]] ?? types[0])}${types.length > 1 ? dim(`  (could also be: ${types.slice(1).map((t) => taxonomy.inputs[t] ?? t).join(', ')})`) : ''}`);
   }
 
   if (command === 'launch') {
