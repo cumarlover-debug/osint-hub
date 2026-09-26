@@ -1,0 +1,71 @@
+title: Investigate a suspicious domain
+summary: Work out whether a domain is malicious, who is behind it, and what else they run.
+starts_with: domain
+for: Phishing links, scam shops, brand impersonation, fake login pages.
+time: 30–60 minutes
+steps:
+  - title: Check its reputation first
+    input: domain
+    why: If security vendors already flag it, you know what you are dealing with before you look any further.
+    do: Search the domain in each tool. Note any verdicts, the dates they were first seen, and the category (phishing, malware, scam).
+    look_for:
+      - Detections from several independent engines, not just one
+      - A first-seen date close to when the phishing started
+      - Related URLs or files the tools link to the domain
+    tools: [virustotal, google-safe-browsing-site-status, urlvoid, urlhaus, alienvault-otx]
+
+  - title: See the page without visiting it
+    input: domain
+    why: Opening a phishing page in your own browser can expose your IP and infect your machine. A sandbox visits it for you.
+    do: Look for an existing scan first. Only submit a new one if there is none, and use a private scan if you can.
+    look_for:
+      - Screenshots showing which brand it imitates
+      - Where the login form sends data (the "POST" requests)
+      - Redirect chains and the final landing domain
+    tools: [urlscan, wayback-machine, archive-today]
+    opsec: A new scan makes the service visit the site, which the operator can see in their logs.
+
+  - title: Find out when and by whom it was registered
+    input: domain
+    why: Phishing domains are usually days or weeks old, and registration details sometimes survive privacy protection.
+    do: Look up WHOIS/RDAP. Record the creation date, registrar, name servers and any name, email or organisation that is not redacted.
+    look_for:
+      - A very recent creation date
+      - A cheap or abuse-friendly registrar
+      - Any registrant email, even partial, to pivot on later
+    tools: [icann-lookup, who-is, viewdns-info, whoisology]
+
+  - title: Map its infrastructure
+    input: domain
+    why: The server a site runs on often hosts the operator's other sites, which widens the picture.
+    do: Find the IP addresses, hosting provider and certificate history, then list other domains on the same IP and certificate.
+    look_for:
+      - Other look-alike domains on the same IP
+      - Subdomains in certificate logs (login., secure., account.)
+      - A shared hosting provider or name server pattern
+    tools: [crt-sh, securitytrails, dnsviz, robtex, hurricane-electric-bgp-toolkit, viewdns-info]
+
+  - title: Look for sibling domains
+    input: domain
+    why: Operators rarely register just one domain. Typo and look-alike variants are often live at the same time.
+    do: Generate look-alike variants of the brand being impersonated, and check which are registered and resolving.
+    look_for:
+      - Variants registered around the same date
+      - Variants on the same IP or name servers you found in step 4
+    tools: [dnstwist, dnstwister, phishstats]
+
+  - title: Pivot on what you found
+    input: ip
+    why: The IP addresses and emails you collected link this domain to the rest of the operation.
+    do: Search the IP from step 4 for reputation and other hosted sites. Search any registrant email in reverse WHOIS.
+    look_for:
+      - Abuse reports and scanning activity from the IP
+      - Other domains sharing the registrant email
+    tools: [abuseipdb, shodan, greynoise, viewdns-info, whoisology]
+
+  - title: Report it
+    why: Takedowns protect other victims, and registrars and hosts act faster with a clear evidence summary.
+    do: Report the URL to Google Safe Browsing, the registrar's abuse contact and the hosting provider's abuse address. Include screenshots and scan links.
+    look_for:
+      - The abuse contacts listed in the WHOIS and IP records you already pulled
+    tools: [google-safe-browsing-site-status]

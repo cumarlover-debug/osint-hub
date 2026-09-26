@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import { playbooks } from '../../lib/playbooks';
+import { inputLabel } from '../../lib/tools';
+---
+
+<Base title="Playbooks: step-by-step OSINT investigations | osint-hub" description="Step-by-step guides for common investigations: suspicious domains, email addresses, usernames, IPs, photos, videos, crypto payments and companies.">
+  <section class="hero">
+    <h1>Playbooks.</h1>
+    <p class="lede">
+      Step-by-step guides for common investigations. Each step says why it matters, what to look for and which tools to
+      use, with direct search links for your value.
+    </p>
+  </section>
+  <div class="grid">
+    {
+      playbooks.map((p) => (
+        <article class="card">
+          <div class="card-head">
+            <h3><a href={`/playbooks/${p.slug}`}>{p.title}</a></h3>
+          </div>
+          <p class="desc">{p.summary}</p>
+          <ul class="badges">
+            <li class="badge">{p.steps.length} steps</li>
+            <li class="badge">{p.time}</li>
+          </ul>
+          <p class="takes">
+            <span>Starts with</span>
+            <span class="input-tag">{inputLabel(p.starts_with)}</span>
+          </p>
+        </article>
+      ))
+    }
+  </div>
+</Base>

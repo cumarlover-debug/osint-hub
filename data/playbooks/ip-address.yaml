@@ -1,0 +1,50 @@
+title: Investigate an IP address
+summary: Work out who an IP belongs to, what runs on it, and whether it is known for abuse.
+starts_with: ip
+for: Suspicious log entries, attack sources, a server behind a scam site.
+time: 15–30 minutes
+steps:
+  - title: Who owns it
+    input: ip
+    why: The network owner tells you whether it is a home connection, a cloud server, a VPN or a company.
+    do: Look up the network (ASN), organisation and country. Check the regional registry for the abuse contact.
+    look_for:
+      - A hosting or cloud provider, which means a rented server rather than a person
+      - The abuse contact for reporting
+    tools: [hurricane-electric-bgp-toolkit, arin-whois, team-cymru-ip-to-asn, db-ip, maxmind-geoip]
+
+  - title: Is it a VPN, proxy or Tor exit
+    input: ip
+    why: Anonymising services mean the IP does not lead to the real person, which saves you chasing it.
+    do: Check anonymiser detection and whether it was a Tor relay on the date you care about.
+    look_for:
+      - VPN or proxy flags
+      - Tor relay status on the date of the activity
+    tools: [ip2location, focsec, exonerator]
+
+  - title: Check its reputation
+    input: ip
+    why: Mass scanners and botnets are reported constantly. Targeted attackers usually are not.
+    do: Search the IP in abuse databases and honeypot networks.
+    look_for:
+      - Many reports for scanning (background noise) versus few or none (possibly targeted)
+      - The categories and dates of reports
+    tools: [abuseipdb, greynoise, sans-isc-dshield, alienvault-otx, virustotal]
+
+  - title: See what runs on it
+    input: ip
+    why: Open services and certificates reveal what the server is for and who operates it.
+    do: Look at open ports, service banners and TLS certificates recorded by internet scanners.
+    look_for:
+      - Certificates naming domains you can pivot to
+      - Admin panels, remote desktop or known command-and-control software
+    tools: [shodan, censys, netlas-io]
+
+  - title: Find domains hosted on it
+    input: ip
+    why: Other domains on the same IP may belong to the same operator.
+    do: Run a reverse IP lookup and a passive DNS search.
+    look_for:
+      - Domains with similar names or registration dates
+    tools: [viewdns-info, robtex, securitytrails]
+    opsec: On shared hosting, hundreds of unrelated sites can share one IP. Look for patterns, not just co-location.

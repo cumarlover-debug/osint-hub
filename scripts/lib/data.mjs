@@ -8,6 +8,7 @@ import Ajv from 'ajv';
 export const root = fileURLToPath(new URL('../..', import.meta.url));
 export const paths = {
   tools: join(root, 'data/tools'),
+  playbooks: join(root, 'data/playbooks'),
   drafts: join(root, 'data/drafts'),
   health: join(root, 'data/health.json'),
   rejected: join(root, 'data/pipeline/rejected.txt'),
@@ -93,6 +94,49 @@ export function toolErrors(tool) {
 }
 
 export const isValidSlug = (slug) => /^[a-z0-9-]+$/.test(slug);
+
+const inputEnum = { enum: Object.keys(taxonomy.inputs) };
+const playbookSchema = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['title', 'summary', 'starts_with', 'for', 'time', 'steps'],
+  properties: {
+    title: { type: 'string', minLength: 5 },
+    summary: { type: 'string', minLength: 20, maxLength: 200 },
+    starts_with: inputEnum,
+    for: { type: 'string' },
+    time: { type: 'string' },
+    steps: {
+      type: 'array',
+      minItems: 2,
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['title', 'why', 'do', 'tools'],
+        properties: {
+          title: { type: 'string' },
+          input: inputEnum,
+          why: { type: 'string' },
+          do: { type: 'string' },
+          look_for: { type: 'array', items: { type: 'string' } },
+          tools: { type: 'array', uniqueItems: true, items: { type: 'string', pattern: '^[a-z0-9-]+$' } },
+          opsec: { type: 'string' },
+        },
+      },
+    },
+  },
+};
+const ajvPlaybook = new Ajv({ allErrors: true }).compile(playbookSchema);
+
+/** Schema problems plus references to tools that do not exist. */
+export function playbookErrors(playbook, toolSlugs) {
+  if (!ajvPlaybook(playbook)) return ajvPlaybook.errors.map((e) => `${e.instancePath || '(root)'} ${e.message}`);
+  const errors = [];
+  playbook.steps.forEach((step, i) => {
+    for (const slug of step.tools) if (!toolSlugs.has(slug)) errors.push(`step ${i + 1} uses unknown tool "${slug}"`);
+  });
+  return errors;
+}
 
 /** URL slug for a tool name: "GHunt" → "ghunt", "archive.today" → "archive-today". */
 export const slugify = (name) =>

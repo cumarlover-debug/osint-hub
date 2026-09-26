@@ -1,0 +1,49 @@
+title: Verify a video
+summary: Trace a video to its first upload and check it shows what is claimed.
+starts_with: video
+for: Viral clips, footage of events, videos shared as evidence.
+time: 30 minutes to several hours
+steps:
+  - title: Save it first
+    input: url
+    why: Videos get deleted, especially misleading ones. Keep a copy and its metadata before anything else.
+    do: Download the video with its metadata, and archive the page it was posted on.
+    look_for:
+      - Upload date, uploader and description in the saved metadata
+    tools: [yt-dlp, wayback-machine, archive-today]
+
+  - title: Read the upload details
+    input: video
+    why: The exact upload time and channel history show whether this is the original or a re-upload.
+    do: Pull the full metadata for the video and its channel.
+    look_for:
+      - Exact upload timestamp
+      - A channel created recently or that mostly re-uploads others' footage
+      - A location tag
+    tools: [youtube-metadata]
+
+  - title: Find earlier copies
+    input: image
+    why: Keyframes run through reverse image search often find the original, older footage.
+    do: Split the video into keyframes, then reverse-search the clearest ones.
+    look_for:
+      - The same footage from an earlier date or another event
+      - A longer original the clip was cut from
+    tools: [invid-weverify, google-lens, yandex-images, tineye]
+
+  - title: Check deleted and archived versions
+    input: video
+    why: A video removed from YouTube may survive in archives, with its original title and date.
+    do: Search the video ID in archive tools, and search the subtitles for key phrases.
+    look_for:
+      - An original title or description that tells a different story
+    tools: [find-youtube-video, archivarix-tube-search, filmot]
+
+  - title: Confirm where and when
+    input: location
+    why: As with photos, matching the scene and the conditions confirms or disproves the claim.
+    do: Geolocate distinctive features, then check weather and shadows for the claimed date. Look for other videos filmed nearby at the same time.
+    look_for:
+      - Other footage of the same event from different angles
+      - Weather and light that match the claimed date
+    tools: [google-earth, mapillary, youtube-geofind, suncalc, zoom-earth]

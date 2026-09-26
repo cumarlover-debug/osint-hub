@@ -1,0 +1,59 @@
+title: Trace a username across platforms
+summary: Find every account using a handle, then separate the ones that really belong to the same person.
+starts_with: username
+for: Threat actors, harassers, sock puppets, verifying someone's online identity.
+time: 30–90 minutes
+steps:
+  - title: Sweep hundreds of sites
+    input: username
+    why: People reuse handles. A broad sweep shows where to look closer.
+    do: Run the username through two or three enumeration tools. They check different site lists, so combine the results.
+    look_for:
+      - Accounts on niche sites, which are more likely to be the same person than common ones
+      - Accounts that exist on nearly every site, which suggests a common word rather than a person
+    tools: [whatsmyname, sherlock, maigret, blackbird, namechk]
+
+  - title: Confirm the matches are one person
+    why: A handle match alone proves nothing. Different people often share a username.
+    do: Open each hit and compare profile photos, bios, locations, writing style, linked accounts and active hours.
+    look_for:
+      - The same profile photo (reverse-search it in step 3)
+      - Links from one profile to another
+      - The same real name, city or employer
+    tools: []
+
+  - title: Reverse-search the profile photos
+    input: image
+    why: A reused photo links accounts under different names, and a stock photo exposes a fake profile.
+    do: Copy each profile photo's image address and search it.
+    look_for:
+      - The same photo on accounts with other usernames
+      - The photo appearing on stock sites or someone else's profile
+    tools: [google-lens, yandex-images, bing-images, tineye]
+
+  - title: Dig into platform-specific history
+    input: username
+    why: Some platforms keep history that reveals past names, deleted posts or activity patterns.
+    do: Use the tools for the platforms where you found accounts.
+    look_for:
+      - Previous usernames and display names
+      - Deleted Reddit posts and comments
+      - Posting times that suggest a time zone
+    tools: [redditmetis, pullpush, ghnames, gitfive, keybase, sangmata-bot, social-blade]
+
+  - title: Check criminal forums and marketplaces
+    input: username
+    why: For threat-actor investigations, the same handle on underground forums links activity across them.
+    do: Search the handle in threat-actor username data.
+    look_for:
+      - The forums where the handle is active and since when
+    tools: [threat-actor-usernames]
+
+  - title: Pivot on what the profiles reveal
+    input: email
+    why: Profiles often expose an email, website or real name that opens a new line of enquiry.
+    do: Collect any email, domain or name you found and run the matching playbook.
+    look_for:
+      - Contact emails in bios or GitHub commits
+      - Personal websites or domains
+    tools: [epieos, holehe]

@@ -1,0 +1,49 @@
+title: Research a company
+summary: Check a company is real, who owns and runs it, and whether it has red flags.
+starts_with: company
+for: Due diligence on a supplier or employer, checking a business before paying it, investigating fronts.
+time: 30–90 minutes
+steps:
+  - title: Confirm it is registered
+    input: company
+    why: A legitimate business is in an official register. A missing or recently created registration is a red flag.
+    do: Search the official register for its country, or a multi-country register. Note the registration number, date, status and registered address.
+    look_for:
+      - Incorporation date, and whether it is active or dissolved
+      - A registered address that is a mass-registration agent
+    tools: [opencorporates, companies-house, eu-vies-vat-check, overseas-company-registers]
+
+  - title: Find who runs and owns it
+    input: name
+    why: Directors and owners link the company to other businesses, and sometimes to people with a history.
+    do: List current and past directors and shareholders, then search their names for other appointments.
+    look_for:
+      - Directors with dozens of other companies (nominee directors)
+      - Owners in secrecy jurisdictions
+    tools: [companies-house, opencorporates, littlesis, orbis-moodys]
+
+  - title: Check sanctions and watchlists
+    input: company
+    why: Dealing with a sanctioned company or person can be illegal.
+    do: Screen the company and each director against sanctions and politically-exposed-person lists.
+    look_for:
+      - Exact or close matches, checked against dates of birth and addresses
+    tools: [opensanctions, ofac-sanctions-list-search, un-security-council-sanctions-list]
+
+  - title: Look for legal trouble
+    input: company
+    why: Lawsuits, bankruptcies and enforcement actions show how a company behaves.
+    do: Search court records and complaint sites for the company and its directors.
+    look_for:
+      - Fraud or unpaid-debt cases
+      - Patterns of consumer complaints
+    tools: [courtlistener, better-business-bureau]
+
+  - title: Check its web presence
+    input: domain
+    why: A real business usually has a website older than a few weeks, with consistent contact details.
+    do: Check the domain's age, its archived history and the email pattern staff use.
+    look_for:
+      - A website created long after the claimed founding date
+      - An archive history that shows a different business at the same domain
+    tools: [icann-lookup, wayback-machine, hunter, builtwith]
