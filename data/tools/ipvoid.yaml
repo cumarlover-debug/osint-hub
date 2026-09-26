@@ -1,0 +1,10 @@
+name: IPVoid
+url: https://www.ipvoid.com
+description: 'Checks an IP against dozens of blocklists and bundles related tools: WHOIS, reverse DNS and ping.'
+category: network
+inputs: [ip]
+outputs: [reputation, domain]
+type: web
+cost: freemium
+passive: true
+account_required: false

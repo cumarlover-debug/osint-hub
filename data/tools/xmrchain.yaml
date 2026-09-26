@@ -1,0 +1,9 @@
+name: XMRChain
+url: https://xmrchain.net/
+description: Monero block explorer for looking up transactions and blocks. It runs without JavaScript and is also available over Tor.
+category: crypto
+inputs: [crypto_address]
+type: web
+cost: free
+passive: true
+account_required: false

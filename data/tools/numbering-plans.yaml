@@ -1,0 +1,9 @@
+name: Numbering Plans
+url: https://www.numberingplans.com/?page=analysis&sub=phonenr
+description: Analyses a phone number against international numbering plans to show its country, number type and original carrier.
+category: phone
+inputs: [phone]
+type: web
+cost: free
+passive: true
+account_required: false

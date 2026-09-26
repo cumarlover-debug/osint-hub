@@ -1,0 +1,10 @@
+name: Zoom Earth
+url: https://zoom.earth/
+description: Near-real-time satellite imagery and weather maps, useful for checking conditions at a place on a given day.
+category: geolocation
+inputs: [location]
+outputs: [image]
+type: web
+cost: free
+passive: true
+account_required: false

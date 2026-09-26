@@ -135,6 +135,8 @@ function toDraft({ c, repo, gh, link }) {
     reject_reason: '',
     confidence: c.confidence,
     score: c.score,
+    // If review changes `url`, promote records this one as an alias so the tool isn't suggested again.
+    source_url: c.url,
     flags,
     // Reference only, never published: the source lists' own wording.
     notes: JSON.parse(

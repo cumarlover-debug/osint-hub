@@ -1,0 +1,10 @@
+name: Chainabuse
+url: https://www.chainabuse.com/
+description: Community reports of crypto addresses and websites used in scams, ransomware and fraud, across Bitcoin, Ethereum and other chains.
+category: crypto
+inputs: [crypto_address]
+outputs: [reputation, url]
+type: web
+cost: free
+passive: true
+account_required: false

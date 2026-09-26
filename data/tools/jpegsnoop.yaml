@@ -1,0 +1,11 @@
+name: JPEGsnoop
+url: https://www.impulseadventure.com/photo/jpeg-snoop.html
+description: Windows app that inspects how a JPEG was compressed and identifies whether it came straight from a camera or was re-saved by an editor.
+category: metadata
+inputs: [image]
+outputs: [metadata]
+type: desktop
+cost: free
+passive: true
+account_required: false
+platforms: [windows]

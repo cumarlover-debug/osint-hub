@@ -39,12 +39,33 @@
       "pushed_at": "2026-07-19"
     }
   },
+  "antennasearch": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "any-run": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "archive-today": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "arkham-intelligence": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "autodna-vin-lookup": {
     "status": "unverified",
@@ -95,6 +116,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "bitquery-explorer": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "bitref": {
     "status": "up",
     "failures": 0,
@@ -136,7 +164,28 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "carnet-ai": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "carvertical": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "censys": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "chainabuse": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -191,6 +240,41 @@
       "pushed_at": "2026-09-18"
     }
   },
+  "dnsviz": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "domain-dossier": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "domaincrawler": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "domainhelp": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "domaintools-whois": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "etherscan": {
     "status": "unverified",
     "failures": 0,
@@ -232,7 +316,28 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "findbyplate": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "finnik": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "firehol-ip-lists": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "forensically": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -249,6 +354,18 @@
       "stars": 19611,
       "archived": false,
       "pushed_at": "2026-04-10"
+    }
+  },
+  "gitfive": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 1019,
+      "archived": false,
+      "pushed_at": "2025-10-04"
     }
   },
   "google-lens": {
@@ -274,6 +391,13 @@
     "last_ok": "2026-09-26"
   },
   "have-i-been-pwned": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "hlr-lookups": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -307,6 +431,33 @@
     "last_ok": "2026-09-26"
   },
   "invid-weverify": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "ip2location": {
+    "status": "unverified",
+    "failures": 1,
+    "last_checked": "2026-09-26",
+    "reason": "timeout"
+  },
+  "iplocation-net": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "ipvoid": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "jpegsnoop": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -367,6 +518,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "numbering-plans": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "ofac-sanctions-list-search": {
     "status": "up",
     "failures": 0,
@@ -374,7 +532,28 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "online-port-scanner": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "opencorporates": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "opensanctions": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "openstreetmap": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -539,6 +718,25 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "user-scanner": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 4997,
+      "archived": false,
+      "pushed_at": "2026-09-25"
+    }
+  },
+  "usgs-earthexplorer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "vesselfinder": {
     "status": "up",
     "failures": 0,
@@ -547,6 +745,13 @@
     "last_ok": "2026-09-26"
   },
   "virustotal": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "voilanorbert": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -586,6 +791,18 @@
       "pushed_at": "2025-04-21"
     }
   },
+  "waybackpy": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 605,
+      "archived": false,
+      "pushed_at": "2024-02-26"
+    }
+  },
   "whatsmyname": {
     "status": "unverified",
     "failures": 0,
@@ -598,7 +815,21 @@
       "pushed_at": "2026-09-16"
     }
   },
+  "xmrchain": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "yandex-images": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "zoom-earth": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",

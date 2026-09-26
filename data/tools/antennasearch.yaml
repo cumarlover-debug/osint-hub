@@ -1,0 +1,10 @@
+name: AntennaSearch
+url: https://www.antennasearch.com/
+description: Maps registered cell towers and antennas near a US address, with owner and registration details from FCC records.
+category: geolocation
+inputs: [location]
+outputs: [location, company]
+type: web
+cost: free
+passive: true
+account_required: false

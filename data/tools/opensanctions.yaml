@@ -1,0 +1,10 @@
+name: OpenSanctions
+url: https://www.opensanctions.org/
+description: Open database of sanctioned people and companies, politically exposed persons and watchlists, merged from hundreds of sources.
+category: business
+inputs: [name, company]
+outputs: [company, name]
+type: web
+cost: freemium
+passive: true
+account_required: false

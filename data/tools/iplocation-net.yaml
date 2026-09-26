@@ -1,0 +1,10 @@
+name: IPLocation.net
+url: https://www.iplocation.net
+description: Looks up an IP address in several geolocation databases side by side, so you can see where they disagree.
+category: network
+inputs: [ip]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false

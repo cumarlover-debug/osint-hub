@@ -1,0 +1,10 @@
+name: IP2Location
+url: https://www.ip2location.com/demo
+description: IP geolocation with ISP, ASN, usage type and detection of VPNs, proxies and Tor exits.
+category: network
+inputs: [ip]
+outputs: [location, reputation]
+type: web
+cost: freemium
+passive: true
+account_required: false

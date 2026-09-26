@@ -1,0 +1,15 @@
+name: user-scanner
+url: https://github.com/kaifcodec/user-scanner
+description: Checks whether a username or email address is registered on 1,000+ sites across social, developer and gaming platforms.
+category: social-media
+inputs: [username, email]
+outputs: [social_profile]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: kaifcodec/user-scanner
+language: Python
+license: MIT
+platforms: [linux, macos, windows]
+tags: [username-enumeration, open-source]

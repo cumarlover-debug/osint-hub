@@ -1,0 +1,10 @@
+name: Forensically
+url: https://29a.ch/photo-forensics/
+description: 'Browser-based photo forensics: clone detection, error level analysis, noise analysis and metadata, all run locally.'
+category: image-video
+inputs: [image]
+outputs: [metadata]
+type: web
+cost: free
+passive: true
+account_required: false

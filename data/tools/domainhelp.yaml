@@ -1,0 +1,10 @@
+name: DomainHelp
+url: https://app.domainhelp.com/
+description: WHOIS and DNS lookup tools from easyDNS (formerly easyWhois), including registrar, name servers and record checks.
+category: domain
+inputs: [domain]
+outputs: [dns_record, name]
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,9 @@
+name: carVertical
+url: https://www.carvertical.com/vin-decoder
+description: Decodes a VIN for free and sells history reports covering accidents, mileage, theft records and past owners in many countries.
+category: transport
+inputs: [vehicle]
+type: web
+cost: freemium
+passive: true
+account_required: false

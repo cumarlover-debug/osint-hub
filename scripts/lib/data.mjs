@@ -11,6 +11,7 @@ export const paths = {
   drafts: join(root, 'data/drafts'),
   health: join(root, 'data/health.json'),
   rejected: join(root, 'data/pipeline/rejected.txt'),
+  aliases: join(root, 'data/pipeline/aliases.txt'),
   cache: join(root, '.cache/pipeline'),
 };
 
@@ -105,14 +106,21 @@ export function readYamlDir(dir) {
     });
 }
 
-/** URLs that were reviewed and turned down; the pipeline never suggests them again. */
+/**
+ * URLs the pipeline must never suggest again: ones that were rejected, and aliases (the source's old URL
+ * for a tool that was published under a corrected one).
+ */
 export function readRejected() {
-  if (!existsSync(paths.rejected)) return new Set();
-  return new Set(
-    readFileSync(paths.rejected, 'utf8')
+  return new Set([...readUrlList(paths.rejected), ...readUrlList(paths.aliases)]);
+}
+
+function readUrlList(file) {
+  if (!existsSync(file)) return [];
+  return (
+    readFileSync(file, 'utf8')
       .split('\n')
       .map((l) => l.replace(/#.*/, '').trim())
       .filter(Boolean)
-      .map(urlKey),
+      .map(urlKey)
   );
 }
