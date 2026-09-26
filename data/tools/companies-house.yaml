@@ -1,0 +1,10 @@
+name: Companies House
+url: https://find-and-update.company-information.service.gov.uk/
+description: 'The UK''s official company register: filings, accounts, registered address, and current and past officers.'
+category: business
+inputs: [company, name]
+outputs: [name, location, document]
+type: web
+cost: free
+passive: true
+account_required: false

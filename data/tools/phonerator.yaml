@@ -1,0 +1,9 @@
+name: Phonerator
+url: https://www.martinvigo.com/phonerator/
+description: Generates the valid phone numbers that match a partial number, such as the masked digits a password-reset page shows.
+category: phone
+inputs: [phone]
+type: web
+cost: free
+passive: true
+account_required: false

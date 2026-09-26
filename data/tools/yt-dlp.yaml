@@ -1,0 +1,16 @@
+name: yt-dlp
+url: https://github.com/yt-dlp/yt-dlp
+description: Downloads video and its metadata (title, uploader, dates, description, comments) from YouTube and thousands of other sites.
+category: image-video
+inputs: [url, video]
+outputs: [video, metadata]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: yt-dlp/yt-dlp
+install: pipx install yt-dlp
+language: Python
+license: Unlicense
+platforms: [linux, macos, windows]
+tags: [video, archiving, open-source]

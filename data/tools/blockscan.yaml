@@ -1,0 +1,10 @@
+name: Blockscan
+url: https://blockscan.com/
+description: Looks up one address across 25+ Ethereum-compatible chains at once, from the team behind Etherscan.
+category: crypto
+inputs: [crypto_address]
+outputs: [crypto_address]
+type: web
+cost: freemium
+passive: true
+account_required: false

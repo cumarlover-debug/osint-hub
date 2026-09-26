@@ -1,0 +1,10 @@
+name: Keybase
+url: https://keybase.io/
+description: Public profiles that link a username to verified accounts on other sites, PGP keys and crypto addresses.
+category: social-media
+inputs: [username]
+outputs: [social_profile, crypto_address]
+type: web
+cost: free
+passive: true
+account_required: false

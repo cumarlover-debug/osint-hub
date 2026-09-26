@@ -1,0 +1,10 @@
+name: OpenCelliD
+url: https://opencellid.org/
+description: Open database of cell tower locations worldwide. Shows towers on a map and can locate a phone from the tower it used.
+category: network
+inputs: [location]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,10 @@
+name: WiGLE
+url: https://wigle.net/
+description: Crowdsourced map of Wi-Fi networks. Look up where a network name (SSID) or router address (BSSID) has been seen.
+category: network
+inputs: [wifi, location]
+outputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: true

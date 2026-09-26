@@ -1,0 +1,31 @@
+# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
+# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
+name: OneMillionTweetMap
+url: https://onemilliontweetmap.com
+description: ''
+category: social-media
+inputs: [username, social_post]
+type: web
+cost: free
+passive: true
+account_required: false
+
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: low
+  score: 8
+  source_url: https://onemilliontweetmap.com
+  flags: []
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Social Media Tools > Twitter
+      - list: osint-framework
+        section: Social Networks > Twitter > Location / Mapping
+        said: Interactive map for viewing recent geolocated tweets and filtering by keyword and region.
+    framework_input: Keyword, map area, and time filters
+    framework_output: Mapped tweet locations with associated post content
+    page_title: '#onemilliontweetmap'
+    page_description: See last 24h tweet in real-time on a map!

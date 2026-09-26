@@ -27,9 +27,11 @@ export async function checkUrl(url, { page = false } = {}) {
       return { result: 'ok', code, movedTo, ...meta };
     }
     res.body?.cancel().catch(() => {});
-    if (code === 404 || code === 410) return { result: 'fail', code, reason: `HTTP ${code}` };
-    if (code >= 500 && !challenged) return { result: 'fail', code, reason: `HTTP ${code}` };
-    return { result: 'blocked', code, reason: `HTTP ${code}${challenged ? ' (bot protection)' : ''}` };
+    // Report a cross-domain redirect even when the final page is an error: "tool.io → vendor.com/transition-faq"
+    // is often the only sign that a tool was shut down.
+    if (code === 404 || code === 410) return { result: 'fail', code, movedTo, reason: `HTTP ${code}` };
+    if (code >= 500 && !challenged) return { result: 'fail', code, movedTo, reason: `HTTP ${code}` };
+    return { result: 'blocked', code, movedTo, reason: `HTTP ${code}${challenged ? ' (bot protection)' : ''}` };
   } catch (e) {
     const reason = e.name === 'TimeoutError' ? 'timeout' : (e.cause?.code ?? e.message);
     return { result: 'fail', reason };

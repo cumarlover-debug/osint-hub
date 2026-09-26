@@ -1,0 +1,10 @@
+name: Global Fishing Watch
+url: https://globalfishingwatch.org
+description: Maps fishing and vessel activity worldwide from satellite AIS data, including port visits, ship-to-ship transfers and gaps in tracking.
+category: transport
+inputs: [vessel]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false

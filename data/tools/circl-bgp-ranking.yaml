@@ -1,0 +1,10 @@
+name: CIRCL BGP Ranking
+url: https://bgpranking.circl.lu/
+description: Ranks networks (ASNs) by how much malicious activity they host over time, to judge how trustworthy an IP range is.
+category: network
+inputs: [ip]
+outputs: [reputation]
+type: web
+cost: free
+passive: true
+account_required: false

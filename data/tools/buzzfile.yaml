@@ -1,0 +1,10 @@
+name: Buzzfile
+url: https://www.buzzfile.com/Home/Basic
+description: Directory of millions of US businesses with address, industry code, estimated revenue and employee count.
+category: business
+inputs: [company]
+outputs: [location, name]
+type: web
+cost: freemium
+passive: true
+account_required: false

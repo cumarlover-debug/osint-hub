@@ -1,0 +1,9 @@
+name: NHTSA vPIC VIN Decoder
+url: https://vpic.nhtsa.dot.gov/decoder/
+description: 'The US government''s VIN decoder: make, model, year, plant and specifications for vehicles sold in the US since 1981.'
+category: transport
+inputs: [vehicle]
+type: web
+cost: free
+passive: true
+account_required: false

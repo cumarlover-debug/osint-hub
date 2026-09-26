@@ -1,0 +1,10 @@
+name: CORONA Atlas
+url: https://corona.cast.uark.edu/
+description: Declassified 1960s–70s CORONA spy-satellite photos, georeferenced, for seeing how a place looked decades ago.
+category: geolocation
+inputs: [location]
+outputs: [image]
+type: web
+cost: free
+passive: true
+account_required: true

@@ -1,0 +1,14 @@
+name: Ghidra
+url: https://github.com/NationalSecurityAgency/ghidra
+description: 'The NSA''s open-source reverse-engineering suite: disassembles and decompiles executables to show what a program really does.'
+category: threat-intel
+inputs: [document]
+type: desktop
+cost: free
+passive: true
+account_required: false
+repo: NationalSecurityAgency/ghidra
+language: Java
+license: Apache-2.0
+platforms: [linux, macos, windows]
+tags: [reverse-engineering, malware, open-source]
