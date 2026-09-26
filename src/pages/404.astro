@@ -1,0 +1,18 @@
+---
+// Also stops Cloudflare Pages from serving the homepage (with a 200) for unknown URLs.
+import Base from '../layouts/Base.astro';
+import { usedInputs } from '../lib/tools';
+---
+
+<Base title="Page not found | osint-hub" description="This page does not exist.">
+  <section class="hero">
+    <h1>Nothing here.</h1>
+    <p class="lede">
+      This page doesn't exist. If it was a tool, it may have been renamed or removed. <a href="/">Search all tools</a>,
+      or start from what you have:
+    </p>
+    <ul class="pill-links">
+      {usedInputs().map((i) => <li><a href={`/inputs/${i.key}`}>{i.label}</a></li>)}
+    </ul>
+  </section>
+</Base>
