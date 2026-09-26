@@ -1,0 +1,10 @@
+name: Universal Scammer List
+url: https://universalscammerlist.com/
+description: Checks whether a Reddit username has been banned for scamming across trading subreddits.
+category: social-media
+inputs: [username]
+outputs: [reputation]
+type: web
+cost: free
+passive: true
+account_required: false

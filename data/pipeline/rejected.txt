@@ -355,3 +355,58 @@ https://garvit835.github.io/WebScore/  # Webscore (student project, not establis
 https://whois.arin.net  # Whois Arin Online (duplicate of ARIN WHOIS), 2026-09-26
 https://yasiv.com/youtube/  # yasiv-youtube (related-video visualiser, little OSINT value), 2026-09-26
 https://www.youtube.com  # YouTube (video platform itself, not a tool), 2026-09-26
+https://vk.barkov.net  # Barkov.net (VK audience targeting for advertisers), 2026-09-26
+https://bottlenose.com  # Bottlenose (domain now an unrelated Shopify app), 2026-09-26
+https://www.brandwatch.com  # Brandwatch (social media marketing product, out of scope), 2026-09-26
+https://buffer.com  # Buffer (social media marketing product, out of scope), 2026-09-26
+https://search.fb.com/  # Facebook Search (a Facebook help page, not a tool), 2026-09-26
+https://www.fanpagekarma.com  # Fanpage Karma (social media marketing product, out of scope), 2026-09-26
+https://www.geocreepy.com  # Geocreepy (unmaintained; most social APIs it used are closed), 2026-09-26
+https://hootsuite.com  # Hootsuite (social media marketing product, out of scope), 2026-09-26
+https://iconosquare.com  # Iconosquare (social media marketing product, out of scope), 2026-09-26
+https://www.ipchecking.com  # IP Checking (domain for sale), 2026-09-26
+https://klear.com  # Klear (service closed or domain repurposed), 2026-09-26
+https://www.kloth.net/services  # Kloth (redundant; Domain Dossier and CentralOps covers it), 2026-09-26
+https://go.mail.ru/search_social  # Mail.Ru Social Network Search (redirects to a login page), 2026-09-26
+https://www.maxmind.com  # MaxMind (duplicate of MaxMind GeoIP), 2026-09-26
+https://mustbepresent.com  # MustBePresent (service closed or domain repurposed), 2026-09-26
+https://www.netvibes.com  # Netvibes (service retired), 2026-09-26
+https://www.openlinkprofiler.org/  # OpenLinkProfiler (SEO or advertising product, out of scope), 2026-09-26
+https://www.opinioncrawl.com  # OpinionCrawl (sentiment analysis for marketers), 2026-09-26
+https://www.quantcast.com  # Quantcast (SEO or advertising product, out of scope), 2026-09-26
+https://www.quicksprout.com  # Quick Sprout (a marketing blog), 2026-09-26
+https://redirectdetective.com  # RedirectDetective (redundant; WhereGoes covers it), 2026-09-26
+https://www.rivaliq.com  # Rival IQ (social media marketing product, out of scope), 2026-09-26
+https://sameid.net  # SameID (no information on what it does now), 2026-09-26
+https://searchisback.com  # SearchIsBack (Facebook Graph Search was shut down in 2019), 2026-09-26
+https://seotoolsforexcel.com  # SEOTools for Excel (SEO or advertising product, out of scope), 2026-09-26
+https://smallseotools.com  # SmallSEOTools (SEO or advertising product, out of scope), 2026-09-26
+https://t.me/PrivatePhoneBot  # SMS Activate (virtual phone numbers, out of scope), 2026-09-26
+https://www.socialbakers.com  # SocialBakers (service closed or domain repurposed), 2026-09-26
+https://t.me/surftg_bot  # Surftg_bot (redundant; Telegago covers it), 2026-09-26
+https://tagboard.com  # Tagboard (broadcast graphics product), 2026-09-26
+https://tagdef.com  # Tagdef (hashtag dictionary, little OSINT value), 2026-09-26
+https://telesearch.me/  # TeleSearch (redundant; TGStat covers it), 2026-09-26
+https://tgramsearch.com/  # TgramSearch (redundant; TGStat covers it), 2026-09-26
+https://tiktok.einzzcookie.org  # TikTokStalker (unclear hobby project, blocked), 2026-09-26
+https://vk.com/app3046467  # Дезертир (VK app, no longer clearly working), 2026-09-26
+https://telegram.me/faribybot  # Фари (VIN lookup for one country, redundant), 2026-09-26
+https://trends24.in  # Trends24 (trending topics, no investigation input), 2026-09-26
+https://www.tumblr.com/search  # Tumblr Search (social network search, not a tool), 2026-09-26
+https://twchat.com  # TwChat (domain now a follower-buying service), 2026-09-26
+https://www.twitteraudit.com  # Twitter Audit (depends on X/Twitter data, which third-party tools largely lost), 2026-09-26
+https://tweetreports.com/twitter-chat-schedule  # Twitter Chat Schedule (depends on X/Twitter data, which third-party tools largely lost), 2026-09-26
+https://search.twitter.com  # Twitter Search (X search itself now requires login), 2026-09-26
+https://t.me/usinfobot  # UsInfoBot (redundant; TuriBot covers it), 2026-09-26
+https://dnssec-debugger.verisignlabs.com  # Verisign (duplicate of the DNSSEC debugger already rejected; DNSViz covers it), 2026-09-26
+https://vk.com/communities  # VK Community Search (VK search itself, not a tool), 2026-09-26
+https://vk.watch/  # VK.watch (could not verify (bot protection)), 2026-09-26
+https://vk5.city4me.com  # VK5 (claims to reveal hidden friends and groups; privacy-invasive), 2026-09-26
+https://watools.io/  # WATools (site down (HTTP 522)), 2026-09-26
+https://whatismyipaddress.com  # WhatIsMyIPAddress (redundant IP lookup), 2026-09-26
+https://t.me/WhoisDomBot  # WhoisDomBot (redundant; ICANN Lookup covers it), 2026-09-26
+https://www.whoishostingthis.com  # WhoIsHostingThis (now a review site), 2026-09-26
+https://www.whoismind.com  # WhoisMind (no information on what it does now), 2026-09-26
+https://whoisrequest.com  # WhoIsRequest (redundant; ICANN Lookup covers it), 2026-09-26
+https://www.wolframalpha.com/input/?i=facebook+report  # Wolfram Alpha Facebook Report (Facebook report feature no longer works), 2026-09-26
+https://xquik.com  # Xquik (paid X scraping API), 2026-09-26

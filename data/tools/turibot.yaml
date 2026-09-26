@@ -1,0 +1,10 @@
+name: TuriBot
+url: https://t.me/TuriBot
+description: Telegram bot that resolves a numeric Telegram user ID back to the current username.
+category: social-media
+inputs: [username]
+outputs: [username]
+type: web
+cost: free
+passive: true
+account_required: false

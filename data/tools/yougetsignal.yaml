@@ -1,0 +1,10 @@
+name: YouGetSignal
+url: https://www.yougetsignal.com
+description: Simple network tools, best known for reverse IP lookup (other sites on the same server) and open-port checks.
+category: network
+inputs: [ip, domain]
+outputs: [domain, port_service]
+type: web
+cost: free
+passive: true
+account_required: false
