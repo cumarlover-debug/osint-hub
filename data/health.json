@@ -47,17 +47,19 @@
     "last_ok": "2026-09-26"
   },
   "dnsdumpster": {
-    "status": "up",
+    "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
-    "http": 200,
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-26"
   },
   "etherscan": {
-    "status": "up",
+    "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
-    "http": 200,
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-26"
   },
   "exiftool": {
@@ -204,10 +206,11 @@
     }
   },
   "shodan": {
-    "status": "up",
+    "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
-    "http": 200,
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-26"
   },
   "spiderfoot": {
@@ -254,10 +257,11 @@
     }
   },
   "tineye": {
-    "status": "up",
+    "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
-    "http": 200,
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-26"
   },
   "urlscan": {
