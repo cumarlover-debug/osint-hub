@@ -1,0 +1,10 @@
+name: BuiltWith
+url: https://builtwith.com
+description: Shows the technologies a website runs on (CMS, analytics, ad networks, hosting) and which other sites share the same tracking IDs.
+category: domain
+inputs: [domain]
+outputs: [domain]
+type: web
+cost: freemium
+passive: true
+account_required: false

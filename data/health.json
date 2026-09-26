@@ -6,7 +6,21 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "ads-b-nl": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "adsb-exchange": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "alienvault-otx": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -25,12 +39,102 @@
       "pushed_at": "2026-07-19"
     }
   },
+  "archive-today": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "autodna-vin-lookup": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403"
+  },
+  "autoref": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "baidu-images": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "baidu-maps": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "bing-images": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "bing-maps": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "bitcoin-who-s-who": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "bitref": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "blackbird": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 8568,
+      "archived": false,
+      "pushed_at": "2025-07-13",
+      "renamed_to": "antoniaci/blackbird"
+    }
+  },
   "blockchain-explorer": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "blockchair": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 401,
+    "last_ok": "2026-09-26"
+  },
+  "builtwith": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "censys": {
     "status": "up",
@@ -39,7 +143,28 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "criminal-ip": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "crt-sh": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "daily-dns-changes": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "db-ip": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -54,12 +179,38 @@
     "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-26"
   },
+  "dnsrecon": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 3073,
+      "archived": false,
+      "pushed_at": "2026-09-18"
+    }
+  },
   "etherscan": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)",
+    "last_ok": "2026-09-26"
+  },
+  "europages": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "exifeditor-io": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
     "last_ok": "2026-09-26"
   },
   "exiftool": {
@@ -74,6 +225,32 @@
       "pushed_at": "2026-05-27"
     }
   },
+  "exonerator": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "firehol-ip-lists": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "ghunt": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 19611,
+      "archived": false,
+      "pushed_at": "2026-04-10"
+    }
+  },
   "google-lens": {
     "status": "up",
     "failures": 0,
@@ -81,6 +258,13 @@
     "http": 200,
     "last_ok": "2026-09-26",
     "moved_to": "https://lens.google/"
+  },
+  "google-maps": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "greynoise": {
     "status": "up",
@@ -109,6 +293,13 @@
     }
   },
   "hunter": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "infosniper": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -148,6 +339,41 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "metadefender-cloud": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "mxtoolbox": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "namecheckup": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "namechk": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "ofac-sanctions-list-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "opencorporates": {
     "status": "up",
     "failures": 0,
@@ -155,7 +381,28 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "osint-industries": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "overpass-turbo": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "overseas-company-registers": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "phone-validator": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -173,6 +420,20 @@
       "archived": false,
       "pushed_at": "2026-08-25"
     }
+  },
+  "quicksand": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "reacher": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "recon-ng": {
     "status": "up",
@@ -264,7 +525,21 @@
     "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-26"
   },
+  "truecaller": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "urlscan": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "vesselfinder": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -278,12 +553,38 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "walletexplorer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "wayback-machine": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "wayback-machine-extension": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "waybackpack": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 3232,
+      "archived": false,
+      "pushed_at": "2025-04-21"
+    }
   },
   "whatsmyname": {
     "status": "unverified",

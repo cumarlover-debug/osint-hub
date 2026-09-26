@@ -1,0 +1,10 @@
+name: Reacher
+url: https://reacher.email
+description: Checks whether an email address exists by asking its mail server, without sending an email. Open source, also available as a hosted API.
+category: email
+inputs: [email]
+type: web
+cost: free
+passive: false
+account_required: false
+notes: It connects to the address's mail server, which can log the check.

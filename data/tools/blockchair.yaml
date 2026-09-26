@@ -1,0 +1,10 @@
+name: Blockchair
+url: https://blockchair.com/
+description: Blockchain explorer covering Bitcoin, Ethereum and 40+ other chains. Look up addresses and transactions, or run filtered queries across a chain.
+category: crypto
+inputs: [crypto_address]
+outputs: [crypto_address]
+type: web
+cost: freemium
+passive: true
+account_required: false

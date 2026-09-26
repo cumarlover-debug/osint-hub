@@ -1,0 +1,9 @@
+name: AutoRef
+url: https://www.autoref.eu/en
+description: Looks up European vehicles by VIN or licence plate and returns make, model, engine and technical registration data.
+category: transport
+inputs: [vehicle]
+type: web
+cost: freemium
+passive: true
+account_required: true

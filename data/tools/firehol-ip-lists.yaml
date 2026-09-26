@@ -1,0 +1,10 @@
+name: FireHOL IP Lists
+url: https://iplists.firehol.org/
+description: Hundreds of public IP blocklists (malware, botnets, proxies, abuse) in one place. Search an IP to see every list it appears on.
+category: network
+inputs: [ip]
+outputs: [reputation]
+type: web
+cost: free
+passive: true
+account_required: false

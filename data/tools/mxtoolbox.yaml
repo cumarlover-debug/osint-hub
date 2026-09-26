@@ -1,0 +1,10 @@
+name: MxToolbox
+url: https://mxtoolbox.com/
+description: Checks a domain's mail setup (MX, SPF, DKIM, DMARC) and whether a mail server's IP is on spam blocklists.
+category: email
+inputs: [domain, ip]
+outputs: [dns_record, reputation]
+type: web
+cost: free
+passive: true
+account_required: false

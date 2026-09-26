@@ -1,0 +1,9 @@
+name: Phone Validator
+url: https://www.phonevalidator.com/index.aspx
+description: Tells you whether a US phone number is a mobile, landline, VoIP or prepaid line, which helps spot throwaway numbers.
+category: phone
+inputs: [phone]
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,10 @@
+name: ADS-B.NL
+url: https://www.ads-b.nl/
+description: Flight tracker focused on military aircraft, built on unfiltered ADS-B Exchange data, with movement history per airframe.
+category: transport
+inputs: [aircraft]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,16 @@
+name: DNSRecon
+url: https://github.com/darkoperator/dnsrecon
+description: 'DNS enumeration script: standard records, zone transfer attempts, subdomain brute force, reverse lookups and cached-record snooping.'
+category: domain
+inputs: [domain, ip]
+outputs: [domain, ip, dns_record]
+type: cli
+cost: free
+passive: false
+account_required: false
+repo: darkoperator/dnsrecon
+language: Python
+license: GPL-2.0
+platforms: [linux, macos, windows]
+tags: [dns, recon, open-source]
+notes: Zone transfers and brute force query the target's own name servers.

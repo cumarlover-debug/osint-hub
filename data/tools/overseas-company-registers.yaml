@@ -1,0 +1,10 @@
+name: Overseas Company Registers
+url: https://www.gov.uk/government/publications/overseas-registries/overseas-registries
+description: UK government page linking to the official company registry of nearly every country, a quick way to find the right register to search.
+category: business
+inputs: [company]
+outputs: [url]
+type: web
+cost: free
+passive: true
+account_required: false

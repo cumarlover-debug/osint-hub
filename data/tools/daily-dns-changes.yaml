@@ -1,0 +1,10 @@
+name: Daily DNS Changes
+url: https://dailychanges.domaintools.com/
+description: Tracks which domains moved to or from a name server or hosting provider each day, useful for spotting infrastructure migrations.
+category: domain
+inputs: [domain]
+outputs: [domain]
+type: web
+cost: freemium
+passive: true
+account_required: false

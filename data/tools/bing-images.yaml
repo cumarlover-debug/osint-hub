@@ -1,0 +1,10 @@
+name: Bing Images
+url: https://www.bing.com/images
+description: Microsoft reverse image search. You can crop to one object in a photo and search for just that part.
+category: image-video
+inputs: [image]
+outputs: [url]
+type: web
+cost: free
+passive: true
+account_required: false

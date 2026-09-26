@@ -1,0 +1,9 @@
+name: OFAC Sanctions List Search
+url: https://sanctionssearch.ofac.treas.gov/
+description: The US Treasury's official search of sanctioned people and companies, with fuzzy name matching.
+category: business
+inputs: [name, company]
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,10 @@
+name: archive.today
+url: https://archive.is
+description: Saves a snapshot of a web page on demand and searches existing snapshots. Useful when the Wayback Machine is blocked or missed a page.
+category: archives
+inputs: [url]
+outputs: [archive_snapshot, url]
+type: web
+cost: free
+passive: true
+account_required: false

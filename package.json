@@ -7,7 +7,10 @@
     "validate": "node scripts/validate.mjs",
     "build": "npm run validate && astro build",
     "preview": "astro preview",
-    "healthcheck": "node scripts/healthcheck.mjs"
+    "healthcheck": "node scripts/healthcheck.mjs",
+    "pipeline:harvest": "node scripts/pipeline/harvest.mjs",
+    "pipeline:draft": "node scripts/pipeline/draft.mjs",
+    "pipeline:promote": "node scripts/pipeline/promote.mjs"
   },
   "license": "ISC",
   "type": "module",

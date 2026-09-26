@@ -1,0 +1,16 @@
+name: GHunt
+url: https://github.com/mxrch/GHunt
+description: 'Investigates a Google account from its Gmail address: public profile photo, Maps reviews, calendar and other exposed Google services.'
+category: email
+inputs: [email]
+outputs: [name, location, social_profile]
+type: cli
+cost: free
+passive: true
+account_required: true
+repo: mxrch/GHunt
+install: pipx install ghunt
+language: Python
+platforms: [linux, macos, windows]
+tags: [google, open-source]
+notes: Needs you to log in with a Google account of your own (use a separate research account).

@@ -1,0 +1,14 @@
+name: Blackbird
+url: https://github.com/p1ngul1n0/blackbird
+description: Searches 600+ sites for accounts matching a username or email address and can export the results as a PDF or CSV report.
+category: social-media
+inputs: [username, email]
+outputs: [social_profile, url]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: p1ngul1n0/blackbird
+language: Python
+platforms: [linux, macos, windows]
+tags: [username-enumeration, open-source]

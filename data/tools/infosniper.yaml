@@ -1,0 +1,10 @@
+name: InfoSniper
+url: https://www.infosniper.net
+description: Geolocates an IP address and shows its city, ISP, ASN and time zone on a map.
+category: network
+inputs: [ip]
+outputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false
