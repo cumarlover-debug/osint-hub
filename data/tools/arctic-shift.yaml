@@ -1,0 +1,13 @@
+name: Arctic Shift
+url: https://arctic-shift.photon-reddit.com/
+description: Searches an archive of Reddit posts and comments by user, subreddit or keyword, including deleted ones.
+category: social-media
+inputs:
+  - username
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - reddit

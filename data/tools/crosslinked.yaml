@@ -1,0 +1,23 @@
+name: CrossLinked
+url: https://github.com/m8sec/CrossLinked
+description: Builds a list of a company's employees from search-engine results for LinkedIn, and turns the names into likely email addresses.
+category: people
+inputs:
+  - company
+outputs:
+  - name
+  - email
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: m8sec/CrossLinked
+install: pipx install crosslinked
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - open-source
+notes: Typically used in authorised security assessments to map a social-engineering attack surface.

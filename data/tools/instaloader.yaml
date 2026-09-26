@@ -1,0 +1,25 @@
+name: Instaloader
+url: https://github.com/instaloader/instaloader
+description: Downloads Instagram profiles, posts, stories and highlights with their captions and metadata.
+category: social-media
+inputs:
+  - username
+outputs:
+  - image
+  - video
+  - metadata
+type: cli
+cost: free
+passive: true
+account_required: false
+command_template: instaloader {query}
+repo: instaloader/instaloader
+install: pipx install instaloader
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - open-source
+notes: Private profiles and stories need a login. Heavy use can get the account rate-limited.

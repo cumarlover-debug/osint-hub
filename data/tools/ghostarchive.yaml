@@ -1,0 +1,11 @@
+name: Ghostarchive
+url: https://ghostarchive.org/
+description: On-demand web archive that also captures pages with video, and searches existing captures of a URL.
+category: archives
+inputs:
+  - url
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://ghostarchive.org/search?term={query}

@@ -1,0 +1,23 @@
+name: Octosuite
+url: https://github.com/bellingcat/octosuite
+description: Bellingcat command-line tool for investigating GitHub users, organisations and repositories.
+category: social-media
+inputs:
+  - username
+outputs:
+  - email
+  - social_profile
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: bellingcat/octosuite
+install: pipx install octosuite
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - github
+  - open-source

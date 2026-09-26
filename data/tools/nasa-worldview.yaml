@@ -1,0 +1,12 @@
+name: NASA Worldview
+url: https://worldview.earthdata.nasa.gov/
+description: Daily global satellite imagery layers, for checking what a place looked like on a given day.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - satellite-imagery

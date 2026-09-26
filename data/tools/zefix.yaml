@@ -1,0 +1,13 @@
+name: Zefix
+url: https://www.zefix.ch/
+description: Official Swiss central index of registered companies, linking to each canton's commercial register.
+category: business
+inputs:
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - government-records
+  - regional

@@ -1,0 +1,11 @@
+name: PeakVisor
+url: https://peakvisor.com/
+description: Identifies mountain peaks in 3D terrain, useful for matching the horizon in a photo to a location.
+category: geolocation
+inputs:
+  - location
+  - image
+type: web
+cost: freemium
+passive: true
+account_required: false

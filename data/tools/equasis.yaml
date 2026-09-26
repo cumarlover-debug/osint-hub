@@ -1,0 +1,15 @@
+name: Equasis
+url: https://www.equasis.org/
+description: A ship's registered owner, manager, flag history and inspection record, by IMO number or name.
+category: transport
+inputs:
+  - vessel
+  - company
+outputs:
+  - company
+type: web
+cost: free
+passive: true
+account_required: true
+tags:
+  - ship-ownership

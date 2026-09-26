@@ -1,0 +1,14 @@
+name: Ahmia
+url: https://ahmia.fi/
+description: Search engine for Tor onion services that filters out child-abuse material; the search page itself works in a normal browser.
+category: search
+inputs:
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://ahmia.fi/search/?q={query}
+tags:
+  - tor
+notes: Opening .onion results needs Tor Browser. Treat onion sites as hostile.

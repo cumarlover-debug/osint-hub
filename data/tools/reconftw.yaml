@@ -1,0 +1,22 @@
+name: reconFTW
+url: https://github.com/six2dez/reconftw
+description: 'Automated recon pipeline for a domain: subdomains, URLs, screenshots and vulnerability checks in one run.'
+category: frameworks
+inputs:
+  - domain
+outputs:
+  - domain
+  - url
+type: cli
+cost: free
+passive: false
+account_required: false
+command_template: ./reconftw.sh -d {query} -r
+repo: six2dez/reconftw
+language: Shell
+platforms:
+  - linux
+  - macos
+tags:
+  - open-source
+notes: The -r (recon) mode still probes the target; the -p flag limits it to passive sources.

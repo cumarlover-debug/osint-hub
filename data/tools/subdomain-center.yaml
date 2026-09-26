@@ -1,0 +1,15 @@
+name: Subdomain Center
+url: https://subdomain.center/
+description: Free API that returns the known subdomains of a domain.
+category: domain
+inputs:
+  - domain
+outputs:
+  - domain
+type: api
+cost: free
+passive: true
+account_required: false
+query_template: https://api.subdomain.center/?domain={query}
+tags:
+  - subdomains

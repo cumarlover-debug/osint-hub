@@ -1,0 +1,13 @@
+name: DNSHistory.org
+url: https://dnshistory.org/
+description: Shows a domain's historical DNS records, useful for finding earlier hosting and mail servers.
+category: domain
+inputs:
+  - domain
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://dnshistory.org/dns-records/{query}
+tags:
+  - dns-history

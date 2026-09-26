@@ -1,0 +1,12 @@
+name: NumLookup
+url: https://www.numlookup.com/
+description: Reverse phone lookup that shows a number's carrier and line type, and sometimes the owner's name.
+category: phone
+inputs:
+  - phone
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - personal-data

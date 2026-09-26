@@ -1,0 +1,24 @@
+name: Toutatis
+url: https://github.com/megadose/toutatis
+description: Shows the details Instagram exposes for an account, including the partly masked email address and phone number.
+category: social-media
+inputs:
+  - username
+outputs:
+  - email
+  - phone
+type: cli
+cost: free
+passive: true
+account_required: true
+repo: megadose/toutatis
+install: pipx install toutatis
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - personal-data
+  - open-source
+notes: Needs the session ID of an Instagram account you control. Use it only with a legitimate reason.

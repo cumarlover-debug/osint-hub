@@ -1,0 +1,12 @@
+name: ShadeMap
+url: https://shademap.app/
+description: Simulates shadows from terrain, buildings and trees at any date and time, for chronolocating photos.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - chronolocation

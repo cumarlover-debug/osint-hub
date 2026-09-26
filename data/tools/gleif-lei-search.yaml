@@ -1,0 +1,10 @@
+name: GLEIF LEI Search
+url: https://search.gleif.org/
+description: 'Global Legal Entity Identifier records: official company names, addresses and parent/child relationships.'
+category: business
+inputs:
+  - company
+type: web
+cost: free
+passive: true
+account_required: false

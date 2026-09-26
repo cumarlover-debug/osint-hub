@@ -1,0 +1,11 @@
+name: North Data
+url: https://www.northdata.com/
+description: European company registry data with officers, financials and a network graph of connected people and firms.
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: freemium
+passive: true
+account_required: false

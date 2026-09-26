@@ -1,0 +1,13 @@
+name: WalletLabels
+url: https://walletlabels.xyz/
+description: Searchable database of labels for Ethereum and other blockchain addresses.
+category: crypto
+inputs:
+  - crypto_address
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - address-labels

@@ -1,0 +1,13 @@
+name: Pappers
+url: https://www.pappers.fr/
+description: 'French company data: filings, officers, financial statements and beneficial owners.'
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - regional

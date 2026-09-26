@@ -1,0 +1,14 @@
+name: Meta Ad Library
+url: https://www.facebook.com/ads/library/
+description: Searches ads running on Facebook and Instagram, with spend and audience data for political ads.
+category: social-media
+inputs:
+  - company
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q={query}
+tags:
+  - ads

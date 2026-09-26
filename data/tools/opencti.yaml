@@ -1,0 +1,17 @@
+name: OpenCTI
+url: https://github.com/OpenCTI-Platform/opencti
+description: Open-source threat-intelligence platform that stores actors, malware, indicators and reports as a connected STIX knowledge graph.
+category: threat-intel
+inputs:
+  - keyword
+type: desktop
+cost: free
+passive: true
+account_required: false
+repo: OpenCTI-Platform/opencti
+platforms:
+  - linux
+tags:
+  - self-hosted
+  - open-source
+notes: Self-hosted, usually with Docker.

@@ -1,0 +1,13 @@
+name: Open Supply Hub
+url: https://opensupplyhub.org/
+description: Open map of production facilities worldwide and the brands they supply.
+category: business
+inputs:
+  - company
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - supply-chain

@@ -1,0 +1,14 @@
+name: Cert Spotter
+url: https://sslmate.com/certspotter/
+description: Searches Certificate Transparency logs for certificates issued for a domain, and can alert you to new ones.
+category: domain
+inputs:
+  - domain
+outputs:
+  - domain
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - certificate-transparency

@@ -1,0 +1,12 @@
+name: ImportYeti
+url: https://www.importyeti.com/
+description: Searches US customs shipping records to link importers with their overseas suppliers.
+category: business
+inputs:
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - supply-chain

@@ -1,0 +1,12 @@
+name: GeoHints
+url: https://www.geohints.com/
+description: Visual reference of country clues (bollards, plates, road lines, poles, signs) for placing a photo.
+category: geolocation
+inputs:
+  - image
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - training

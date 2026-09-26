@@ -1,0 +1,13 @@
+name: Kakao Map
+url: https://map.kakao.com/
+description: South Korean map with Roadview street-level imagery, where Google Maps coverage is limited.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - maps
+  - regional

@@ -1,0 +1,12 @@
+name: Who Posted What
+url: https://whopostedwhat.com/
+description: Builds Facebook keyword searches filtered by date, to find posts from a specific day or period.
+category: social-media
+inputs:
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - facebook

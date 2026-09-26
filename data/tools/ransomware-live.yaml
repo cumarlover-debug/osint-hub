@@ -1,0 +1,13 @@
+name: Ransomware.live
+url: https://www.ransomware.live/
+description: Tracks victims claimed by ransomware groups on their leak sites, with group profiles and timelines. Lists names only, not stolen data.
+category: threat-intel
+inputs:
+  - company
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - ransomware

@@ -1,0 +1,13 @@
+name: Vortimo
+url: https://www.vortimo.com/
+description: Browser-based case organiser that captures the pages you visit and pulls out names, emails and other entities.
+category: frameworks
+inputs:
+  - url
+  - keyword
+type: extension
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - evidence-capture

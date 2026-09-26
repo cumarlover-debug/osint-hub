@@ -1,0 +1,12 @@
+name: MalShare
+url: https://www.malshare.com/
+description: 'Community malware repository: search samples by hash and download them for analysis.'
+category: threat-intel
+inputs:
+  - hash
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - malware

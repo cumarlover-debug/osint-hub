@@ -1,0 +1,18 @@
+name: Discord History Tracker
+url: https://github.com/chylex/Discord-History-Tracker
+description: Saves the message history of Discord servers and DMs you can see into a local database you can browse.
+category: archives
+inputs:
+  - social_post
+type: desktop
+cost: free
+passive: true
+account_required: false
+repo: chylex/Discord-History-Tracker
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - discord
+  - open-source

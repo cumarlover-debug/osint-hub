@@ -1,0 +1,13 @@
+name: Tonviewer
+url: https://tonviewer.com/
+description: TON blockchain explorer, relevant for wallets used inside Telegram.
+category: crypto
+inputs:
+  - crypto_address
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - ton
+  - blockchain-explorer

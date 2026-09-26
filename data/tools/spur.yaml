@@ -1,0 +1,13 @@
+name: Spur
+url: https://spur.us/
+description: Tells you whether an IP is a VPN, residential proxy or other anonymiser, and names the service behind it.
+category: network
+inputs:
+  - ip
+type: web
+cost: freemium
+passive: true
+account_required: false
+query_template: https://spur.us/context/{query}
+tags:
+  - vpn-detection

@@ -1,0 +1,23 @@
+name: gau
+url: https://github.com/lc/gau
+description: Collects every known URL for a domain from the Wayback Machine, Common Crawl, AlienVault OTX and urlscan.
+category: archives
+inputs:
+  - domain
+outputs:
+  - url
+type: cli
+cost: free
+passive: true
+account_required: false
+command_template: gau {query}
+repo: lc/gau
+install: go install github.com/lc/gau/v2/cmd/gau@latest
+language: Go
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - wayback
+  - open-source

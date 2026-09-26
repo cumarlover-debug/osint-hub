@@ -1,0 +1,12 @@
+name: PDSls
+url: https://pdsls.dev/
+description: 'Browses the raw AT Protocol records behind a Bluesky account: its DID, posts, likes and follows.'
+category: social-media
+inputs:
+  - username
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - bluesky

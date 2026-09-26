@@ -1,0 +1,11 @@
+name: Bellingcat OSM Search
+url: https://osm-search.bellingcat.com/
+description: Finds places where chosen OpenStreetMap features appear close together, such as a church near a bridge and a rail line.
+category: geolocation
+inputs:
+  - location
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false

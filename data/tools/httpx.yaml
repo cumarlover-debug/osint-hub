@@ -1,0 +1,23 @@
+name: httpx
+url: https://github.com/projectdiscovery/httpx
+description: Fast HTTP probe that reports status codes, page titles, technologies and TLS details for many hosts at once.
+category: domain
+inputs:
+  - domain
+  - url
+  - ip
+type: cli
+cost: free
+passive: false
+account_required: false
+command_template: httpx -u {query} -title -tech-detect -status-code
+repo: projectdiscovery/httpx
+install: go install github.com/projectdiscovery/httpx/cmd/httpx@latest
+language: Go
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - open-source
+notes: Sends requests to the target.

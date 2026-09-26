@@ -1,0 +1,13 @@
+name: Copernicus Browser
+url: https://browser.dataspace.copernicus.eu/
+description: Browse, compare and download free Sentinel satellite imagery for any place and date.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - satellite-imagery
+notes: Successor to the Sentinel Hub EO Browser.

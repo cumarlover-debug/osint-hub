@@ -1,0 +1,13 @@
+name: FastPeopleSearch
+url: https://www.fastpeoplesearch.com/
+description: Free US people directory, searchable by name, phone or address.
+category: people
+inputs:
+  - name
+  - phone
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+notes: US only. Verify anything you find elsewhere.

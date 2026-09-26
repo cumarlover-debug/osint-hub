@@ -1,0 +1,22 @@
+name: Marple
+url: https://github.com/soxoj/marple
+description: Searches for a username or name across several search engines and ranks the profile links it finds.
+category: social-media
+inputs:
+  - username
+  - name
+outputs:
+  - social_profile
+  - url
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: soxoj/marple
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - open-source

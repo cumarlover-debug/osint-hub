@@ -1,0 +1,12 @@
+name: Plonkit
+url: https://www.plonkit.net/
+description: Country-by-country guides to the visual clues that help geolocate a photo.
+category: geolocation
+inputs:
+  - image
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - training

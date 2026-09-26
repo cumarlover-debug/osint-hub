@@ -1,0 +1,13 @@
+name: Scamalytics
+url: https://scamalytics.com/ip
+description: Gives an IP address a fraud-risk score and flags proxies, VPNs and data-centre addresses.
+category: network
+inputs:
+  - ip
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://scamalytics.com/ip/{query}
+tags:
+  - vpn-detection

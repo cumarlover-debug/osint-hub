@@ -1,0 +1,13 @@
+name: OpenSky Network
+url: https://opensky-network.org/
+description: Research network of ADS-B receivers with live tracking and historical flight data.
+category: transport
+inputs:
+  - aircraft
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - flight-tracking
+notes: Historical data access is for researchers and needs an account.

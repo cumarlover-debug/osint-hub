@@ -1,0 +1,12 @@
+name: Feodo Tracker
+url: https://feodotracker.abuse.ch/
+description: abuse.ch list of active botnet command-and-control servers, with a free blocklist.
+category: threat-intel
+inputs:
+  - ip
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - botnet

@@ -1,0 +1,12 @@
+name: ClearSky
+url: https://clearsky.app/
+description: A Bluesky account's handle history, who blocks it and which moderation lists it is on.
+category: social-media
+inputs:
+  - username
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - bluesky

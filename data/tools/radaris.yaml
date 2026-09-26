@@ -1,0 +1,12 @@
+name: Radaris
+url: https://radaris.com/
+description: People profiles assembled from public records, with addresses, phones and associated names.
+category: people
+inputs:
+  - name
+  - phone
+  - location
+type: web
+cost: freemium
+passive: true
+account_required: false

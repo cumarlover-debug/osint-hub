@@ -1,0 +1,12 @@
+name: MyShipTracking
+url: https://www.myshiptracking.com/
+description: Free AIS map of vessel positions, with port calls and vessel details.
+category: transport
+inputs:
+  - vessel
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - ais

@@ -1,0 +1,13 @@
+name: TruePeopleSearch
+url: https://www.truepeoplesearch.com/
+description: 'Free US people directory: addresses, phone numbers and possible relatives from public records.'
+category: people
+inputs:
+  - name
+  - phone
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+notes: US only. Records are often outdated or mix up people with the same name.

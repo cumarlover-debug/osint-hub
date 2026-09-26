@@ -1,0 +1,19 @@
+name: Osmedeus
+url: https://github.com/j3ssie/osmedeus
+description: Workflow engine that runs reconnaissance and scanning tools at scale against domains and IPs.
+category: frameworks
+inputs:
+  - domain
+  - ip
+type: cli
+cost: free
+passive: false
+account_required: false
+repo: j3ssie/osmedeus
+language: Go
+platforms:
+  - linux
+  - macos
+tags:
+  - open-source
+notes: Scans the target directly. Use it only on systems you are authorised to test.

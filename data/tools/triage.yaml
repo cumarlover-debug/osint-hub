@@ -1,0 +1,16 @@
+name: Triage
+url: https://tria.ge/
+description: Malware sandbox that extracts malware configurations; search public reports by hash, family or indicator.
+category: threat-intel
+inputs:
+  - hash
+  - document
+  - url
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - malware
+  - sandbox
+notes: Submissions on the free tier are public.

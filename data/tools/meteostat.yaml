@@ -1,0 +1,12 @@
+name: Meteostat
+url: https://meteostat.net/
+description: Historical weather data by weather station and date, to check whether conditions in a photo or video match.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - weather

@@ -1,0 +1,21 @@
+name: Telegram Phone Number Checker
+url: https://github.com/bellingcat/telegram-phone-number-checker
+description: Bellingcat script that checks whether a phone number is linked to a Telegram account and returns the account's public details.
+category: social-media
+inputs:
+  - phone
+outputs:
+  - username
+type: cli
+cost: free
+passive: true
+account_required: true
+repo: bellingcat/telegram-phone-number-checker
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - open-source
+notes: Needs your own Telegram API credentials.

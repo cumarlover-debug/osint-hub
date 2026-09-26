@@ -1,0 +1,12 @@
+name: adsb.fi
+url: https://globe.adsb.fi/
+description: Community ADS-B flight map that does not filter out military or privacy-blocked aircraft.
+category: transport
+inputs:
+  - aircraft
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - flight-tracking

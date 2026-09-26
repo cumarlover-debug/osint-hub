@@ -1,0 +1,12 @@
+name: Lyzem
+url: https://www.lyzem.com/
+description: Search engine for public Telegram channels, groups and messages.
+category: social-media
+inputs:
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - telegram

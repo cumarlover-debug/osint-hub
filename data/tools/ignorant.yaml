@@ -1,0 +1,20 @@
+name: Ignorant
+url: https://github.com/megadose/ignorant
+description: Checks whether a phone number is registered on sites such as Instagram, Snapchat and Amazon.
+category: phone
+inputs:
+  - phone
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: megadose/ignorant
+install: pipx install ignorant
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - open-source
+notes: 'Takes the country code and number separately, for example: ignorant 33 644637111'

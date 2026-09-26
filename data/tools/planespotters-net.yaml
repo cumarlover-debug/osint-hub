@@ -1,0 +1,11 @@
+name: Planespotters.net
+url: https://www.planespotters.net/
+description: An aircraft's registration history, operators and photos, searched by tail number.
+category: transport
+inputs:
+  - aircraft
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://www.planespotters.net/search?q={query}

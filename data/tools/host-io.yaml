@@ -1,0 +1,14 @@
+name: host.io
+url: https://host.io/
+description: Connects domains through shared IPs, nameservers, redirects and backlinks, and shows what else is hosted alongside.
+category: domain
+inputs:
+  - domain
+outputs:
+  - domain
+  - ip
+type: web
+cost: freemium
+passive: true
+account_required: false
+query_template: https://host.io/{query}

@@ -1,0 +1,20 @@
+name: sn0int
+url: https://github.com/kpcyrd/sn0int
+description: Semi-automatic reconnaissance framework with installable modules for domains, IPs, emails and accounts.
+category: frameworks
+inputs:
+  - domain
+  - ip
+  - email
+  - username
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: kpcyrd/sn0int
+language: Rust
+platforms:
+  - linux
+  - macos
+tags:
+  - open-source
