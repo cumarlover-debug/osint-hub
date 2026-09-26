@@ -1,59 +1,99 @@
+/* Same palette as the website (src/styles/global.css). Fonts are local only: the extension loads nothing remote. */
 :root {
-  --bg: #f7f7f4;
-  --surface: #ffffff;
-  --text: #1b1d1f;
-  --muted: #5d636a;
-  --border: #e2e2dc;
-  --accent: #0f6e5c;
-  --warn: #9a4a00;
-  --warn-soft: #fcefdc;
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #111315;
-    --surface: #181b1e;
-    --text: #e6e8ea;
-    --muted: #9aa1a8;
-    --border: #2a2e33;
-    --accent: #4fc7a8;
-    --warn: #f0b060;
-    --warn-soft: #33260f;
-    color-scheme: dark;
-  }
+  --bg: #061117;
+  --panel: rgba(16, 34, 42, 0.62);
+  --panel-hi: rgba(26, 50, 60, 0.72);
+  --border: rgba(150, 205, 220, 0.11);
+  --border-hi: rgba(110, 220, 240, 0.38);
+  --text: #e4eff2;
+  --muted: #8ba2ab;
+  --faint: #58717b;
+  --accent: #45d7ef;
+  --accent-deep: #1590ab;
+  --accent-soft: rgba(69, 215, 239, 0.12);
+  --accent-glow: rgba(69, 215, 239, 0.35);
+  --warn: #f3a53f;
+  --warn-soft: rgba(243, 165, 63, 0.12);
+  --code-bg: rgba(5, 16, 21, 0.72);
+  --sans: 'Outfit', 'Segoe UI Variable Text', 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+  --mono: 'JetBrains Mono', 'Cascadia Code', ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
 }
 * {
   box-sizing: border-box;
 }
 body {
   margin: 0;
-  background: var(--bg);
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 0%, rgba(69, 215, 239, 0.1), transparent 70%),
+    linear-gradient(180deg, #0a1c24, var(--bg) 60%);
+  background-color: var(--bg);
   color: var(--text);
-  font: 15px/1.5 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font: 15px/1.5 var(--sans);
 }
 body.popup {
   width: 440px;
+  min-height: 0;
   max-height: 580px;
   font-size: 14px;
 }
+a {
+  color: var(--accent);
+}
 header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 16px;
   border-bottom: 1px solid var(--border);
-  background: var(--surface);
+  background: rgba(6, 17, 23, 0.82);
+  backdrop-filter: blur(12px);
 }
 .logo {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
   font-weight: 600;
-  font-family: ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+  letter-spacing: 0.04em;
 }
-.logo span {
-  color: var(--accent);
+.logo .thin {
+  color: var(--muted);
+  font-weight: 300;
+}
+.logo-mark {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--border-hi);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(69, 215, 239, 0.35), rgba(21, 144, 171, 0.08) 70%);
+  box-shadow: 0 0 14px var(--accent-glow);
+}
+.logo-mark::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
 }
 header a {
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+header a:hover {
+  border-color: var(--border-hi);
+  color: var(--text);
 }
 main {
   max-width: 820px;
@@ -64,17 +104,26 @@ main {
   width: 100%;
   padding: 11px 14px;
   border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--surface);
+  border-radius: 12px;
+  background: var(--panel);
   color: var(--text);
   font: inherit;
 }
+#value::placeholder {
+  color: var(--faint);
+}
 #value:focus {
-  outline: 2px solid var(--accent);
+  border-color: var(--border-hi);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-soft), 0 0 18px -4px var(--accent-glow);
 }
 .hint {
   color: var(--muted);
   font-size: 0.85rem;
+}
+.hint strong {
+  color: var(--accent);
+  font-weight: 500;
 }
 .chips {
   display: flex;
@@ -83,19 +132,24 @@ main {
   margin-bottom: 10px;
 }
 .chip {
-  padding: 4px 10px;
+  padding: 4px 11px;
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: var(--surface);
-  color: var(--text);
+  background: var(--panel);
+  color: var(--muted);
   font: inherit;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   cursor: pointer;
 }
+.chip:hover {
+  border-color: var(--border-hi);
+  color: var(--text);
+}
 .chip[aria-pressed='true'] {
-  border-color: var(--accent);
-  background: var(--accent);
-  color: var(--surface);
+  border-color: var(--border-hi);
+  background: var(--accent-soft);
+  color: var(--accent);
+  box-shadow: 0 0 12px -4px var(--accent-glow);
 }
 .check {
   display: flex;
@@ -103,6 +157,9 @@ main {
   align-items: center;
   color: var(--muted);
   font-size: 0.85rem;
+}
+input[type='checkbox'] {
+  accent-color: var(--accent);
 }
 .bar {
   display: flex;
@@ -115,15 +172,19 @@ main {
 }
 .button {
   padding: 8px 14px;
-  border: 0;
-  border-radius: 8px;
-  background: var(--accent);
-  color: var(--surface);
-  font: 600 0.9rem system-ui, sans-serif;
+  border: 1px solid var(--border-hi);
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(69, 215, 239, 0.28), rgba(21, 144, 171, 0.22));
+  color: #eafcff;
+  font: 500 0.88rem var(--sans);
   cursor: pointer;
+  box-shadow: 0 0 16px -6px var(--accent-glow);
+}
+.button:hover {
+  background: linear-gradient(180deg, rgba(69, 215, 239, 0.4), rgba(21, 144, 171, 0.3));
 }
 .button:disabled {
-  opacity: 0.5;
+  opacity: 0.45;
   cursor: default;
 }
 .linklike {
@@ -135,15 +196,17 @@ main {
   font-size: 0.85rem;
   cursor: pointer;
 }
-#results {
+#results,
+#commands {
   margin: 0;
   padding: 0;
   list-style: none;
   border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--surface);
+  border-radius: 12px;
+  background: var(--panel);
 }
-#results:empty {
+#results:empty,
+#commands:empty {
   display: none;
 }
 #results li {
@@ -153,11 +216,15 @@ main {
   padding: 8px 12px;
   border-top: 1px solid var(--border);
 }
-#results li:first-child {
+#results li:hover {
+  background: var(--panel-hi);
+}
+#results li:first-child,
+#commands li:first-child {
   border-top: 0;
 }
 #results li.muted {
-  opacity: 0.55;
+  opacity: 0.5;
 }
 #results label {
   display: flex;
@@ -174,25 +241,31 @@ main {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.name:hover {
+  color: var(--accent);
+}
 .tags {
   display: flex;
   gap: 4px;
 }
 .badge {
   padding: 1px 7px;
+  border: 1px solid var(--border);
   border-radius: 6px;
-  background: var(--bg);
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
 }
 .badge.warn {
+  border-color: rgba(243, 165, 63, 0.3);
   background: var(--warn-soft);
   color: var(--warn);
 }
 .open {
   color: var(--accent);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.85rem;
+  text-decoration: none;
   white-space: nowrap;
 }
 .visually-hidden {
@@ -203,28 +276,21 @@ main {
   clip: rect(0 0 0 0);
 }
 #commands-section h2 {
-  margin: 20px 0 4px;
-  font-size: 1rem;
+  margin: 22px 0 4px;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 #commands-section select {
   padding: 4px 8px;
   border: 1px solid var(--border);
-  border-radius: 6px;
-  background: var(--surface);
+  border-radius: 8px;
+  background: #0e222b;
   color: var(--text);
   font: inherit;
   font-size: 0.85rem;
-}
-#commands {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--surface);
-}
-#commands:empty {
-  display: none;
 }
 #commands li {
   display: flex;
@@ -234,15 +300,21 @@ main {
   padding: 8px 12px;
   border-top: 1px solid var(--border);
 }
-#commands li:first-child {
-  border-top: 0;
-}
 #commands code {
   flex: 1 1 240px;
   min-width: 0;
   padding: 4px 8px;
+  border: 1px solid var(--border);
   border-radius: 6px;
-  background: var(--bg);
-  font: 0.8rem ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+  background: var(--code-bg);
+  color: #bfeff8;
+  font: 0.78rem var(--mono);
   overflow-wrap: anywhere;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: rgba(139, 162, 171, 0.25);
 }
