@@ -1,0 +1,17 @@
+name: PhoneInfoga
+url: https://github.com/sundowndev/phoneinfoga
+description: Collects basic information about an international phone number (country, carrier, line type) and generates search queries to find where it appears online.
+category: phone
+inputs: [phone]
+outputs: [url, location]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: sundowndev/phoneinfoga
+install: docker pull sundowndev/phoneinfoga
+language: Go
+license: GPL-3.0
+docker: true
+platforms: [linux, macos, windows]
+tags: [open-source]

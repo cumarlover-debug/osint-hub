@@ -1,0 +1,13 @@
+name: urlscan.io
+url: https://urlscan.io
+description: Loads a URL in a sandboxed browser and records every request, redirect, screenshot and technology the page uses.
+category: threat-intel
+inputs: [url, domain, ip]
+outputs: [domain, ip, url]
+type: web
+cost: freemium
+passive: false
+account_required: false
+query_template: https://urlscan.io/search/#{query}
+tags: [phishing, sandbox]
+notes: Submitting a scan makes urlscan visit the site, and public scans are visible to everyone. Search existing results first or use a private scan.

@@ -1,0 +1,17 @@
+name: ExifTool
+url: https://exiftool.org
+description: Reads and edits metadata in images, video, audio and documents, such as camera model, GPS coordinates, timestamps, author and software.
+category: metadata
+inputs: [image, video, document]
+outputs: [location, name, metadata]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: exiftool/exiftool
+install: brew install exiftool
+language: Perl
+license: Perl (Artistic / GPL)
+platforms: [linux, macos, windows]
+tags: [exif, open-source]
+notes: Most social platforms strip metadata on upload. Originals from email, cloud drives or file-sharing links often still have it. On Debian or Ubuntu, install the libimage-exiftool-perl package.

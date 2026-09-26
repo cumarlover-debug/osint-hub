@@ -1,0 +1,12 @@
+name: Blockchain.com Explorer
+url: https://www.blockchain.com/explorer
+description: Bitcoin blockchain explorer showing the balance, transactions and connected addresses for a wallet.
+category: crypto
+inputs: [crypto_address]
+outputs: [crypto_address]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://www.blockchain.com/explorer/addresses/btc/{query}
+tags: [bitcoin, blockchain]

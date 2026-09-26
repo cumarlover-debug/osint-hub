@@ -1,0 +1,16 @@
+name: Recon-ng
+url: https://github.com/lanmaster53/recon-ng
+description: Modular reconnaissance framework with a Metasploit-style console. Its modules pull data from public sources and APIs into a local database.
+category: frameworks
+inputs: [domain, company, email, name]
+outputs: [domain, ip, email, name]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: lanmaster53/recon-ng
+install: Preinstalled on Kali Linux. See the repo for other platforms.
+language: Python
+license: GPL-3.0
+platforms: [linux, macos]
+tags: [automation, open-source]

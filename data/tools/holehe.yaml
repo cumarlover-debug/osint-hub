@@ -1,0 +1,17 @@
+name: holehe
+url: https://github.com/megadose/holehe
+description: Checks whether an email address is registered on 120+ sites by probing their sign-up and password-reset flows, without notifying the owner.
+category: email
+inputs: [email]
+outputs: [social_profile]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: megadose/holehe
+install: pip3 install holehe
+language: Python
+license: GPL-3.0
+platforms: [linux, macos, windows]
+tags: [account-discovery, open-source]
+notes: Sites change their reset flows often, so individual modules break. Confirm any hit manually.

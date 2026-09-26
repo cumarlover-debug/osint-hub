@@ -1,0 +1,12 @@
+name: SecurityTrails
+url: https://securitytrails.com
+description: Current and historical DNS records, WHOIS data and subdomains for a domain. The history shows where a site was hosted before.
+category: domain
+inputs: [domain, ip]
+outputs: [domain, ip, dns_record]
+type: web
+cost: freemium
+passive: true
+account_required: true
+query_template: https://securitytrails.com/domain/{query}/dns
+tags: [dns, whois, history]

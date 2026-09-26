@@ -1,0 +1,11 @@
+name: Censys
+url: https://censys.com
+description: Internet-wide scan data on hosts, services and certificates, for finding exposed assets and infrastructure linked to a target.
+category: network
+inputs: [ip, domain]
+outputs: [port_service, certificate, domain]
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags: [attack-surface, certificates]

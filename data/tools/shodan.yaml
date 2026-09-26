@@ -1,0 +1,13 @@
+name: Shodan
+url: https://www.shodan.io
+description: Search engine for internet-connected devices. Shows the open ports, service banners and known vulnerabilities for an IP or search.
+category: network
+inputs: [ip, domain]
+outputs: [port_service, domain]
+type: web
+cost: freemium
+passive: true
+account_required: true
+query_template: https://www.shodan.io/search?query={query}
+tags: [attack-surface, iot]
+notes: A free account is needed to search. Search filters and the API need a paid membership.

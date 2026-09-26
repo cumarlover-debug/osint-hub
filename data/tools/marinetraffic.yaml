@@ -1,0 +1,11 @@
+name: MarineTraffic
+url: https://www.marinetraffic.com
+description: Live ship positions and voyage history from AIS data. Look up a vessel by name, IMO or MMSI number.
+category: transport
+inputs: [vessel]
+outputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [ships, ais]

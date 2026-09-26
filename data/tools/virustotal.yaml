@@ -1,0 +1,13 @@
+name: VirusTotal
+url: https://www.virustotal.com
+description: Scans files, URLs, domains, IPs and hashes with 70+ security engines and shows how they relate to one another.
+category: threat-intel
+inputs: [hash, url, domain, ip, document]
+outputs: [reputation, domain, ip, hash]
+type: web
+cost: freemium
+passive: true
+account_required: false
+query_template: https://www.virustotal.com/gui/search/{query}
+tags: [malware, reputation]
+notes: Uploaded files are shared with security vendors and paying customers. Never upload a sensitive file; search its hash instead.

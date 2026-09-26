@@ -1,0 +1,26 @@
+---
+// One landing page per input type ("OSINT tools for an email address"), mainly for search engines.
+import Base from '../../layouts/Base.astro';
+import ToolCard from '../../components/ToolCard.astro';
+import { usedInputs, toolsTaking } from '../../lib/tools';
+
+export function getStaticPaths() {
+  return usedInputs().map((i) => ({ params: { input: i.key }, props: { label: i.label } }));
+}
+
+const { input } = Astro.params;
+const { label } = Astro.props as { label: string };
+const list = toolsTaking(input!);
+---
+
+<Base
+  title={`OSINT tools for a ${label.toLowerCase()} | osint-hub`}
+  description={`${list.length} OSINT tools that take a ${label.toLowerCase()} as input, with what each one does and how to use it.`}
+>
+  <nav class="crumbs"><a href="/">Tools</a> / {label}</nav>
+  <section class="hero">
+    <h1>You have a {label.toLowerCase()}.</h1>
+    <p class="lede">{list.length} tools that take a {label.toLowerCase()} as input. <a href={`/?input=${input}`}>Filter them further</a>.</p>
+  </section>
+  <div class="grid">{list.map((t) => <ToolCard tool={t} />)}</div>
+</Base>

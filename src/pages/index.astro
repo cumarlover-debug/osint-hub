@@ -1,0 +1,124 @@
+---
+import Base from '../layouts/Base.astro';
+import ToolCard from '../components/ToolCard.astro';
+import { tools, taxonomy, usedInputs } from '../lib/tools';
+
+const inputs = usedInputs();
+---
+
+<Base
+  title="osint-hub: OSINT tools by what you're investigating"
+  description={`${tools.length} open-source intelligence tools, organised by the input they take: username, email, domain, IP, image and more.`}
+>
+  <section class="hero">
+    <h1>Start from what you have.</h1>
+    <p class="lede">
+      {tools.length} OSINT tools, organised by the input they take. Pick what you're investigating, then filter by
+      cost, type and whether the tool touches the target.
+    </p>
+    <label class="visually-hidden" for="q">Search tools</label>
+    <input id="q" class="search" type="search" placeholder="Search, e.g. subdomains, breaches, EXIF, flights" autocomplete="off" />
+  </section>
+
+  <section aria-label="Filters" class="filters">
+    <div class="chips" role="group" aria-label="What do you have?">
+      <button type="button" class="chip" data-input="" aria-pressed="true">Anything</button>
+      {
+        inputs.map((i) => (
+          <button type="button" class="chip" data-input={i.key} aria-pressed="false">
+            {i.label} <span class="count">{i.count}</span>
+          </button>
+        ))
+      }
+    </div>
+    <div class="selects">
+      <label>
+        Type
+        <select id="type">
+          <option value="">Any</option>
+          {Object.entries(taxonomy.types).map(([k, v]) => <option value={k}>{v}</option>)}
+        </select>
+      </label>
+      <label>
+        Cost
+        <select id="cost">
+          <option value="">Any</option>
+          {Object.entries(taxonomy.costs).map(([k, v]) => <option value={k}>{v}</option>)}
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" id="passive" /> Passive only</label>
+      <label class="check"><input type="checkbox" id="noaccount" /> No account needed</label>
+      <label class="check"><input type="checkbox" id="working" /> Working tools only</label>
+    </div>
+  </section>
+
+  <p id="count" class="result-count" aria-live="polite">{tools.length} tools</p>
+  <div id="grid" class="grid">
+    {tools.map((t) => <ToolCard tool={t} />)}
+  </div>
+  <p id="empty" class="empty" hidden>No tools match. Try removing a filter.</p>
+</Base>
+
+<script>
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  const q = $<HTMLInputElement>('q');
+  const type = $<HTMLSelectElement>('type');
+  const cost = $<HTMLSelectElement>('cost');
+  const passive = $<HTMLInputElement>('passive');
+  const noaccount = $<HTMLInputElement>('noaccount');
+  const working = $<HTMLInputElement>('working');
+  const chips = [...document.querySelectorAll<HTMLButtonElement>('.chip')];
+  const cards = [...document.querySelectorAll<HTMLElement>('.card')];
+  let input = '';
+
+  // Filters live in the URL so a filtered view can be shared or bookmarked.
+  const params = new URLSearchParams(location.search);
+  input = params.get('input') ?? '';
+  q.value = params.get('q') ?? '';
+  type.value = params.get('type') ?? '';
+  cost.value = params.get('cost') ?? '';
+  passive.checked = params.has('passive');
+  noaccount.checked = params.has('noaccount');
+  working.checked = params.has('working');
+
+  function apply() {
+    const terms = q.value.toLowerCase().split(/\s+/).filter(Boolean);
+    let shown = 0;
+    for (const card of cards) {
+      const d = card.dataset;
+      const ok =
+        (!input || d.inputs!.split(' ').includes(input)) &&
+        (!type.value || d.type === type.value) &&
+        (!cost.value || d.cost === cost.value) &&
+        (!passive.checked || d.passive === 'true') &&
+        (!noaccount.checked || d.account === 'false') &&
+        (!working.checked || d.broken === 'false') &&
+        terms.every((t) => d.search!.includes(t));
+      card.hidden = !ok;
+      if (ok) shown++;
+    }
+    for (const chip of chips) chip.setAttribute('aria-pressed', String(chip.dataset.input === input));
+    $('count').textContent = `${shown} tool${shown === 1 ? '' : 's'}`;
+    $('empty').hidden = shown > 0;
+
+    const next = new URLSearchParams();
+    if (input) next.set('input', input);
+    if (q.value) next.set('q', q.value);
+    if (type.value) next.set('type', type.value);
+    if (cost.value) next.set('cost', cost.value);
+    if (passive.checked) next.set('passive', '');
+    if (noaccount.checked) next.set('noaccount', '');
+    if (working.checked) next.set('working', '');
+    const qs = next.toString().replace(/=(&|$)/g, '$1');
+    history.replaceState(null, '', qs ? `?${qs}` : location.pathname);
+  }
+
+  for (const chip of chips) {
+    chip.addEventListener('click', () => {
+      input = chip.dataset.input ?? '';
+      apply();
+    });
+  }
+  for (const el of [q, type, cost, passive, noaccount, working]) el.addEventListener('input', apply);
+  apply();
+</script>

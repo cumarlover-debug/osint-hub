@@ -1,0 +1,12 @@
+name: AbuseIPDB
+url: https://www.abuseipdb.com
+description: Community database of reported malicious IPs. Shows abuse reports, a confidence score, the ISP and the usage type.
+category: threat-intel
+inputs: [ip, domain]
+outputs: [reputation]
+type: web
+cost: freemium
+passive: true
+account_required: false
+query_template: https://www.abuseipdb.com/check/{query}
+tags: [reputation]

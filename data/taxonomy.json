@@ -1,0 +1,52 @@
+{
+  "inputs": {
+    "username": "Username",
+    "email": "Email address",
+    "phone": "Phone number",
+    "name": "Person's name",
+    "domain": "Domain",
+    "ip": "IP address",
+    "url": "URL",
+    "image": "Image",
+    "video": "Video",
+    "document": "Document / file",
+    "company": "Company",
+    "crypto_address": "Crypto address",
+    "social_post": "Social media post",
+    "location": "Location / coordinates",
+    "vehicle": "Vehicle / plate",
+    "aircraft": "Aircraft",
+    "vessel": "Vessel",
+    "wifi": "Wi-Fi / BSSID",
+    "hash": "File hash"
+  },
+  "categories": {
+    "people": "People",
+    "social-media": "Social media",
+    "email": "Email",
+    "phone": "Phone",
+    "domain": "Domains & DNS",
+    "network": "IP & network",
+    "image-video": "Images & video",
+    "geolocation": "Geolocation",
+    "transport": "Transport",
+    "business": "Business records",
+    "crypto": "Cryptocurrency",
+    "threat-intel": "Threat intelligence",
+    "archives": "Archives",
+    "metadata": "Metadata",
+    "frameworks": "Frameworks & automation"
+  },
+  "types": {
+    "web": "Website",
+    "cli": "Command line",
+    "desktop": "Desktop app",
+    "extension": "Browser extension",
+    "api": "API"
+  },
+  "costs": {
+    "free": "Free",
+    "freemium": "Freemium",
+    "paid": "Paid"
+  }
+}

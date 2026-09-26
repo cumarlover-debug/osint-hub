@@ -1,0 +1,13 @@
+name: Yandex Images
+url: https://yandex.com/images/
+description: Reverse image search with strong face and scene matching. It often finds matches that other engines miss.
+category: image-video
+inputs: [image]
+outputs: [url, social_profile]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://yandex.com/images/search?rpt=imageview&url={query}
+tags: [reverse-image, faces]
+notes: The quick search takes a public image URL.

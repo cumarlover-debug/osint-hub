@@ -1,0 +1,11 @@
+name: SunCalc
+url: https://www.suncalc.org
+description: Shows the sun's position and shadow direction for any place and time, to check when a photo was taken or narrow down where.
+category: geolocation
+inputs: [location, image]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [chronolocation, shadows]
