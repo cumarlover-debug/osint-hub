@@ -52,6 +52,33 @@ writes the results to `data/health.json`. Never edit that file by hand. It runs 
 
 On the site, down, archived and missing tools are badged, sorted last, and hidden by *Working tools only*.
 
+## Growing the list
+
+A three-step pipeline finds new tools in public OSINT lists and turns them into drafts for review:
+
+```bash
+npm run pipeline:harvest                 # read the source lists into .cache/pipeline/candidates.json
+npm run pipeline:draft -- --limit 50     # check links + GitHub, write the best 50 to data/drafts/
+# review the drafts (see data/drafts/README.md), then:
+npm run pipeline:promote                 # publish approved drafts, record rejected ones
+```
+
+- **harvest** maps each source section to a category and input types (`scripts/pipeline/mapping.mjs`) and
+  skips tools that are already listed (by URL or name), rejected before, or marked dead by the source.
+  Anything that may deal in leaked personal data gets a policy flag and is left out of drafts unless you pass `--flagged`.
+- **draft** spreads each batch across categories, skips dead links and archived or abandoned repos
+  (re-checked after 30 days), and pre-fills cost, type, passive and account fields from the source data.
+- **promote** validates approved drafts, names the file after the tool, moves it to `data/tools/`, adds
+  rejected URLs to `data/pipeline/rejected.txt`, and health-checks the new tools straight away.
+
+Descriptions are always written fresh: the source lists' own wording stays in the drafts as notes and is never published.
+
+### Sources
+
+Candidate tools come from [awesome-osint](https://github.com/jivoi/awesome-osint) (CC BY-SA 4.0) and the
+[OSINT Framework](https://github.com/lockfale/OSINT-Framework) (MIT, © Justin Nordine). Thanks to both
+projects and their contributors. Only facts (names, URLs, categories, pricing and similar flags) are reused.
+
 ## What gets listed
 
 Tools for research, journalism, security work and personal safety. Stalkerware, doxxing services and sites that sell
@@ -67,5 +94,5 @@ visitor's browser, and pages send `no-referrer`.
 1. ~~MVP: schema, seed data, search by input, page per tool~~
 2. ~~Weekly health check (GitHub Action): link status, GitHub stars / last commit / archived~~
 3. Multi-tool query launcher, pivot chains, investigation playbooks
-4. Seed + enrich pipeline from awesome lists; community submissions
+4. ~~Seed + enrich pipeline from awesome lists~~; community submissions
 5. Favorites, CLI, browser extension

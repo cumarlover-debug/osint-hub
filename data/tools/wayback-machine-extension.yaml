@@ -1,0 +1,11 @@
+name: Wayback Machine extension
+url: https://chromewebstore.google.com/detail/wayback-machine/fpnmgdkabkmnadcjpehmlllkndpkmiak
+description: Internet Archive's browser extension. Save the page you are on, or load its archived copy when a link is dead.
+category: archives
+inputs: [url]
+outputs: [archive_snapshot]
+type: extension
+cost: free
+passive: true
+account_required: false
+platforms: [chrome]

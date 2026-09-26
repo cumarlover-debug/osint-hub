@@ -1,0 +1,10 @@
+name: WalletExplorer
+url: https://www.walletexplorer.com/
+description: Groups Bitcoin addresses into wallets and labels known exchanges and services, so you can follow funds between entities.
+category: crypto
+inputs: [crypto_address]
+outputs: [crypto_address, company]
+type: web
+cost: free
+passive: true
+account_required: false

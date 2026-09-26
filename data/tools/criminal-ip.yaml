@@ -1,0 +1,10 @@
+name: Criminal IP
+url: https://www.criminalip.io/
+description: Search engine for exposed internet assets. Shows open ports, vulnerabilities and a risk score for an IP or domain.
+category: network
+inputs: [ip, domain]
+outputs: [port_service, reputation, domain]
+type: web
+cost: freemium
+passive: true
+account_required: true

@@ -1,0 +1,10 @@
+name: Namechk
+url: https://www.namechk.com
+description: Checks a username against 90+ social platforms and 30+ domain extensions to show where it is already registered.
+category: social-media
+inputs: [username, domain]
+outputs: [social_profile, domain]
+type: web
+cost: free
+passive: true
+account_required: false

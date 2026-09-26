@@ -1,0 +1,10 @@
+name: OSINT Industries
+url: https://www.osint.industries/
+description: Finds accounts registered to an email, phone number or username across hundreds of services and puts them on a timeline and map.
+category: email
+inputs: [username, email, phone, crypto_address]
+outputs: [social_profile, name, location]
+type: web
+cost: freemium
+passive: true
+account_required: true

@@ -1,0 +1,10 @@
+name: Europages
+url: https://www.europages.co.uk
+description: European business directory of about 3 million companies, searchable by name, product or sector, with contact and location details.
+category: business
+inputs: [company]
+outputs: [company, location]
+type: web
+cost: free
+passive: true
+account_required: false

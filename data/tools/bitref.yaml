@@ -1,0 +1,9 @@
+name: BitRef
+url: https://bitref.com/
+description: Simple Bitcoin address checker showing the current balance and transaction history, with no sign-up.
+category: crypto
+inputs: [crypto_address]
+type: web
+cost: free
+passive: true
+account_required: false

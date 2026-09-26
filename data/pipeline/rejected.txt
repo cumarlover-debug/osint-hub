@@ -1,0 +1,9 @@
+https://calleridtest.com/  # CallerID Test (site down for maintenance), 2026-09-26
+https://www.data24-7.com/signup.php  # Data24-7 (commercial data broker (phone-to-name lookups)), 2026-09-26
+https://images.google.com  # Google Image (duplicate of Google Lens), 2026-09-26
+https://www.imageidentify.com  # Image Identification Project (archived demo site), 2026-09-26
+https://www.mapquest.com  # Mapquest (routing only; Google and Bing Maps cover it), 2026-09-26
+https://attack.mitre.org/  # Mitre TTPs (reference knowledge base, not a lookup tool), 2026-09-26
+https://www.scribd.com/  # Scribd (document sharing site, not an OSINT tool), 2026-09-26
+https://www.vault.com  # Vault (careers site, little OSINT value), 2026-09-26
+https://visualgenome.org/  # Visual Genome (research dataset, not a tool), 2026-09-26

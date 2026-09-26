@@ -1,0 +1,11 @@
+name: QuickSand
+url: https://scan.tylabs.com/
+description: Scans Office documents and PDFs for exploits and hidden macros and scores how likely the file is to be malicious.
+category: threat-intel
+inputs: [document]
+outputs: [reputation]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Do not upload confidential documents.

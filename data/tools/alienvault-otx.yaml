@@ -1,0 +1,10 @@
+name: AlienVault OTX
+url: https://otx.alienvault.com/
+description: Community threat-intelligence exchange. Look up an IP, domain or file hash to see the reports and campaigns it appears in.
+category: threat-intel
+inputs: [ip, domain, hash]
+outputs: [reputation, domain, ip, hash]
+type: web
+cost: free
+passive: true
+account_required: true

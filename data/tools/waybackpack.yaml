@@ -1,0 +1,16 @@
+name: waybackpack
+url: https://github.com/jsvine/waybackpack
+description: Downloads every Wayback Machine snapshot of a URL, with optional date filters, so you can compare versions offline.
+category: archives
+inputs: [url]
+outputs: [archive_snapshot]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: jsvine/waybackpack
+install: pipx install waybackpack
+language: Python
+license: MIT
+platforms: [linux, macos, windows]
+tags: [archives, open-source]

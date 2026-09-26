@@ -1,0 +1,11 @@
+name: Baidu Maps
+url: https://map.baidu.com/
+description: Baidu's map of China, with far better street-level and place coverage of the mainland than Google Maps.
+category: geolocation
+inputs: [location]
+outputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: The interface is in Chinese. Coordinates use a Chinese offset system, so they may differ slightly from GPS.

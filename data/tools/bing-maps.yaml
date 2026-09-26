@@ -1,0 +1,10 @@
+name: Bing Maps
+url: https://www.bing.com/maps
+description: Microsoft maps with aerial and bird's-eye imagery, often captured on different dates than Google's, which helps when verifying a location.
+category: geolocation
+inputs: [location]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false

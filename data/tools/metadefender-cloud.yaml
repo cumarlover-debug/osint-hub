@@ -1,0 +1,11 @@
+name: MetaDefender Cloud
+url: https://metadefender.com/
+description: Scans files, hashes, URLs and IPs with 20+ antivirus engines and a sandbox, and shows the verdict from each.
+category: threat-intel
+inputs: [hash, document, url, ip]
+outputs: [reputation]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Uploaded files may be shared with security vendors. Search by hash when a file is sensitive.

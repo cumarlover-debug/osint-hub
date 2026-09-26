@@ -1,0 +1,10 @@
+name: EXIFEditor.io
+url: https://exifeditor.io
+description: Reads and edits photo metadata (camera, timestamps, GPS) entirely in your browser, so the image is never uploaded.
+category: metadata
+inputs: [image]
+outputs: [metadata, location]
+type: web
+cost: free
+passive: true
+account_required: false

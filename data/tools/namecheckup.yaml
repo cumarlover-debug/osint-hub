@@ -1,0 +1,10 @@
+name: NameCheckup
+url: https://namecheckup.com
+description: Checks whether a username is taken across social networks and whether the matching domain names are registered.
+category: social-media
+inputs: [username, domain]
+outputs: [social_profile, domain]
+type: web
+cost: free
+passive: true
+account_required: false

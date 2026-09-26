@@ -1,0 +1,10 @@
+name: Truecaller
+url: https://truecaller.com
+description: Caller ID app with a large crowdsourced database. Look up a number to see the name people saved it under and any spam reports.
+category: phone
+inputs: [phone]
+outputs: [name, reputation]
+type: web
+cost: freemium
+passive: true
+account_required: true

@@ -1,0 +1,11 @@
+name: Baidu Images
+url: https://image.baidu.com
+description: Baidu reverse image search. Finds copies of an image on Chinese websites that Western search engines rarely index.
+category: image-video
+inputs: [image]
+outputs: [url]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: The interface is in Chinese; your browser can translate it.

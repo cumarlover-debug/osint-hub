@@ -1,0 +1,10 @@
+name: Bitcoin Who's Who
+url: https://www.bitcoinwhoswho.com/
+description: Looks up a Bitcoin address and shows scam reports, community tags and web pages where the address has been mentioned.
+category: crypto
+inputs: [crypto_address]
+outputs: [url, reputation]
+type: web
+cost: free
+passive: true
+account_required: false

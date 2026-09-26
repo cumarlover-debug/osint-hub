@@ -1,0 +1,10 @@
+name: Google Maps
+url: https://www.google.com/maps
+description: Satellite imagery, Street View and business listings for most of the world. The standard starting point for geolocating a photo.
+category: geolocation
+inputs: [location]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false

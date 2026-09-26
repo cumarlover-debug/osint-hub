@@ -1,0 +1,10 @@
+name: ExoneraTor
+url: https://metrics.torproject.org/exonerator.html
+description: Checks whether an IP address was running as a Tor relay on a given date, which tells you if traffic from it could have come from Tor users.
+category: network
+inputs: [ip]
+outputs: [reputation]
+type: web
+cost: free
+passive: true
+account_required: false

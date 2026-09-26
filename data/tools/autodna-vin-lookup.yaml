@@ -1,0 +1,9 @@
+name: autoDNA VIN Lookup
+url: https://www.autodna.com/
+description: 'Vehicle history by VIN for European and North American cars: past damage, mileage readings, inspections and registrations. Full reports are paid.'
+category: transport
+inputs: [vehicle]
+type: web
+cost: freemium
+passive: true
+account_required: true
