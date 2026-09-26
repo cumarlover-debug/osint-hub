@@ -166,9 +166,11 @@ const listed = tools.map((t) => ({ name: t.name, url: t.url, slug: t.slug }));
 
     // Parameter names are the field ids in .github/ISSUE_TEMPLATE/submit-tool.yml.
     const params = new URLSearchParams({ template: 'submit-tool.yml', title: `Tool: ${get('name')}` });
-    for (const k of ['name', 'url', 'description', 'category', 'type', 'cost', 'passive', 'account', 'repo', 'install', 'notes', 'why']) {
+    for (const k of ['name', 'url', 'description', 'category', 'cost', 'passive', 'account', 'repo', 'install', 'notes', 'why']) {
       if (get(k)) params.set(k, get(k));
     }
+    // GitHub reserves ?type= on the new-issue page, so the form field id is tool_type.
+    params.set('tool_type', get('type'));
     params.set('inputs', inputs.join(', '));
     window.open(`${repo}/issues/new?${params}`, '_blank', 'noopener,noreferrer');
   });
