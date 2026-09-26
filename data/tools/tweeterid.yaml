@@ -1,0 +1,10 @@
+name: TweeterID
+url: https://tweeterid.com/
+description: Converts an X/Twitter handle to its permanent numeric ID and back. The ID stays the same when the handle changes.
+category: social-media
+inputs: [username]
+outputs: [metadata, username]
+type: web
+cost: free
+passive: true
+account_required: false

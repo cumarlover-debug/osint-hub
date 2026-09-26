@@ -455,3 +455,9 @@ https://www.belastingdienst.nl/  # VAT Research (duplicate of EU VIES VAT Check)
 https://verifiedher.com  # VerifiedHer (narrow creator registry, not established), 2026-09-26
 https://vk.com/people  # VK People Search (VK search itself, not a tool), 2026-09-26
 https://www.whitepages.com/reverse-phone  # Whitepages Reverse Phone (duplicate of Whitepages), 2026-09-26
+https://www.allmytweets.net/  # All My Tweets (now requires X login and only manages your own tweets), 2026-09-26
+https://www.exportdata.io/  # ExportData (now just a funnel into Fedica, a marketing tool), 2026-09-26
+https://foller.me  # Foller.me (profile lookups return 404; only the landing page remains), 2026-09-26
+https://www.mytweetalerts.com/  # MyTweetAlerts (marketing alert service, not updated since 2024), 2026-09-26
+https://onemilliontweetmap.com  # OneMillionTweetMap (broken: map shows "API key required" and the tweet counter is frozen), 2026-09-26
+https://spoonbill.io/  # Spoonbill (site down (HTTP 522 from its own server, twice)), 2026-09-26

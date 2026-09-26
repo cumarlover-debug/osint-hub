@@ -2423,6 +2423,18 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "sylva": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 255,
+      "archived": false,
+      "pushed_at": "2024-09-01"
+    }
+  },
   "synapsint": {
     "status": "up",
     "failures": 0,
@@ -2568,6 +2580,13 @@
     "last_ok": "2026-09-26"
   },
   "turibot": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "tweeterid": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",

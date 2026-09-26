@@ -1,0 +1,16 @@
+name: Sylva
+url: https://sylva.pfeister.dev/
+description: Searches for a username, then branches out automatically as it discovers linked names, emails and accounts.
+category: social-media
+inputs: [username]
+outputs: [social_profile, email, username]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: ppfeister/sylva
+language: Python
+license: AGPL-3.0
+platforms: [linux, macos, windows]
+tags: [username-enumeration, open-source]
+notes: Early-stage project; some sources need API keys.
