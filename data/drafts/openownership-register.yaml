@@ -24,4 +24,4 @@ review:
       - list: awesome-osint
         section: Company Research
   hold: true
-  hold_reason: behind bot protection; check by hand that the public register is still available
+  hold_reason: Cloudflare check never cleared, even in a real browser; open it by hand

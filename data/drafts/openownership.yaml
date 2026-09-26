@@ -26,4 +26,4 @@ review:
     framework_input: Company name, jurisdiction, or person name
     framework_output: Beneficial ownership chains, corporate structures, and linked entities across registers
   hold: true
-  hold_reason: behind bot protection; check by hand whether the public register is still available
+  hold_reason: Cloudflare check never cleared, even in a real browser; open it by hand

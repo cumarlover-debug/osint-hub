@@ -26,4 +26,4 @@ review:
     page_title: 'Twitonomy: Twitter #analytics and much more...'
     page_description: ''
   hold: true
-  hold_reason: depends on X/Twitter access; check by hand that it still works
+  hold_reason: still online, but every feature needs signing in with an X account; test it with your own account
