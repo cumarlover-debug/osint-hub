@@ -461,3 +461,6 @@ https://foller.me  # Foller.me (profile lookups return 404; only the landing pag
 https://www.mytweetalerts.com/  # MyTweetAlerts (marketing alert service, not updated since 2024), 2026-09-26
 https://onemilliontweetmap.com  # OneMillionTweetMap (broken: map shows "API key required" and the tweet counter is frozen), 2026-09-26
 https://spoonbill.io/  # Spoonbill (site down (HTTP 522 from its own server, twice)), 2026-09-26
+https://register.openownership.org/  # OpenOwnership Register (skipped by owner decision: could not be verified (Cloudflare)), 2026-09-26
+https://www.openownership.org/en/  # OpenOwnership (skipped by owner decision: could not be verified (Cloudflare)), 2026-09-26
+https://www.twitonomy.com/  # Twitonomy (skipped by owner decision: needs X sign-in to use), 2026-09-26
