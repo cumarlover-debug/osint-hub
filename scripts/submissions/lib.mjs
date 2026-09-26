@@ -237,7 +237,8 @@ export async function setStatusLabel(repo, issue, label) {
   for (const other of ['ready-for-review', 'needs-changes'].filter((l) => l !== label)) {
     await github('DELETE', `/repos/${repo}/issues/${issue}/labels/${other}`).catch(() => {});
   }
-  if (label) await github('POST', `/repos/${repo}/issues/${issue}/labels`, { labels: [label] });
+  // tool-submission too: the template cannot apply it until the label exists, which this function ensures.
+  await github('POST', `/repos/${repo}/issues/${issue}/labels`, { labels: ['tool-submission', ...(label ? [label] : [])] });
 }
 
 /** Markdown for the results comment. User-supplied values only ever appear inside a fenced YAML block. */
