@@ -1,6 +1,8 @@
 // Validates every data/tools/*.yaml against the tool schema (see scripts/lib/data.mjs).
 // The enums come from data/taxonomy.json so the site and the validator never drift apart.
-import { paths, readYamlDir, toolErrors, playbookErrors, isValidSlug, urlKey } from './lib/data.mjs';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { paths, root, readYamlDir, toolErrors, playbookErrors, isValidSlug, urlKey } from './lib/data.mjs';
 
 const errors = [];
 const seenUrls = new Map();
@@ -30,6 +32,11 @@ for (const { slug, file, tool: playbook, error } of playbooks) {
   if (error) errors.push(`playbooks/${file}: invalid YAML: ${error}`);
   else for (const p of playbookErrors(playbook, toolSlugs)) errors.push(`playbooks/${file}: ${p}`);
 }
+
+// The browser extension cannot import files outside its own folder, so it ships a copy of the shared launcher.
+const shared = readFileSync(join(root, 'shared/launcher.mjs'), 'utf8');
+const copy = readFileSync(join(root, 'extension/lib/launcher.mjs'), 'utf8');
+if (shared !== copy) errors.push('extension/lib/launcher.mjs differs from shared/launcher.mjs: run npm run extension:sync');
 
 if (errors.length) {
   console.error(errors.join('\n'));

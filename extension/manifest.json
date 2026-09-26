@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "osint-hub",
+  "version": "1.0.0",
+  "description": "Right-click text, a link, an image or a page to search it in the OSINT tools that can take it.",
+  "icons": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png", "128": "icons/128.png" },
+  "action": { "default_title": "osint-hub launcher", "default_popup": "launcher.html?popup", "default_icon": { "16": "icons/16.png", "32": "icons/32.png" } },
+  "background": { "service_worker": "background.js", "scripts": ["background.js"], "type": "module" },
+  "permissions": ["contextMenus", "storage"],
+  "host_permissions": ["https://osinthub.pages.dev/*"],
+  "browser_specific_settings": { "gecko": { "id": "osint-hub@osinthub.pages.dev", "strict_min_version": "121.0" } }
+}

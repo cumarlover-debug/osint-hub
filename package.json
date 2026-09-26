@@ -11,7 +11,8 @@
     "pipeline:harvest": "node scripts/pipeline/harvest.mjs",
     "pipeline:draft": "node scripts/pipeline/draft.mjs",
     "pipeline:promote": "node scripts/pipeline/promote.mjs",
-    "cli": "node cli/osint-hub.mjs"
+    "cli": "node cli/osint-hub.mjs",
+    "extension:sync": "node -e \"require('fs').copyFileSync('shared/launcher.mjs','extension/lib/launcher.mjs')\" && node scripts/extension-icons.mjs"
   },
   "license": "UNLICENSED",
   "type": "module",
