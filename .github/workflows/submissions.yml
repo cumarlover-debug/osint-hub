@@ -12,7 +12,11 @@ permissions:
 
 jobs:
   check:
-    if: github.event.action != 'labeled' && contains(github.event.issue.labels.*.name, 'tool-submission')
+    # Matched by the form's own heading as well as the label: GitHub only applies a template label that already
+    # exists, so the very first submission arrives unlabelled (the check then creates and adds the label).
+    if: >-
+      github.event.action != 'labeled' &&
+      (contains(github.event.issue.labels.*.name, 'tool-submission') || contains(github.event.issue.body, '### Tool name'))
     runs-on: ubuntu-latest
     timeout-minutes: 10
     concurrency:
@@ -33,7 +37,7 @@ jobs:
   publish:
     if: >-
       github.event.action == 'labeled' && github.event.label.name == 'approved' &&
-      contains(github.event.issue.labels.*.name, 'tool-submission')
+      (contains(github.event.issue.labels.*.name, 'tool-submission') || contains(github.event.issue.body, '### Tool name'))
     runs-on: ubuntu-latest
     timeout-minutes: 10
     concurrency:

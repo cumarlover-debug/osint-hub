@@ -10,7 +10,8 @@ const dryRun = process.argv.includes('--dry-run');
 const eventPath = process.argv.slice(2).find((a) => a.endsWith('.json')) ?? process.env.GITHUB_EVENT_PATH;
 const { issue } = JSON.parse(readFileSync(eventPath, 'utf8'));
 
-if (!issue.labels?.some((l) => l.name === 'tool-submission') || issue.state !== 'open') {
+const isSubmission = issue.labels?.some((l) => l.name === 'tool-submission') || /^### Tool name$/m.test(issue.body ?? '');
+if (!isSubmission || issue.state !== 'open') {
   console.log('Not an open tool submission; nothing to do.');
   process.exit(0);
 }
