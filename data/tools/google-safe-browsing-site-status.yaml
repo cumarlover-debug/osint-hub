@@ -1,0 +1,10 @@
+name: Google Safe Browsing site status
+url: https://transparencyreport.google.com/safe-browsing/search
+description: Checks whether Google currently flags a site as malware or phishing, the same warning Chrome shows.
+category: threat-intel
+inputs: [url, domain]
+outputs: [reputation]
+type: web
+cost: free
+passive: true
+account_required: false

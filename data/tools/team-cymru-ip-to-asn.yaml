@@ -1,0 +1,10 @@
+name: Team Cymru IP to ASN
+url: https://asn.cymru.com/
+description: Maps IPs to their network, owning organisation and country, one at a time or in bulk.
+category: network
+inputs: [ip]
+outputs: [company]
+type: web
+cost: free
+passive: true
+account_required: false

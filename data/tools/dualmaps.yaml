@@ -1,0 +1,10 @@
+name: DualMaps
+url: https://www.mapchannels.com/dualmaps7/map.htm
+description: Shows a road map, satellite view and Street View of the same spot side by side, synced as you move.
+category: geolocation
+inputs: [location]
+outputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false

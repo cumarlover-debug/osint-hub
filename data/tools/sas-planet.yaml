@@ -1,0 +1,12 @@
+name: SAS.Planet
+url: https://www.sasgis.org/sasplaneta/
+description: Windows app that views, downloads and stitches satellite imagery from many providers for offline comparison.
+category: geolocation
+inputs: [location]
+outputs: [image]
+type: desktop
+cost: freemium
+passive: true
+account_required: false
+platforms: [windows]
+notes: Website in Russian.

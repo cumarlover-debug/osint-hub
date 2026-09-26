@@ -1,0 +1,10 @@
+name: Fylings
+url: https://www.fylings.com
+description: Search and verify companies across official registries in 18+ African countries.
+category: business
+inputs: [company]
+outputs: [name, location]
+type: web
+cost: freemium
+passive: true
+account_required: false

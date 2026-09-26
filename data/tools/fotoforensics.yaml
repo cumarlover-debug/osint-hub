@@ -1,0 +1,10 @@
+name: FotoForensics
+url: https://www.fotoforensics.com
+description: Error level analysis and metadata for a photo, to spot areas that were edited or pasted in.
+category: metadata
+inputs: [image]
+outputs: [metadata]
+type: web
+cost: freemium
+passive: true
+account_required: false

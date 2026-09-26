@@ -1,0 +1,10 @@
+name: SauceNAO
+url: https://saucenao.com/
+description: Reverse image search specialised in artwork, anime and manga, tracing reposts back to the original artist.
+category: image-video
+inputs: [image]
+outputs: [url, social_profile]
+type: web
+cost: freemium
+passive: true
+account_required: false

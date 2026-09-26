@@ -1,0 +1,10 @@
+name: ArcGIS Living Atlas
+url: https://livingatlas.arcgis.com/en/browse/
+description: Thousands of ready-made map layers (imagery, borders, infrastructure, demographics) to overlay on a location.
+category: geolocation
+inputs: [location]
+outputs: [location, image]
+type: web
+cost: freemium
+passive: true
+account_required: false

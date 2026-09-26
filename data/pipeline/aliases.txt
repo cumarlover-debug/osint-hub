@@ -15,3 +15,7 @@ https://tools.verifyemailaddress.io  # now https://tools.emailhippo.com/ (email-
 https://tools.epieos.com  # now https://epieos.com/ (epieos)
 https://nmap.org/download.html  # now https://nmap.org/ (nmap)
 https://www.onyphe.io/  # now https://www.onyphe.com/ (onyphe)
+https://www.bvdinfo.com  # now https://www.moodys.com/web/en/us/capabilities/company-reference-data/orbis.html (orbis-moodys)
+https://dnstwister.report/  # now https://www.dnstwister.com/ (dnstwister)
+https://developers.google.com/safe-browsing/?csw=1  # now https://transparencyreport.google.com/safe-browsing/search (google-safe-browsing-site-status)
+https://www.wireshark.org/download.html  # now https://www.wireshark.org/ (wireshark)

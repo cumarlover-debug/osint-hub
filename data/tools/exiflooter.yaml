@@ -1,0 +1,16 @@
+name: ExifLooter
+url: https://github.com/aydinnyunus/exiflooter
+description: Pulls GPS coordinates from the metadata of many images at once, from files, folders or URLs, and links them to a map.
+category: image-video
+inputs: [image]
+outputs: [location, metadata]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: aydinnyunus/exiflooter
+install: go install github.com/aydinnyunus/exiflooter@latest
+language: Go
+license: Apache-2.0
+platforms: [linux, macos, windows]
+tags: [exif, open-source]

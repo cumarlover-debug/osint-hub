@@ -1,0 +1,17 @@
+name: dnstwist
+url: https://github.com/elceef/dnstwist
+description: Generates look-alike domains (typos, homoglyphs, swapped TLDs) and checks which are registered, to find phishing sites.
+category: domain
+inputs: [domain]
+outputs: [domain, ip]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: elceef/dnstwist
+install: pipx install dnstwist
+language: Python
+license: Apache-2.0
+platforms: [linux, macos, windows]
+tags: [phishing, typosquatting, open-source]
+notes: It resolves the look-alike domains, not the original.

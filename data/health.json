@@ -72,6 +72,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "arcgis-living-atlas": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "archive-today": {
     "status": "up",
     "failures": 0,
@@ -85,6 +92,13 @@
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "astrometry-net": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "autodna-vin-lookup": {
     "status": "unverified",
@@ -113,6 +127,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "better-business-bureau": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "bing-images": {
     "status": "up",
@@ -298,6 +319,14 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "cloudfail": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "companies-house": {
     "status": "up",
     "failures": 0,
@@ -383,6 +412,13 @@
     "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-26"
   },
+  "dnslytics": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "dnsrecon": {
     "status": "up",
     "failures": 0,
@@ -394,6 +430,21 @@
       "archived": false,
       "pushed_at": "2026-09-18"
     }
+  },
+  "dnstwist": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
+  "dnstwister": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "dnsviz": {
     "status": "up",
@@ -424,6 +475,13 @@
     "last_ok": "2026-09-26"
   },
   "domaintools-whois": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "dualmaps": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -515,6 +573,14 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "exiflooter": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "exiftool": {
     "status": "up",
     "failures": 0,
@@ -526,6 +592,13 @@
       "archived": false,
       "pushed_at": "2026-05-27"
     }
+  },
+  "exiv2": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "exonerator": {
     "status": "up",
@@ -562,12 +635,26 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "flickr-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "flightradar24": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "followerwonk": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "forensically": {
     "status": "up",
@@ -583,12 +670,40 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "fotoforensics": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "free-carrier-lookup": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "fylings": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "geosetter": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "geosolver": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "geospy": {
     "status": "up",
@@ -662,6 +777,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "google-safe-browsing-site-status": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "greynoise": {
     "status": "up",
     "failures": 0,
@@ -723,6 +845,13 @@
       "pushed_at": "2024-09-10"
     }
   },
+  "honeydb": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "hunter": {
     "status": "up",
     "failures": 0,
@@ -731,6 +860,13 @@
     "last_ok": "2026-09-26"
   },
   "hurricane-electric-bgp-toolkit": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "ibm-x-force-exchange": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -751,6 +887,20 @@
     "http": 202,
     "last_ok": "2026-09-26"
   },
+  "imgops": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "inflact-instagram-viewer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "infosniper": {
     "status": "up",
     "failures": 0,
@@ -764,6 +914,14 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "iocextract": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
   },
   "ip2location": {
     "status": "unverified",
@@ -889,6 +1047,13 @@
     }
   },
   "maltego": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "maltiverse": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1136,6 +1301,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "orbis-moodys": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "osint-industries": {
     "status": "up",
     "failures": 0,
@@ -1188,6 +1360,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "pepchecker": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "phishstats": {
     "status": "up",
     "failures": 0,
@@ -1221,7 +1400,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "picarta": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "profile-image-intel": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "project-honey-pot": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1289,12 +1482,33 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "sas-planet": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "saucenao": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "securitytrails": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "shadowfinder-web": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "sherlock": {
     "status": "up",
@@ -1418,6 +1632,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "team-cymru-ip-to-asn": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "tgstat": {
     "status": "up",
     "failures": 0,
@@ -1465,6 +1686,13 @@
     }
   },
   "tracepoint": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "tracxn": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1525,7 +1753,21 @@
       "pushed_at": "2026-09-25"
     }
   },
+  "user-searcher": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "usgs-earthexplorer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "utrace": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1666,6 +1908,20 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "wireshark": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "world-monitor": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "xmrchain": {
     "status": "up",
     "failures": 0,
@@ -1674,6 +1930,13 @@
     "last_ok": "2026-09-26"
   },
   "yandex-images": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "yandex-maps": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",

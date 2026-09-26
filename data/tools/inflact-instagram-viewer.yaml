@@ -1,0 +1,10 @@
+name: Inflact Instagram Viewer
+url: https://inflact.com/instagram-viewer/profile/
+description: View public Instagram profiles, posts and stories without logging in, so the account owner does not see your account.
+category: social-media
+inputs: [username]
+outputs: [image, social_post]
+type: web
+cost: freemium
+passive: true
+account_required: false

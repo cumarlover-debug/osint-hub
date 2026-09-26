@@ -1,0 +1,10 @@
+name: Tracxn
+url: https://tracxn.com
+description: 'Startup and private company profiles: funding rounds, investors, acquisitions and key people.'
+category: business
+inputs: [company]
+outputs: [name, company]
+type: web
+cost: freemium
+passive: true
+account_required: false

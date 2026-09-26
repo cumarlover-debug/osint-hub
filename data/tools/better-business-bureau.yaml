@@ -1,0 +1,10 @@
+name: Better Business Bureau
+url: https://www.bbb.org
+description: US and Canadian business profiles with ratings, complaints, owners and contact details.
+category: business
+inputs: [company]
+outputs: [name, location]
+type: web
+cost: freemium
+passive: true
+account_required: false

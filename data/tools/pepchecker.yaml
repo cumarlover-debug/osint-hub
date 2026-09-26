@@ -1,0 +1,10 @@
+name: PepChecker
+url: https://pepchecker.com
+description: Free-tier screening of a name against politically exposed persons and global sanctions lists.
+category: business
+inputs: [name]
+outputs: [reputation]
+type: web
+cost: freemium
+passive: true
+account_required: true

@@ -1,0 +1,10 @@
+name: IBM X-Force Exchange
+url: https://exchange.xforce.ibmcloud.com/
+description: IBM's threat-intelligence lookup for IPs, URLs, domains and hashes, with risk scores and related campaigns.
+category: threat-intel
+inputs: [ip, domain, url, hash]
+outputs: [reputation]
+type: web
+cost: freemium
+passive: true
+account_required: true

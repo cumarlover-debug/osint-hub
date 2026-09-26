@@ -1,0 +1,16 @@
+name: iocextract
+url: https://github.com/InQuest/iocextract
+description: Extracts IPs, URLs, domains, emails and hashes from reports and text, including "defanged" ones like hxxp and [.].
+category: threat-intel
+inputs: [document]
+outputs: [ip, domain, url, email, hash]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: InQuest/iocextract
+install: pip install iocextract
+language: Python
+license: GPL-2.0
+platforms: [linux, macos, windows]
+tags: [ioc, open-source]

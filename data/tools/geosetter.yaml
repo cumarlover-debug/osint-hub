@@ -1,0 +1,11 @@
+name: GeoSetter
+url: https://geosetter.de/en/main-en/
+description: Windows app for viewing photo locations on a map and editing geotags and metadata in bulk.
+category: metadata
+inputs: [image, location]
+outputs: [location, metadata]
+type: desktop
+cost: free
+passive: true
+account_required: false
+platforms: [windows]

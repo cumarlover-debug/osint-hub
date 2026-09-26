@@ -1,0 +1,10 @@
+name: User Searcher
+url: https://www.user-searcher.com
+description: Free web search for a username across thousands of sites.
+category: social-media
+inputs: [username]
+outputs: [social_profile]
+type: web
+cost: freemium
+passive: true
+account_required: false

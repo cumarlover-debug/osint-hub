@@ -1,0 +1,10 @@
+name: World Monitor
+url: https://www.worldmonitor.app
+description: Live world map combining conflict reports, military flights and ships, GPS jamming and satellite imagery.
+category: geolocation
+inputs: [location]
+outputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false

@@ -1,0 +1,10 @@
+name: ImgOps
+url: https://imgops.com/
+description: Paste an image URL once and send it to many reverse image search, forensic and editing tools.
+category: image-video
+inputs: [image, url]
+outputs: [url, metadata]
+type: web
+cost: freemium
+passive: true
+account_required: false
