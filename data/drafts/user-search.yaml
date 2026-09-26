@@ -1,0 +1,29 @@
+name: User Search
+url: https://www.usersearch.org
+description: ''
+category: social-media
+inputs:
+  - username
+type: web
+cost: freemium
+passive: true
+account_required: false
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: high
+  score: 7
+  source_url: https://www.usersearch.org
+  flags:
+    - 'cost: unknown, guessed freemium'
+    - 'account_required: unknown, guessed no'
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Username Check
+        said: Find someone by username, email, phone number or picture across Social Networks, Dating Sites, Forums, Crypto Forums, Chat Sites and Blogs, 3000+ sites Supported!
+    page_title: Find User Profiles | Dating Sites | UserSearch
+    page_description: Search by username or email on 600+ social networks & dating sites like YouTube, Tinder, Snapchat, Match & Facebook. Instant results, with no signup.
+  hold: true
+  hold_reason: waiting on the people-search policy decision (includes dating sites and photo search)

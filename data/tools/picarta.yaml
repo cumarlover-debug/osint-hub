@@ -1,0 +1,10 @@
+name: Picarta
+url: https://picarta.ai/
+description: AI that predicts where a photo was taken from what it shows, with a confidence map of likely locations.
+category: geolocation
+inputs: [image]
+outputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false

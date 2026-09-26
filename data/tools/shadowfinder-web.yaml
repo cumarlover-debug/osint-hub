@@ -1,0 +1,10 @@
+name: ShadowFinder Web
+url: https://kluter.github.io/ShadowFinder-Web
+description: 'Browser version of Bellingcat''s ShadowFinder: from an object''s shadow length and the time, maps where a photo could be.'
+category: geolocation
+inputs: [image, location]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false

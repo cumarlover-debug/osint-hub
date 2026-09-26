@@ -1,0 +1,10 @@
+name: Followerwonk
+url: https://followerwonk.com/
+description: Searches X/Twitter bios and compares the followers of accounts to find overlaps and connections.
+category: social-media
+inputs: [username]
+outputs: [social_profile, location]
+type: web
+cost: freemium
+passive: true
+account_required: true

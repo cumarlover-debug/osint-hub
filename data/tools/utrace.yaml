@@ -1,0 +1,10 @@
+name: utrace
+url: https://en.utrace.de/
+description: Locates an IP address or domain on a map with its provider and network owner.
+category: network
+inputs: [domain, ip]
+outputs: [location, company]
+type: web
+cost: free
+passive: true
+account_required: false

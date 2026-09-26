@@ -1,0 +1,11 @@
+name: Wireshark
+url: https://www.wireshark.org/
+description: 'The standard network protocol analyser: capture traffic or open a PCAP and inspect every packet.'
+category: network
+inputs: [document]
+outputs: [ip, domain]
+type: desktop
+cost: free
+passive: true
+account_required: false
+platforms: [linux, macos, windows]

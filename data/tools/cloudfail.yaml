@@ -1,0 +1,16 @@
+name: CloudFail
+url: https://github.com/m0rtem/CloudFail
+description: Tries to find the real server IP behind a Cloudflare-protected site using DNS history and subdomain checks.
+category: network
+inputs: [domain]
+outputs: [ip]
+type: cli
+cost: free
+passive: false
+account_required: false
+repo: m0rtem/CloudFail
+language: Python
+license: MIT
+platforms: [linux, macos]
+tags: [cloudflare, open-source]
+notes: The subdomain brute force queries the target. Last updated 2024.

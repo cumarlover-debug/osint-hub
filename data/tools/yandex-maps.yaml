@@ -1,0 +1,10 @@
+name: Yandex Maps
+url: https://yandex.com/maps/
+description: Maps with the best coverage of Russia and neighbouring countries, including Yandex's own street-level panoramas.
+category: geolocation
+inputs: [location]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,10 @@
+name: DNSlytics
+url: https://dnslytics.com/
+description: 'Reverse IP, name server and mail server lookups: find other domains on the same infrastructure.'
+category: network
+inputs: [domain, ip]
+outputs: [domain, ip]
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,10 @@
+name: dnstwister
+url: https://www.dnstwister.com/
+description: 'Web version of domain look-alike search: lists registered typo and homoglyph variants of a domain.'
+category: domain
+inputs: [domain]
+outputs: [domain]
+type: web
+cost: freemium
+passive: true
+account_required: false

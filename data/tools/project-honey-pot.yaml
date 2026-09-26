@@ -1,0 +1,10 @@
+name: Project Honey Pot
+url: https://www.projecthoneypot.org/
+description: Community honeypot project; search an IP to see if it harvested emails, sent spam or attacked web forms.
+category: threat-intel
+inputs: [ip]
+outputs: [reputation]
+type: web
+cost: free
+passive: true
+account_required: false

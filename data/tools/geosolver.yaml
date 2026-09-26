@@ -1,0 +1,10 @@
+name: GeoSolver
+url: https://reverseimagelocation.com
+description: AI photo geolocation that estimates the country, region or spot a picture was taken in.
+category: geolocation
+inputs: [image]
+outputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false

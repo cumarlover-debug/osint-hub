@@ -1,0 +1,10 @@
+name: Maltiverse
+url: https://maltiverse.com/
+description: Threat intelligence search aggregating 100+ sources, with a risk verdict for IPs, domains, URLs and file hashes.
+category: threat-intel
+inputs: [ip, domain, url, hash]
+outputs: [reputation]
+type: web
+cost: freemium
+passive: true
+account_required: true

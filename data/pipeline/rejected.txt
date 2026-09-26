@@ -93,3 +93,62 @@ https://www.twilio.com/docs/lookup/v2-api  # Twilio (duplicate of Twilio Lookup)
 https://www.gov.uk/get-information-about-a-company  # UK Companies (duplicate of Companies House), 2026-09-26
 https://ukdata.com/  # UK Data (council data reports, unrelated), 2026-09-26
 https://blockchair.com/zcash  # Zcash Block Explorer (part of Blockchair, already listed), 2026-09-26
+https://www.allstocks.com/links  # AllStocksLinks (link list, not a tool), 2026-09-26
+https://apify.com/compass/crawler-google-places  # Apify's Google Maps Scraper (paid scraping service, out of scope), 2026-09-26
+https://atlas.co  # Atlas (GIS product, not an investigation tool), 2026-09-26
+https://github.com/jivoi/awesome-osint  # Awesome OSINT (a list of tools (one of our sources), not a tool), 2026-09-26
+https://batchgeo.com  # Batchgeo (map-making utility, out of scope), 2026-09-26
+https://bellingcat.gitbook.io/toolkit/more/all-tools/meta-content-library  # Bellingcat Meta Content Library (a guide page, not a tool), 2026-09-26
+https://www.bloomberg.com/research/company/overview/overview.asp  # Bloomberg (old URL, now blocked), 2026-09-26
+https://www.brownbook.net/  # BrownBook (low-value business directory), 2026-09-26
+https://www.ebscohost.com/academic/business-source-complete  # Business Source (library research database), 2026-09-26
+https://www.canada.ca/en/services/business/research.html  # Canadian Business Research (government economic statistics page), 2026-09-26
+https://cartodb.com  # CartoDB (GIS product, not an investigation tool), 2026-09-26
+https://s3-us-west-1.amazonaws.com/umbrella-static/index.html  # Cisco Umbrella Popularity List (domain popularity list, not a lookup), 2026-09-26
+https://www.clearwebstats.com/  # ClearWebStats.com (web traffic statistics, out of scope), 2026-09-26
+https://colorbrewer2.org  # Colorbrewer (map colour advice, unrelated), 2026-09-26
+https://www.commercial-register.sg.ch/home/worldwide.html  # Company Registration Round the World (regional Swiss register, mislabelled), 2026-09-26
+https://www.comparably.com  # Company Research Resources by Country Comparably (employee-review site, unrelated), 2026-09-26
+https://competeshark.com  # CompeteShark (competitive-intelligence marketing tool), 2026-09-26
+https://www.corporationwiki.com/  # CorporationWiki (site appears to be closing (domain update notice)), 2026-09-26
+https://crowdmap.com  # CrowdMap (service closed), 2026-09-26
+https://www.deteque.com/  # Deteque (duplicate of Spamhaus (it now redirects there)), 2026-09-26
+https://www.digikam.org/  # digiKam (photo manager, little OSINT value), 2026-09-26
+https://disboard.org/  # Disboard (Discord server directory, no input lookup), 2026-09-26
+https://dnssec-analyzer.verisignlabs.com/  # DNSSEC Analyzer (redundant; DNSViz covers DNSSEC), 2026-09-26
+https://www.dnsstuff.com/freetools  # DNSstuff (now a vendor marketing page), 2026-09-26
+https://dominoc925-pages.appspot.com/mapplets/cs_mgrs.html  # Dominoc925 (coordinate-format utility, too niche), 2026-09-26
+https://www.mailboxvalidator.com/domain  # Email Domain Validation (email-list cleaning service), 2026-09-26
+https://www.ewhois.com/  # Ewhois (redundant WHOIS lookup), 2026-09-26
+https://www.exifviewer.org/  # ExifViewer (domain now parked), 2026-09-26
+https://fedica.com/  # Fedica (social media marketing tool), 2026-09-26
+https://fediverse.observer/  # Fediverse Observer (server statistics, no account lookup), 2026-09-26
+https://geoinfer.com  # GeoInfer (no public access (HTTP 402)), 2026-09-26
+https://trends.google.com/trends/  # Google Trends (keyword trends, no investigation input), 2026-09-26
+https://www.certificate-transparency.org/known-logs  # Google's Certificate Transparency (a list of CT logs, not a search), 2026-09-26
+https://grabify.link  # Grabify (covert IP-logging links, out of scope), 2026-09-26
+https://image-net.org/  # ImageNet (research dataset), 2026-09-26
+https://www.imgrab.com/  # Imgrab (domain now hosts an unrelated gambling site), 2026-09-26
+https://imgur.com/search  # Imgur Search (image host search, little OSINT value), 2026-09-26
+https://www.isdglobal.org/  # Institute for Strategic Dialogue (research organisation page, not a tool), 2026-09-26
+https://iplogger.com/  # IP Logger (covert IP-logging links, out of scope), 2026-09-26
+https://www.linkedin.com  # Linkedin (a social network itself, not a tool), 2026-09-26
+https://malpedia.caad.fkie.fraunhofer.de/  # Malpedia (malware reference library without a fitting lookup input), 2026-09-26
+https://www.misp-project.org/  # Malware Information Sharing Platform (self-hosted sharing platform, not a lookup), 2026-09-26
+https://www.malwarepatrol.net/  # Malware Patrol (commercial threat feeds), 2026-09-26
+https://mini-for-instagram.en.softonic.com/  # Mini Instagram (third-party app download page), 2026-09-26
+https://iocfeed.mrlooquer.com/  # Mr.Looquer IOC Feed - 1st Dual Stack Threat Feed (raw threat feed), 2026-09-26
+https://www.projecthoneypot.org/list_of_ips.php  # Project Honey Pot (duplicate of Project Honey Pot), 2026-09-26
+https://www.rand.org/topics/terrorism.html  # RAND Terrorism Research (research organisation page, not a tool), 2026-09-26
+https://rescure.me/  # REScure Cyber Threat Intelligence Project (domain now hosts an unrelated casino site), 2026-09-26
+https://scans.io/  # Scans.io (archived research dataset), 2026-09-26
+https://exif.osint-tool.com  # Search by Exif (site down (HTTP 522)), 2026-09-26
+https://secai.ai/research  # SecAI.ai (unclear product, no public lookup), 2026-09-26
+https://github.com/Turner-Levey/section-16-deadline-calculator  # Section 16 Deadline Calculator (unrelated compliance worksheet), 2026-09-26
+https://www.smugmug.com/  # SmugMug Search (photo hosting site), 2026-09-26
+https://www.start.umd.edu/  # START Consortium for the Study of Terrorism and Responses to Terrorism (research organisation page, not a tool), 2026-09-26
+https://home.treasury.gov/policy-issues/terrorism-and-illicit-finance/terrorist-finance-tracking-program-tftp  # Terrorist Finance Tracking Program (government programme page, not a tool), 2026-09-26
+https://www.toofr.com  # Toofr (redundant email finder), 2026-09-26
+https://verify-email.org  # Verify Email (email-list cleaning service), 2026-09-26
+https://emailable.com/  # VerifyEmail (R$) (email-list cleaning service), 2026-09-26
+https://cipher387.github.io/osintmap/  # Worldwide OSINT Tools Map (a directory of tools, not a tool), 2026-09-26

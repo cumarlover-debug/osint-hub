@@ -1,0 +1,10 @@
+name: Astrometry.net
+url: https://nova.astrometry.net/
+description: Works out exactly which part of the sky a night photo shows, which can help confirm where and when it was taken.
+category: geolocation
+inputs: [image]
+outputs: [location, metadata]
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,10 @@
+name: Flickr search
+url: https://flickr.com/search/
+description: Search Flickr photos by place or keyword and browse them on a map; many keep their original camera metadata.
+category: image-video
+inputs: [location, image]
+outputs: [image, metadata]
+type: web
+cost: freemium
+passive: true
+account_required: false

@@ -1,0 +1,10 @@
+name: Orbis (Moody's)
+url: https://www.moodys.com/web/en/us/capabilities/company-reference-data/orbis.html
+description: Commercial database of hundreds of millions of companies with ownership structures, shareholders and financials.
+category: business
+inputs: [company]
+outputs: [company, name]
+type: web
+cost: paid
+passive: true
+account_required: true

@@ -1,0 +1,13 @@
+name: Exiv2
+url: https://exiv2.org/
+description: Command-line tool for reading and editing EXIF, IPTC and XMP metadata in images, including many RAW formats.
+category: metadata
+inputs: [image]
+outputs: [metadata, location]
+type: cli
+cost: free
+passive: true
+account_required: false
+install: brew install exiv2
+platforms: [linux, macos, windows]
+tags: [exif, open-source]
