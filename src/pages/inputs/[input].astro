@@ -15,18 +15,30 @@ const { label } = Astro.props as { label: string };
 const list = toolsTaking(input!);
 const pivots = pivotsFrom(input!);
 const guides = playbooksStartingWith(input!);
-const lower = label.toLowerCase();
+// Mid-sentence wording for the input: keep acronyms, and pick "a" or "an" by sound
+// ("an IP address", "an email address", "a username", "a URL").
+const phrases: Record<string, string> = {
+  ip: 'IP address',
+  url: 'URL',
+  wifi: 'Wi-Fi network or BSSID',
+  social_post: 'social media post',
+  location: 'place or coordinates',
+  document: 'document or file',
+  vehicle: 'vehicle or licence plate',
+};
+const phrase = phrases[input!] ?? label.toLowerCase();
+const aLower = `${/^([aeio]|IP)/.test(phrase) ? 'an' : 'a'} ${phrase}`;
 ---
 
 <Base
-  title={`OSINT tools for a ${lower} | osint-hub`}
-  description={`${list.length} OSINT tools that take a ${lower} as input, what each one does, and where a ${lower} can lead.`}
+  title={`OSINT tools for ${aLower} | osint-hub`}
+  description={`${list.length} OSINT tools that take ${aLower} as input, what each one does, and where ${aLower} can lead.`}
 >
   <nav class="crumbs"><a href="/">Tools</a> / {label}</nav>
   <section class="hero">
-    <h1>You have a {lower}.</h1>
+    <h1>You have {aLower}.</h1>
     <p class="lede">
-      {list.length} tools take a {lower} as input. <a href={`/?input=${input}`}>Filter them</a>, or
+      {list.length} tools take {aLower} as input. <a href={`/?input=${input}`}>Filter them</a>, or
       <a href="/launch">search many at once</a>.
     </p>
   </section>
@@ -47,7 +59,7 @@ const lower = label.toLowerCase();
   {
     pivots.length > 0 && (
       <section class="pivot-map">
-        <h2>Where a {lower} can lead</h2>
+        <h2>Where {aLower} can lead</h2>
         <p class="hint">What these tools can turn up, and the tools that get you there. Each result is a new starting point.</p>
         <ul>
           {pivots.map((p) => (
