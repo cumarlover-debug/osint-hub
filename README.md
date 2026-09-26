@@ -3,6 +3,8 @@
 A searchable directory of OSINT tools, organised by what you're investigating: start from a username, email,
 domain, IP, image or other input and see every tool that takes it.
 
+**Live site: https://osinthub.pages.dev** (Cloudflare Pages, redeploys on every push to `main`)
+
 ## Run it
 
 ```bash

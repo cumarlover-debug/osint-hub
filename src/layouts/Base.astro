@@ -7,7 +7,8 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site);
+// Pages are built as foo.html but served at /foo, so drop the extension (and "index") from the canonical URL.
+const canonical = new URL(Astro.url.pathname.replace(/(index)?\.html$/, ''), Astro.site);
 ---
 
 <!doctype html>
