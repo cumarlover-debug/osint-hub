@@ -1,0 +1,12 @@
+name: Mozilla Monitor
+url: https://monitor.mozilla.org
+description: Checks which known data breaches an email address appears in, and emails you when it shows up in a new one.
+category: email
+inputs: [email]
+outputs: [breach]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [breaches]
+notes: Uses the Have I Been Pwned breach list. The one-off check is free; ongoing alerts need a Mozilla account.

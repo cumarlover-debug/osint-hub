@@ -1,0 +1,12 @@
+name: Firefox breach alerts
+url: https://support.mozilla.org/en-US/kb/firefox-password-manager-alerts-breached-websites
+description: Firefox's built-in password manager warns you when a site you have a saved login for has had a data breach.
+category: email
+inputs: [password]
+outputs: [breach]
+type: desktop
+cost: free
+passive: true
+account_required: false
+tags: [breaches, passwords]
+notes: Built into Firefox. See the alerts under about:logins.
