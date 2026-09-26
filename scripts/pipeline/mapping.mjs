@@ -94,5 +94,9 @@ export function inputsFromText(text) {
   return [...keys];
 }
 
-/** Words that mean a service may trade in leaked personal data, which the site does not list. */
-export const policyPattern = /breach|leak|stealer|combo ?list|credential|dump|dox/i;
+/**
+ * Services the site either does not list (leaked data) or lists only after an explicit policy decision
+ * (people search, face recognition). Matching candidates get a "policy:" flag and are not drafted by default.
+ */
+export const policyPattern =
+  /breach|leak|stealer|combo ?list|credential|dump|dox|face (search|recognition)|facial|search (for )?people|people (search|finder|lookup)|by photo|reverse (phone|address)|phone ?book|background check|whitepages|owner of a phone|who (called|lives)/i;

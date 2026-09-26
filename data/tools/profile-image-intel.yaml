@@ -1,0 +1,10 @@
+name: Profile Image Intel
+url: https://profileimageintel.com/
+description: Estimates when a social media or WhatsApp profile picture was uploaded from the image URL.
+category: image-video
+inputs: [image, url]
+outputs: [metadata]
+type: web
+cost: freemium
+passive: true
+account_required: false

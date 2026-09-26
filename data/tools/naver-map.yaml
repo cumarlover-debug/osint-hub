@@ -1,0 +1,11 @@
+name: Naver Map
+url: https://map.naver.com/p/
+description: Korea's leading map, with far better coverage of South Korea than Google, including its own street-level imagery.
+category: geolocation
+inputs: [location]
+outputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: The interface is mostly in Korean.

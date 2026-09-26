@@ -1,0 +1,16 @@
+name: CertGraph
+url: https://github.com/lanrat/certgraph
+description: Crawls TLS certificates and Certificate Transparency logs to map every domain linked to a starting domain as a graph.
+category: domain
+inputs: [domain]
+outputs: [domain, certificate]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: lanrat/certgraph
+install: go install github.com/lanrat/certgraph@latest
+language: Go
+license: GPL-2.0
+platforms: [linux, macos, windows]
+tags: [certificates, open-source]

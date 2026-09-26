@@ -1,0 +1,16 @@
+name: Social Analyzer
+url: https://github.com/qeeqbox/social-analyzer
+description: Finds a person's profiles across 1,000+ sites by username and scores how likely each match really is them. CLI and web app.
+category: social-media
+inputs: [username]
+outputs: [social_profile]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: qeeqbox/social-analyzer
+install: pip3 install social-analyzer
+language: JavaScript
+license: AGPL-3.0
+platforms: [linux, macos, windows]
+tags: [username-enumeration, open-source]

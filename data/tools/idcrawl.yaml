@@ -1,0 +1,10 @@
+name: IDCrawl
+url: https://www.idcrawl.com/username
+description: Searches major social networks for accounts with a given username and shows them on one page.
+category: social-media
+inputs: [username]
+outputs: [social_profile]
+type: web
+cost: freemium
+passive: true
+account_required: false

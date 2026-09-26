@@ -1,0 +1,10 @@
+name: PhishStats
+url: https://phishstats.info/
+description: Database of phishing URLs seen in the wild. Search a domain or IP to see phishing pages hosted on it.
+category: domain
+inputs: [domain, ip, url]
+outputs: [url, reputation]
+type: web
+cost: free
+passive: true
+account_required: false

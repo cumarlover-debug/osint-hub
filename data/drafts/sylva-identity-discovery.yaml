@@ -1,15 +1,13 @@
-# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
-# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
 name: Sylva Identity Discovery
 url: https://sylva.pfeister.dev/
 description: ''
 category: social-media
-inputs: [username]
+inputs:
+  - username
 type: web
 cost: free
 passive: true
 account_required: false
-
 review:
   approve: false
   reject: false
@@ -22,14 +20,12 @@ review:
     sources:
       - list: osint-framework
         section: Username > Username Search Engines
-        said: >-
-          Open-source CLI tool for username and identity discovery with branch discovery to expand searches as
-          additional linked identities are uncovered.
+        said: Open-source CLI tool for username and identity discovery with branch discovery to expand searches as additional linked identities are uncovered.
       - list: osint-framework
         section: Email Address > Email Search
-        said: >-
-          Identity discovery utility that searches GitHub and PGP key servers to link identities across
-          platforms using email addresses, usernames, or PGP keys.
+        said: Identity discovery utility that searches GitHub and PGP key servers to link identities across platforms using email addresses, usernames, or PGP keys.
     framework_input: Username
     framework_output: Linked accounts and identities across platforms
     page_title: Sylva Identity Discovery
+  hold: true
+  hold_reason: 'CLI tool: needs its source repo link'

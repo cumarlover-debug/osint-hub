@@ -1,0 +1,10 @@
+name: Company Data Rex
+url: https://www.cdrex.com/
+description: Company search across several European national registries in one place.
+category: business
+inputs: [company]
+outputs: [name, location]
+type: web
+cost: freemium
+passive: true
+account_required: false

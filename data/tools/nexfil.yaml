@@ -1,0 +1,15 @@
+name: NexFil
+url: https://github.com/thewhiteh4t/nexfil
+description: Fast command-line check of a username across hundreds of sites.
+category: social-media
+inputs: [username]
+outputs: [social_profile]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: thewhiteh4t/nexfil
+language: Python
+license: MIT
+platforms: [linux, macos, windows]
+tags: [username-enumeration, open-source]

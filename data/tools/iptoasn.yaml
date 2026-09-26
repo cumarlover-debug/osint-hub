@@ -1,0 +1,10 @@
+name: IPtoASN
+url: https://iptoasn.com/
+description: Maps an IP address to the network (ASN) and organisation that announces it. Free database and API.
+category: network
+inputs: [ip]
+outputs: [company]
+type: web
+cost: free
+passive: true
+account_required: false

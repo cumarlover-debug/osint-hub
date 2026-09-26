@@ -1,0 +1,10 @@
+name: LandsatLook
+url: https://landsatlook.usgs.gov/
+description: USGS viewer for Landsat satellite imagery since 1972. Compare the same place across dates.
+category: geolocation
+inputs: [location]
+outputs: [image]
+type: web
+cost: free
+passive: true
+account_required: false

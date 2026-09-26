@@ -1,0 +1,10 @@
+name: JPEG Audit
+url: https://jpegaudit.com
+description: 'JPEG forensics in the browser: metadata, GPS, compression tables and automated checks for signs of editing.'
+category: metadata
+inputs: [image]
+outputs: [metadata, location]
+type: web
+cost: freemium
+passive: true
+account_required: false

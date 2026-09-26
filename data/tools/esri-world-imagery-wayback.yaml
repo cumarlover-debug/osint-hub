@@ -1,0 +1,10 @@
+name: Esri World Imagery Wayback
+url: https://livingatlas.arcgis.com/wayback/
+description: Every past version of Esri's world satellite basemap since 2014, to compare how a place changed between dates.
+category: geolocation
+inputs: [image, location]
+outputs: [image]
+type: web
+cost: free
+passive: true
+account_required: false

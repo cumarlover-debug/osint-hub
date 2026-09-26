@@ -56,3 +56,40 @@ https://ritetag.com  # RiteTag (hashtag marketing tool), 2026-09-26
 https://shipais.uk/  # Ship AIS (covers a single port area), 2026-09-26
 https://www.slydial.com/  # Slydial (contacts the number's owner), 2026-09-26
 https://subreddits.org  # Subreddits (subreddit directory, little OSINT value), 2026-09-26
+https://otx.alienvault.com/browse/pulses/  # AlienVault Open Threat Exchange (duplicate of AlienVault OTX), 2026-09-26
+https://github.com/maravento/blackweb  # Blackweb (proxy blocklist, not an investigation tool), 2026-09-26
+https://portswigger.net/burp  # Burp Suite (web app pentesting suite, out of scope), 2026-09-26
+https://camfindapp.com/  # CamFind App (consumer visual search app, little OSINT value), 2026-09-26
+https://search.creativecommons.org/  # CC Search (licensed-image search, not OSINT), 2026-09-26
+https://www.csis.org/programs/warfare-irregular-threats-and-terrorism-program  # CSIS Warfare, Irregular Threats, and Terrorism Program (research programme page, not a tool), 2026-09-26
+https://github.com/OSINTI4L/cupidcr4wl  # Cupidcr4wl (searches adult sites for a person; too easily used for stalking), 2026-09-26
+https://www.diffchecker.com/image-diff/  # DiffChecker (generic diff utility), 2026-09-26
+https://github.com/atiilla/gitrecon  # Gitrecon (very small project; GitFive covers it), 2026-09-26
+https://www.start.umd.edu/research-projects/global-terrorism-database-gtd  # Global Terrorism Database (research dataset without an input lookup), 2026-09-26
+https://github.com/hstsethi/in-mob-prefix  # InMobPrefix (dataset for one country, not a tool), 2026-09-26
+https://ipfingerprints.com/reverseip.php  # IP Fingerprints - Reverse IP Lookup (redundant; ViewDNS.info covers reverse IP), 2026-09-26
+https://www.cidr-report.org/as2.0/  # IPv4 CIDR Report (routing statistics, not a lookup), 2026-09-26
+https://www.cidr-report.org/v6/as2.0/  # IPv6 CIDR Report (routing statistics, not a lookup), 2026-09-26
+https://logibook.dataint.net  # Logibook (logistics reference, little OSINT value), 2026-09-26
+https://mailtester.com  # MailTester (email deliverability service; Reacher covers verification), 2026-09-26
+https://www.malware-traffic-analysis.net/index.html  # Malware-Traffic-Analysis.net (training material, not a tool), 2026-09-26
+https://kriztalz.sh/metadata-viewer/  # Metadata Viewer (redundant EXIF viewer), 2026-09-26
+https://www.namecheckr.com  # Name Checkr (redundant username checker), 2026-09-26
+https://www.ncdc.noaa.gov/nexradinv/  # NEXRAD Data Inventory Search (raw weather radar archive, too niche), 2026-09-26
+https://download.microsoft.com/download/1/2/7/127ba59a-4fe1-4acd-ba47-513ceef85a85/OffVis.zip  # OffVis (discontinued Microsoft download), 2026-09-26
+https://www.openaip.net/  # OpenAIP World Aeronautical Database (aviation charts, too niche), 2026-09-26
+https://www.openownership.org/en/  # OpenOwnership (standards body; its public register has closed), 2026-09-26
+https://resources.linkurious.com/openscreening  # OpenScreening (tool page removed, redirects to the vendor homepage), 2026-09-26
+https://www.openseamap.org  # OpenSeaMap - The free nautical chart (nautical charts, too niche), 2026-09-26
+https://www.opensignal.com/  # OpenSignal (now a market-insights business, no public coverage lookup), 2026-09-26
+https://code.google.com/archive/p/origami-pdf/  # Origami Framework (archived Google Code project), 2026-09-26
+https://github.com/atiilla/OsintEye  # OSINTEye (very small project), 2026-09-26
+https://github.com/tg12/phantomtide  # Phantom Tide (very small project), 2026-09-26
+https://sandbox.pikker.ee/  # Pikker.ee Cuckoo Sandbox (public instance of unmaintained sandbox software), 2026-09-26
+https://www.pixsy.com/  # Pixsy (image-theft service for photographers), 2026-09-26
+https://www.rba.co.uk/sources/  # RBA - Business Information Resources (a link directory, not a tool), 2026-09-26
+https://travelbydrone.com/  # Travel by Drone (drone video magazine), 2026-09-26
+https://www.twilio.com/docs/lookup/v2-api  # Twilio (duplicate of Twilio Lookup), 2026-09-26
+https://www.gov.uk/get-information-about-a-company  # UK Companies (duplicate of Companies House), 2026-09-26
+https://ukdata.com/  # UK Data (council data reports, unrelated), 2026-09-26
+https://blockchair.com/zcash  # Zcash Block Explorer (part of Blockchair, already listed), 2026-09-26

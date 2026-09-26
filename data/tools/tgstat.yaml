@@ -1,0 +1,10 @@
+name: TGStat
+url: https://tgstat.com/
+description: 'Catalogue and analytics of Telegram channels and groups: subscriber growth, mentions, forwards and post search.'
+category: social-media
+inputs: [username, social_post]
+outputs: [social_profile]
+type: web
+cost: freemium
+passive: true
+account_required: true

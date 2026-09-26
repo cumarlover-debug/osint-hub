@@ -1,0 +1,14 @@
+name: Nmap
+url: https://nmap.org/
+description: 'The standard network scanner: finds live hosts, open ports, running services and their versions, and the operating system.'
+category: network
+inputs: [domain, ip]
+outputs: [port_service]
+type: cli
+cost: free
+passive: false
+account_required: false
+install: brew install nmap
+platforms: [linux, macos, windows]
+tags: [port-scanning, open-source]
+notes: Actively scans the target. Only scan networks you are allowed to test.

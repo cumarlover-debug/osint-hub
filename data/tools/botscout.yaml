@@ -1,0 +1,10 @@
+name: BotScout
+url: https://botscout.com/
+description: Database of names, emails and IPs used by spam bots on forms and forums. Check whether an address is a known bot.
+category: threat-intel
+inputs: [username, email, ip]
+outputs: [reputation]
+type: web
+cost: freemium
+passive: true
+account_required: true

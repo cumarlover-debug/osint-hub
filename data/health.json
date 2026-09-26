@@ -27,6 +27,18 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "altdns": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 2508,
+      "archived": false,
+      "pushed_at": "2025-01-09"
+    }
+  },
   "amass": {
     "status": "up",
     "failures": 0,
@@ -192,6 +204,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "botscout": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "breadcrumbs": {
     "status": "unverified",
     "failures": 0,
@@ -228,6 +247,25 @@
     "last_ok": "2026-09-26"
   },
   "censys": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "certgraph": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 383,
+      "archived": false,
+      "pushed_at": "2026-07-03"
+    }
+  },
+  "certkit-ct-search": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -274,7 +312,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "company-data-rex": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "corona-atlas": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "corporateinformation": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -303,6 +355,20 @@
     "last_ok": "2026-09-26"
   },
   "db-ip": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "digital-footprint-check": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "dilisense": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -385,6 +451,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "email-hippo": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "email-permutator": {
     "status": "up",
     "failures": 0,
@@ -399,12 +472,33 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "epieos": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403"
+  },
+  "esri-world-imagery-wayback": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "etherscan": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)",
+    "last_ok": "2026-09-26"
+  },
+  "eu-vies-vat-check": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
     "last_ok": "2026-09-26"
   },
   "europages": {
@@ -434,6 +528,13 @@
     }
   },
   "exonerator": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "faxvin": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -481,6 +582,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "free-carrier-lookup": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "geospy": {
     "status": "up",
@@ -582,6 +690,20 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "historic-aerials": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "hivemapper": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "hlr-lookups": {
     "status": "up",
     "failures": 0,
@@ -622,6 +744,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "idcrawl": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 202,
+    "last_ok": "2026-09-26"
+  },
   "infosniper": {
     "status": "up",
     "failures": 0,
@@ -648,6 +777,13 @@
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "iptoasn": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "ipvoid": {
     "status": "up",
@@ -677,7 +813,28 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "jpeg-audit": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "jpegsnoop": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "kartaview": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "kartavision": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -698,7 +855,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "landsatlook": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "littlesis": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "lookup-id-com": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -731,6 +902,25 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "masscan": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 26043,
+      "archived": false,
+      "pushed_at": "2026-04-23"
+    }
+  },
+  "maxmind-geoip": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "metadefender-cloud": {
     "status": "up",
     "failures": 0,
@@ -745,6 +935,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "minerva": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "misttrack": {
     "status": "up",
     "failures": 0,
@@ -752,7 +949,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "mit-pgp-key-server": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "monero-blocks": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "multirbl": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -794,6 +1005,39 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "naver-map": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "netlas-io": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "networkminer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "nexfil": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 2625,
+      "archived": false,
+      "pushed_at": "2023-09-30"
+    }
+  },
   "nhtsa-vpic-vin-decoder": {
     "status": "up",
     "failures": 0,
@@ -802,6 +1046,13 @@
     "last_ok": "2026-09-26"
   },
   "nikto-online": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "nmap": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -829,6 +1080,20 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "onyphe": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "open-infrastructure-map": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "opencellid": {
     "status": "up",
     "failures": 0,
@@ -837,6 +1102,13 @@
     "last_ok": "2026-09-26"
   },
   "opencorporates": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "openrailwaymap": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -897,6 +1169,32 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "pdf-tools-didier-stevens": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 2543,
+      "archived": false,
+      "pushed_at": "2026-09-23"
+    }
+  },
+  "peeringdb": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "phishstats": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "phone-validator": {
     "status": "up",
     "failures": 0,
@@ -917,6 +1215,20 @@
     }
   },
   "phonerator": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "profile-image-intel": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "pulsedive": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -963,6 +1275,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "rusprofile": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403"
+  },
   "sans-isc-dshield": {
     "status": "up",
     "failures": 0,
@@ -997,12 +1316,57 @@
     "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-26"
   },
+  "skyfi": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "skymem": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "snoop": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 4036,
+      "archived": false,
+      "pushed_at": "2026-09-08"
+    }
+  },
+  "social-analyzer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 24113,
+      "archived": false,
+      "pushed_at": "2026-01-12"
+    }
+  },
   "social-searcher": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "spamhaus-reputation-checker": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "spiderfoot": {
     "status": "up",
@@ -1047,6 +1411,20 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "sync-me": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "tgstat": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "theharvester": {
     "status": "up",
     "failures": 0,
@@ -1074,6 +1452,25 @@
     "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-26"
   },
+  "tosint": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 853,
+      "archived": false,
+      "pushed_at": "2026-07-29"
+    }
+  },
+  "tracepoint": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "truecaller": {
     "status": "up",
     "failures": 0,
@@ -1088,7 +1485,28 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "uncoverit": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 429,
+    "reason": "HTTP 429"
+  },
+  "urlquery": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "urlscan": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "urlvoid": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",

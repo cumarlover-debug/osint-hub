@@ -1,0 +1,10 @@
+name: KartaView
+url: https://kartaview.org/
+description: Open, crowdsourced street-level imagery, sometimes the only street photos available where Google has none.
+category: geolocation
+inputs: [location]
+outputs: [image]
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,10 @@
+name: Historic Aerials
+url: https://www.historicaerials.com/?javascript=&
+description: Decades of historical aerial photos and topographic maps of the US, to see how a place looked in a given year.
+category: geolocation
+inputs: [location]
+outputs: [image]
+type: web
+cost: freemium
+passive: true
+account_required: true

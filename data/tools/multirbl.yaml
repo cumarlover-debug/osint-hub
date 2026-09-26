@@ -1,0 +1,10 @@
+name: MultiRBL
+url: https://multirbl.valli.org/dnsbl-lookup
+description: Checks an IP or domain against hundreds of DNS blocklists and allowlists at once.
+category: email
+inputs: [ip, domain]
+outputs: [reputation]
+type: web
+cost: freemium
+passive: true
+account_required: false

@@ -1,0 +1,29 @@
+name: PimEyes
+url: https://pimeyes.com
+description: ''
+category: image-video
+inputs:
+  - image
+type: web
+cost: freemium
+passive: true
+account_required: false
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: high
+  score: 7
+  source_url: https://pimeyes.com
+  flags:
+    - 'cost: unknown, guessed freemium'
+    - 'account_required: unknown, guessed no'
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Image Search
+        said: an online face search engine that goes through the Internet to find pictures containing given faces.
+    page_title: 'PimEyes: Face Recognition Search Engine and Reverse Image Search'
+    page_description: PimEyes is an advanced face recognition search engine, a reverse image search tool, and a photo search mechanism used to find which websites publish your photos online.
+  hold: true
+  hold_reason: waiting on the face-search policy decision

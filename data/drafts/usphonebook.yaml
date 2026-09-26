@@ -1,0 +1,28 @@
+name: USPhoneBook
+url: https://www.usphonebook.com/
+description: ''
+category: phone
+inputs:
+  - phone
+type: web
+cost: freemium
+passive: true
+account_required: false
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: high
+  score: 7
+  source_url: https://www.usphonebook.com/
+  flags:
+    - 'cost: unknown, guessed freemium'
+    - 'account_required: unknown, guessed no'
+    - 'link: could not verify (HTTP 403 (bot protection))'
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Phone Number Research
+        said: Reverse phone and address lookups and leading data.
+  hold: true
+  hold_reason: waiting on the people-search policy decision

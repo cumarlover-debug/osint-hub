@@ -1,0 +1,10 @@
+name: ONYPHE
+url: https://www.onyphe.com/
+description: 'Search engine of internet scan and threat data: exposed services, vulnerabilities and leaks tied to an IP or domain.'
+category: network
+inputs: [domain, ip]
+outputs: [port_service, domain, reputation]
+type: web
+cost: freemium
+passive: true
+account_required: true

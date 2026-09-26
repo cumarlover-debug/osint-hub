@@ -1,0 +1,10 @@
+name: Pulsedive
+url: https://pulsedive.com
+description: Threat-intelligence lookups for IPs, domains and URLs, combining OSINT feeds with risk scores and related indicators.
+category: threat-intel
+inputs: [domain, ip, url]
+outputs: [reputation, domain, ip]
+type: web
+cost: freemium
+passive: true
+account_required: true

@@ -1,0 +1,11 @@
+name: Rusprofile
+url: https://www.rusprofile.ru/
+description: 'Russian company register data: owners, directors, finances and court cases for Russian legal entities.'
+category: business
+inputs: [company, name]
+outputs: [name, company, document]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: In Russian.

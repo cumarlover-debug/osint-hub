@@ -1,0 +1,10 @@
+name: Open Infrastructure Map
+url: https://openinframap.org/
+description: Maps power lines, substations, telecom towers, pipelines and water infrastructure from OpenStreetMap.
+category: geolocation
+inputs: [location]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false

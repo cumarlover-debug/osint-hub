@@ -1,0 +1,10 @@
+name: Minerva
+url: https://minervaosint.com
+description: Email intelligence platform that checks where an address is registered and gathers public profile data from 100+ sites.
+category: email
+inputs: [email]
+outputs: [social_profile, name]
+type: web
+cost: freemium
+passive: true
+account_required: false

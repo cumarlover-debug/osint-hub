@@ -1,0 +1,16 @@
+name: AltDNS
+url: https://github.com/infosec-au/altdns
+description: Generates variations of known subdomains (dev-, -staging, numbers) and resolves them to find hidden hosts.
+category: domain
+inputs: [domain]
+outputs: [domain]
+type: cli
+cost: free
+passive: false
+account_required: false
+repo: infosec-au/altdns
+language: Python
+license: Apache-2.0
+platforms: [linux, macos]
+tags: [subdomains, open-source]
+notes: Resolving thousands of guesses sends DNS queries for the target domain.

@@ -1,0 +1,10 @@
+name: SkyFi
+url: https://app.skyfi.com/explore/open
+description: Satellite imagery marketplace with a free open-data section; order new or archived high-resolution images of a place.
+category: geolocation
+inputs: [location]
+outputs: [image]
+type: web
+cost: freemium
+passive: true
+account_required: true

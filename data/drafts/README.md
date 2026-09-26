@@ -15,3 +15,6 @@ For each `.yaml` file:
 5. Run `npm run pipeline:promote`. Approved drafts are validated, moved to `data/tools/` and health-checked.
 
 Leave a draft untouched to decide later.
+
+To park a draft until a decision is made (for example a policy question), set `review.hold: true` and
+`review.hold_reason`. Promote leaves held drafts alone.

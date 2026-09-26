@@ -1,0 +1,10 @@
+name: Skymem
+url: https://www.skymem.info/
+description: Finds email addresses published on the web for a company domain or a person.
+category: email
+inputs: [domain, name]
+outputs: [email]
+type: web
+cost: freemium
+passive: true
+account_required: false

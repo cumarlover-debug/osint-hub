@@ -1,0 +1,10 @@
+name: dilisense
+url: https://dilisense.com/en
+description: Free sanctions and politically-exposed-person screening for people and companies, with fuzzy name matching.
+category: business
+inputs: [name, company]
+outputs: [reputation]
+type: web
+cost: freemium
+passive: true
+account_required: true

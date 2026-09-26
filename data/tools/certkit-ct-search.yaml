@@ -1,0 +1,10 @@
+name: CertKit CT Search
+url: https://www.certkit.io/tools/ct-logs/
+description: 'Fast Certificate Transparency search: every certificate issued for a domain, including subdomains in the certificate names.'
+category: domain
+inputs: [domain]
+outputs: [domain, certificate]
+type: web
+cost: free
+passive: true
+account_required: false

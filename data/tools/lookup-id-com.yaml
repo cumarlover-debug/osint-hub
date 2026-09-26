@@ -1,0 +1,10 @@
+name: Lookup-ID.com
+url: https://lookup-id.com
+description: Finds the numeric Facebook ID of a profile, page or group from its URL; the ID stays the same when the username changes.
+category: social-media
+inputs: [url]
+outputs: [username]
+type: web
+cost: free
+passive: true
+account_required: false

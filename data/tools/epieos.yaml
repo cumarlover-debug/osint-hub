@@ -1,0 +1,10 @@
+name: Epieos
+url: https://epieos.com/
+description: Looks up an email or phone number and reveals linked accounts, such as the Google account behind a Gmail address and its public reviews.
+category: email
+inputs: [email, phone]
+outputs: [name, social_profile, location]
+type: web
+cost: freemium
+passive: true
+account_required: false

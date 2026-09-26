@@ -1,0 +1,10 @@
+name: Email Hippo
+url: https://tools.emailhippo.com/
+description: Checks whether an email address exists and whether it belongs to a disposable or role-based mailbox.
+category: email
+inputs: [email]
+type: web
+cost: freemium
+passive: false
+account_required: false
+notes: Checks by contacting the address's mail server.
