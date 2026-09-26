@@ -16,7 +16,9 @@ async function loadData() {
   const { cache } = await chrome.storage.local.get('cache');
   if (cache && Date.now() - cache.fetchedAt < DAY) return cache.data;
   try {
-    const res = await fetch(API);
+    // The extension keeps its own daily cache, so when it does fetch it should get the current file, not the
+    // browser's HTTP-cached copy (the API is served with max-age=3600).
+    const res = await fetch(API, { cache: 'no-cache' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const fresh = await res.json();
     await chrome.storage.local.set({ cache: { data: fresh, fetchedAt: Date.now() } });
