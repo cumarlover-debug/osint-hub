@@ -1,0 +1,10 @@
+name: Canada411
+url: https://www.canada411.ca
+description: 'Canadian phone directory: look up a person or business by name or reverse-search a listed number.'
+category: people
+inputs: [name, phone]
+outputs: [location, phone, name]
+type: web
+cost: free
+passive: true
+account_required: false

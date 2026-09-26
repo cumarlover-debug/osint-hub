@@ -1,0 +1,11 @@
+name: FamilyTreeNow
+url: https://familytreenow.com
+description: Free US people search with address history, possible relatives and associates.
+category: people
+inputs: [name]
+outputs: [location, phone, name]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: Results come from commercial data brokers and are often outdated or mixed up between people with similar names.

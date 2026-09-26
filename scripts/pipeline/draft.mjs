@@ -2,7 +2,8 @@
 //
 //   npm run pipeline:draft -- --limit 50                 best 50, spread evenly across categories
 //   npm run pipeline:draft -- --limit 20 --category email
-//   npm run pipeline:draft -- --flagged                  also draft candidates with a policy flag
+//   npm run pipeline:draft -- --people                   also draft people-search and face-search candidates
+//   npm run pipeline:draft -- --leaked                   also draft possible leaked-data services (for rejecting)
 //
 // Each candidate's link is checked first and its GitHub repo read; dead, missing, archived and long-abandoned
 // tools are skipped (and listed at the end). Drafts leave `description` empty: it has to be written fresh,
@@ -18,7 +19,8 @@ const args = process.argv.slice(2);
 const arg = (name) => (args.includes(name) ? args[args.indexOf(name) + 1] : undefined);
 const limit = Number(arg('--limit') ?? 50);
 const onlyCategory = arg('--category');
-const includeFlagged = args.includes('--flagged');
+const includePeople = args.includes('--people');
+const includeLeaked = args.includes('--leaked');
 
 if (onlyCategory && !(onlyCategory in taxonomy.categories)) {
   console.error(`Unknown category "${onlyCategory}". Use one of: ${Object.keys(taxonomy.categories).join(', ')}`);
@@ -55,7 +57,8 @@ const pool_ = JSON.parse(readFileSync(candidatesPath, 'utf8')).filter(
     !rejected.has(c.key) &&
     !skippedRecently(c.key) &&
     (!onlyCategory || c.category === onlyCategory) &&
-    (includeFlagged || !c.flags.some((f) => f.startsWith('policy'))),
+    (includePeople || !c.flags.some((f) => f.startsWith('policy-people'))) &&
+    (includeLeaked || !c.flags.some((f) => f.startsWith('policy-leak'))),
 );
 
 // Round-robin over categories (each already sorted by score) so one big category can't fill the batch.

@@ -1,0 +1,10 @@
+name: Regrid
+url: https://regrid.com
+description: US and Canadian parcel map showing property boundaries and the recorded owner of each lot.
+category: people
+inputs: [location]
+outputs: [name, location]
+type: web
+cost: freemium
+passive: true
+account_required: false

@@ -1,0 +1,10 @@
+name: WebMii
+url: https://webmii.com/
+description: Searches the web for a person's name and ranks their online visibility, listing pages and profiles that mention them.
+category: people
+inputs: [name]
+outputs: [social_profile, url]
+type: web
+cost: free
+passive: true
+account_required: false

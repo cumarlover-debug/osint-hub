@@ -1,0 +1,11 @@
+name: UK Phone Book
+url: https://www.ukphonebook.com/
+description: UK directory of people and businesses from public telephone listings and company data.
+category: people
+inputs: [name]
+outputs: [location, phone, name]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Results come from commercial data brokers and are often outdated or mixed up between people with similar names.

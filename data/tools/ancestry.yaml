@@ -1,0 +1,10 @@
+name: Ancestry
+url: https://www.ancestry.com/search/
+description: 'The largest genealogy archive: census, immigration, military and vital records across 80+ countries.'
+category: people
+inputs: [name]
+outputs: [location, name, document]
+type: web
+cost: freemium
+passive: true
+account_required: true

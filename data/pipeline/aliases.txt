@@ -24,3 +24,4 @@ https://www.brightcloud.com/tools/url-ip-lookup.php  # now https://support.threa
 https://toolbar.netcraft.com/site_report?url=undefined#last_reboot  # now https://sitereport.netcraft.com/ (netcraft-site-report)
 https://osint-steam.vercel.app/en  # now https://steam-reveal.vercel.app/en (steamreveal)
 https://tools.digitalmethods.net/netvizz/youtube/  # now https://ytdt.digitalmethods.net/ (youtube-data-tools)
+https://publicrecords.searchsystems.net/  # now https://www.searchsystems.net/ (searchsystems-net)

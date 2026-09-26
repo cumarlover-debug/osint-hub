@@ -1,0 +1,11 @@
+name: Spokeo
+url: https://www.spokeo.com
+description: US people search aggregating public records, social profiles and contact details; detailed reports are paid.
+category: people
+inputs: [name, phone, email]
+outputs: [location, phone, social_profile]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Results come from commercial data brokers and are often outdated or mixed up between people with similar names.

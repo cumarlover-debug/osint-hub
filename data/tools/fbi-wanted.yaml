@@ -1,0 +1,10 @@
+name: FBI Wanted
+url: https://www.fbi.gov/wanted/fugitives
+description: The FBI's official wanted list with photos and case details.
+category: people
+inputs: [name, image]
+outputs: [image, name]
+type: web
+cost: free
+passive: true
+account_required: false

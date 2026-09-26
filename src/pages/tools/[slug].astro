@@ -20,6 +20,8 @@ const similar = tools
   .slice(0, 6);
 
 const { health } = tool;
+// People search and face recognition get a standard responsible-use notice.
+const sensitive = tool.category === 'people' || !!tool.tags?.includes('face-recognition');
 const repo = health?.repo;
 const statusText = { up: 'Online', down: 'Unreachable', unverified: 'Could not verify' };
 const stale = staleSince(tool);
@@ -72,6 +74,17 @@ const exampleInput = tool.inputs[0];
         )
       }
     </dl>
+
+    {sensitive && (
+      <aside class="note">
+        <p>
+          <strong>Responsible use:</strong> this tool can surface personal information about private individuals. Use it
+          only with a legitimate purpose (research, journalism, security work, personal safety), check the laws where you
+          are, and never to stalk, harass or expose someone. Results are often wrong or out of date, so verify before
+          acting on them. <a href="/about#responsible-use">Our policy</a>
+        </p>
+      </aside>
+    )}
 
     {warnings.length > 0 && (
       <aside class="note danger">

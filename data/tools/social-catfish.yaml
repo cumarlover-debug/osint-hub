@@ -1,0 +1,10 @@
+name: Social Catfish
+url: https://socialcatfish.com/
+description: 'Checks whether an online contact is who they claim to be: reverse search by name, phone, email or photo. Aimed at romance-scam victims.'
+category: people
+inputs: [name, phone, email, image]
+outputs: [social_profile, name]
+type: web
+cost: paid
+passive: true
+account_required: false

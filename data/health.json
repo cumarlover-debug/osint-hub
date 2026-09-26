@@ -1,4 +1,18 @@
 {
+  "192-com": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "411-com": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "aa419-fake-sites-database": {
     "status": "up",
     "failures": 0,
@@ -58,6 +72,13 @@
       "pushed_at": "2026-07-19"
     }
   },
+  "ancestry": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "annualreports-com": {
     "status": "up",
     "failures": 0,
@@ -80,6 +101,13 @@
     "last_ok": "2026-09-26"
   },
   "apache-tika": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "apollo-io": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -212,6 +240,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "black-book-online": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "blackbird": {
     "status": "up",
     "failures": 0,
@@ -267,12 +302,26 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "bop-inmate-locator": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "botscout": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "brb-public-records": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "breadcrumbs": {
     "status": "unverified",
@@ -316,6 +365,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "canada411": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403"
+  },
   "carnet-ai": {
     "status": "up",
     "failures": 0,
@@ -324,6 +380,13 @@
     "last_ok": "2026-09-26"
   },
   "carvertical": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "caselaw-access-project": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -460,6 +523,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "courtlistener": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "crawlgraph": {
     "status": "up",
     "failures": 0,
@@ -482,6 +552,13 @@
     "last_ok": "2026-09-26"
   },
   "crt-sh": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "crunchbase": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -573,6 +650,13 @@
     "last_ok": "2026-09-26"
   },
   "dnsviz": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "docket-alarm": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -754,12 +838,40 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "facecheck-id": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "familysearch": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "familytreenow": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "faxvin": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "fbi-wanted": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "fccid-io": {
     "status": "unverified",
@@ -768,12 +880,26 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "fec-campaign-finance-data": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "filmot": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "find-a-grave": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "find-youtube-video": {
     "status": "up",
@@ -788,6 +914,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "findmypast": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "findstickercreator": {
     "status": "up",
@@ -830,6 +963,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "fold3": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "followerwonk": {
     "status": "up",
@@ -893,6 +1033,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "genealogybank": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 405,
+    "reason": "HTTP 405"
   },
   "geomacfinder-bot": {
     "status": "up",
@@ -995,6 +1142,13 @@
     "moved_to": "https://lens.google/"
   },
   "google-maps": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "google-patents": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1181,12 +1335,26 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "infobel": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "infosniper": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "infotracer": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403"
   },
   "instant-street-view": {
     "status": "up",
@@ -1293,6 +1461,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "judyrecords": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "kartaview": {
     "status": "up",
     "failures": 0,
@@ -1314,6 +1489,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "kompass": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403"
+  },
   "koodous": {
     "status": "up",
     "failures": 0,
@@ -1322,6 +1504,13 @@
     "last_ok": "2026-09-26"
   },
   "landsatlook": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "lenso-ai": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1343,6 +1532,13 @@
     "reason": "HTTP 403 (bot protection)"
   },
   "lookup-id-com": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "lullar": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1595,6 +1791,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "nsopw": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "numbering-plans": {
     "status": "up",
     "failures": 0,
@@ -1672,6 +1875,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "opensecrets": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "openstreetmap": {
     "status": "up",
     "failures": 0,
@@ -1713,6 +1923,13 @@
     "last_ok": "2026-09-26"
   },
   "overseas-company-registers": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "pacer": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1806,7 +2023,28 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "pimeyes": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "pingcastle-azure-tenant-resolution": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "pipl": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "predicta-search": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1868,6 +2106,20 @@
     }
   },
   "redditmetis": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "redfin": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 405,
+    "reason": "HTTP 405"
+  },
+  "regrid": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1937,6 +2189,34 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "search4faces": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "searchbug": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "searchpeoplefree": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "searchsystems-net": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "securitytrails": {
     "status": "unverified",
     "failures": 0,
@@ -1962,6 +2242,13 @@
       "archived": false,
       "pushed_at": "2026-09-25"
     }
+  },
+  "sherlockeye": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "shodan": {
     "status": "unverified",
@@ -2016,6 +2303,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "social-catfish": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "social-searcher": {
     "status": "up",
     "failures": 0,
@@ -2048,6 +2342,20 @@
       "archived": false,
       "pushed_at": "2026-04-13"
     }
+  },
+  "spokeo": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "spydialer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "spyggbot": {
     "status": "up",
@@ -2143,6 +2451,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "telegram-finder": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "teleteg": {
     "status": "up",
     "failures": 0,
@@ -2151,6 +2466,20 @@
     "last_ok": "2026-09-26"
   },
   "tgstat": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "thatsthem": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403"
+  },
+  "the-national-archives-uk": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2217,6 +2546,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "transparent-california": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "trend-micro-site-safety-center": {
     "status": "up",
     "failures": 0,
@@ -2245,6 +2581,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "uk-phone-book": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "un-security-council-sanctions-list": {
     "status": "up",
     "failures": 0,
@@ -2265,6 +2608,13 @@
     "last_checked": "2026-09-26",
     "http": 429,
     "reason": "HTTP 429"
+  },
+  "unicourt": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 405,
+    "reason": "HTTP 405"
   },
   "universal-scammer-list": {
     "status": "up",
@@ -2334,7 +2684,28 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "usersearch": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "usgs-earthexplorer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "usphonebook": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "uspto-patent-search": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2383,6 +2754,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "vinelink": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "virustotal": {
     "status": "up",
     "failures": 0,
@@ -2396,6 +2774,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "voterrecords": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "walletexplorer": {
     "status": "up",
@@ -2449,7 +2834,21 @@
       "pushed_at": "2024-02-26"
     }
   },
+  "wayp-international-white-pages": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "web-check": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "webmii": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2490,6 +2889,13 @@
     "last_ok": "2026-09-26"
   },
   "wheregoes": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "whitepages": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2538,6 +2944,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "worldlii": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "xmrchain": {
     "status": "up",
     "failures": 0,
@@ -2553,6 +2966,13 @@
     "last_ok": "2026-09-26"
   },
   "yandex-maps": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "yasni": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2605,6 +3025,13 @@
       "archived": false,
       "pushed_at": "2026-09-16"
     }
+  },
+  "zabasearch": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "zone-h": {
     "status": "up",

@@ -1,0 +1,10 @@
+name: WorldLII
+url: https://worldlii.org
+description: 'Free worldwide legal database: court decisions and legislation from 100+ countries.'
+category: people
+inputs: [name, company]
+outputs: [document]
+type: web
+cost: free
+passive: true
+account_required: false

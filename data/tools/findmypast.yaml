@@ -1,0 +1,10 @@
+name: Findmypast
+url: https://www.findmypast.com/discover
+description: 'UK and Irish genealogy records: census, parish, military, newspapers and electoral rolls.'
+category: people
+inputs: [name]
+outputs: [location, name, document]
+type: web
+cost: paid
+passive: true
+account_required: true

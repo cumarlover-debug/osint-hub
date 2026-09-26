@@ -1,0 +1,10 @@
+name: VINELink
+url: https://www.vinelink.com/#state-selection
+description: Checks the custody status of an offender in US jails and prisons, mainly for victims of crime.
+category: people
+inputs: [name]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false

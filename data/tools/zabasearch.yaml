@@ -1,0 +1,11 @@
+name: ZabaSearch
+url: https://www.zabasearch.com/
+description: Free US people search by name that shows address history and links to paid reports.
+category: people
+inputs: [name]
+outputs: [location, phone, name]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Results come from commercial data brokers and are often outdated or mixed up between people with similar names.

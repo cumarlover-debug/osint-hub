@@ -410,3 +410,48 @@ https://www.whoismind.com  # WhoisMind (no information on what it does now), 202
 https://whoisrequest.com  # WhoIsRequest (redundant; ICANN Lookup covers it), 2026-09-26
 https://www.wolframalpha.com/input/?i=facebook+report  # Wolfram Alpha Facebook Report (Facebook report feature no longer works), 2026-09-26
 https://xquik.com  # Xquik (paid X scraping API), 2026-09-26
+https://www.addresses.com/  # Addresses.com (redundant; 411 and Whitepages (it hands off to Intelius) covers it), 2026-09-26
+https://www.ancestry.com  # Ancestry (duplicate of Ancestry.com search), 2026-09-26
+https://www.backgroundchecks.com/solutions/beenverified  # BeenVerified (link now points to a self-check page only), 2026-09-26
+https://www.buybindatabase.binbase.com/  # BIN Base (sells a card BIN database, unrelated), 2026-09-26
+https://cajusticewatch.com  # California Justice Watch (advocacy site, not a lookup tool), 2026-09-26
+https://www.classmates.com  # Classmates (school-reunion network, little OSINT value), 2026-09-26
+https://contactout.com/  # ContactOut (redundant; Apollo.io covers it), 2026-09-26
+https://www.melissa.com/  # Email to Address (data-quality vendor, not a lookup tool), 2026-09-26
+https://epsteinexposed.com/  # Epstein Exposed (single-case document archive, too narrow), 2026-09-26
+https://everypolitician.org/  # Every Politician (project archived, data no longer updated), 2026-09-26
+https://www.faceseek.online/  # FaceSeek Face Search Engine (redundant; PimEyes and FaceCheck.ID covers it), 2026-09-26
+https://familysearch.org  # Family Search (duplicate of FamilySearch search), 2026-09-26
+https://www.familywatchdog.us/  # Familywatchdog - Sex Offender Search (redundant; the official NSOPW search covers it), 2026-09-26
+https://www.finalnotes.page/obituary-research-guide/  # FinalNotes Obituary Research Guide (a guide, not a tool), 2026-09-26
+https://www.courtlistener.com/recap/  # Free Law RECAP Archive (duplicate of CourtListener (same site)), 2026-09-26
+https://www.genealogylinks.net  # Genealogy Links (a link directory, not a tool), 2026-09-26
+https://open.canada.ca/data/en/dataset  # Gov Data Canada (open-data portal, no person or company lookup), 2026-09-26
+https://www.govdata.de/  # GOVDATA - Das Datenportal für Deutschland (German) (open-data portal, no person or company lookup), 2026-09-26
+https://influenceexplorer.com/  # Influence Explorer (redundant; OpenSecrets covers it), 2026-09-26
+https://infoflow.cloud/  # InfoFlow Public People Search In Chilean (national ID-number lookup for private individuals), 2026-09-26
+https://intelbase.is/  # IntelBase (unclear data sources), 2026-09-26
+https://infotrackpeople.org/  # ITP Infotrack (unclear data sources), 2026-09-26
+https://ministryofcyberaffairs.com/lers  # LERS Portal Directory (Ministry of Cyber Affairs) (a directory of law-enforcement request portals, not a lookup), 2026-09-26
+https://mugshots.com/  # Mugshots (mugshot-publishing site with a history of pay-for-removal practices), 2026-09-26
+https://www.myregistry.com/  # My Registry (gift-registry search: mainly reveals home addresses and absence dates, little legitimate OSINT use), 2026-09-26
+https://explorer.naco.org/  # NACo County Explorer (county statistics, no person or company lookup), 2026-09-26
+https://www.ncosc.gov/public-information/state-employee-salary-database  # NC Salary DB (single-state salary page, too narrow), 2026-09-26
+https://offendersearch.app  # Offendersearch (redundant; the official NSOPW search covers it), 2026-09-26
+https://opendata.muenchen.de/  # Open-Data-Portal München (German) (open-data portal, no person or company lookup), 2026-09-26
+https://peekyou.com/  # PeekYou (site shows a domain update notice; unclear if it still works), 2026-09-26
+https://www.pictriev.com  # PicTriev (old celebrity look-alike engine, little OSINT value), 2026-09-26
+https://pimeyes.com/en  # PimEyes Face Search Engine (duplicate of PimEyes), 2026-09-26
+https://registryfinder.com:443/  # Registry Finder (gift-registry search: mainly reveals home addresses and absence dates, little legitimate OSINT use), 2026-09-26
+https://reunion.com  # Reunion (redundant; Whitepages and Spokeo covers it), 2026-09-26
+https://www.reversephonelookup.com/  # Reverse Phone Lookup (redundant; Whitepages and USPhoneBook covers it), 2026-09-26
+https://www.fcc.gov/oet/ea/fccid  # Searchable FCC ID Database (duplicate of FCCID.io), 2026-09-26
+https://surfface.com  # Surfface (redundant; PimEyes and FaceCheck.ID covers it), 2026-09-26
+https://registry.thebump.com/babyregistrysearch  # The Bump (gift-registry search: mainly reveals home addresses and absence dates, little legitimate OSINT use), 2026-09-26
+https://www.theknot.com/registry/couplesearch  # The Knot (gift-registry search: mainly reveals home addresses and absence dates, little legitimate OSINT use), 2026-09-26
+https://datacatalog.worldbank.org/  # The World Bank Open Data Catalog (open-data portal, no person or company lookup), 2026-09-26
+https://www.usa-people-search.com/  # usa-people-search.com (paid broker with widespread billing complaints), 2026-09-26
+https://www.belastingdienst.nl/  # VAT Research (duplicate of EU VIES VAT Check), 2026-09-26
+https://verifiedher.com  # VerifiedHer (narrow creator registry, not established), 2026-09-26
+https://vk.com/people  # VK People Search (VK search itself, not a tool), 2026-09-26
+https://www.whitepages.com/reverse-phone  # Whitepages Reverse Phone (duplicate of Whitepages), 2026-09-26

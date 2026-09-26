@@ -1,0 +1,10 @@
+name: Transparent California
+url: https://transparentcalifornia.com/
+description: Salaries and pensions of California public employees, from state agencies to school districts.
+category: people
+inputs: [name, company]
+outputs: [company]
+type: web
+cost: free
+passive: true
+account_required: false

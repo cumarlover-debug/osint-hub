@@ -1,0 +1,12 @@
+name: PimEyes
+url: https://pimeyes.com
+description: 'Face-recognition search engine: finds other photos of the same face on public websites.'
+category: image-video
+inputs: [image]
+outputs: [url, image]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [face-recognition]
+notes: Face search can identify strangers from a single photo. Many jurisdictions restrict it (for example under GDPR biometric rules).

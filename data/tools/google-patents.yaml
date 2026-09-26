@@ -1,0 +1,10 @@
+name: Google Patents
+url: https://patents.google.com/
+description: Full-text search of patents worldwide by inventor, assignee or topic, revealing what a person or company has worked on.
+category: business
+inputs: [name, company]
+outputs: [document, company]
+type: web
+cost: free
+passive: true
+account_required: false

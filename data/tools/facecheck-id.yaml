@@ -1,0 +1,12 @@
+name: FaceCheck.ID
+url: https://facecheck.id
+description: Face search engine that matches a face against social media, news and mugshot sites, aimed at checking people you meet online.
+category: image-video
+inputs: [image]
+outputs: [url, social_profile]
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags: [face-recognition]
+notes: Face search can identify strangers from a single photo. Many jurisdictions restrict it (for example under GDPR biometric rules).

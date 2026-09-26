@@ -1,0 +1,10 @@
+name: UserSearch
+url: https://www.usersearch.org
+description: Searches for a username, email or phone across 3,000+ sites, including dating sites and forums.
+category: social-media
+inputs: [username, email, phone]
+outputs: [social_profile]
+type: web
+cost: freemium
+passive: true
+account_required: false

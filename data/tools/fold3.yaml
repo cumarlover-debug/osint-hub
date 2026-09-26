@@ -1,0 +1,10 @@
+name: Fold3
+url: https://www.fold3.com
+description: US military records, service files and war-era documents, with limited free search.
+category: people
+inputs: [name]
+outputs: [document, location]
+type: web
+cost: freemium
+passive: true
+account_required: false

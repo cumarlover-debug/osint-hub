@@ -1,0 +1,10 @@
+name: USPTO Patent Search
+url: https://www.uspto.gov/patents/search
+description: Official US patent and application search by inventor, assignee or keyword.
+category: business
+inputs: [name, company]
+outputs: [document]
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,10 @@
+name: Infobel
+url: https://www.infobel.com/
+description: International telephone directory covering people and businesses in 70+ countries.
+category: people
+inputs: [name, phone, company]
+outputs: [location, phone, name]
+type: web
+cost: freemium
+passive: true
+account_required: false

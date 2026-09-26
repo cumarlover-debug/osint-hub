@@ -1,0 +1,10 @@
+name: Apollo.io
+url: https://www.apollo.io/
+description: 'B2B contact database: work emails, phone numbers and job history for professionals at a company, with a free tier.'
+category: people
+inputs: [name, company, domain]
+outputs: [email, phone, company]
+type: web
+cost: freemium
+passive: true
+account_required: true

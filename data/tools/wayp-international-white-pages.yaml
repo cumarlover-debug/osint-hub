@@ -1,0 +1,10 @@
+name: WAYP International White Pages
+url: https://www.wayp.com/
+description: Links to the official white and yellow pages directories of countries worldwide.
+category: people
+inputs: [name, phone, company]
+outputs: [location, phone, name]
+type: web
+cost: free
+passive: true
+account_required: false

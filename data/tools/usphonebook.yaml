@@ -1,0 +1,11 @@
+name: USPhoneBook
+url: https://www.usphonebook.com/
+description: Free US reverse phone and address lookup showing the likely owner and their other numbers.
+category: people
+inputs: [phone, name]
+outputs: [location, phone, name]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: Results come from commercial data brokers and are often outdated or mixed up between people with similar names.

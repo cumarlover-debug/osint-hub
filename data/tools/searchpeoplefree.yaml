@@ -1,0 +1,11 @@
+name: SearchPeopleFree
+url: https://www.searchpeoplefree.com/phone-lookup
+description: Free US reverse lookup by phone, name, address or email.
+category: people
+inputs: [phone, name, email]
+outputs: [location, phone, name]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: Results come from commercial data brokers and are often outdated or mixed up between people with similar names.

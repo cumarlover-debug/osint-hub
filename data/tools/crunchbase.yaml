@@ -1,0 +1,10 @@
+name: Crunchbase
+url: https://www.crunchbase.com
+description: 'Profiles of private and public companies: funding, investors, acquisitions, founders and executives.'
+category: business
+inputs: [company, name]
+outputs: [name, company]
+type: web
+cost: freemium
+passive: true
+account_required: true
