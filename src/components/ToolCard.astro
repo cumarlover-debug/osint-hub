@@ -17,6 +17,7 @@ const searchText = [tool.name, tool.description, tool.category, ...(tool.tags ??
   class="card"
   data-inputs={tool.inputs.join(' ')}
   data-type={tool.type}
+  data-category={tool.category}
   data-cost={tool.cost}
   data-passive={String(tool.passive)}
   data-account={String(tool.account_required)}

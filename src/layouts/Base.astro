@@ -9,6 +9,15 @@ interface Props {
 const { title, description } = Astro.props;
 // Pages are built as foo.html but served at /foo, so drop the extension (and "index") from the canonical URL.
 const canonical = new URL(Astro.url.pathname.replace(/(index)?\.html$/, ''), Astro.site);
+
+// Which pill in the header nav is the current section.
+const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/') || '/';
+const nav = [
+  { href: '/', label: 'Tools', match: (p: string) => p === '/' || p.startsWith('/tools') || p.startsWith('/inputs') },
+  { href: '/launch', label: 'Launcher', match: (p: string) => p.startsWith('/launch') },
+  { href: '/playbooks', label: 'Playbooks', match: (p: string) => p.startsWith('/playbooks') },
+  { href: '/about', label: 'About', match: (p: string) => p.startsWith('/about') },
+];
 ---
 
 <!doctype html>
@@ -23,18 +32,32 @@ const canonical = new URL(Astro.url.pathname.replace(/(index)?\.html$/, ''), Ast
     <meta property="og:description" content={description} />
     <meta name="referrer" content="no-referrer" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#061117" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   </head>
   <body>
     <header class="site-header">
       <div class="wrap">
-        <a class="logo" href="/"><span aria-hidden="true">◎</span> osint-hub</a>
-        <nav>
-          <a href="/">Tools</a>
-          <a href="/launch">Launcher</a>
-          <a href="/playbooks">Playbooks</a>
-          <a href="/toolkit" class="nav-toolkit">★ Toolkit<span class="fav-count" hidden></span></a>
-          <a href="/about">About</a>
+        <a class="logo" href="/" aria-label="osint-hub home">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span>OSINT<span class="thin">HUB</span></span>
+        </a>
+        <nav class="pill-nav" aria-label="Main">
+          {nav.map((n) => (
+            <a href={n.href} aria-current={n.match(path) ? 'page' : undefined}>{n.label}</a>
+          ))}
         </nav>
+        <div class="header-actions">
+          <a class="icon-btn" href="/submit" title="Suggest a tool" aria-label="Suggest a tool">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+          </a>
+          <a class="icon-btn" href="/toolkit" title="My toolkit" aria-label="My toolkit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z" /></svg>
+            <span class="fav-count" hidden></span>
+          </a>
+        </div>
       </div>
     </header>
     <main class="wrap">
