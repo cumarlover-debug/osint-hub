@@ -1,0 +1,11 @@
+name: DNSDumpster
+url: https://dnsdumpster.com
+description: Maps a domain's DNS records, subdomains and hosting providers and draws the result as a graph.
+category: domain
+inputs: [domain]
+outputs: [domain, ip]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [dns, subdomains]

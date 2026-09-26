@@ -1,0 +1,190 @@
+---
+import Base from '../../layouts/Base.astro';
+import ToolCard from '../../components/ToolCard.astro';
+import { tools, taxonomy, inputLabel, isInputKey, toolsTaking, staleSince, type Tool } from '../../lib/tools';
+
+export function getStaticPaths() {
+  return tools.map((tool) => ({ params: { slug: tool.slug }, props: { tool } }));
+}
+
+const { tool } = Astro.props as { tool: Tool };
+
+// Outputs that are also input types are pivots: they lead to the next tools to try.
+const pivots = (tool.outputs ?? [])
+  .filter(isInputKey)
+  .map((key) => ({ key, label: inputLabel(key), tools: toolsTaking(key, tool.slug) }))
+  .filter((p) => p.tools.length > 0);
+
+const similar = tools
+  .filter((t) => t.slug !== tool.slug && t.inputs.some((i) => tool.inputs.includes(i)))
+  .slice(0, 6);
+
+const { health } = tool;
+const repo = health?.repo;
+const statusText = { up: 'Online', down: 'Unreachable', unverified: 'Could not verify' };
+const stale = staleSince(tool);
+const warnings = [
+  health?.status === 'down' &&
+    `The link has failed ${health.failures} weekly checks in a row (${health.reason})${health.last_ok ? `. It last worked on ${health.last_ok}` : ''}.`,
+  repo?.archived && 'The GitHub repository is archived: the authors no longer maintain it.',
+  repo?.missing && 'The GitHub repository no longer exists.',
+  stale && `No updates since ${stale}. It may still work, but check that its sources haven't changed.`,
+].filter(Boolean) as string[];
+
+const readable =(key: string) => (isInputKey(key) ? inputLabel(key) : key.replace(/_/g, ' '));
+const exampleInput = tool.inputs[0];
+---
+
+<Base title={`${tool.name}: ${taxonomy.categories[tool.category]} OSINT tool | osint-hub`} description={tool.description}>
+  <nav class="crumbs"><a href="/">Tools</a> / <a href={`/?input=${exampleInput}`}>{inputLabel(exampleInput)}</a></nav>
+
+  <article class="tool">
+    <header class="tool-head">
+      <h1>{tool.name}</h1>
+      <p class="lede">{tool.description}</p>
+      <a class="button" href={tool.url} target="_blank" rel="noopener noreferrer">Open {tool.name} ↗</a>
+      <p class="url">{tool.url}</p>
+    </header>
+
+    <dl class="facts">
+      <div><dt>Type</dt><dd>{taxonomy.types[tool.type]}</dd></div>
+      <div><dt>Cost</dt><dd>{taxonomy.costs[tool.cost]}</dd></div>
+      <div>
+        <dt>Touches the target?</dt>
+        <dd>{tool.passive ? 'No, passive' : 'Yes, can be active'}</dd>
+      </div>
+      <div><dt>Account needed</dt><dd>{tool.account_required ? 'Yes' : 'No'}</dd></div>
+      <div><dt>Category</dt><dd>{taxonomy.categories[tool.category]}</dd></div>
+      {tool.language && <div><dt>Language</dt><dd>{tool.language}</dd></div>}
+      {tool.license && <div><dt>License</dt><dd>{tool.license}</dd></div>}
+      {tool.platforms && <div><dt>Platforms</dt><dd>{tool.platforms.join(', ')}</dd></div>}
+      {repo?.stars !== undefined && <div><dt>GitHub stars</dt><dd>{repo.stars.toLocaleString('en')}</dd></div>}
+      {repo?.pushed_at && <div><dt>Last updated</dt><dd>{repo.pushed_at}</dd></div>}
+      {
+        health && (
+          <div>
+            <dt>Link status</dt>
+            <dd>
+              <span class={`dot ${health.status}`} aria-hidden="true" />
+              {statusText[health.status]}, checked {health.last_checked}
+            </dd>
+          </div>
+        )
+      }
+    </dl>
+
+    {warnings.length > 0 && (
+      <aside class="note danger">
+        {warnings.map((w) => <p>{w}</p>)}
+      </aside>
+    )}
+
+    <section class="flow" aria-label="Inputs and outputs">
+      <div>
+        <h2>Takes</h2>
+        <ul class="tag-list">
+          {tool.inputs.map((i) => <li><a class="input-tag" href={`/?input=${i}`}>{inputLabel(i)}</a></li>)}
+        </ul>
+      </div>
+      {
+        tool.outputs && (
+          <div>
+            <h2>Gives you</h2>
+            <ul class="tag-list">
+              {tool.outputs.map((o) => <li><span class="input-tag muted">{readable(o)}</span></li>)}
+            </ul>
+          </div>
+        )
+      }
+    </section>
+
+    {
+      tool.query_template && (
+        <section class="panel">
+          <h2>Search {tool.name} directly</h2>
+          <p class="hint">Opens {tool.name} in a new tab. Your search goes straight from your browser to {tool.name}, not through this site.</p>
+          <form class="launcher" data-template={tool.query_template}>
+            <label class="visually-hidden" for="launch-q">{inputLabel(exampleInput)}</label>
+            <input id="launch-q" type="text" required placeholder={`Enter ${inputLabel(exampleInput).toLowerCase()}`} autocomplete="off" />
+            <button type="submit" class="button">Search ↗</button>
+          </form>
+        </section>
+      )
+    }
+
+    {
+      tool.install && (
+        <section class="panel">
+          <h2>Install</h2>
+          <div class="code">
+            <code>{tool.install}</code>
+            <button type="button" class="copy" data-copy={tool.install}>Copy</button>
+          </div>
+          {tool.repo && (
+            <p class="hint">
+              Source: <a href={`https://github.com/${tool.repo}`} target="_blank" rel="noopener noreferrer">github.com/{tool.repo}</a>
+              {tool.docker && ' · Docker image available'}
+            </p>
+          )}
+        </section>
+      )
+    }
+
+    {
+      tool.notes && (
+        <aside class="note">
+          <strong>Before you use it:</strong> {tool.notes}
+        </aside>
+      )
+    }
+
+    {
+      pivots.length > 0 && (
+        <section>
+          <h2>Where to go next</h2>
+          <p class="hint">Found something with {tool.name}? These tools take it as input.</p>
+          {pivots.map((p) => (
+            <div class="pivot">
+              <h3>{p.label} →</h3>
+              <ul class="pill-links">
+                {p.tools.map((t) => <li><a href={`/tools/${t.slug}`}>{t.name}</a></li>)}
+              </ul>
+            </div>
+          ))}
+        </section>
+      )
+    }
+
+    {
+      similar.length > 0 && (
+        <section>
+          <h2>Similar tools</h2>
+          <div class="grid">{similar.map((t) => <ToolCard tool={t} />)}</div>
+        </section>
+      )
+    }
+  </article>
+</Base>
+
+<script>
+  for (const form of document.querySelectorAll<HTMLFormElement>('.launcher')) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const value = form.querySelector('input')!.value.trim();
+      if (!value) return;
+      const url = form.dataset.template!.replace('{query}', encodeURIComponent(value));
+      window.open(url, '_blank', 'noopener,noreferrer');
+    });
+  }
+  for (const btn of document.querySelectorAll<HTMLButtonElement>('.copy')) {
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.copy!);
+        btn.textContent = 'Copied';
+      } catch {
+        btn.textContent = 'Copy failed';
+      }
+      setTimeout(() => (btn.textContent = 'Copy'), 1500);
+    });
+  }
+</script>

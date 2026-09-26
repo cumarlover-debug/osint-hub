@@ -1,0 +1,13 @@
+name: Google Lens
+url: https://lens.google.com
+description: Google's reverse image search. It is strong at identifying landmarks, products and text in an image.
+category: image-video
+inputs: [image]
+outputs: [url, location]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://lens.google.com/uploadbyurl?url={query}
+tags: [reverse-image]
+notes: The quick search takes a public image URL. Upload the file on the site instead if you only have it locally.

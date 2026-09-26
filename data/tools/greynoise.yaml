@@ -1,0 +1,12 @@
+name: GreyNoise Visualizer
+url: https://viz.greynoise.io
+description: Shows whether an IP is mass-scanning the internet or belongs to a known benign service, so you can separate targeted activity from background noise.
+category: threat-intel
+inputs: [ip]
+outputs: [reputation]
+type: web
+cost: freemium
+passive: true
+account_required: false
+query_template: https://viz.greynoise.io/ip/{query}
+tags: [reputation, scanners]

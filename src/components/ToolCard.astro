@@ -1,0 +1,43 @@
+---
+import { taxonomy, inputLabel, staleSince, isBroken, type Tool } from '../lib/tools';
+
+interface Props {
+  tool: Tool;
+}
+
+const { tool } = Astro.props;
+const { health } = tool;
+const stale = staleSince(tool);
+const searchText = [tool.name, tool.description, tool.category, ...(tool.tags ?? []), ...tool.inputs]
+  .join(' ')
+  .toLowerCase();
+---
+
+<article
+  class="card"
+  data-inputs={tool.inputs.join(' ')}
+  data-type={tool.type}
+  data-cost={tool.cost}
+  data-passive={String(tool.passive)}
+  data-account={String(tool.account_required)}
+  data-broken={String(isBroken(tool))}
+  data-search={searchText}
+>
+  <div class="card-head">
+    <h3><a href={`/tools/${tool.slug}`}>{tool.name}</a></h3>
+    {health?.status === 'down' && <span class="status down" title={`Failed the last ${health.failures} weekly checks`}>down</span>}
+    {health?.repo?.archived && <span class="status down" title="The GitHub repository is archived">archived</span>}
+    {stale && <span class="status stale" title={`No updates since ${stale}`}>stale</span>}
+  </div>
+  <p class="desc">{tool.description}</p>
+  <ul class="badges">
+    <li class="badge">{taxonomy.types[tool.type]}</li>
+    <li class={`badge cost-${tool.cost}`}>{taxonomy.costs[tool.cost]}</li>
+    {!tool.passive && <li class="badge warn" title="Can interact with the target or its infrastructure">Active</li>}
+    {tool.account_required && <li class="badge">Account</li>}
+  </ul>
+  <p class="takes">
+    <span>Takes</span>
+    {tool.inputs.map((i) => <span class="input-tag">{inputLabel(i)}</span>)}
+  </p>
+</article>

@@ -1,0 +1,11 @@
+name: Overpass Turbo
+url: https://overpass-turbo.eu
+description: Queries OpenStreetMap for places that match what a photo shows, for example a pharmacy next to a bus stop within 200 m of a river.
+category: geolocation
+inputs: [location, image]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [openstreetmap, maps]

@@ -1,0 +1,13 @@
+name: TinEye
+url: https://tineye.com
+description: Finds where an image appears online and can sort results by date, which helps find the oldest copy and the original source.
+category: image-video
+inputs: [image]
+outputs: [url]
+type: web
+cost: freemium
+passive: true
+account_required: false
+query_template: https://tineye.com/search?url={query}
+tags: [reverse-image, verification]
+notes: The quick search takes a public image URL.

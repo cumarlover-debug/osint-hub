@@ -1,0 +1,11 @@
+name: ADS-B Exchange
+url: https://globe.adsbexchange.com
+description: Live and historical flight tracking from unfiltered ADS-B data, including aircraft that other trackers hide.
+category: transport
+inputs: [aircraft]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [flights]

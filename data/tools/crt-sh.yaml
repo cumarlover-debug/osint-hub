@@ -1,0 +1,13 @@
+name: crt.sh
+url: https://crt.sh
+description: Searches Certificate Transparency logs for every TLS certificate issued to a domain, which often reveals forgotten subdomains.
+category: domain
+inputs: [domain, company]
+outputs: [domain, certificate]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://crt.sh/?q={query}
+tags: [subdomains, certificates]
+notes: Use %.example.com to include every subdomain.

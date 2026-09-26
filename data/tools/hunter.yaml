@@ -1,0 +1,11 @@
+name: Hunter
+url: https://hunter.io
+description: Finds email addresses linked to a company's domain and shows the address pattern the company uses (for example first.last@).
+category: email
+inputs: [domain, company]
+outputs: [email, name]
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags: [email-discovery]

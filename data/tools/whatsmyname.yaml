@@ -1,0 +1,12 @@
+name: WhatsMyName
+url: https://whatsmyname.app
+description: Web front end for the WhatsMyName community dataset. Checks a username across hundreds of sites from your browser.
+category: social-media
+inputs: [username]
+outputs: [social_profile, url]
+type: web
+cost: free
+passive: true
+account_required: false
+repo: WebBreacher/WhatsMyName
+tags: [username-enumeration]

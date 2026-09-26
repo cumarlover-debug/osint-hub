@@ -1,0 +1,12 @@
+name: Wayback Machine
+url: https://web.archive.org
+description: Archived snapshots of web pages going back to 1996. See how a site looked, and what it said, before it was changed or deleted.
+category: archives
+inputs: [url, domain]
+outputs: [url, archive_snapshot]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://web.archive.org/web/*/{query}
+tags: [history]

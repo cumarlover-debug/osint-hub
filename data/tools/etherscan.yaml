@@ -1,0 +1,12 @@
+name: Etherscan
+url: https://etherscan.io
+description: Ethereum blockchain explorer showing balances, transactions, token transfers and public labels for an address.
+category: crypto
+inputs: [crypto_address]
+outputs: [crypto_address]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://etherscan.io/address/{query}
+tags: [ethereum, blockchain]

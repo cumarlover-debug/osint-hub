@@ -1,0 +1,11 @@
+name: InVID-WeVerify plugin
+url: https://www.invid-project.eu/tools-and-services/invid-verification-plugin/
+description: Browser extension for checking videos and images. It splits videos into keyframes for reverse search, reads metadata and applies forensic filters.
+category: image-video
+inputs: [video, image, social_post]
+outputs: [image, metadata]
+type: extension
+cost: free
+passive: true
+account_required: false
+tags: [verification, keyframes, forensics]

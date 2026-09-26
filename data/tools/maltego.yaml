@@ -1,0 +1,12 @@
+name: Maltego
+url: https://www.maltego.com
+description: Graph-based link analysis. Run "transforms" on an entity (a domain, email or person) and see the connections drawn as a graph.
+category: frameworks
+inputs: [domain, email, name, company, ip, username, phone]
+outputs: [domain, email, name, ip, social_profile]
+type: desktop
+cost: freemium
+passive: true
+account_required: true
+platforms: [linux, macos, windows]
+tags: [link-analysis, graph]

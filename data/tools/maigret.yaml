@@ -1,0 +1,17 @@
+name: Maigret
+url: https://github.com/soxoj/maigret
+description: Builds a profile of a person from a username. Searches 3,000+ sites and pulls names, links and other identifiers out of the accounts it finds.
+category: social-media
+inputs: [username]
+outputs: [social_profile, name, url]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: soxoj/maigret
+install: pip3 install maigret
+language: Python
+license: MIT
+docker: true
+platforms: [linux, macos, windows]
+tags: [username-enumeration, open-source, reporting]

@@ -1,0 +1,18 @@
+name: OWASP Amass
+url: https://github.com/owasp-amass/amass
+description: Maps an organisation's external attack surface, finding subdomains through passive sources, DNS enumeration and certificate data.
+category: domain
+inputs: [domain, company]
+outputs: [domain, ip]
+type: cli
+cost: free
+passive: false
+account_required: false
+repo: owasp-amass/amass
+install: brew install amass
+language: Go
+license: Apache-2.0
+docker: true
+platforms: [linux, macos, windows]
+tags: [recon, subdomains, open-source]
+notes: Active by default. Use the passive mode if you must not touch the target's infrastructure.

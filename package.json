@@ -1,0 +1,22 @@
+{
+  "name": "osint-hub",
+  "version": "1.0.0",
+  "description": "A searchable directory of OSINT tools, organised by what you are investigating.",
+  "scripts": {
+    "dev": "astro dev",
+    "validate": "node scripts/validate.mjs",
+    "build": "npm run validate && astro build",
+    "preview": "astro preview",
+    "healthcheck": "node scripts/healthcheck.mjs"
+  },
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "astro": "^7.3.5",
+    "js-yaml": "^4.3.2"
+  },
+  "devDependencies": {
+    "ajv": "^8.20.0"
+  },
+  "private": true
+}

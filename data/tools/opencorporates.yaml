@@ -1,0 +1,12 @@
+name: OpenCorporates
+url: https://opencorporates.com
+description: The largest open database of companies, with officers, registered addresses and filings from 140+ jurisdictions.
+category: business
+inputs: [company, name]
+outputs: [name, company, location]
+type: web
+cost: freemium
+passive: true
+account_required: false
+query_template: https://opencorporates.com/companies?q={query}
+tags: [companies, officers]

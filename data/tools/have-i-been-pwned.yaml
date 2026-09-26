@@ -1,0 +1,12 @@
+name: Have I Been Pwned
+url: https://haveibeenpwned.com
+description: Shows which known data breaches an email address appears in, with the date and the kinds of data exposed.
+category: email
+inputs: [email]
+outputs: [breach]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [breaches]
+notes: Web lookups are free. The API needs a paid key.

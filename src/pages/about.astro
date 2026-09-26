@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import { tools, usedInputs } from '../lib/tools';
+---
+
+<Base title="About | osint-hub" description="What osint-hub is, how tools are chosen, and how to use them responsibly.">
+  <article class="prose">
+    <h1>About osint-hub</h1>
+    <p>
+      osint-hub lists {tools.length} open-source intelligence tools, organised by the input they take. Most directories
+      group tools by category. Investigations start from what you already have, such as a username, an email or a photo,
+      so this one does too.
+    </p>
+
+    <h2>What each label means</h2>
+    <dl>
+      <dt>Passive / Active</dt>
+      <dd>
+        A passive tool only queries third-party sources and never contacts the target or its infrastructure. An active
+        tool can scan, crawl or visit the target, which the target may be able to see.
+      </dd>
+      <dt>Account</dt>
+      <dd>You need to sign up, even for the free tier.</dd>
+      <dt>Where to go next</dt>
+      <dd>What a tool gives you (an email, a domain, an IP) links to the tools that take it as input.</dd>
+    </dl>
+
+    <h2>Privacy</h2>
+    <p>
+      The site is static. Filters and searches run in your browser. The "Search directly" boxes send your query straight
+      from your browser to the tool, never through osint-hub, and outbound links carry no referrer.
+    </p>
+
+    <h2 id="responsible-use">Responsible use</h2>
+    <p>
+      These tools are listed for research, journalism, security work and personal safety. Using them to stalk, harass,
+      dox or intimidate someone is harmful and often illegal. Check the laws where you are and the terms of each tool.
+    </p>
+    <p>
+      osint-hub does not list stalkerware, doxxing services, or sites that sell leaked personal data or credentials.
+    </p>
+
+    <h2>Browse by input</h2>
+    <ul class="pill-links">
+      {usedInputs().map((i) => <li><a href={`/inputs/${i.key}`}>{i.label} ({i.count})</a></li>)}
+    </ul>
+  </article>
+</Base>
