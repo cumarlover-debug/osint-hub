@@ -1,0 +1,12 @@
+name: BBOT
+url: https://github.com/blacklanternsecurity/bbot
+description: Recursive recon framework that chains 100+ modules to map a target's subdomains, open ports, emails and cloud buckets.
+category: frameworks
+inputs: [domain, ip]
+type: cli
+cost: free
+passive: false
+account_required: false
+repo: blacklanternsecurity/bbot
+install: pipx install bbot
+notes: Some modules scan the target directly; use the passive preset to avoid that.

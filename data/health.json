@@ -198,6 +198,18 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "bbot": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 10631,
+      "archived": false,
+      "pushed_at": "2026-09-26"
+    }
+  },
   "better-business-bureau": {
     "status": "unverified",
     "failures": 0,
