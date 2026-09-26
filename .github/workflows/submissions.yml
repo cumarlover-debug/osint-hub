@@ -1,0 +1,68 @@
+name: Tool submissions
+
+# Issue text is untrusted. It is only read by the Node scripts from the event file; it is never interpolated
+# into a shell command in this workflow.
+on:
+  issues:
+    types: [opened, edited, reopened, labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check:
+    if: github.event.action != 'labeled' && contains(github.event.issue.labels.*.name, 'tool-submission')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: submission-check-${{ github.event.issue.number }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Check the submission
+        run: node scripts/submissions/check.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish:
+    if: >-
+      github.event.action == 'labeled' && github.event.label.name == 'approved' &&
+      contains(github.event.issue.labels.*.name, 'tool-submission')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: submission-publish
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Re-check and write the tool file
+        id: approve
+        run: node scripts/submissions/approve.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Validate and commit
+        if: steps.approve.outputs.published == 'true'
+        run: |
+          npm run validate
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/tools data/health.json
+          git commit -F "$RUNNER_TEMP/osint-hub-commit-msg.txt"
+          git pull --rebase
+          git push
+      - name: Announce and close
+        if: steps.approve.outputs.published == 'true'
+        run: node scripts/submissions/approve.mjs --announce
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

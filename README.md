@@ -120,5 +120,15 @@ visitor's browser, and pages send `no-referrer`.
 1. ~~MVP: schema, seed data, search by input, page per tool~~
 2. ~~Weekly health check (GitHub Action): link status, GitHub stars / last commit / archived~~
 3. ~~Multi-tool query launcher, pivot chains, investigation playbooks~~
-4. ~~Seed + enrich pipeline from awesome lists~~; community submissions
+4. ~~Seed + enrich pipeline from awesome lists; community submissions~~
 5. Favorites, CLI, browser extension
+
+## Community submissions
+
+`/submit` builds a pre-filled "Suggest a tool" issue (`.github/ISSUE_TEMPLATE/submit-tool.yml`). The `Tool submissions`
+workflow then runs `scripts/submissions/check.mjs` on every opened or edited submission: schema, duplicates (listed,
+rejected, aliases), a link check that refuses private and internal addresses, GitHub repo status, copied descriptions
+and the listing policy. It keeps one results comment up to date and labels the issue `ready-for-review` or
+`needs-changes`. A maintainer adding the `approved` label runs `scripts/submissions/approve.mjs`, which re-checks,
+confirms the labeller has write access, writes and health-checks the tool, and commits it (closing the issue).
+Issue text is untrusted: it is only parsed by the scripts, never put into a shell command. See CONTRIBUTING.md.

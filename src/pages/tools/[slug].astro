@@ -4,6 +4,7 @@ import ToolCard from '../../components/ToolCard.astro';
 import { tools, taxonomy, inputLabel, isInputKey, toolsTaking, staleSince, type Tool } from '../../lib/tools';
 import { templatesFor } from '../../lib/launcher';
 import { playbooksUsing } from '../../lib/playbooks';
+import { reportProblemUrl } from '../../lib/site';
 
 export function getStaticPaths() {
   return tools.map((tool) => ({ params: { slug: tool.slug }, props: { tool } }));
@@ -51,6 +52,9 @@ const exampleInput = tool.inputs[0];
       <p class="lede">{tool.description}</p>
       <a class="button" href={tool.url} target="_blank" rel="noopener noreferrer">Open {tool.name} ↗</a>
       <p class="url">{tool.url}</p>
+      <p class="hint report-link">
+        Broken, moved or wrong? <a href={reportProblemUrl(tool.name, tool.slug)} target="_blank" rel="noopener noreferrer">Report a problem</a>
+      </p>
     </header>
 
     <dl class="facts">

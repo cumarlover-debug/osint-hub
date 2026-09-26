@@ -709,3 +709,62 @@ a.input-tag:hover {
   color: var(--muted);
   font-size: 0.9rem;
 }
+
+/* Suggest a tool */
+.suggest {
+  display: grid;
+  gap: 18px;
+  max-width: 760px;
+}
+.field {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.field > label,
+.field legend {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.field legend {
+  margin-bottom: 6px;
+}
+.field input:not([type='checkbox']):not([type='radio']),
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.field .hint {
+  margin: 0;
+}
+.field-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+}
+.check-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 6px 12px;
+}
+.warn-text {
+  color: var(--warn);
+}
+.report-link {
+  margin-top: 6px;
+}
