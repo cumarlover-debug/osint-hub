@@ -8,3 +8,4 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template: {domain: 'https://viewdns.info/whois/?domain={query}', ip: 'https://viewdns.info/reverseip/?host={query}&t=1', email: 'https://viewdns.info/reversewhois/?q={query}', name: 'https://viewdns.info/reversewhois/?q={query}'}

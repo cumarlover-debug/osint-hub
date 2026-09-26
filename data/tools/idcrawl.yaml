@@ -8,3 +8,4 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+query_template: https://www.idcrawl.com/u/{query}

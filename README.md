@@ -29,7 +29,9 @@ type: cli                         # web | cli | desktop | extension | api
 cost: free                        # free | freemium | paid
 passive: true                     # false if it can scan, crawl or visit the target
 account_required: false
-query_template: https://example.com/search?q={query}   # optional, powers "Search directly"
+query_template: https://example.com/search?q={query}   # optional: powers "Search directly" and the launcher
+# or one URL per input type, optionally limited to a value format (eth, btc, ipv4, vin):
+# query_template: {ip: https://…/host/{query}, crypto_address: {url: https://…/address/{query}, match: eth}}
 repo: owner/name                  # CLI tools: repo and/or install
 install: pipx install sherlock-project
 notes: Anything a user should know before using it (OPSEC, limits).
@@ -51,6 +53,13 @@ writes the results to `data/health.json`. Never edit that file by hand. It runs 
 - **Redirects** to another domain are listed in the report so the `url` can be updated.
 
 On the site, down, archived and missing tools are badged, sorted last, and hidden by *Working tools only*.
+
+## Launcher
+
+`/launch` takes one value (email, domain, IP, hash, wallet, username…), detects its type, and lists every tool with a
+`query_template` for that type. Passive tools are ticked by default, active ones are hidden unless asked for, and
+"Open selected" opens them all in new tabs. Everything runs in the browser: the value is never sent to the site or put
+in its URL. Only add a template after checking it with a real value: a template that 404s is worse than none.
 
 ## Growing the list
 
@@ -99,6 +108,6 @@ visitor's browser, and pages send `no-referrer`.
 
 1. ~~MVP: schema, seed data, search by input, page per tool~~
 2. ~~Weekly health check (GitHub Action): link status, GitHub stars / last commit / archived~~
-3. Multi-tool query launcher, pivot chains, investigation playbooks
+3. ~~Multi-tool query launcher~~, pivot chains, investigation playbooks
 4. ~~Seed + enrich pipeline from awesome lists~~; community submissions
 5. Favorites, CLI, browser extension

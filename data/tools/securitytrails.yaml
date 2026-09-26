@@ -8,5 +8,5 @@ type: web
 cost: freemium
 passive: true
 account_required: true
-query_template: https://securitytrails.com/domain/{query}/dns
+query_template: {domain: 'https://securitytrails.com/domain/{query}/dns', ip: 'https://securitytrails.com/list/ip/{query}'}
 tags: [dns, whois, history]

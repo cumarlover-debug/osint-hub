@@ -8,3 +8,4 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template: {crypto_address: {url: 'https://www.walletexplorer.com/address/{query}', match: btc}}

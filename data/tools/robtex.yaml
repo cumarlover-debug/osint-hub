@@ -8,3 +8,4 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template: {domain: 'https://www.robtex.com/dns-lookup/{query}', ip: 'https://www.robtex.com/ip-lookup/{query}'}

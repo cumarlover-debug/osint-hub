@@ -8,4 +8,5 @@ type: web
 cost: freemium
 passive: true
 account_required: true
+query_template: {domain: 'https://hunter.io/search/{query}'}
 tags: [email-discovery]

@@ -1,0 +1,183 @@
+---
+import Base from '../layouts/Base.astro';
+import { tools, taxonomy, inputLabel } from '../lib/tools';
+import { templatesFor } from '../lib/launcher';
+
+// Only what the page needs: the tools that can be searched by URL, and their templates.
+const launchable = tools
+  .map((t) => ({
+    slug: t.slug,
+    name: t.name,
+    passive: t.passive,
+    account: t.account_required,
+    cost: t.cost,
+    templates: templatesFor(t.query_template, t.inputs),
+  }))
+  .filter((t) => Object.keys(t.templates).length > 0);
+
+const inputCounts = (Object.keys(taxonomy.inputs) as (keyof typeof taxonomy.inputs)[])
+  .map((key) => ({ key, label: inputLabel(key), count: launchable.filter((t) => key in t.templates).length }))
+  .filter((i) => i.count > 0);
+---
+
+<Base
+  title="Launcher: search many OSINT tools at once | osint-hub"
+  description={`Paste an email, domain, IP, hash, wallet or username and open it in up to ${launchable.length} OSINT tools at once.`}
+>
+  <section class="hero">
+    <h1>Search many tools at once.</h1>
+    <p class="lede">
+      Paste what you have. The launcher recognises the type and lists every tool that can search it directly. Your
+      value stays in your browser: it is never sent to osint-hub or saved in this page's address.
+    </p>
+    <label class="visually-hidden" for="lq">Value to search</label>
+    <input id="lq" class="search" type="text" autocomplete="off" spellcheck="false" autofocus placeholder="e.g. example.com, 8.8.8.8, someone@example.com, a file hash or a wallet address" />
+  </section>
+
+  <section class="launch-controls" aria-label="Search type">
+    <p class="hint" id="detected">Detected type: <span>none yet</span></p>
+    <div class="chips" role="group" aria-label="Search as">
+      {
+        inputCounts.map((i) => (
+          <button type="button" class="chip" data-type={i.key} aria-pressed="false">
+            {i.label} <span class="count">{i.count}</span>
+          </button>
+        ))
+      }
+    </div>
+    <label class="check"><input type="checkbox" id="include-active" /> Include active tools (they contact the target)</label>
+  </section>
+
+  <section aria-live="polite">
+    <div class="launch-bar" hidden>
+      <button type="button" class="button" id="open-selected">Open selected</button>
+      <button type="button" class="linklike" id="select-all">Select all</button>
+      <button type="button" class="linklike" id="select-none">Select none</button>
+    </div>
+    <p class="hint" id="popup-hint" hidden>
+      Browsers often block all but the first new tab. If only one opened, allow pop-ups for this site, or use the
+      individual links below.
+    </p>
+    <ul id="results" class="launch-list"></ul>
+    <p class="empty" id="launch-empty">Paste a value above to see which tools can search it.</p>
+  </section>
+</Base>
+
+<script is:inline type="application/json" id="launch-data" set:html={JSON.stringify(launchable).replace(/</g, '\\u003c')} />
+
+<script>
+  import { applies, buildLink, detect, MATCH_LABELS, type Template } from '../lib/launcher';
+
+  type Launchable = { slug: string; name: string; passive: boolean; account: boolean; cost: string; templates: Record<string, Template> };
+  const tools = JSON.parse(document.getElementById('launch-data')!.textContent!) as Launchable[];
+
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  const input = $<HTMLInputElement>('lq');
+  const includeActive = $<HTMLInputElement>('include-active');
+  const list = $<HTMLUListElement>('results');
+  const bar = document.querySelector<HTMLElement>('.launch-bar')!;
+  const chips = [...document.querySelectorAll<HTMLButtonElement>('.chip')];
+  const available = new Set(chips.map((c) => c.dataset.type!));
+  let type = '';
+  let chosenByHand = false;
+
+  function row(tool: Launchable, t: Template, value: string): HTMLLIElement {
+    const li = document.createElement('li');
+    const usable = applies(t, value);
+    const box = document.createElement('input');
+    box.type = 'checkbox';
+    box.checked = usable && tool.passive;
+    box.disabled = !usable;
+    box.setAttribute('aria-label', `Include ${tool.name}`);
+
+    const name = document.createElement('a');
+    name.href = `/tools/${tool.slug}`;
+    name.textContent = tool.name;
+    name.className = 'launch-name';
+
+    const badges = document.createElement('span');
+    badges.className = 'launch-badges';
+    const badge = (text: string, cls = '') => {
+      const b = document.createElement('span');
+      b.className = `badge ${cls}`;
+      b.textContent = text;
+      badges.append(b);
+    };
+    if (!tool.passive) badge('Active', 'warn');
+    if (tool.account) badge('Account');
+    if (tool.cost !== 'free') badge(tool.cost === 'paid' ? 'Paid' : 'Freemium');
+
+    li.append(box, name, badges);
+    if (usable) {
+      const open = document.createElement('a');
+      open.className = 'launch-open';
+      open.href = buildLink(t, value);
+      open.target = '_blank';
+      open.rel = 'noopener noreferrer';
+      open.textContent = 'Open ↗';
+      li.append(open);
+    } else {
+      const why = document.createElement('span');
+      why.className = 'hint';
+      why.textContent = `only ${MATCH_LABELS[t.match!]}`;
+      li.append(why);
+      li.classList.add('muted-row');
+    }
+    return li;
+  }
+
+  function render() {
+    const value = input.value.trim();
+    if (!chosenByHand) type = detect(value).find((t) => available.has(t)) ?? '';
+    for (const c of chips) c.setAttribute('aria-pressed', String(c.dataset.type === type));
+    $('detected').querySelector('span')!.textContent = value ? (type ? chips.find((c) => c.dataset.type === type)!.firstChild!.textContent!.trim() : 'not recognised, pick one') : 'none yet';
+
+    list.replaceChildren();
+    const matches = value && type ? tools.filter((t) => type in t.templates && (includeActive.checked || t.passive)) : [];
+    // Usable tools first, then passive before active, then by name.
+    matches.sort((a, b) => Number(!applies(a.templates[type], value)) - Number(!applies(b.templates[type], value)) || Number(!a.passive) - Number(!b.passive) || a.name.localeCompare(b.name));
+    for (const t of matches) list.append(row(t, t.templates[type], value));
+
+    bar.hidden = matches.length === 0;
+    $('launch-empty').hidden = matches.length > 0;
+    $('launch-empty').textContent = !value ? 'Paste a value above to see which tools can search it.' : 'No tool can search this type directly yet. Pick another type above.';
+    updateCount();
+  }
+
+  function updateCount() {
+    const n = list.querySelectorAll('input:checked').length;
+    $<HTMLButtonElement>('open-selected').textContent = `Open selected (${n})`;
+    $<HTMLButtonElement>('open-selected').disabled = n === 0;
+  }
+
+  input.addEventListener('input', () => {
+    if (!input.value.trim()) chosenByHand = false;
+    render();
+  });
+  includeActive.addEventListener('change', render);
+  list.addEventListener('change', updateCount);
+  for (const c of chips) {
+    c.addEventListener('click', () => {
+      type = c.dataset.type!;
+      chosenByHand = true;
+      render();
+    });
+  }
+  $('select-all').addEventListener('click', () => {
+    for (const b of list.querySelectorAll<HTMLInputElement>('input:not(:disabled)')) b.checked = true;
+    updateCount();
+  });
+  $('select-none').addEventListener('click', () => {
+    for (const b of list.querySelectorAll<HTMLInputElement>('input')) b.checked = false;
+    updateCount();
+  });
+  $('open-selected').addEventListener('click', () => {
+    for (const li of list.children) {
+      if (li.querySelector<HTMLInputElement>('input')!.checked) {
+        window.open(li.querySelector<HTMLAnchorElement>('.launch-open')!.href, '_blank', 'noopener,noreferrer');
+      }
+    }
+    $('popup-hint').hidden = false;
+  });
+  render();
+</script>

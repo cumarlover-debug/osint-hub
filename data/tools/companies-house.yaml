@@ -8,3 +8,4 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template: {company: 'https://find-and-update.company-information.service.gov.uk/search?q={query}', name: 'https://find-and-update.company-information.service.gov.uk/search/officers?q={query}'}
