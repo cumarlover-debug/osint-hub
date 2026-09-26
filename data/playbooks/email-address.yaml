@@ -1,0 +1,59 @@
+title: Investigate an email address
+summary: Find out whether an address is real, which accounts it is tied to, and who may be behind it.
+starts_with: email
+for: Suspicious senders, scam contacts, due diligence on a new contact.
+time: 20–45 minutes
+steps:
+  - title: Check the address exists
+    input: email
+    why: Scammers often use addresses that bounce or were created minutes ago. A dead address changes the whole investigation.
+    do: Verify the mailbox exists and whether the domain accepts every address (catch-all), which makes the check less reliable.
+    look_for:
+      - Whether the mailbox is deliverable
+      - Disposable or free-mail providers
+    tools: [reacher, email-hippo]
+    opsec: Verification talks to the address's mail server, which can log the check.
+
+  - title: Look at the domain behind it
+    input: domain
+    why: For a company address, the domain tells you whether the company is real and how long it has existed.
+    do: Take the part after the @ and check its age, reputation and the company's usual address pattern.
+    look_for:
+      - A domain registered very recently
+      - A mismatch with the company's real address pattern (for example first.last@)
+    tools: [icann-lookup, virustotal, email-format, hunter]
+
+  - title: Find accounts registered to it
+    input: email
+    why: Accounts on other services often reveal a name, photo, location or username.
+    do: Run the address through account-discovery tools. Confirm every hit by hand before relying on it.
+    look_for:
+      - A Google account with a public name, photo or Maps reviews
+      - Social accounts that confirm the address is in use
+    tools: [epieos, holehe, ghunt, osint-industries, user-scanner]
+
+  - title: Check for known breaches
+    input: email
+    why: Appearing in breaches shows the address is old and real, and the breach names hint at the person's interests.
+    do: Check breach notifications only. Do not look for or use the leaked data itself.
+    look_for:
+      - How many breaches and from which years
+      - Services that suggest a country, profession or interest
+    tools: [have-i-been-pwned]
+
+  - title: Search for it in the open
+    input: email
+    why: Addresses published on websites, forums, PGP key servers or domain registrations connect to a name.
+    do: Search the exact address in quotes on search engines, then check reverse WHOIS for domains registered with it.
+    look_for:
+      - Domains registered with the address
+      - A name next to the address on a public page or key
+    tools: [viewdns-info, whoisology, mit-pgp-key-server]
+
+  - title: Pivot on the username
+    input: username
+    why: The part before the @ is often reused as a username elsewhere.
+    do: Take the local part (before the @) and search it as a username.
+    look_for:
+      - Profiles with the same photo or name as the accounts from step 3
+    tools: [whatsmyname, sherlock, maigret, blackbird]

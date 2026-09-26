@@ -1,8 +1,10 @@
 ---
-// One landing page per input type ("OSINT tools for an email address"), mainly for search engines.
+// One landing page per input type ("OSINT tools for an email address"): tools that take it, where it can lead,
+// and the playbooks that start from it.
 import Base from '../../layouts/Base.astro';
 import ToolCard from '../../components/ToolCard.astro';
 import { usedInputs, toolsTaking } from '../../lib/tools';
+import { pivotsFrom, playbooksStartingWith } from '../../lib/playbooks';
 
 export function getStaticPaths() {
   return usedInputs().map((i) => ({ params: { input: i.key }, props: { label: i.label } }));
@@ -11,16 +13,63 @@ export function getStaticPaths() {
 const { input } = Astro.params;
 const { label } = Astro.props as { label: string };
 const list = toolsTaking(input!);
+const pivots = pivotsFrom(input!);
+const guides = playbooksStartingWith(input!);
+const lower = label.toLowerCase();
 ---
 
 <Base
-  title={`OSINT tools for a ${label.toLowerCase()} | osint-hub`}
-  description={`${list.length} OSINT tools that take a ${label.toLowerCase()} as input, with what each one does and how to use it.`}
+  title={`OSINT tools for a ${lower} | osint-hub`}
+  description={`${list.length} OSINT tools that take a ${lower} as input, what each one does, and where a ${lower} can lead.`}
 >
   <nav class="crumbs"><a href="/">Tools</a> / {label}</nav>
   <section class="hero">
-    <h1>You have a {label.toLowerCase()}.</h1>
-    <p class="lede">{list.length} tools that take a {label.toLowerCase()} as input. <a href={`/?input=${input}`}>Filter them further</a>.</p>
+    <h1>You have a {lower}.</h1>
+    <p class="lede">
+      {list.length} tools take a {lower} as input. <a href={`/?input=${input}`}>Filter them</a>, or
+      <a href="/launch">search many at once</a>.
+    </p>
   </section>
+
+  {
+    guides.length > 0 && (
+      <section class="panel">
+        <h2>Step-by-step</h2>
+        <ul class="pill-links">
+          {guides.map((p) => (
+            <li><a href={`/playbooks/${p.slug}`}>{p.title} →</a></li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    pivots.length > 0 && (
+      <section class="pivot-map">
+        <h2>Where a {lower} can lead</h2>
+        <p class="hint">What these tools can turn up, and the tools that get you there. Each result is a new starting point.</p>
+        <ul>
+          {pivots.map((p) => (
+            <li>
+              <a class="pivot-to" href={`/inputs/${p.to}`}>{p.label} →</a>
+              <span class="pivot-via">
+                via{' '}
+                {p.via.slice(0, 6).map((t, i) => (
+                  <>
+                    {i > 0 && ', '}
+                    <a href={`/tools/${t.slug}`}>{t.name}</a>
+                  </>
+                ))}
+                {p.via.length > 6 && ` and ${p.via.length - 6} more`}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <h2 class="section-title">All {list.length} tools</h2>
   <div class="grid">{list.map((t) => <ToolCard tool={t} />)}</div>
 </Base>

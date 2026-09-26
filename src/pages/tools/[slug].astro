@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import ToolCard from '../../components/ToolCard.astro';
 import { tools, taxonomy, inputLabel, isInputKey, toolsTaking, staleSince, type Tool } from '../../lib/tools';
 import { templatesFor } from '../../lib/launcher';
+import { playbooksUsing } from '../../lib/playbooks';
 
 export function getStaticPaths() {
   return tools.map((tool) => ({ params: { slug: tool.slug }, props: { tool } }));
@@ -23,6 +24,7 @@ const similar = tools
 const { health } = tool;
 const templates = templatesFor(tool.query_template, tool.inputs);
 const searchInputs = Object.keys(templates);
+const usedIn = playbooksUsing(tool.slug);
 // People search and face recognition get a standard responsible-use notice.
 const sensitive = tool.category === 'people' || !!tool.tags?.includes('face-recognition');
 const repo = health?.repo;
@@ -176,6 +178,19 @@ const exampleInput = tool.inputs[0];
               </ul>
             </div>
           ))}
+        </section>
+      )
+    }
+
+    {
+      usedIn.length > 0 && (
+        <section>
+          <h2>Used in playbooks</h2>
+          <ul class="pill-links">
+            {usedIn.map((p) => (
+              <li><a href={`/playbooks/${p.slug}`}>{p.title}</a></li>
+            ))}
+          </ul>
         </section>
       )
     }

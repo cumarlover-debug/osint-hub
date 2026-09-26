@@ -61,6 +61,17 @@ On the site, down, archived and missing tools are badged, sorted last, and hidde
 "Open selected" opens them all in new tabs. Everything runs in the browser: the value is never sent to the site or put
 in its URL. Only add a template after checking it with a real value: a template that 404s is worse than none.
 
+## Playbooks and pivots
+
+`data/playbooks/*.yaml` are step-by-step guides (suspicious domain, email, username, IP, photo, video, crypto payment,
+company). Each step has `why`, `do`, `look_for`, optional `opsec`, an `input` type and the `tools` to use (by slug).
+On the page, a value typed into one step fills every step of the same type and turns on direct search links. Only
+which steps are ticked is saved (in the browser); the values never are. `npm run validate` fails if a playbook refers
+to a tool that does not exist, so removing or renaming a tool cannot silently break a guide.
+
+Each input page (`/inputs/domain` and so on) also shows a pivot map: what the tools for that input can turn up, as
+other input types, and which tools lead there. It is built from each tool's `outputs`.
+
 ## Growing the list
 
 A three-step pipeline finds new tools in public OSINT lists and turns them into drafts for review:
@@ -108,6 +119,6 @@ visitor's browser, and pages send `no-referrer`.
 
 1. ~~MVP: schema, seed data, search by input, page per tool~~
 2. ~~Weekly health check (GitHub Action): link status, GitHub stars / last commit / archived~~
-3. ~~Multi-tool query launcher~~, pivot chains, investigation playbooks
+3. ~~Multi-tool query launcher, pivot chains, investigation playbooks~~
 4. ~~Seed + enrich pipeline from awesome lists~~; community submissions
 5. Favorites, CLI, browser extension

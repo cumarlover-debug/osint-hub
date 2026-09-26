@@ -1,0 +1,165 @@
+---
+import Base from '../../layouts/Base.astro';
+import { playbooks, toolBySlug, type Playbook } from '../../lib/playbooks';
+import { inputLabel } from '../../lib/tools';
+import { templatesFor } from '../../lib/launcher';
+
+export function getStaticPaths() {
+  return playbooks.map((p) => ({ params: { slug: p.slug }, props: { playbook: p } }));
+}
+
+const { playbook } = Astro.props as { playbook: Playbook };
+const others = playbooks.filter((p) => p.slug !== playbook.slug);
+
+// For each step, its tools plus the search template that fits the step's input (if the tool has one).
+const steps = playbook.steps.map((step) => ({
+  ...step,
+  tools: step.tools.map((slug) => {
+    const tool = toolBySlug(slug);
+    const template = step.input ? templatesFor(tool.query_template, tool.inputs)[step.input] : undefined;
+    return { tool, template };
+  }),
+}));
+---
+
+<Base title={`${playbook.title} | osint-hub playbooks`} description={playbook.summary}>
+  <nav class="crumbs"><a href="/playbooks">Playbooks</a> / {playbook.title}</nav>
+
+  <article class="playbook" data-playbook={playbook.slug}>
+    <header class="tool-head">
+      <h1>{playbook.title}</h1>
+      <p class="lede">{playbook.summary}</p>
+      <dl class="facts">
+        <div><dt>Starts with</dt><dd>{inputLabel(playbook.starts_with)}</dd></div>
+        <div><dt>Useful for</dt><dd>{playbook.for}</dd></div>
+        <div><dt>Time</dt><dd>{playbook.time}</dd></div>
+        <div><dt>Progress</dt><dd><span id="progress">0 of {steps.length}</span> steps · <button type="button" class="linklike" id="reset">reset</button></dd></div>
+      </dl>
+      <p class="hint">
+        Type a value into any step and every step of the same type fills in, with direct search links. Values stay in
+        this tab and are not saved; only which steps you ticked is remembered, in your browser.
+      </p>
+    </header>
+
+    <ol class="steps">
+      {
+        steps.map((step, i) => (
+          <li class="step" id={`step-${i + 1}`}>
+            <div class="step-head">
+              <label class="step-done">
+                <input type="checkbox" data-step={i} />
+                <span class="visually-hidden">Mark step {i + 1} done</span>
+              </label>
+              <h2>
+                <span class="step-num">{i + 1}.</span> {step.title}
+              </h2>
+            </div>
+            <p><strong>Why:</strong> {step.why}</p>
+            <p><strong>Do:</strong> {step.do}</p>
+            {step.look_for && step.look_for.length > 0 && (
+              <div>
+                <strong>Look for:</strong>
+                <ul class="look-for">
+                  {step.look_for.map((l) => <li>{l}</li>)}
+                </ul>
+              </div>
+            )}
+            {step.opsec && (
+              <aside class="note">
+                <p><strong>Careful:</strong> {step.opsec}</p>
+              </aside>
+            )}
+            {step.input && step.tools.some((t) => t.template) && (
+              <div class="step-value">
+                <label>
+                  {inputLabel(step.input)}
+                  <input type="text" data-value-for={step.input} autocomplete="off" spellcheck="false" placeholder={`Paste the ${inputLabel(step.input).toLowerCase()}`} />
+                </label>
+              </div>
+            )}
+            {step.tools.length > 0 && (
+              <ul class="step-tools">
+                {step.tools.map(({ tool, template }) => (
+                  <li>
+                    <a href={`/tools/${tool.slug}`}>{tool.name}</a>
+                    {!tool.passive && <span class="badge warn">Active</span>}
+                    {template && (
+                      <a class="launch-open" hidden data-input={step.input} data-template={JSON.stringify(template)} target="_blank" rel="noopener noreferrer">
+                        search ↗
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))
+      }
+    </ol>
+
+    <section>
+      <h2>Other playbooks</h2>
+      <ul class="pill-links">
+        {others.map((p) => <li><a href={`/playbooks/${p.slug}`}>{p.title}</a></li>)}
+      </ul>
+    </section>
+  </article>
+</Base>
+
+<script>
+  import { applies, buildLink, type Template } from '../../lib/launcher';
+
+  const root = document.querySelector<HTMLElement>('.playbook')!;
+  const key = `osint-hub:playbook:${root.dataset.playbook}`;
+  const boxes = [...root.querySelectorAll<HTMLInputElement>('input[data-step]')];
+  const total = boxes.length;
+
+  // Progress: step indexes only. Storage can be unavailable (private mode, blocked), so failures are ignored.
+  const load = (): number[] => {
+    try {
+      return JSON.parse(localStorage.getItem(key) ?? '[]');
+    } catch {
+      return [];
+    }
+  };
+  const save = () => {
+    try {
+      localStorage.setItem(key, JSON.stringify(boxes.filter((b) => b.checked).map((b) => Number(b.dataset.step))));
+    } catch {}
+  };
+  const showProgress = () => {
+    const done = boxes.filter((b) => b.checked).length;
+    document.getElementById('progress')!.textContent = `${done} of ${total}`;
+    for (const b of boxes) b.closest('.step')!.classList.toggle('is-done', b.checked);
+  };
+
+  const saved = new Set(load());
+  for (const b of boxes) {
+    b.checked = saved.has(Number(b.dataset.step));
+    b.addEventListener('change', () => {
+      save();
+      showProgress();
+    });
+  }
+  document.getElementById('reset')!.addEventListener('click', () => {
+    for (const b of boxes) b.checked = false;
+    save();
+    showProgress();
+  });
+  showProgress();
+
+  // Values: every box of the same input type shares one value, and the search links follow it.
+  const values = [...root.querySelectorAll<HTMLInputElement>('input[data-value-for]')];
+  const links = [...root.querySelectorAll<HTMLAnchorElement>('a[data-template]')];
+  function update(type: string, value: string) {
+    for (const v of values) if (v.dataset.valueFor === type && v.value !== value) v.value = value;
+    for (const a of links) {
+      if (a.dataset.input !== type) continue;
+      const t = JSON.parse(a.dataset.template!) as Template;
+      const ok = value.trim() !== '' && applies(t, value);
+      a.hidden = !ok;
+      if (ok) a.href = buildLink(t, value);
+    }
+  }
+  for (const v of values) v.addEventListener('input', () => update(v.dataset.valueFor!, v.value));
+</script>

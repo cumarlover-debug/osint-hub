@@ -1,0 +1,55 @@
+title: Follow a crypto payment
+summary: Trace where funds sent to a wallet went, and whether the address is linked to known scams or services.
+starts_with: crypto_address
+for: Scam payments, ransomware wallets, donation addresses, sanctions checks.
+time: 30 minutes to several hours
+steps:
+  - title: Check if it is already reported
+    input: crypto_address
+    why: Scam and ransomware addresses are often reported by other victims, which gives context straight away.
+    do: Search the address in scam report databases.
+    look_for:
+      - Scam reports, their dates and descriptions
+      - Links to scam websites
+    tools: [chainabuse, bitcoin-who-s-who]
+
+  - title: Look at its transactions
+    input: crypto_address
+    why: The history shows how much the address received, when, and whether it is still active.
+    do: Open the address in a block explorer for its chain. Note the first and last transactions and the total received.
+    look_for:
+      - Many small incoming payments (many victims)
+      - Funds moved out soon after arriving
+    tools: [blockchair, blockchain-explorer, etherscan, blockscan]
+
+  - title: Find who controls it
+    input: crypto_address
+    why: Addresses belonging to exchanges and services are labelled, and clustering shows which addresses share an owner.
+    do: Check entity labels and wallet clustering.
+    look_for:
+      - An exchange label (exchanges can be asked to freeze funds)
+      - The wallet cluster the address belongs to
+    tools: [arkham-intelligence, walletexplorer, misttrack]
+
+  - title: Trace the funds
+    input: crypto_address
+    why: Following outgoing transactions shows where the money went, often to an exchange where it was cashed out.
+    do: Build a flow graph from the address and follow the largest outgoing amounts.
+    look_for:
+      - Deposits into labelled exchange wallets
+      - Mixers or bridges to other chains, which make tracing harder
+    tools: [breadcrumbs, metasleuth, arkham-intelligence]
+
+  - title: Check sanctions
+    input: name
+    why: Paying or receiving funds from a sanctioned address can be illegal, and sanctions lists include crypto addresses.
+    do: Search any entity names you found in sanctions lists.
+    look_for:
+      - Matches on OFAC or other sanctions lists
+    tools: [ofac-sanctions-list-search, opensanctions]
+
+  - title: Report it
+    why: Exchanges freeze funds faster with a clear trail, and reports warn future victims.
+    do: Report the address to Chainabuse, and send the exchange's compliance team the transaction IDs showing funds arriving there. Report to the police if you lost money.
+    look_for: []
+    tools: [chainabuse]

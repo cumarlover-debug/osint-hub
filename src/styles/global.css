@@ -592,3 +592,120 @@ a.input-tag:hover {
   color: var(--text);
   font: inherit;
 }
+
+/* Playbooks and pivot map */
+.section-title {
+  margin: 36px 0 12px;
+  font-size: 1.15rem;
+}
+.steps {
+  margin: 8px 0 32px;
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+.step {
+  margin-bottom: 16px;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.step.is-done {
+  opacity: 0.6;
+}
+.step p {
+  margin: 8px 0;
+}
+.step-head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.step-head h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+.step-num {
+  color: var(--muted);
+}
+.step-done input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.look-for {
+  margin: 4px 0 8px;
+  padding-left: 20px;
+  color: var(--muted);
+}
+.step .note {
+  margin: 12px 0;
+}
+.step-value label {
+  display: grid;
+  gap: 4px;
+  max-width: 480px;
+  margin: 12px 0 4px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.step-value input {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font: 0.9rem var(--mono);
+}
+.step-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.step-tools li {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+.step-tools a {
+  text-decoration: none;
+}
+.step-tools a[hidden] {
+  display: none;
+}
+.pivot-map ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.pivot-map li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+}
+.pivot-map li:first-child {
+  border-top: 0;
+}
+.pivot-to {
+  min-width: 170px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.pivot-via {
+  color: var(--muted);
+  font-size: 0.9rem;
+}

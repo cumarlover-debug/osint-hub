@@ -1,0 +1,53 @@
+title: Verify a photo
+summary: Find where a photo came from, whether it was edited, and where and when it was taken.
+starts_with: image
+for: Viral images, claims about events, profile photos, evidence you have been sent.
+time: 30 minutes to several hours
+steps:
+  - title: Find earlier copies
+    input: image
+    why: Most misleading photos are real photos from another time or place. The oldest copy is usually the original.
+    do: Search the image in several engines. Sort by date where you can, and crop to the main subject if full searches find nothing.
+    look_for:
+      - Copies older than the claimed event
+      - The original photographer, agency or first poster
+      - Captions describing a different place or date
+    tools: [google-lens, tineye, yandex-images, bing-images, baidu-images]
+
+  - title: Read the metadata
+    why: An original file can still carry the camera, date and GPS coordinates. Social platforms usually strip them, but files sent by email or cloud links often keep them.
+    do: Get the original file if you can, then read its metadata. Treat dates and locations as clues, since metadata is easy to edit.
+    look_for:
+      - Capture date and time zone
+      - GPS coordinates
+      - Editing software such as Photoshop
+      - Content Credentials (C2PA) showing how it was made
+    tools: [exiftool, jimpl, metadata2go, c2pa-viewer]
+
+  - title: Check for editing
+    why: Composites and edited regions often leave traces in compression and noise.
+    do: Run error level and clone detection. Compare suspicious areas with the rest of the image.
+    look_for:
+      - Areas with different compression levels
+      - Repeated patterns that suggest cloning
+    tools: [forensically, fotoforensics, forensics-media]
+    opsec: These tests produce hints, not proof. Ordinary re-saving also creates artefacts.
+
+  - title: Find where it was taken
+    input: location
+    why: Matching the scene to a real place confirms or disproves the claimed location.
+    do: List distinctive features (signs, shop names, road markings, mountains, architecture). Search them, then match the scene on maps and street-level imagery.
+    look_for:
+      - Text in the image (translate it)
+      - Landmarks visible from a specific angle
+      - Features you can query in OpenStreetMap, such as a church next to a bridge
+    tools: [google-maps, google-earth, mapillary, kartaview, overpass-turbo, geospy, picarta]
+
+  - title: Work out when it was taken
+    input: location
+    why: Shadows, weather and construction change over time, so they can confirm or rule out a date.
+    do: Compare shadow directions with the sun's position on the claimed date, and check satellite imagery history for the site.
+    look_for:
+      - Shadow angles that match the claimed time
+      - Buildings or damage that appear only after a certain date
+    tools: [suncalc, shadowfinder-web, esri-world-imagery-wayback, zoom-earth]
