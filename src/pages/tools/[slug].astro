@@ -51,6 +51,9 @@ const exampleInput = tool.inputs[0];
       <h1>{tool.name}</h1>
       <p class="lede">{tool.description}</p>
       <a class="button" href={tool.url} target="_blank" rel="noopener noreferrer">Open {tool.name} ↗</a>
+      <button type="button" class="fav fav-page" data-slug={tool.slug} aria-pressed="false">
+        <span aria-hidden="true">★</span> <span class="fav-label">Add to my toolkit</span>
+      </button>
       <p class="url">{tool.url}</p>
       <p class="hint report-link">
         Broken, moved or wrong? <a href={reportProblemUrl(tool.name, tool.slug)} target="_blank" rel="noopener noreferrer">Report a problem</a>

@@ -1,0 +1,141 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="My toolkit | osint-hub" description="The tools you starred, saved in your browser. Export them as browser bookmarks.">
+  <section class="hero">
+    <h1>My toolkit.</h1>
+    <p class="lede">
+      The tools you starred with ★. They are saved only in this browser; nothing is sent to osint-hub. Export them as
+      bookmarks, or back them up to move them to another browser.
+    </p>
+  </section>
+
+  <div class="toolkit-actions">
+    <button type="button" class="button" id="export-bookmarks">Export as bookmarks</button>
+    <button type="button" class="linklike" id="export-json">Back up (JSON)</button>
+    <label class="linklike file-label">Restore from backup<input type="file" id="import-json" accept="application/json,.json" hidden /></label>
+    <button type="button" class="linklike" id="clear">Remove all</button>
+  </div>
+  <p class="hint" id="toolkit-status" aria-live="polite"></p>
+
+  <div id="toolkit-grid" class="grid"></div>
+  <p class="empty" id="toolkit-empty" hidden>
+    Nothing here yet. Star tools with ★ on any tool card or tool page, then come back. <a href="/">Browse tools</a>
+  </p>
+</Base>
+
+<script>
+  import { getFavourites, setFavourites, CHANGED } from '../lib/favourites';
+
+  type T = { slug: string; name: string; url: string; description: string; category: string; passive: boolean; cost: string };
+  const $ = <E extends HTMLElement>(id: string) => document.getElementById(id) as E;
+  const status = (msg: string) => ($('toolkit-status').textContent = msg);
+  let all: T[] = [];
+  let categories: Record<string, string> = {};
+
+  const mine = () => {
+    const bySlug = new Map(all.map((t) => [t.slug, t]));
+    return getFavourites().map((s) => bySlug.get(s)).filter(Boolean) as T[];
+  };
+
+  function card(t: T) {
+    const el = document.createElement('article');
+    el.className = 'card';
+    const star = document.createElement('button');
+    star.type = 'button';
+    star.className = 'fav fav-card';
+    star.dataset.slug = t.slug;
+    star.setAttribute('aria-pressed', 'true');
+    star.title = 'Remove from my toolkit';
+    star.textContent = '★';
+    const h = document.createElement('h3');
+    const a = document.createElement('a');
+    a.href = `/tools/${t.slug}`;
+    a.textContent = t.name;
+    h.append(a);
+    const head = document.createElement('div');
+    head.className = 'card-head';
+    head.append(h);
+    const p = document.createElement('p');
+    p.className = 'desc';
+    p.textContent = t.description;
+    const open = document.createElement('a');
+    open.href = t.url;
+    open.target = '_blank';
+    open.rel = 'noopener noreferrer';
+    open.className = 'launch-open card-open';
+    open.textContent = `Open ${t.name} ↗`;
+    el.append(star, head, p, open);
+    return el;
+  }
+
+  function render() {
+    const list = mine();
+    $('toolkit-grid').replaceChildren(...list.map(card));
+    $('toolkit-empty').hidden = list.length > 0;
+    for (const id of ['export-bookmarks', 'export-json', 'clear']) ($(id) as HTMLButtonElement).disabled = list.length === 0;
+  }
+
+  function download(name: string, type: string, text: string) {
+    const url = URL.createObjectURL(new Blob([text], { type }));
+    const a = Object.assign(document.createElement('a'), { href: url, download: name });
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+  // The Netscape bookmark format every major browser can import, with one folder per category.
+  $('export-bookmarks').addEventListener('click', () => {
+    const groups = new Map<string, T[]>();
+    for (const t of mine()) groups.set(t.category, [...(groups.get(t.category) ?? []), t]);
+    const folders = [...groups.entries()]
+      .map(([cat, list]) =>
+        [`    <DT><H3>${esc(categories[cat] ?? cat)}</H3>`, '    <DL><p>', ...list.map((t) => `        <DT><A HREF="${esc(t.url)}">${esc(t.name)}</A>\n        <DD>${esc(t.description)}`), '    </DL><p>'].join('\n'),
+      )
+      .join('\n');
+    const html = `<!DOCTYPE NETSCAPE-Bookmark-file-1>\n<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">\n<TITLE>Bookmarks</TITLE>\n<H1>Bookmarks</H1>\n<DL><p>\n  <DT><H3>osint-hub toolkit</H3>\n  <DL><p>\n${folders}\n  </DL><p>\n</DL><p>\n`;
+    download('osint-hub-toolkit-bookmarks.html', 'text/html', html);
+    status('Bookmarks file downloaded. Import it in your browser (Bookmarks → Import bookmarks, "Bookmarks HTML file").');
+  });
+
+  $('export-json').addEventListener('click', () => {
+    download('osint-hub-toolkit.json', 'application/json', JSON.stringify({ app: 'osint-hub', version: 1, favourites: getFavourites() }, null, 2));
+    status('Backup downloaded.');
+  });
+
+  $<HTMLInputElement>('import-json').addEventListener('change', async (e) => {
+    const file = (e.target as HTMLInputElement).files?.[0];
+    if (!file) return;
+    try {
+      const data = JSON.parse(await file.text());
+      const known = new Set(all.map((t) => t.slug));
+      const incoming = (Array.isArray(data?.favourites) ? data.favourites : []).filter((s: unknown) => typeof s === 'string' && known.has(s));
+      const merged = [...new Set([...getFavourites(), ...incoming])];
+      status(setFavourites(merged) ? `Restored ${incoming.length} tools (${merged.length} in your toolkit now).` : 'Could not save: this browser is blocking site storage.');
+    } catch {
+      status('That file is not an osint-hub backup.');
+    }
+    (e.target as HTMLInputElement).value = '';
+  });
+
+  $('clear').addEventListener('click', () => {
+    if (confirm('Remove every tool from your toolkit?')) {
+      setFavourites([]);
+      status('Toolkit cleared.');
+    }
+  });
+
+  window.addEventListener(CHANGED, render);
+  window.addEventListener('storage', render);
+
+  fetch('/api/tools.json')
+    .then((r) => r.json())
+    .then((data) => {
+      all = data.tools;
+      categories = data.taxonomy.categories;
+      render();
+    })
+    .catch(() => status('Could not load the tool list. Check your connection and reload.'));
+</script>
