@@ -1,0 +1,27 @@
+name: OpenOwnership Register
+url: https://register.openownership.org/
+description: ''
+category: business
+inputs:
+  - company
+type: web
+cost: freemium
+passive: true
+account_required: false
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: high
+  score: 6
+  source_url: https://register.openownership.org/
+  flags:
+    - 'cost: unknown, guessed freemium'
+    - 'account_required: unknown, guessed no'
+    - 'link: could not verify (HTTP 403 (bot protection))'
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Company Research
+  hold: true
+  hold_reason: behind bot protection; check by hand that the public register is still available

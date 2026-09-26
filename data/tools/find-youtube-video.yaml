@@ -1,0 +1,10 @@
+name: Find YouTube Video
+url: https://findyoutubevideo.thetechrobo.ca/
+description: Checks several archives for a YouTube video by its ID, useful when the video was deleted or made private.
+category: image-video
+inputs: [url, video]
+outputs: [archive_snapshot]
+type: web
+cost: free
+passive: true
+account_required: false

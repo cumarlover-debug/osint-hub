@@ -1,0 +1,29 @@
+name: TweeterID
+url: https://tweeterid.com/
+description: ''
+category: social-media
+inputs:
+  - username
+type: web
+cost: free
+passive: true
+account_required: false
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: low
+  score: 4
+  source_url: https://tweeterid.com/
+  flags: []
+  notes:
+    sources:
+      - list: osint-framework
+        section: Social Networks > Twitter > Search
+        said: Bidirectional converter between X/Twitter usernames and numeric account IDs for correlation and API-ready pivots.
+    framework_input: Twitter username or numeric Twitter ID
+    framework_output: Mapped username-ID pair for the submitted account
+    page_title: TweeterID - X/Twitter ID and Username Converter
+    page_description: Convert any X/Twitter account
+  hold: true
+  hold_reason: depends on X/Twitter access; check by hand that it still works

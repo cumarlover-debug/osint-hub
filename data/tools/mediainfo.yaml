@@ -1,0 +1,11 @@
+name: MediaInfo
+url: https://mediaarea.net/en/MediaInfo
+description: 'Shows the technical metadata of a video or audio file: codec, encoder, creation date and sometimes the recording device.'
+category: metadata
+inputs: [video]
+outputs: [metadata]
+type: desktop
+cost: free
+passive: true
+account_required: false
+platforms: [linux, macos, windows]

@@ -1,0 +1,11 @@
+name: Sogou WeChat Search
+url: https://weixin.sogou.com/
+description: Searches public WeChat articles and official accounts, which ordinary search engines do not index.
+category: social-media
+inputs: [username, social_post]
+outputs: [social_post, social_profile]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: In Chinese.

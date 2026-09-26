@@ -1,0 +1,10 @@
+name: Current Location
+url: https://current-location.com/
+description: Shows public geotagged photos taken near a place on a map.
+category: geolocation
+inputs: [location]
+outputs: [image]
+type: web
+cost: free
+passive: true
+account_required: false

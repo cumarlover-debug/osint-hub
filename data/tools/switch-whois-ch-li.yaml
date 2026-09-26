@@ -1,0 +1,10 @@
+name: SWITCH WHOIS (.ch / .li)
+url: https://www.nic.ch/whois/
+description: Official registry lookup for Swiss .ch and Liechtenstein .li domains.
+category: domain
+inputs: [domain]
+outputs: [name, dns_record]
+type: web
+cost: free
+passive: true
+account_required: false

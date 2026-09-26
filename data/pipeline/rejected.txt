@@ -78,7 +78,6 @@ https://www.namecheckr.com  # Name Checkr (redundant username checker), 2026-09-
 https://www.ncdc.noaa.gov/nexradinv/  # NEXRAD Data Inventory Search (raw weather radar archive, too niche), 2026-09-26
 https://download.microsoft.com/download/1/2/7/127ba59a-4fe1-4acd-ba47-513ceef85a85/OffVis.zip  # OffVis (discontinued Microsoft download), 2026-09-26
 https://www.openaip.net/  # OpenAIP World Aeronautical Database (aviation charts, too niche), 2026-09-26
-https://www.openownership.org/en/  # OpenOwnership (standards body; its public register has closed), 2026-09-26
 https://resources.linkurious.com/openscreening  # OpenScreening (tool page removed, redirects to the vendor homepage), 2026-09-26
 https://www.openseamap.org  # OpenSeaMap - The free nautical chart (nautical charts, too niche), 2026-09-26
 https://www.opensignal.com/  # OpenSignal (now a market-insights business, no public coverage lookup), 2026-09-26
@@ -152,3 +151,68 @@ https://www.toofr.com  # Toofr (redundant email finder), 2026-09-26
 https://verify-email.org  # Verify Email (email-list cleaning service), 2026-09-26
 https://emailable.com/  # VerifyEmail (R$) (email-list cleaning service), 2026-09-26
 https://cipher387.github.io/osintmap/  # Worldwide OSINT Tools Map (a directory of tools, not a tool), 2026-09-26
+https://7photos.net/  # 7Photos.net (domain now parked), 2026-09-26
+https://audiencecue.com/en/tools/youtube-comment-downloader  # AudienceCue (comment export utility, little OSINT value), 2026-09-26
+https://www.bing.com/videos  # Bing Videos (general video search engine), 2026-09-26
+https://www.bing.com/?scope=video  # Bing Videos (general video search engine), 2026-09-26
+https://blinkx.com/  # blinkx Video Search (domain now an unrelated AI studio), 2026-09-26
+https://www.dailymotion.com  # DailyMotion (video platform itself, not a tool), 2026-09-26
+https://connect.data.com  # Data.com Connect (discontinued, redirects to Salesforce), 2026-09-26
+https://defend.network  # defend.network (threat news briefings, no lookup), 2026-09-26
+https://deturl.com  # Deturl (video downloader; yt-dlp covers it), 2026-09-26
+https://platform.dfir-lab.ch  # DFIR Platform (new service, not yet established), 2026-09-26
+https://www.downloadhelper.net  # DownloadHelper (video downloader; yt-dlp covers it), 2026-09-26
+https://www.esri.com  # Esri (map-making or GIS product, not an investigation tool), 2026-09-26
+https://www.ezilon.com  # Ezilon (web directory), 2026-09-26
+https://global.factiva.com  # Factiva (paid news archive, no fitting input), 2026-09-26
+https://www.flashearth.com  # Flash Earth (now redirects to Zoom Earth, already listed), 2026-09-26
+https://www.forbes.com/global2000/  # Forbes Global 2000 (a ranking list, not a tool), 2026-09-26
+https://geogig.org  # GeoGig (map-making or GIS product, not an investigation tool), 2026-09-26
+https://www.gitguardian.com/monitor-public-github-for-secrets  # GitGuardian - Public GitHub Monitoring (vendor marketing page), 2026-09-26
+https://www.glassdoor.com  # Glassdoor (employer review site, little OSINT value), 2026-09-26
+https://globaledge.msu.edu  # globalEdge (business education portal), 2026-09-26
+https://www.goodfirms.co/  # GoodFirms (agency directory, little OSINT value), 2026-09-26
+https://www.google.com/intl/en/earth/versions/#earth-pro  # Google Earth Pro (covered by the Google Earth entry), 2026-09-26
+https://www.google.com/maps/about/mymaps  # Google My Maps (map-making or GIS product, not an investigation tool), 2026-09-26
+https://www.gpsvisualizer.com  # GPSVisualizer (map-making or GIS product, not an investigation tool), 2026-09-26
+https://grass.osgeo.org  # GrassGIS (map-making or GIS product, not an investigation tool), 2026-09-26
+https://here.com  # Here (corporate site; HERE WeGo is already listed), 2026-09-26
+https://www.hoovers.com  # Hoovers (SEO or sales-intelligence product, out of scope), 2026-09-26
+https://openphish.com/feed.txt  # https://openphish.com/feed.txt (raw feed file, not a lookup), 2026-09-26
+https://www.webfx.com/tools/idgettr/  # idGettr (tool no longer available on the page), 2026-09-26
+https://www.inc.com/inc5000  # Inc. 5000 (a ranking list, not a tool), 2026-09-26
+https://inspire-geoportal.ec.europa.eu  # Inspire Geoportal (open-data portal, no investigation lookup), 2026-09-26
+https://www.instantatlas.com  # InstantAtlas (discontinued, redirects to Esri UK), 2026-09-26
+https://www.icaew.com/en/library/subject-gateways/business-management/company-administration/knowledge-guide-international-company-registration  # Knowledge guide to international company registration (a reading list, not a tool), 2026-09-26
+https://leafletjs.com  # Leaflet (map programming library), 2026-09-26
+https://malwareintel.es  # MalwareIntel (new service, not yet established), 2026-09-26
+https://maps.co  # Map Maker (map-making or GIS product, not an investigation tool), 2026-09-26
+https://mapalist.com  # MapAList (map-making or GIS product, not an investigation tool), 2026-09-26
+https://www.mapbox.com  # MapBox (map-making or GIS product, not an investigation tool), 2026-09-26
+https://mapchart.net  # Mapchart.net (map-making or GIS product, not an investigation tool), 2026-09-26
+https://maphub.net  # MapHub (map-making or GIS product, not an investigation tool), 2026-09-26
+https://mapjam.com  # MapJam (domain for sale), 2026-09-26
+https://domains.markmonitor.com/whois/  # MarkMonitor Whois Search (corporate registrar WHOIS form, redundant), 2026-09-26
+https://www.mergentintellect.com  # Mergent Intellect (subscription library database), 2026-09-26
+https://www.mergentonline.com/login.php  # Mergent Online (subscription library database), 2026-09-26
+https://myspace.com/  # Myspace (social network itself, little current value), 2026-09-26
+https://en.wikipedia.org/wiki/List_of_company_registers  # National Company Registers (Wikipedia list, not a tool), 2026-09-26
+https://www.opengov-muenchen.de/  # Open-Data-Portal München (German) (city open-data portal), 2026-09-26
+https://conflicts.app  # Pharos AI (new service, not yet established), 2026-09-26
+https://www.plunkettresearchonline.com  # Plunkett Research (subscription market research), 2026-09-26
+https://roadtolarissa.com/javascript/reddit-comment-visualizer/  # Reddit Comment History (redundant; RedditMetis covers it), 2026-09-26
+https://www.scoot.co.uk  # Scoot (business directory, little OSINT value), 2026-09-26
+https://serpstat.com  # Serpstat (SEO or sales-intelligence product, out of scope), 2026-09-26
+https://www.shadowserver.org/  # Shadowserver Foundation (reports go to network owners; no public lookup), 2026-09-26
+https://www.siteliner.com/  # Siteliner (SEO or sales-intelligence product, out of scope), 2026-09-26
+https://www.sitesleuth.io/  # SiteSleuth (domain now redirects to an unrelated site), 2026-09-26
+https://www.spyfu.com  # SpyFu (SEO or sales-intelligence product, out of scope), 2026-09-26
+https://stix-viewer.threatlandscape.io/  # STIX Viewer (file viewer, out of scope), 2026-09-26
+https://tags.hawksey.info/tagsexplorer/  # TAGSExplorer (depends on retired Twitter archives), 2026-09-26
+https://www.talkwalker.com/social-media-analytics-search  # Talkwalker Social Media Search (marketing monitoring product), 2026-09-26
+https://www.threadsdashboard.com/  # Threads Dashboard (analytics for your own account), 2026-09-26
+https://www.threatminer.org/  # ThreatMiner.org (site down (HTTP 522)), 2026-09-26
+https://treeverse.app/  # Treeverse (thread visualiser, little OSINT value), 2026-09-26
+https://www.tumblr.com/tagged/search  # Tumblr (social network itself, not a tool), 2026-09-26
+https://www.wsj.com/public/resources/documents/TweetMetadata.pdf  # Tweet Metadata (a reference PDF, not a tool), 2026-09-26
+https://vk.com/  # VK (social network itself, not a tool), 2026-09-26

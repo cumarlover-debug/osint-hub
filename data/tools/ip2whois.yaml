@@ -1,0 +1,10 @@
+name: IP2WHOIS
+url: https://www.ip2whois.com
+description: Free domain WHOIS lookup with registrar, dates, name servers and registrant details where published.
+category: domain
+inputs: [domain]
+outputs: [name, email]
+type: web
+cost: free
+passive: true
+account_required: false

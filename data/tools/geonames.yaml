@@ -1,0 +1,10 @@
+name: GeoNames
+url: https://www.geonames.org
+description: Gazetteer of over 11 million place names with coordinates, alternate spellings and administrative areas.
+category: geolocation
+inputs: [location]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false

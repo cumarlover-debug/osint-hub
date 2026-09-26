@@ -1,0 +1,10 @@
+name: C2PA Viewer
+url: https://c2paviewer.com/
+description: 'Reads Content Credentials (C2PA) in a photo or video: which camera or app created it, edits made and whether AI was used.'
+category: metadata
+inputs: [image, video]
+outputs: [metadata]
+type: web
+cost: free
+passive: true
+account_required: false

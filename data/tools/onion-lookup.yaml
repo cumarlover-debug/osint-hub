@@ -1,0 +1,10 @@
+name: onion-lookup
+url: https://onion.ail-project.org/
+description: Checks whether a Tor .onion address exists and returns metadata the AIL project has collected about it.
+category: threat-intel
+inputs: [url, domain]
+outputs: [metadata]
+type: web
+cost: freemium
+passive: true
+account_required: false

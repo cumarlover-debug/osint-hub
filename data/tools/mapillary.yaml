@@ -1,0 +1,10 @@
+name: Mapillary
+url: https://www.mapillary.com/app/
+description: Crowdsourced street-level photos from around the world, often covering places Google Street View does not.
+category: geolocation
+inputs: [location]
+outputs: [image]
+type: web
+cost: freemium
+passive: true
+account_required: false

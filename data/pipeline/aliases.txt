@@ -19,3 +19,4 @@ https://www.bvdinfo.com  # now https://www.moodys.com/web/en/us/capabilities/com
 https://dnstwister.report/  # now https://www.dnstwister.com/ (dnstwister)
 https://developers.google.com/safe-browsing/?csw=1  # now https://transparencyreport.google.com/safe-browsing/search (google-safe-browsing-site-status)
 https://www.wireshark.org/download.html  # now https://www.wireshark.org/ (wireshark)
+https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh/  # now https://chromewebstore.google.com/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh (frame-by-frame)

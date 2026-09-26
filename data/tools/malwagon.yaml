@@ -1,0 +1,11 @@
+name: Malwagon
+url: https://malwagon.com
+description: Malware sandbox that detonates files and URLs, and lets you search past public reports by IP, domain or hash.
+category: threat-intel
+inputs: [document, url, hash, ip, domain]
+outputs: [reputation, domain, ip]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Reports are public.

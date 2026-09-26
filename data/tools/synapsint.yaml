@@ -1,0 +1,10 @@
+name: SynapsInt
+url: https://synapsint.com
+description: All-in-one lookup for domains, IPs, emails and phone numbers, bundling WHOIS, DNS, reputation and breach checks.
+category: domain
+inputs: [username, email, phone, domain, ip]
+outputs: [domain, ip, reputation]
+type: web
+cost: free
+passive: true
+account_required: false

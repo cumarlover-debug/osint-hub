@@ -1,0 +1,10 @@
+name: Filmot
+url: https://filmot.com/
+description: Searches inside the subtitles of hundreds of millions of YouTube videos, to find the exact moment something was said.
+category: image-video
+inputs: [video]
+outputs: [video, url]
+type: web
+cost: freemium
+passive: true
+account_required: false

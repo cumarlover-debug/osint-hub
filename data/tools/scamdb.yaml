@@ -1,0 +1,10 @@
+name: ScamDB
+url: https://www.scamdb.net/
+description: User reports of scams, searchable by phone number, email address or website.
+category: threat-intel
+inputs: [phone, email, url]
+outputs: [reputation]
+type: web
+cost: free
+passive: true
+account_required: true
