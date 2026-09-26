@@ -1,0 +1,10 @@
+name: Font Squirrel Matcherator
+url: https://www.fontsquirrel.com/matcherator
+description: Identifies the font used in an image, useful for spotting edited documents and screenshots.
+category: image-video
+inputs: [image]
+outputs: [metadata]
+type: web
+cost: free
+passive: true
+account_required: false

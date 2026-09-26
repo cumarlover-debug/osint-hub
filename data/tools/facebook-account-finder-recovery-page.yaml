@@ -1,0 +1,11 @@
+name: Facebook account finder (recovery page)
+url: https://www.facebook.com/login/identify
+description: 'Facebook''s account recovery page: entered while logged out, an email or phone number shows whether a matching account exists.'
+category: social-media
+inputs: [email, phone]
+outputs: [social_profile]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: Do not continue the recovery flow; stop at the account match. No code is sent unless you ask for one.

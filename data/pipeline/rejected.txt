@@ -216,3 +216,74 @@ https://treeverse.app/  # Treeverse (thread visualiser, little OSINT value), 202
 https://www.tumblr.com/tagged/search  # Tumblr (social network itself, not a tool), 2026-09-26
 https://www.wsj.com/public/resources/documents/TweetMetadata.pdf  # Tweet Metadata (a reference PDF, not a tool), 2026-09-26
 https://vk.com/  # VK (social network itself, not a tool), 2026-09-26
+https://t.me/AgentFNS_bot  # AgentFNS_Bot (redundant with egrul_bot), 2026-09-26
+https://ahrefs.com  # ahrefs (marketing or SEO product, out of scope), 2026-09-26
+https://www.audiense.com  # Audiense (marketing or SEO product, out of scope), 2026-09-26
+https://t.me/AVskp_Bot  # AVinfoBot (Telegram lookup bot likely backed by leaked personal data), 2026-09-26
+https://telegram.me/ABTOGRAMBOT  # avtogram_bot (redundant paid car-report bot), 2026-09-26
+https://t.me/MNProbot  # bmi_np_bot (redundant phone-operator lookup), 2026-09-26
+https://buzzsumo.com  # Buzz sumo (marketing or SEO product, out of scope), 2026-09-26
+https://www.cyber.gc.ca/  # Canadian Centre for Cyber Security (government advice site, not a tool), 2026-09-26
+https://t.me/ChatSearchRobot  # ChatSearchRobot (VK chat directory bot, little OSINT value), 2026-09-26
+https://t.me/clerksecretbot  # ClerkBot (Telegram lookup bot likely backed by leaked personal data), 2026-09-26
+https://t.me/CryptoBot  # CryptoBot (a crypto wallet, not an investigation tool), 2026-09-26
+https://www.cvedetails.com/  # CVE Details (vulnerability database, no fitting investigation input), 2026-09-26
+https://www.cve.org/  # CVE - MITRE (vulnerability database, no fitting investigation input), 2026-09-26
+https://t.me/dCallsBot  # dCallsBot (anonymous calling service, out of scope), 2026-09-26
+https://fortypoundhead.com/tools_dpw.asp  # Default Password Lookup Utility (default-credential list, out of scope), 2026-09-26
+https://cirt.net/passwords/  # Default Passwords DB (default-credential list, out of scope), 2026-09-26
+https://default-password.info/  # Default passwords list (default-credential list, out of scope), 2026-09-26
+https://www.routerpasswords.com/  # Default Router Passwords (default-credential list, out of scope), 2026-09-26
+https://telegram.me/discordsensorbot  # Discord Sensor (Telegram lookup bot likely backed by leaked personal data), 2026-09-26
+https://www.dogpile.com/  # Dogpile (general search engine), 2026-09-26
+https://www.dolphinradar.com/web-viewer-for-instagram  # Dolphin Radar (redundant anonymous Instagram viewer), 2026-09-26
+https://t.me/EasyVINbot  # EasyVIN (redundant car-report bot), 2026-09-26
+https://facebook.com/live  # Facebook Live Map (feature no longer available), 2026-09-26
+https://www.faceforensics.com/  # FaceForensics++ (research dataset), 2026-09-26
+https://randomtools.io  # Find my Facebook ID (redundant; Lookup-ID.com covers it), 2026-09-26
+https://www.followthatpage.com/  # Follow That Page (redundant; changedetection.io covers it), 2026-09-26
+https://chrome.google.com/webstore/detail/frame-by-frame-for-youtub/elkadbdicdciddfkdpmaolomehalghio?hl=en-GB  # Frame by Frame for YouTube (extension no longer listed), 2026-09-26
+https://youtube.github.io/geo-search-tool/  # Geo Search Tool (retired YouTube demo; YouTube Geofind covers it), 2026-09-26
+https://www.geosearchtool.com  # Geosearch (domain now parked), 2026-09-26
+https://getghiro.org/  # Ghiro (unmaintained for years), 2026-09-26
+https://www.google.com/videohp  # Google Videos (general video search engine), 2026-09-26
+https://hooktube.com/  # Hooktube (service shut down), 2026-09-26
+https://archive.org/details/opensource_movies  # Internet Archive: Open Source Videos (a collection page, not a tool), 2026-09-26
+https://archive.org/details/movies  # Internet Archive Videos (a collection page, not a tool), 2026-09-26
+https://www.url-analyzer.net/  # Joe Sandbox Url Analyzer (merged into Joe Sandbox, already listed), 2026-09-26
+https://www.malwareurl.com/index.php  # MalwareURL (commercial blocklist service), 2026-09-26
+https://mapline.com  # Mapline (map-making or GIS product, not an investigation tool), 2026-09-26
+https://www.metatube.com  # Metatube (no clear current functionality), 2026-09-26
+https://www.newocr.com/  # New OCR (redundant OCR; i2OCR covers it), 2026-09-26
+https://github.com/ngageoint  # NGA GEOINT (a GitHub organisation, not a tool), 2026-09-26
+https://nvd.nist.gov/  # NVD - NIST (vulnerability database, no fitting investigation input), 2026-09-26
+https://www.onlineocr.net/  # Online OCR (redundant OCR; i2OCR covers it), 2026-09-26
+https://open-sez.me/  # Open Sez Me Default Passwords (default-credential list, out of scope), 2026-09-26
+https://openlayers.org  # OpenLayers (map programming library), 2026-09-26
+https://osv.dev/list  # OSV Vulnerability Library (vulnerability database, no fitting investigation input), 2026-09-26
+https://packetstormsecurity.com/  # Packet Storm (security news and exploit archive, no fitting input), 2026-09-26
+https://www.politifact.com/  # PolitiFact (fact-check publication, not a lookup tool), 2026-09-26
+https://www.labnol.org/internet/print-youtube-video/28217  # Print YouTube StoryBoard Instructions (a how-to article), 2026-09-26
+https://qgis.org  # QGIS (map-making or GIS product, not an investigation tool), 2026-09-26
+https://chrome.google.com/webstore/detail/quick-maps/bgbojmobaekecckmomemopckmeipecij  # QuickMaps (extension no longer listed), 2026-09-26
+https://factcheck.org/scicheck/  # SciCheck (fact-check publication, not a lookup tool), 2026-09-26
+https://scribblemaps.com  # Scribble Maps (map-making or GIS product, not an investigation tool), 2026-09-26
+https://secuniaresearch.flexerasoftware.com/community/research/  # Secunia (vulnerability database, no fitting investigation input), 2026-09-26
+https://www.sentinel-hub.com/explore/sentinelplayground/  # Sentinel Hub (retired viewer, replaced by the Copernicus Browser), 2026-09-26
+https://www.snopes.com/  # Snopes (fact-check publication, not a lookup tool), 2026-09-26
+https://soar.earth/  # SOAR (unclear current product), 2026-09-26
+https://storymaps.arcgis.com/en  # StoryMaps (map-making or GIS product, not an investigation tool), 2026-09-26
+https://www.tableausoftware.com  # Tableau (business-intelligence software), 2026-09-26
+https://truthscan.com/  # TruthScan Deepfake Detector (enterprise AI-detection product with unproven reliability), 2026-09-26
+https://tubechop.com/  # TubeChop (video trimming utility), 2026-09-26
+https://verificationhandbook.com/  # Verification Handbook (a guide, not a tool), 2026-09-26
+https://www.viamichelin.com  # ViaMichelin (route planner, little OSINT value), 2026-09-26
+https://www.mgmaps.com/kml/#view  # View in Google Earth (KML overlay utility), 2026-09-26
+https://visualping.io/  # VisualPing (redundant; changedetection.io covers it), 2026-09-26
+https://voidly.ai/censorship-index  # Voidly Censorship Index (censorship statistics, no investigation input), 2026-09-26
+https://vulert.com/vuln-db  # Vulert: Updated Open Source Vulnerability Database (vulnerability database, no fitting investigation input), 2026-09-26
+https://www.webinspector.com/website-malware-scanner/  # Web Inspector Online Scan (redundant; Sucuri SiteCheck covers it), 2026-09-26
+https://www.windy.com/  # Windy (weather forecasts; Zoom Earth covers imagery), 2026-09-26
+https://worldmap.harvard.edu  # WorldMap Harvard (retired platform), 2026-09-26
+https://maps.yahoo.com  # Yahoo Maps (service shut down), 2026-09-26
+https://www.zeemaps.com  # Zeemaps (map-making or GIS product, not an investigation tool), 2026-09-26

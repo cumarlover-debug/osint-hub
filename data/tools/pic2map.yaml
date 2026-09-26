@@ -1,0 +1,10 @@
+name: Pic2Map
+url: https://www.pic2map.com/
+description: Reads a photo's EXIF data and plots its GPS location on a map.
+category: geolocation
+inputs: [image]
+outputs: [location, metadata]
+type: web
+cost: freemium
+passive: true
+account_required: false

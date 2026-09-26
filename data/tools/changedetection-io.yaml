@@ -1,0 +1,11 @@
+name: changedetection.io
+url: https://changedetection.io/
+description: Watches web pages and alerts you when they change. Open source and self-hostable, with a paid hosted version.
+category: domain
+inputs: [url]
+outputs: [archive_snapshot]
+type: web
+cost: free
+passive: false
+account_required: false
+notes: It checks the page on a schedule, so the site sees repeated visits.

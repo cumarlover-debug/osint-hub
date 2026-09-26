@@ -1,0 +1,10 @@
+name: FindStickerCreator
+url: https://t.me/SPOwnerBot
+description: Telegram bot that reveals which account created a Telegram sticker pack.
+category: social-media
+inputs: [social_post]
+outputs: [username]
+type: web
+cost: free
+passive: true
+account_required: false

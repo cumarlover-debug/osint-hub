@@ -1,0 +1,10 @@
+name: AA419 Fake Sites Database
+url: https://db.aa419.org/fakebankslist.php
+description: Community database of fake banks, shipping companies and other scam websites, with reports and screenshots.
+category: domain
+inputs: [domain]
+outputs: [reputation]
+type: web
+cost: freemium
+passive: true
+account_required: false

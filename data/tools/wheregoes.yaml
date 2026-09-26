@@ -1,0 +1,10 @@
+name: WhereGoes
+url: https://wheregoes.com/
+description: Follows every redirect of a link and lists each hop, including tracking and affiliate redirects.
+category: domain
+inputs: [url]
+outputs: [url]
+type: web
+cost: free
+passive: true
+account_required: false

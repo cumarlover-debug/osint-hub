@@ -1,0 +1,10 @@
+name: Sucuri SiteCheck
+url: https://sitecheck.sucuri.net/
+description: Scans a website for known malware, spam injections, blocklisting and outdated software.
+category: domain
+inputs: [url, domain]
+outputs: [reputation]
+type: web
+cost: free
+passive: false
+account_required: false

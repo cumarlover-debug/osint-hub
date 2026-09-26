@@ -1,0 +1,11 @@
+name: egrul_bot
+url: https://t.me/egrul_bot
+description: 'Telegram bot that checks Russian companies and entrepreneurs in the official EGRUL register: directors, founders, address.'
+category: business
+inputs: [company, name]
+outputs: [name, location]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: Russian register; in Russian.

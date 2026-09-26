@@ -1,0 +1,10 @@
+name: i2OCR
+url: https://www.i2ocr.com/
+description: 'Free OCR in 100+ languages: extract text from images and scanned PDFs so you can translate or search it.'
+category: image-video
+inputs: [image, document]
+outputs: [document]
+type: web
+cost: free
+passive: true
+account_required: false

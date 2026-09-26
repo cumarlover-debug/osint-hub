@@ -1,0 +1,10 @@
+name: AvtoNomer bot
+url: https://t.me/avtonomerbot
+description: Telegram bot that finds photos of a vehicle by its licence plate, using the platesmania.com community archive.
+category: transport
+inputs: [vehicle]
+outputs: [image]
+type: web
+cost: free
+passive: true
+account_required: false

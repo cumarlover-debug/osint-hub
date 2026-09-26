@@ -1,0 +1,10 @@
+name: Satellites.pro
+url: https://satellites.pro/
+description: Satellite maps from several providers (Google, Bing, Esri, Yandex) in one viewer, to compare imagery of a place.
+category: geolocation
+inputs: [location]
+outputs: [image]
+type: web
+cost: freemium
+passive: true
+account_required: false

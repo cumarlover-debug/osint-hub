@@ -1,0 +1,11 @@
+name: Zscaler Zulu
+url: https://zulu.zscaler.com/
+description: Scores how risky a URL is from its content, link patterns and host reputation.
+category: domain
+inputs: [url]
+outputs: [reputation]
+type: web
+cost: free
+passive: false
+account_required: false
+notes: The analysis fetches the page.

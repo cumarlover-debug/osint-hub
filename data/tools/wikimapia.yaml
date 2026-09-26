@@ -1,0 +1,10 @@
+name: Wikimapia
+url: https://wikimapia.org
+description: Collaborative map where users label buildings and places with descriptions, often naming sites mainstream maps do not.
+category: geolocation
+inputs: [location]
+outputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false

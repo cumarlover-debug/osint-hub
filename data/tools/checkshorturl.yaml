@@ -1,0 +1,10 @@
+name: CheckShortURL
+url: https://checkshorturl.com/
+description: Expands a shortened link (bit.ly, t.co and others) to show where it really leads before you open it.
+category: domain
+inputs: [url]
+outputs: [url]
+type: web
+cost: free
+passive: true
+account_required: false

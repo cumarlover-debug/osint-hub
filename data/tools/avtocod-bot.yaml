@@ -1,0 +1,10 @@
+name: Avtocod bot
+url: https://t.me/avtocodbot
+description: 'Telegram bot for Russian vehicle history reports by VIN or plate: accidents, owners count, fines and liens.'
+category: transport
+inputs: [vehicle]
+type: web
+cost: paid
+passive: true
+account_required: false
+notes: Russian vehicles; in Russian.

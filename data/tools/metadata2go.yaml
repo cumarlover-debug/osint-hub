@@ -1,0 +1,11 @@
+name: Metadata2Go
+url: https://www.metadata2go.com/
+description: Shows all metadata in images, videos, audio, documents and e-books in the browser.
+category: metadata
+inputs: [image, video, document]
+outputs: [metadata, location]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Files are uploaded to their server.

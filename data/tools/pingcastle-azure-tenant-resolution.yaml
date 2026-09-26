@@ -1,0 +1,10 @@
+name: PingCastle Azure Tenant Resolution
+url: https://tenantresolution.pingcastle.com
+description: Finds the Microsoft 365 / Azure tenant behind a domain, and the other domains registered to the same tenant.
+category: domain
+inputs: [domain]
+outputs: [domain, company]
+type: web
+cost: free
+passive: true
+account_required: false
