@@ -1,0 +1,29 @@
+name: Pipl
+url: https://pipl.com
+description: ''
+category: email
+inputs:
+  - email
+type: web
+cost: freemium
+passive: true
+account_required: false
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: high
+  score: 7
+  source_url: https://pipl.com
+  flags:
+    - 'cost: unknown, guessed freemium'
+    - 'account_required: unknown, guessed no'
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Email Search / Email Check
+        said: a provider of identity solutions.
+    page_title: Fraud intelligence for enterprise risk decisions
+    page_description: Pipl helps global enterprises make better fraud decisions by turning fragmented identity data into usable, explainable identity intelligence.
+  hold: true
+  hold_reason: waiting on the people-search policy decision

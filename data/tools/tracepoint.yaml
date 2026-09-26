@@ -1,0 +1,10 @@
+name: TracePoint
+url: https://kluter.github.io/TracePoint/
+description: Geolocates where a photo was taken by drawing sight lines to landmarks you can identify on a map. Runs in the browser.
+category: geolocation
+inputs: [image]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false

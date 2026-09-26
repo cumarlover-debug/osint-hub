@@ -1,0 +1,10 @@
+name: MIT PGP Key Server
+url: https://pgp.mit.edu/
+description: Searches published PGP keys by name or email, revealing other addresses and names on the same key.
+category: social-media
+inputs: [email, name]
+outputs: [email, name]
+type: web
+cost: free
+passive: true
+account_required: false

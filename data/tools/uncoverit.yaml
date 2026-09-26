@@ -1,0 +1,10 @@
+name: UnCoverIT
+url: https://www.uncoverit.org/
+description: Extracts the configuration from malware samples without running them, revealing command-and-control servers and keys.
+category: threat-intel
+inputs: [hash, document]
+outputs: [domain, ip]
+type: web
+cost: free
+passive: true
+account_required: false

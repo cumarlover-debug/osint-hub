@@ -1,0 +1,10 @@
+name: KartaVision
+url: https://kartavision.com/
+description: Searches KartaView street-level photos by describing a scene or uploading a similar image, to find where a photo was taken.
+category: image-video
+inputs: [image, location]
+outputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false

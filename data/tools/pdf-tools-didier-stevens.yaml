@@ -1,0 +1,13 @@
+name: PDF Tools (Didier Stevens)
+url: https://blog.didierstevens.com/programs/pdf-tools/
+description: 'pdfid and pdf-parser: scan a PDF for risky elements like JavaScript and embedded files, then extract them for analysis.'
+category: threat-intel
+inputs: [document]
+outputs: [reputation]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: DidierStevens/DidierStevensSuite
+platforms: [linux, macos, windows]
+tags: [malware, pdf, open-source]

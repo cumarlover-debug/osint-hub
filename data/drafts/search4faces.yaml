@@ -1,0 +1,29 @@
+name: Search4faces
+url: https://search4faces.com/
+description: ''
+category: image-video
+inputs:
+  - image
+type: web
+cost: freemium
+passive: true
+account_required: false
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: high
+  score: 7
+  source_url: https://search4faces.com/
+  flags:
+    - 'cost: unknown, guessed freemium'
+    - 'account_required: unknown, guessed no'
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Image Search
+        said: a service for searching people on the Internet by photo.
+    page_title: 'search4faces: поисковая система обратного поиска и распознования фотографий'
+    page_description: поисковая система распознавания лиц, инструмент обратного поиска изображений и механизм поиска фотографий, используемый для определения того, где ваше лицо появляется в сети.
+  hold: true
+  hold_reason: waiting on the face-search policy decision

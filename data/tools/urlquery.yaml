@@ -1,0 +1,11 @@
+name: urlquery
+url: https://urlquery.net
+description: Opens a URL in a sandbox and reports scripts, redirects, requests and alerts for malicious content.
+category: domain
+inputs: [url]
+outputs: [domain, ip, reputation]
+type: web
+cost: free
+passive: false
+account_required: false
+notes: Submitting a scan makes the service visit the site.

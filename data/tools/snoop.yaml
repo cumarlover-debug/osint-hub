@@ -1,0 +1,14 @@
+name: Snoop
+url: https://github.com/snooppr/snoop
+description: Username search across thousands of sites, with especially strong coverage of Russian-language platforms.
+category: social-media
+inputs: [username]
+outputs: [social_profile]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: snooppr/snoop
+language: Python
+platforms: [linux, windows]
+tags: [username-enumeration, open-source]

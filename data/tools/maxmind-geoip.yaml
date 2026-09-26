@@ -1,0 +1,10 @@
+name: MaxMind GeoIP
+url: https://www.maxmind.com/en/home
+description: The most widely used IP geolocation database. The website demo returns location, ISP and network type for an IP.
+category: network
+inputs: [ip]
+outputs: [location, company]
+type: web
+cost: free
+passive: true
+account_required: false

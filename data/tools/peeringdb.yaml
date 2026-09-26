@@ -1,0 +1,10 @@
+name: PeeringDB
+url: https://www.peeringdb.com/advanced_search
+description: 'Directory of networks and where they connect: which data centres and internet exchanges an organisation is present in.'
+category: network
+inputs: [company, ip]
+outputs: [location, company]
+type: web
+cost: free
+passive: true
+account_required: false

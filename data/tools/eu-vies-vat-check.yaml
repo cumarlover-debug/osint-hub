@@ -1,0 +1,10 @@
+name: EU VIES VAT Check
+url: https://ec.europa.eu/taxation_customs/vies/?locale=en
+description: The EU's official check of a VAT number, confirming a company is registered and often showing its name and address.
+category: business
+inputs: [company]
+outputs: [company, location]
+type: web
+cost: free
+passive: true
+account_required: false

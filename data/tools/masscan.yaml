@@ -1,0 +1,17 @@
+name: Masscan
+url: https://github.com/robertdavidgraham/masscan
+description: Extremely fast port scanner that can sweep large IP ranges in minutes.
+category: network
+inputs: [ip]
+outputs: [port_service]
+type: cli
+cost: free
+passive: false
+account_required: false
+repo: robertdavidgraham/masscan
+install: sudo apt install masscan
+language: C
+license: AGPL-3.0
+platforms: [linux, macos, windows]
+tags: [port-scanning, open-source]
+notes: Actively scans the target. Only scan networks you are allowed to test.

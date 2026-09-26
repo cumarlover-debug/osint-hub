@@ -1,0 +1,10 @@
+name: Sync.ME
+url: https://sync.me/
+description: Caller ID app with a crowdsourced database; look up a number to see the name and photo others saved it with.
+category: phone
+inputs: [phone]
+outputs: [name, image]
+type: web
+cost: freemium
+passive: true
+account_required: false

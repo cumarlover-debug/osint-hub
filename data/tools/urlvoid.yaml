@@ -1,0 +1,10 @@
+name: URLVoid
+url: https://www.urlvoid.com
+description: Checks a website against dozens of blocklists and reputation services to spot scam and malware sites.
+category: domain
+inputs: [url, domain]
+outputs: [reputation, ip]
+type: web
+cost: free
+passive: true
+account_required: false

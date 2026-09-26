@@ -1,0 +1,10 @@
+name: Netlas.io
+url: https://netlas.io/
+description: 'Internet scan search engine: open ports, web responses, certificates, DNS and WHOIS for IPs and domains.'
+category: network
+inputs: [domain, ip]
+outputs: [port_service, domain, ip, certificate]
+type: web
+cost: freemium
+passive: true
+account_required: true

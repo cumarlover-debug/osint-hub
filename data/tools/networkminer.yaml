@@ -1,0 +1,11 @@
+name: NetworkMiner
+url: https://www.netresec.com/?page=Networkminer
+description: Extracts hosts, files, images, credentials and sessions from a network capture (PCAP) for forensic review.
+category: network
+inputs: [document]
+outputs: [ip, domain, document]
+type: desktop
+cost: free
+passive: true
+account_required: false
+platforms: [windows, linux]

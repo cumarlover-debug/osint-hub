@@ -1,0 +1,9 @@
+name: FaxVIN
+url: https://www.faxvin.com/
+description: US licence plate and VIN lookup returning the vehicle, its specs and history report options.
+category: transport
+inputs: [vehicle]
+type: web
+cost: freemium
+passive: true
+account_required: false

@@ -1,0 +1,10 @@
+name: OpenRailwayMap
+url: https://www.openrailwaymap.org/
+description: Railway map with tracks, stations, signals and speed limits, useful for identifying a rail line in a photo.
+category: geolocation
+inputs: [location]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false

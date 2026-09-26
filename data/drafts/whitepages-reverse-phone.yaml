@@ -1,15 +1,13 @@
-# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
-# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
 name: Whitepages Reverse Phone
 url: https://www.whitepages.com/reverse-phone
 description: ''
 category: phone
-inputs: [phone]
+inputs:
+  - phone
 type: web
 cost: freemium
 passive: true
 account_required: false
-
 review:
   approve: false
   reject: false
@@ -27,3 +25,5 @@ review:
     framework_output: Potential owner, location history, and related contact records
     page_title: Reverse Phone Lookup | Free Phone Number Search | Whitepages
     page_description: Search a phone number on Whitepages Reverse Phone Lookup to get the phone owner
+  hold: true
+  hold_reason: waiting on the people-search policy decision

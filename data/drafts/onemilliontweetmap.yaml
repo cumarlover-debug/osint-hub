@@ -1,15 +1,14 @@
-# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
-# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
 name: OneMillionTweetMap
 url: https://onemilliontweetmap.com
 description: ''
 category: social-media
-inputs: [username, social_post]
+inputs:
+  - username
+  - social_post
 type: web
 cost: free
 passive: true
 account_required: false
-
 review:
   approve: false
   reject: false
@@ -29,3 +28,5 @@ review:
     framework_output: Mapped tweet locations with associated post content
     page_title: '#onemilliontweetmap'
     page_description: See last 24h tweet in real-time on a map!
+  hold: true
+  hold_reason: depends on the X API; check by hand that it still works

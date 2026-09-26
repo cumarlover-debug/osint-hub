@@ -1,0 +1,10 @@
+name: Free Carrier Lookup
+url: https://freecarrierlookup.com/
+description: Returns a phone number's carrier and whether it is mobile or landline, plus its email-to-SMS gateway address.
+category: phone
+inputs: [phone]
+outputs: [company]
+type: web
+cost: freemium
+passive: true
+account_required: false

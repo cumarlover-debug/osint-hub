@@ -1,0 +1,10 @@
+name: Hivemapper
+url: https://hivemapper.com/
+description: Street-level imagery collected by dashcams, often more recent than Google Street View in covered cities.
+category: geolocation
+inputs: [location]
+outputs: [image]
+type: web
+cost: freemium
+passive: true
+account_required: true

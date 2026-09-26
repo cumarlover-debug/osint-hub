@@ -1,0 +1,10 @@
+name: Digital Footprint Check
+url: https://www.digitalfootprintcheck.com/free-checker.html
+description: Free web-based check of a username across hundreds of sites.
+category: social-media
+inputs: [username]
+outputs: [social_profile]
+type: web
+cost: freemium
+passive: true
+account_required: false

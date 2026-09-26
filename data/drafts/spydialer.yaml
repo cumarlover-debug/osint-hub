@@ -1,15 +1,13 @@
-# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
-# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
 name: SpyDialer
 url: https://www.spydialer.com:443/default.aspx
 description: ''
 category: phone
-inputs: [phone]
+inputs:
+  - phone
 type: web
 cost: freemium
 passive: true
 account_required: true
-
 review:
   approve: false
   reject: false
@@ -26,6 +24,6 @@ review:
     framework_input: Phone number
     framework_output: Identity clues, carrier/location context, and related lookup data
     page_title: Free Phone Number Lookup | SpyDialer
-    page_description: >-
-      Spy Dialer is a free phone number lookup with no charge, no sign-up. Run a reverse phone lookup on any
-      cell, landline, or VOIP number instantly.
+    page_description: Spy Dialer is a free phone number lookup with no charge, no sign-up. Run a reverse phone lookup on any cell, landline, or VOIP number instantly.
+  hold: true
+  hold_reason: waiting on the people-search policy decision

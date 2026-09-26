@@ -11,3 +11,7 @@ https://www.apk-analyzer.net/  # now https://www.joesandbox.com/ (joe-sandbox; t
 https://isc.sans.edu/api/  # now https://isc.sans.edu/ (sans-isc-dshield)
 https://geospy.web.app/  # now https://geospy.ai/ (geospy)
 https://localmonero.co/blocks/  # now https://moneroblocks.info/ (monero-blocks)
+https://tools.verifyemailaddress.io  # now https://tools.emailhippo.com/ (email-hippo)
+https://tools.epieos.com  # now https://epieos.com/ (epieos)
+https://nmap.org/download.html  # now https://nmap.org/ (nmap)
+https://www.onyphe.io/  # now https://www.onyphe.com/ (onyphe)

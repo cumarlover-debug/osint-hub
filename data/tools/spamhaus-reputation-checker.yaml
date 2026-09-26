@@ -1,0 +1,10 @@
+name: Spamhaus Reputation Checker
+url: https://check.spamhaus.org/
+description: Checks whether an IP or domain is on Spamhaus blocklists and why (spam, botnet, compromised host).
+category: threat-intel
+inputs: [ip, domain]
+outputs: [reputation]
+type: web
+cost: freemium
+passive: true
+account_required: false

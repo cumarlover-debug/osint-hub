@@ -1,0 +1,15 @@
+name: TOsint
+url: https://github.com/drego85/tosint
+description: 'Extracts information from a Telegram bot token and its chats: bot owner, groups it is in and chat members.'
+category: social-media
+inputs: [url]
+outputs: [username, social_profile]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: drego85/tosint
+language: Python
+license: GPL-3.0
+platforms: [linux, macos, windows]
+tags: [telegram, open-source]

@@ -1,0 +1,10 @@
+name: CorporateInformation
+url: https://www.corporateinformation.com
+description: Financial and company profiles for tens of thousands of listed companies worldwide, organised by country and industry.
+category: business
+inputs: [company]
+outputs: [name, document]
+type: web
+cost: freemium
+passive: true
+account_required: false
