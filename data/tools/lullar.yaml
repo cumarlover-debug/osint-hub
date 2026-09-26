@@ -1,0 +1,10 @@
+name: Lullar
+url: https://com.lullar.com
+description: Free search of social platforms by email, name or username.
+category: social-media
+inputs: [email, name, username]
+outputs: [social_profile]
+type: web
+cost: free
+passive: true
+account_required: false

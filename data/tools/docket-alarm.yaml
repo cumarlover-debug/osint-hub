@@ -1,0 +1,10 @@
+name: Docket Alarm
+url: https://docketalarm.com
+description: US litigation search and docket tracking across federal and state courts.
+category: people
+inputs: [name, company]
+outputs: [document]
+type: web
+cost: freemium
+passive: true
+account_required: false

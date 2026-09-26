@@ -1,0 +1,11 @@
+name: SpyDialer
+url: https://www.spydialer.com:443/default.aspx
+description: Free US reverse phone lookup that returns the likely owner, plus name and address search.
+category: people
+inputs: [phone, name]
+outputs: [location, phone, name]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Results come from commercial data brokers and are often outdated or mixed up between people with similar names.

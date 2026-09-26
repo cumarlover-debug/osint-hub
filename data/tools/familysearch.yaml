@@ -1,0 +1,10 @@
+name: FamilySearch
+url: https://familysearch.org/search/
+description: Free genealogy archive with billions of historical records and family trees; needs a free account.
+category: people
+inputs: [name]
+outputs: [location, name, document]
+type: web
+cost: free
+passive: true
+account_required: true

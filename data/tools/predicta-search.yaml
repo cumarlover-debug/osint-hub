@@ -1,0 +1,10 @@
+name: Predicta Search
+url: https://predictasearch.com
+description: Finds social accounts linked to an email, phone number, username or name.
+category: people
+inputs: [email, phone, username, name]
+outputs: [social_profile, name]
+type: web
+cost: freemium
+passive: true
+account_required: false

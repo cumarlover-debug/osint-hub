@@ -1,0 +1,11 @@
+name: VoterRecords
+url: https://voterrecords.com/
+description: 'US voter registration records: name, address, party and voting history where states make them public.'
+category: people
+inputs: [name, location]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: Some states restrict how voter data may be used; check before relying on it.

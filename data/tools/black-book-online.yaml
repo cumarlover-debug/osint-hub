@@ -1,0 +1,10 @@
+name: Black Book Online
+url: https://www.blackbookonline.info
+description: Free directory of US public-records searches, organised by state and record type.
+category: people
+inputs: [name, location]
+outputs: [url]
+type: web
+cost: free
+passive: true
+account_required: false

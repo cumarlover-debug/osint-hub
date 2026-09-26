@@ -1,0 +1,10 @@
+name: Redfin
+url: https://redfin.com
+description: Property listings with sale history, tax history and photos for US homes.
+category: people
+inputs: [location]
+outputs: [image, document]
+type: web
+cost: free
+passive: true
+account_required: false

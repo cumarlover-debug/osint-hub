@@ -1,0 +1,10 @@
+name: Telegram Finder
+url: https://www.telegram-finder.io/
+description: Finds the Telegram account linked to a phone number, email or LinkedIn profile.
+category: social-media
+inputs: [phone, email, url]
+outputs: [username, social_profile]
+type: web
+cost: freemium
+passive: true
+account_required: false

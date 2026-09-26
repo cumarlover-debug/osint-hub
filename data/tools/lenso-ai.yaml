@@ -1,0 +1,12 @@
+name: Lenso.ai
+url: https://lenso.ai
+description: AI reverse image search with a face mode, plus search for places, duplicates and similar images.
+category: image-video
+inputs: [image]
+outputs: [url, location]
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags: [face-recognition]
+notes: Face search can identify strangers from a single photo. Many jurisdictions restrict it (for example under GDPR biometric rules).

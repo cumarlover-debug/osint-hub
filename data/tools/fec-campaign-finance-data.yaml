@@ -1,0 +1,10 @@
+name: FEC Campaign Finance Data
+url: https://www.fec.gov/data/
+description: 'Official US campaign-finance filings: search individual donors by name, employer and location.'
+category: people
+inputs: [name, company]
+outputs: [location, company]
+type: web
+cost: free
+passive: true
+account_required: false

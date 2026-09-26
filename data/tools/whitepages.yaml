@@ -1,0 +1,11 @@
+name: Whitepages
+url: https://www.whitepages.com
+description: 'The largest US people directory: names, current and past addresses, phone numbers and relatives. Reverse phone lookups too.'
+category: people
+inputs: [name, phone]
+outputs: [location, phone, name]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Results come from commercial data brokers and are often outdated or mixed up between people with similar names.

@@ -1,0 +1,10 @@
+name: Kompass
+url: https://www.kompass.com
+description: International B2B directory of companies by industry, with addresses and key contacts.
+category: business
+inputs: [company]
+outputs: [location, name]
+type: web
+cost: freemium
+passive: true
+account_required: false

@@ -1,0 +1,11 @@
+name: ThatsThem
+url: https://thatsthem.com/reverse-email-lookup
+description: Free US reverse lookup by email, phone, name, address or IP.
+category: people
+inputs: [email, phone, name, ip]
+outputs: [location, phone, name]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: Results come from commercial data brokers and are often outdated or mixed up between people with similar names.

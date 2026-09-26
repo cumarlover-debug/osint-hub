@@ -1,0 +1,10 @@
+name: GenealogyBank
+url: https://www.genealogybank.com
+description: Archive of US newspapers back to the 1600s, strongest for obituaries, marriages and local news.
+category: people
+inputs: [name]
+outputs: [document, name]
+type: web
+cost: paid
+passive: true
+account_required: false

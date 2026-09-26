@@ -1,0 +1,10 @@
+name: UniCourt
+url: https://unicourt.com/
+description: US state and federal court case search with party, attorney and judge data.
+category: people
+inputs: [name, company]
+outputs: [document]
+type: web
+cost: freemium
+passive: true
+account_required: false

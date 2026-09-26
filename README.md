@@ -81,8 +81,14 @@ projects and their contributors. Only facts (names, URLs, categories, pricing an
 
 ## What gets listed
 
-Tools for research, journalism, security work and personal safety. Stalkerware, doxxing services and sites that sell
-leaked personal data or credentials are not accepted.
+Tools for research, journalism, security work and personal safety.
+
+- **Listed with a responsible-use notice:** people-search engines, public and court records, and face-recognition
+  search. Tool pages in the `people` category, or tagged `face-recognition`, show the notice automatically. Each one
+  is reviewed individually (`npm run pipeline:draft -- --people`).
+- **Not accepted:** stalkerware, doxxing services, and anything that sells leaked or breached personal data or
+  credentials, including lookup bots built on leaked databases. The pipeline flags these as `policy-leak` and never
+  drafts them unless asked to with `--leaked`.
 
 ## Privacy
 

@@ -1,0 +1,10 @@
+name: Caselaw Access Project
+url: https://case.law/
+description: Full text of historical US state and federal appellate decisions (published until 2018).
+category: people
+inputs: [name, company]
+outputs: [document]
+type: web
+cost: free
+passive: true
+account_required: false

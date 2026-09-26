@@ -1,0 +1,10 @@
+name: Yasni
+url: https://www.yasni.com/
+description: People search engine that gathers web pages, profiles and news mentioning a name.
+category: people
+inputs: [name, company]
+outputs: [social_profile, url]
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,10 @@
+name: Pipl
+url: https://pipl.com
+description: Identity-resolution platform linking names, emails, phones and usernames to one person. Enterprise customers only.
+category: people
+inputs: [email, phone, name, username]
+outputs: [social_profile, phone, email]
+type: web
+cost: paid
+passive: true
+account_required: true

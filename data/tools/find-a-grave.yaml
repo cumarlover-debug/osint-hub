@@ -1,0 +1,10 @@
+name: Find a Grave
+url: https://www.findagrave.com/
+description: Crowd-sourced database of hundreds of millions of graves with photos, dates and family links.
+category: people
+inputs: [name]
+outputs: [location, name, image]
+type: web
+cost: free
+passive: true
+account_required: false

@@ -11,7 +11,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { paths, readYamlDir, readRejected, urlKey, nameKey } from '../lib/data.mjs';
 import { UA } from '../lib/net.mjs';
-import { awesomeRules, frameworkRules, matchRule, inputsFromText, policyPattern } from './mapping.mjs';
+import { awesomeRules, frameworkRules, matchRule, inputsFromText, leakPattern, peoplePattern } from './mapping.mjs';
 
 const SOURCES = {
   awesome: 'https://raw.githubusercontent.com/jivoi/awesome-osint/master/README.md',
@@ -131,7 +131,9 @@ for (const entry of entries) {
   const c = byKey.get(key) ?? { key, name: entry.name, url: entry.url, sources: [], flags: new Set(), inputs: new Set() };
   c.sources.push({ list: entry.list, section: entry.section, description: entry.description, facts: entry.facts, rule });
   for (const flag of rule.flags ?? []) c.flags.add(flag);
-  if (policyPattern.test(`${entry.name} ${entry.section} ${entry.description ?? ''}`)) c.flags.add('policy: may deal in leaked data, check before listing');
+  const text = `${entry.name} ${entry.section} ${entry.description ?? ''}`;
+  if (leakPattern.test(text)) c.flags.add('policy-leak: may deal in leaked data, not listed');
+  else if (peoplePattern.test(text)) c.flags.add('policy-people: people or face search, check it is not a data broker of leaked data');
   byKey.set(key, c);
 }
 

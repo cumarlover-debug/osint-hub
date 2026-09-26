@@ -1,0 +1,10 @@
+name: BRB Public Records
+url: https://www.brbpub.com/
+description: 'Directory of free US public-records sources: court, property, business and licensing databases by state.'
+category: people
+inputs: [name, location]
+outputs: [url]
+type: web
+cost: freemium
+passive: true
+account_required: false

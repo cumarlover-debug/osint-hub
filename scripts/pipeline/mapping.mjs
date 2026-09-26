@@ -21,8 +21,8 @@ export const awesomeRules = [
   [/Video Search|Video Tools/i, { category: 'image-video', inputs: ['video'], confidence: 'medium' }],
   [/Geospatial|Mapping/i, { category: 'geolocation', inputs: ['location'], confidence: 'medium' }],
   [/Threat Intelligence/i, { category: 'threat-intel', inputs: ['ip', 'domain'], confidence: 'low' }],
-  [/Data Breach/i, { category: 'email', inputs: ['email'], confidence: 'medium', flags: ['policy: breach data, check it does not sell leaked data'] }],
-  [/People Investigations/i, { category: 'people', inputs: ['name'], confidence: 'medium', flags: ['policy: people search, check it is not a doxxing service'] }],
+  [/Data Breach/i, { category: 'email', inputs: ['email'], confidence: 'medium', flags: ['policy-leak: breach data, check it does not sell leaked data'] }],
+  [/People Investigations/i, { category: 'people', inputs: ['name'], confidence: 'medium', flags: ['policy-people: people search, check it is not a doxxing service'] }],
   [/Social Media Tools > /i, { category: 'social-media', inputs: ['username', 'social_post'], confidence: 'low' }],
   [/Social Media Search/i, { category: 'social-media', inputs: ['username', 'social_post'], confidence: 'low' }],
   // Search engines, news, courses, blogs, browsers, VPNs and the like take no specific input: out of scope for now.
@@ -42,8 +42,8 @@ export const frameworkRules = [
   [/^Images/i, { category: 'image-video', inputs: ['image'], confidence: 'medium' }],
   [/^Social Networks/i, { category: 'social-media', inputs: ['username', 'social_post'], confidence: 'low' }],
   [/^Instant Messaging/i, { category: 'social-media', inputs: ['username'], confidence: 'low' }],
-  [/^People Search/i, { category: 'people', inputs: ['name'], confidence: 'medium', flags: ['policy: people search, check it is not a doxxing service'] }],
-  [/^Public Records/i, { category: 'people', inputs: ['name'], confidence: 'low', flags: ['policy: public records, check what personal data it exposes'] }],
+  [/^People Search/i, { category: 'people', inputs: ['name'], confidence: 'medium', flags: ['policy-people: people search, check it is not a doxxing service'] }],
+  [/^Public Records/i, { category: 'people', inputs: ['name'], confidence: 'low', flags: ['policy-people: public records, check what personal data it exposes'] }],
   [/^Telephone/i, { category: 'phone', inputs: ['phone'], confidence: 'high' }],
   [/^Business Records|^Compliance/i, { category: 'business', inputs: ['company'], confidence: 'high' }],
   [/^Transportation > .*(Vehicle|Car|License)/i, { category: 'transport', inputs: ['vehicle'], confidence: 'high' }],
@@ -94,9 +94,12 @@ export function inputsFromText(text) {
   return [...keys];
 }
 
+/** Services that may trade in leaked or breached personal data. The site does not list these. */
+export const leakPattern = /breach|leak|stealer|combo ?list|credential|dump|dox/i;
+
 /**
- * Services the site either does not list (leaked data) or lists only after an explicit policy decision
- * (people search, face recognition). Matching candidates get a "policy:" flag and are not drafted by default.
+ * People search and face recognition. Listed (since the policy decision of 2026-09-26) with a responsible-use
+ * notice, but each one is reviewed individually so data brokers of leaked data still stay out.
  */
-export const policyPattern =
-  /breach|leak|stealer|combo ?list|credential|dump|dox|face (search|recognition)|facial|search (for )?people|people (search|finder|lookup)|by photo|reverse (phone|address)|phone ?book|background check|whitepages|owner of a phone|who (called|lives)/i;
+export const peoplePattern =
+  /face (search|recognition)|facial|search (for )?people|people (search|finder|lookup)|by photo|reverse (phone|address)|phone ?book|background check|whitepages|owner of a phone|who (called|lives)/i;

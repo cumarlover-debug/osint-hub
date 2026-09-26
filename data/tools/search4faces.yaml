@@ -1,0 +1,12 @@
+name: Search4faces
+url: https://search4faces.com/
+description: Face search over profile photos from VK, Odnoklassniki, TikTok and Clubhouse; strongest for Russian-speaking users.
+category: image-video
+inputs: [image]
+outputs: [social_profile]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [face-recognition]
+notes: Face search can identify strangers from a single photo. Many jurisdictions restrict it (for example under GDPR biometric rules). The site is in Russian.

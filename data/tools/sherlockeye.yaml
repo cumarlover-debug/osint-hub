@@ -1,0 +1,10 @@
+name: SherlockEye
+url: https://sherlockeye.io/
+description: Reverse lookup across 800+ open sources for an email, phone, name, username, domain or IP, with AI summaries.
+category: people
+inputs: [email, phone, name, username]
+outputs: [social_profile, name]
+type: web
+cost: freemium
+passive: true
+account_required: false

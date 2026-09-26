@@ -1,0 +1,11 @@
+name: 411.com
+url: https://www.411.com
+description: US directory lookup by name, phone number or address, with basic listings free.
+category: people
+inputs: [name, phone]
+outputs: [location, phone, name]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Results come from commercial data brokers and are often outdated or mixed up between people with similar names.

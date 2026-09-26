@@ -1,0 +1,11 @@
+name: InfoTracer
+url: https://infotracer.com/
+description: 'Paid US people search and public-records reports: addresses, court records and relatives.'
+category: people
+inputs: [name]
+outputs: [location, phone, name]
+type: web
+cost: paid
+passive: true
+account_required: false
+notes: Results come from commercial data brokers and are often outdated or mixed up between people with similar names.

@@ -1,0 +1,10 @@
+name: BOP Inmate Locator
+url: https://www.bop.gov/inmateloc
+description: Official search of people held in US federal prisons since 1982, with location and release date.
+category: people
+inputs: [name]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false

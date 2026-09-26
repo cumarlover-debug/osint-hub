@@ -1,0 +1,10 @@
+name: The National Archives (UK)
+url: https://www.nationalarchives.gov.uk
+description: 'Catalogue of UK government records: military service, wills, immigration and more, many digitised.'
+category: people
+inputs: [name]
+outputs: [document]
+type: web
+cost: freemium
+passive: true
+account_required: false

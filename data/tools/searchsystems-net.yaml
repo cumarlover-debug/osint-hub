@@ -1,0 +1,10 @@
+name: SearchSystems.net
+url: https://www.searchsystems.net/
+description: Directory of official US public-records databases for every state and county.
+category: people
+inputs: [name, location]
+outputs: [url]
+type: web
+cost: freemium
+passive: true
+account_required: false

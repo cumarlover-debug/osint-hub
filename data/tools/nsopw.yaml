@@ -1,0 +1,10 @@
+name: NSOPW
+url: https://www.nsopw.gov/
+description: Official US public-safety search across every state sex-offender registry.
+category: people
+inputs: [name, location]
+outputs: [location, image]
+type: web
+cost: free
+passive: true
+account_required: false
