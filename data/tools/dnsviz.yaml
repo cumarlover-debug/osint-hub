@@ -1,0 +1,10 @@
+name: DNSViz
+url: https://dnsviz.net
+description: Draws a domain's DNS delegation chain and DNSSEC signatures as a graph and highlights configuration errors.
+category: domain
+inputs: [domain]
+outputs: [dns_record, domain]
+type: web
+cost: free
+passive: true
+account_required: false

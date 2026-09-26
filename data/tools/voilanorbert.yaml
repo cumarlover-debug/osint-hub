@@ -1,0 +1,10 @@
+name: VoilaNorbert
+url: https://www.voilanorbert.com
+description: Finds a person's work email address from their name and company domain, and verifies it.
+category: email
+inputs: [name, domain]
+outputs: [email]
+type: web
+cost: freemium
+passive: true
+account_required: false

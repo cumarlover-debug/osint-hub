@@ -1,0 +1,32 @@
+# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
+# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
+name: ThatsThem
+url: https://thatsthem.com/reverse-email-lookup
+description: ''
+category: email
+inputs: [email]
+type: web
+cost: freemium
+passive: true
+account_required: false
+
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: high
+  score: 12
+  flags:
+    - 'link: could not verify (HTTP 403)'
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Email Search / Email Check
+        said: Reverse Email Lookup.
+      - list: osint-framework
+        section: Email Address > Email Search
+        said: >-
+          Reverse email lookup tool that searches a database of hundreds of millions of emails to reveal name,
+          address, phone number, and public records associated with an email address.
+    framework_input: Email address
+    framework_output: Name, address, phone number, education

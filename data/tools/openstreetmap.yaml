@@ -1,0 +1,10 @@
+name: OpenStreetMap
+url: https://www.openstreetmap.org
+description: Community-edited world map, often more detailed than commercial maps for paths, buildings and small features.
+category: geolocation
+inputs: [location]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false

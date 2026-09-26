@@ -1,0 +1,11 @@
+name: Online Port scanner
+url: https://portscanner.online/
+description: Scans the open ports of an IP or host from a remote server, so the scan does not come from your own connection.
+category: network
+inputs: [ip]
+outputs: [port_service]
+type: web
+cost: free
+passive: false
+account_required: false
+notes: This actively scans the target, which it can log.

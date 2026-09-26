@@ -1,0 +1,11 @@
+name: ANY.RUN
+url: https://app.any.run/
+description: 'Interactive malware sandbox: run a file or URL in a virtual machine and watch its processes, network traffic and indicators live.'
+category: threat-intel
+inputs: [document, url, hash]
+outputs: [domain, ip, hash, reputation]
+type: web
+cost: freemium
+passive: true
+account_required: true
+notes: Submissions on the free plan are public. Do not upload confidential files.

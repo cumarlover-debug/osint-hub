@@ -1,0 +1,10 @@
+name: Arkham Intelligence
+url: https://intel.arkm.com/
+description: Blockchain analytics with hundreds of millions of labelled addresses. Shows who controls an address and traces funds between entities.
+category: crypto
+inputs: [crypto_address, company]
+outputs: [crypto_address, company, name]
+type: web
+cost: freemium
+passive: true
+account_required: true

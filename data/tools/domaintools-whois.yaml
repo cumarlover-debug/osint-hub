@@ -1,0 +1,10 @@
+name: DomainTools Whois
+url: https://whois.domaintools.com
+description: Current WHOIS lookup for any domain. Historical WHOIS, hosting history and reverse lookups need a paid account.
+category: domain
+inputs: [domain, ip]
+outputs: [name, email, ip]
+type: web
+cost: freemium
+passive: true
+account_required: false

@@ -56,6 +56,9 @@ for (const { slug, file, tool: draft, error } of readYamlDir(paths.drafts)) {
   }
 
   writeFileSync(join(paths.tools, `${finalSlug}.yaml`), yaml.dump(tool, { flowLevel: 1, lineWidth: -1 }));
+  if (review.source_url && urlKey(review.source_url) !== urlKey(tool.url)) {
+    appendFileSync(paths.aliases, `${review.source_url}  # now ${tool.url} (${finalSlug})\n`);
+  }
   rmSync(draftPath);
   existing.set(urlKey(tool.url), finalSlug);
   promoted.push(finalSlug);

@@ -1,0 +1,10 @@
+name: USGS EarthExplorer
+url: https://earthexplorer.usgs.gov/
+description: Search and download satellite imagery (Landsat, Sentinel) and historical aerial photos for any area and date range.
+category: geolocation
+inputs: [location]
+outputs: [image]
+type: web
+cost: free
+passive: true
+account_required: true

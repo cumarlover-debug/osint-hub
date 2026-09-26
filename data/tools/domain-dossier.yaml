@@ -1,0 +1,10 @@
+name: Domain Dossier
+url: https://centralops.net/co/DomainDossier.aspx
+description: 'Free one-page report on a domain or IP: WHOIS for both the domain and its network, DNS records and a traceroute.'
+category: domain
+inputs: [domain, ip]
+outputs: [dns_record, ip, name, email]
+type: web
+cost: free
+passive: true
+account_required: false

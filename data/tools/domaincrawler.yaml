@@ -1,0 +1,10 @@
+name: DomainCrawler
+url: https://www.domaincrawler.com
+description: 'Commercial database of hundreds of billions of historical domain records: DNS, certificates, technologies and ownership links.'
+category: domain
+inputs: [domain]
+outputs: [domain, ip, dns_record]
+type: web
+cost: paid
+passive: true
+account_required: true

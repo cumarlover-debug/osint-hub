@@ -1,0 +1,16 @@
+name: GitFive
+url: https://github.com/mxrch/GitFive
+description: 'Investigates a GitHub user: past usernames and names, emails linked to the account, SSH keys and close contacts.'
+category: social-media
+inputs: [username, email]
+outputs: [email, name, username]
+type: cli
+cost: free
+passive: true
+account_required: true
+repo: mxrch/GitFive
+language: Python
+license: MPL-2.0
+platforms: [linux, macos, windows]
+tags: [github, open-source]
+notes: Needs a GitHub account session of your own.

@@ -1,0 +1,10 @@
+name: Bitquery Explorer
+url: https://explorer.bitquery.io/
+description: Explorer for 40+ blockchains showing address balances, token transfers and DEX trades, with a GraphQL API for bulk queries.
+category: crypto
+inputs: [crypto_address]
+outputs: [crypto_address]
+type: web
+cost: freemium
+passive: true
+account_required: false

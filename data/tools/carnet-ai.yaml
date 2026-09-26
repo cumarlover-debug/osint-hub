@@ -1,0 +1,10 @@
+name: CarNet.ai
+url: https://carnet.ai/
+description: Identifies the make, model and generation of a car from a photo.
+category: transport
+inputs: [image]
+outputs: [vehicle]
+type: web
+cost: freemium
+passive: true
+account_required: false

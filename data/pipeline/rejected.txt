@@ -7,3 +7,16 @@ https://attack.mitre.org/  # Mitre TTPs (reference knowledge base, not a lookup 
 https://www.scribd.com/  # Scribd (document sharing site, not an OSINT tool), 2026-09-26
 https://www.vault.com  # Vault (careers site, little OSINT value), 2026-09-26
 https://visualgenome.org/  # Visual Genome (research dataset, not a tool), 2026-09-26
+https://akana.mobiseclab.org/  # Akana Android Malware (domain is for sale), 2026-09-26
+https://softbytelabs.com/wp/blackwidow/  # BlackWidow (offline site downloader, out of scope), 2026-09-26
+https://github.com/wesbos/burner-email-providers  # Burner Email Providers (a data list, not a tool), 2026-09-26
+https://clarify.io  # Clarify (industrial data company, unrelated), 2026-09-26
+https://detux.org/  # detux Linux Sandbox (domain now belongs to an unrelated site), 2026-09-26
+https://www.hiya.com/  # Hiya (R$) (now a B2B voice security product, no public lookup), 2026-09-26
+https://www.ipfingerprints.com  # IPFingerprints (redundant IP geolocation), 2026-09-26
+https://www.mailboxvalidator.com/demo  # MailboxValidator (email-list cleaning service; Reacher covers this), 2026-09-26
+https://mailscrap.com/  # MailScrap (email-list cleaning service; Reacher covers this), 2026-09-26
+https://photobucket.com  # PhotoBucket (image host, not a tool), 2026-09-26
+https://www.semrush.com  # SEMrush (SEO suite, out of scope), 2026-09-26
+https://github.com/GeiserX/Wayback-Archive  # Wayback-Archive (very small project; waybackpack covers it), 2026-09-26
+https://www.xing.com  # Xing (a social network itself, not a tool), 2026-09-26

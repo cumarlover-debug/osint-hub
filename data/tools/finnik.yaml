@@ -1,0 +1,9 @@
+name: Finnik
+url: https://finnik.nl/en
+description: Looks up a Dutch licence plate and shows the vehicle specs, inspection (APK) history and registration data from the RDW.
+category: transport
+inputs: [vehicle]
+type: web
+cost: freemium
+passive: true
+account_required: false

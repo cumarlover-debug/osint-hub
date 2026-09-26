@@ -1,0 +1,16 @@
+name: waybackpy
+url: https://github.com/akamhy/waybackpy
+description: 'Command-line and Python interface to the Wayback Machine: save pages, list every snapshot, or fetch the oldest or newest copy.'
+category: archives
+inputs: [url]
+outputs: [archive_snapshot, url]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: akamhy/waybackpy
+install: pipx install waybackpy
+language: Python
+license: MIT
+platforms: [linux, macos, windows]
+tags: [archives, open-source]

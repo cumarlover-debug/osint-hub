@@ -1,0 +1,9 @@
+name: FindByPlate
+url: https://findbyplate.com/
+description: Looks up a US licence plate by state and shows the vehicle make, model and year.
+category: transport
+inputs: [vehicle]
+type: web
+cost: freemium
+passive: true
+account_required: false

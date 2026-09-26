@@ -1,0 +1,9 @@
+name: HLR Lookups
+url: https://www.hlr-lookups.com/en/start
+description: Asks mobile networks whether a number is live, which carrier it is on now and whether it has been ported.
+category: phone
+inputs: [phone]
+type: web
+cost: paid
+passive: true
+account_required: true
