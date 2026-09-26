@@ -1,0 +1,18 @@
+name: Metagoofil
+url: https://github.com/laramies/metagoofil
+description: Finds public documents (PDF, Word, Excel and more) on a domain through Google, downloads them and helps pull out author names, usernames and software from their metadata.
+category: metadata
+inputs: [domain]
+outputs: [document, name, metadata]
+type: cli
+cost: free
+passive: false
+account_required: false
+command_template: python metagoofil.py -d {query} -t pdf,doc,docx,xls,xlsx -o metagoofil-out
+repo: laramies/metagoofil
+install: git clone https://github.com/laramies/metagoofil.git && pip install -r metagoofil/requirements.txt
+language: Python
+license: GPL-2.0
+platforms: [linux, macos, windows]
+tags: [documents, open-source]
+notes: Downloads files from the target's own site. Pair it with ExifTool to read the metadata. Heavy use can get you blocked by Google.

@@ -1,0 +1,19 @@
+name: Photon
+url: https://github.com/s0md3v/Photon
+description: Fast web crawler that extracts URLs, emails, social media links, files, JavaScript endpoints and secrets from a website.
+category: domain
+inputs: [url, domain]
+outputs: [url, email, social_profile]
+type: cli
+cost: free
+passive: false
+account_required: false
+command_template:
+  url: python photon.py -u {query}
+repo: s0md3v/Photon
+install: git clone https://github.com/s0md3v/Photon.git && pip install -r Photon/requirements.txt
+language: Python
+license: GPL-3.0
+platforms: [linux, macos, windows]
+tags: [crawler, open-source]
+notes: Crawls the target site directly, so the site sees your requests.

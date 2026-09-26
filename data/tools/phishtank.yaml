@@ -1,0 +1,11 @@
+name: PhishTank
+url: https://phishtank.org
+description: Community database of reported phishing URLs; check whether a link is a known phishing page.
+category: threat-intel
+inputs: [url]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [phishing, reputation]
+notes: Run by Cisco Talos. Submitting and voting need an account.

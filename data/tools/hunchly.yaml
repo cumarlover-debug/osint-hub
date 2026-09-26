@@ -1,0 +1,12 @@
+name: Hunchly
+url: https://hunch.ly
+description: Browser extension and app that automatically captures, hashes and logs every page you visit during an investigation, so you have evidence and an audit trail.
+category: archives
+inputs: [url]
+type: extension
+cost: paid
+passive: true
+account_required: true
+platforms: [windows, macos, linux]
+tags: [evidence-capture, documentation]
+notes: Has a free trial.

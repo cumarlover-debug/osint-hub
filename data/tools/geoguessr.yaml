@@ -1,0 +1,11 @@
+name: GeoGuessr
+url: https://www.geoguessr.com
+description: Game that drops you somewhere in Street View and asks where you are. Popular for practising the clue-reading that geolocation relies on.
+category: geolocation
+inputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags: [training]
+notes: A practice tool, not an investigation tool. The free tier has limited daily games.
