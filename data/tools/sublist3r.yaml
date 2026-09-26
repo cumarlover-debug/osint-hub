@@ -1,0 +1,16 @@
+name: Sublist3r
+url: https://github.com/aboul3la/Sublist3r
+description: Finds subdomains of a domain by querying search engines and passive DNS sources, with optional brute forcing.
+category: domain
+inputs: [domain]
+outputs: [domain]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: aboul3la/Sublist3r
+language: Python
+license: GPL-2.0
+platforms: [linux, macos, windows]
+tags: [subdomains, recon, open-source]
+notes: The optional brute-force mode queries the target directly. Last updated 2024.

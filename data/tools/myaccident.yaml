@@ -1,0 +1,9 @@
+name: MyAccident
+url: https://myaccident.org/
+description: Map of redacted US traffic accident reports, searchable by place and date.
+category: transport
+inputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false

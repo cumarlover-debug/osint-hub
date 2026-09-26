@@ -1,0 +1,11 @@
+name: Joe Sandbox
+url: https://www.joesandbox.com/
+description: Malware sandbox for Windows, Android, macOS and Linux samples and URLs. Reports behaviour, network traffic and indicators.
+category: threat-intel
+inputs: [document, hash, url]
+outputs: [reputation, domain, ip]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Free-plan analyses are public. Do not upload confidential files.

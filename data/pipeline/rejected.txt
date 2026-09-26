@@ -20,3 +20,22 @@ https://photobucket.com  # PhotoBucket (image host, not a tool), 2026-09-26
 https://www.semrush.com  # SEMrush (SEO suite, out of scope), 2026-09-26
 https://github.com/GeiserX/Wayback-Archive  # Wayback-Archive (very small project; waybackpack covers it), 2026-09-26
 https://www.xing.com  # Xing (a social network itself, not a tool), 2026-09-26
+https://www.doogal.co.uk/BatchGeocoding  # Batch Geocoding (bulk geocoding utility, out of scope), 2026-09-26
+https://www.doogal.co.uk/BatchReverseGeocoding  # Batch Reverse Geocoding (coordinate conversion utility, out of scope), 2026-09-26
+https://beacondb.net/  # beaconDB (device geolocation API without a lookup interface), 2026-09-26
+https://www.binaryedge.io/  # BinaryEdge (shut down: redirects to a BinaryEdge transition FAQ at Coalition), 2026-09-26
+https://cachedview.com  # CachedView (relies on Google's cache, retired in 2024), 2026-09-26
+https://www.cachedpages.com  # CashedPages (relies on Google's cache, retired in 2024), 2026-09-26
+https://www.sg.ch/recht/handelsregister-notariate.html  # Commercial Register - Worldwide (regional Swiss (St. Gallen) register, mislabelled as worldwide), 2026-09-26
+https://beta.companieshouse.gov.uk/  # Companies House (duplicate of Companies House (old beta URL)), 2026-09-26
+https://defillama.com/  # DefiLlama (market analytics, no address or entity lookup), 2026-09-26
+https://github.com/disposable-email-domains/disposable-email-domains  # Disposable Email Domains (a data list, not a tool), 2026-09-26
+https://ether.gtisc.gatech.edu/web_unpack/  # Ether (old research prototype, unmaintained), 2026-09-26
+https://namesdir.com/  # Names Directory (name statistics, little OSINT value), 2026-09-26
+https://api.opencnam.com/v2/phone/+19073372323  # OpenCNAM API (bare API endpoint, no lookup interface), 2026-09-26
+https://github.com/reacherhq/check-if-email-exists  # Reacher Github (duplicate of Reacher (its source code)), 2026-09-26
+https://www.readnotify.com/  # Read Notify (covert email tracking, out of scope), 2026-09-26
+https://www.similarweb.com  # Similar Web (web traffic analytics, out of scope), 2026-09-26
+https://www.statscrop.com  # StatsCrop (web traffic analytics, out of scope), 2026-09-26
+https://stored.website  # stored.website (relies on Google's cache, retired in 2024), 2026-09-26
+https://video.search.yahoo.com  # Yahoo Video Search (general search engine), 2026-09-26

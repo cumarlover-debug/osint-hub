@@ -1,0 +1,16 @@
+name: Osintgram
+url: https://github.com/Datalux/Osintgram
+description: 'Interactive shell that pulls data from an Instagram account: followers, tagged users, captions, photo locations and more.'
+category: social-media
+inputs: [username]
+outputs: [social_profile, location, username]
+type: cli
+cost: free
+passive: true
+account_required: true
+repo: Datalux/Osintgram
+language: Python
+license: GPL-3.0
+platforms: [linux, macos, windows]
+tags: [instagram, open-source]
+notes: Needs an Instagram account to log in with, and heavy use can get that account banned. Use a separate one.

@@ -1,0 +1,10 @@
+name: Blacklist Checker
+url: https://blacklistchecker.com/
+description: Checks an IP address or domain against 100+ email spam blocklists at once.
+category: email
+inputs: [ip, domain]
+outputs: [reputation]
+type: web
+cost: freemium
+passive: true
+account_required: false

@@ -1,0 +1,9 @@
+name: ID Ransomware
+url: https://id-ransomware.malwarehunterteam.com/
+description: Identifies which ransomware encrypted your files from a ransom note, an encrypted sample or the contact email, and says whether a decryptor exists.
+category: threat-intel
+inputs: [document, email]
+type: web
+cost: free
+passive: true
+account_required: false

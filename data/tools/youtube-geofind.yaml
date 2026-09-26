@@ -1,0 +1,10 @@
+name: YouTube Geofind
+url: https://mattw.io/youtube-geofind/
+description: Finds YouTube videos geotagged near a location, or lists every video from a channel on a map.
+category: image-video
+inputs: [location]
+outputs: [video]
+type: web
+cost: free
+passive: true
+account_required: false

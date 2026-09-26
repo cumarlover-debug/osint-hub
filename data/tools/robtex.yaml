@@ -1,0 +1,10 @@
+name: Robtex
+url: https://www.robtex.com
+description: 'Maps how a domain or IP connects to others: shared name servers, mail servers, reverse DNS and network ranges.'
+category: domain
+inputs: [domain, ip]
+outputs: [domain, ip, dns_record]
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,10 @@
+name: AnnualReports.com
+url: https://www.annualreports.com/
+description: Annual reports from thousands of listed companies worldwide, including past years, in one searchable place.
+category: business
+inputs: [company]
+outputs: [document, name]
+type: web
+cost: free
+passive: true
+account_required: false

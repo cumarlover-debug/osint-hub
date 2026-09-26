@@ -1,0 +1,10 @@
+name: Flightradar24
+url: https://www.flightradar24.com/
+description: Live flight tracking with a searchable history of routes by flight number, registration or airport.
+category: transport
+inputs: [aircraft]
+outputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false

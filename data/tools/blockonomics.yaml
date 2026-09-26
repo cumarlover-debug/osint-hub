@@ -1,0 +1,10 @@
+name: Blockonomics
+url: https://www.blockonomics.co/
+description: Bitcoin address lookup with balance and transactions. Can also show every address derived from a wallet xpub key.
+category: crypto
+inputs: [crypto_address]
+outputs: [crypto_address]
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,11 @@
+name: Dune
+url: https://dune.com/
+description: Query blockchain data with SQL across 100+ chains, or reuse public dashboards others have built about addresses and protocols.
+category: crypto
+inputs: [crypto_address]
+outputs: [crypto_address]
+type: web
+cost: freemium
+passive: true
+account_required: true
+notes: Needs basic SQL, but many ready-made public queries exist.

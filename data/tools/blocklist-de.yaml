@@ -1,0 +1,10 @@
+name: Blocklist.de
+url: https://www.blocklist.de/en/index.html
+description: Community blocklist of IPs caught attacking servers (SSH, mail, web logins). Search an IP to see what it was reported for.
+category: network
+inputs: [ip]
+outputs: [reputation]
+type: web
+cost: free
+passive: true
+account_required: false

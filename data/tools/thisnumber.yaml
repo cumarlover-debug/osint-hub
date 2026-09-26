@@ -1,0 +1,9 @@
+name: ThisNumber
+url: https://www.thisnumber.com/
+description: International phone directory lookup (formerly Numberway). Finds the right national directory for a foreign number.
+category: phone
+inputs: [phone]
+type: web
+cost: freemium
+passive: true
+account_required: false

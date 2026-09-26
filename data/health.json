@@ -39,6 +39,13 @@
       "pushed_at": "2026-07-19"
     }
   },
+  "annualreports-com": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "antennasearch": {
     "status": "up",
     "failures": 0,
@@ -143,6 +150,13 @@
       "renamed_to": "antoniaci/blackbird"
     }
   },
+  "blacklist-checker": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "blockchain-explorer": {
     "status": "unverified",
     "failures": 0,
@@ -157,7 +171,42 @@
     "http": 401,
     "last_ok": "2026-09-26"
   },
+  "blocklist-de": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "blockonomics": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "blockscan": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "breadcrumbs": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "builtwith": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "buzzfile": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -186,6 +235,27 @@
     "last_ok": "2026-09-26"
   },
   "chainabuse": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "circl-bgp-ranking": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "companies-house": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "corona-atlas": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -275,6 +345,20 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "dune": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "earthcam": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "etherscan": {
     "status": "unverified",
     "failures": 0,
@@ -337,12 +421,31 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "flightradar24": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "forensically": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "ghidra": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 79677,
+      "archived": false,
+      "pushed_at": "2026-09-25"
+    }
   },
   "ghunt": {
     "status": "up",
@@ -367,6 +470,13 @@
       "archived": false,
       "pushed_at": "2025-10-04"
     }
+  },
+  "global-fishing-watch": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "google-lens": {
     "status": "up",
@@ -423,6 +533,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "id-ransomware": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "infosniper": {
     "status": "up",
     "failures": 0,
@@ -457,7 +574,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "joe-sandbox": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "jpegsnoop": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "keybase": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -504,6 +635,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "myaccident": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "namecheckup": {
     "status": "up",
     "failures": 0,
@@ -517,6 +655,20 @@
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "nhtsa-vpic-vin-decoder": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "nikto-online": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "numbering-plans": {
     "status": "up",
@@ -533,6 +685,13 @@
     "last_ok": "2026-09-26"
   },
   "online-port-scanner": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "opencellid": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -567,6 +726,18 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "osintgram": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 14663,
+      "archived": false,
+      "pushed_at": "2026-09-14"
+    }
+  },
   "overpass-turbo": {
     "status": "up",
     "failures": 0,
@@ -600,6 +771,13 @@
       "pushed_at": "2026-08-25"
     }
   },
+  "phonerator": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "quicksand": {
     "status": "up",
     "failures": 0,
@@ -625,6 +803,13 @@
       "archived": false,
       "pushed_at": "2024-11-01"
     }
+  },
+  "robtex": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "securitytrails": {
     "status": "unverified",
@@ -677,6 +862,18 @@
       "pushed_at": "2026-09-25"
     }
   },
+  "sublist3r": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 11046,
+      "archived": false,
+      "pushed_at": "2024-08-02"
+    }
+  },
   "suncalc": {
     "status": "up",
     "failures": 0,
@@ -695,6 +892,13 @@
       "archived": false,
       "pushed_at": "2026-09-21"
     }
+  },
+  "thisnumber": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "tineye": {
     "status": "unverified",
@@ -815,6 +1019,13 @@
       "pushed_at": "2026-09-16"
     }
   },
+  "wigle": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "xmrchain": {
     "status": "up",
     "failures": 0,
@@ -828,6 +1039,25 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "youtube-geofind": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "yt-dlp": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 193610,
+      "archived": false,
+      "pushed_at": "2026-09-16"
+    }
   },
   "zoom-earth": {
     "status": "up",

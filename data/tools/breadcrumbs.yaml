@@ -1,0 +1,10 @@
+name: Breadcrumbs
+url: https://www.breadcrumbs.app/
+description: Crypto investigation tool that draws fund flows between addresses as an interactive graph, with community labels.
+category: crypto
+inputs: [crypto_address]
+outputs: [crypto_address, company]
+type: web
+cost: freemium
+passive: true
+account_required: false
