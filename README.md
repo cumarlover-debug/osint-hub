@@ -115,14 +115,6 @@ Tools for research, journalism, security work and personal safety.
 The site is fully static. Filtering runs in the browser, "Search directly" boxes open the tool straight from the
 visitor's browser, and pages send `no-referrer`.
 
-## Roadmap
-
-1. ~~MVP: schema, seed data, search by input, page per tool~~
-2. ~~Weekly health check (GitHub Action): link status, GitHub stars / last commit / archived~~
-3. ~~Multi-tool query launcher, pivot chains, investigation playbooks~~
-4. ~~Seed + enrich pipeline from awesome lists; community submissions~~
-5. Favorites, CLI, browser extension
-
 ## Community submissions
 
 `/submit` builds a pre-filled "Suggest a tool" issue (`.github/ISSUE_TEMPLATE/submit-tool.yml`). The `Tool submissions`
@@ -146,3 +138,22 @@ osint-hub playbook suspicious-domain --value example.com
 No dependencies; it reads `https://osinthub.pages.dev/api/tools.json` and `playbooks.json`, caches them for a day, and
 falls back to the cache when offline. Run `osint-hub --help` for everything. Detection and links come from
 `shared/launcher.mjs`, the same code the website uses.
+
+## Browser extension
+
+`extension/` is a Manifest V3 extension for Chrome and Firefox: right-click selected text, a link, an image or the
+page to search it with the tools that can take it, then open them all in background tabs. Install and privacy
+details are in `extension/README.md`.
+
+## Favourites
+
+Star tools with ★ to build **My toolkit** (`/toolkit`): filter the home page by it, export it as a browser
+bookmarks file, or back it up as JSON. It is stored only in the browser.
+
+## Roadmap
+
+1. ~~MVP: schema, seed data, search by input, page per tool~~
+2. ~~Weekly health check (GitHub Action): link status, GitHub stars / last commit / archived~~
+3. ~~Multi-tool query launcher, pivot chains, investigation playbooks~~
+4. ~~Seed + enrich pipeline from awesome lists; community submissions~~
+5. ~~Favourites, CLI, browser extension~~

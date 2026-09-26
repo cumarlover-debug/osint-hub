@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>osint-hub launcher</title>
+    <link rel="stylesheet" href="launcher.css" />
+  </head>
+  <body>
+    <header>
+      <span class="logo"><span aria-hidden="true">◎</span> osint-hub</span>
+      <a id="site-link" href="https://osinthub.pages.dev/launch" target="_blank" rel="noopener noreferrer">website ↗</a>
+    </header>
+    <main>
+      <label class="visually-hidden" for="value">Value to search</label>
+      <input id="value" type="text" autocomplete="off" spellcheck="false" placeholder="Paste an email, domain, IP, hash, wallet…" />
+      <p class="hint" id="detected">Detected type: <strong>none yet</strong></p>
+      <div id="types" class="chips" role="group" aria-label="Search as"></div>
+      <label class="check"><input type="checkbox" id="include-active" /> Include active tools (they contact the target)</label>
+      <div class="bar" id="bar" hidden>
+        <button type="button" id="open-selected" class="button">Open selected</button>
+        <button type="button" id="select-all" class="linklike">All</button>
+        <button type="button" id="select-none" class="linklike">None</button>
+      </div>
+      <ul id="results"></ul>
+      <p class="hint" id="message"></p>
+    </main>
+    <script type="module" src="launcher.js"></script>
+  </body>
+</html>
