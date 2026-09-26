@@ -1,0 +1,257 @@
+---
+// Decorative rotating dot-matrix Earth for the home page. Drawn on a canvas: no images, no libraries.
+---
+
+<div class="globe-wrap" aria-hidden="true">
+  <canvas id="globe"></canvas>
+</div>
+
+<script>
+  // Rough continent outlines as [lon, lat] points. Stylised, not cartographic: they only need to read as Earth
+  // once filled with a dot grid.
+  const LAND: [number, number][][] = [
+    // North America
+    [[-168,65],[-160,71],[-140,70],[-120,72],[-95,72],[-80,74],[-62,66],[-55,52],[-66,45],[-75,38],[-81,31],[-80,25],[-90,29],[-97,26],[-98,20],[-105,20],[-110,24],[-115,31],[-124,40],[-125,48],[-133,55],[-150,60],[-165,62]],
+    // Greenland
+    [[-50,60],[-42,60],[-20,70],[-20,80],[-40,83],[-60,82],[-70,77],[-55,68]],
+    // Central America
+    [[-105,20],[-97,19],[-90,21],[-87,15],[-83,9],[-78,8],[-80,7],[-86,12],[-92,15],[-98,16]],
+    // South America
+    [[-80,8],[-72,12],[-60,10],[-50,0],[-35,-5],[-38,-15],[-48,-25],[-58,-35],[-65,-42],[-70,-55],[-74,-50],[-72,-35],[-71,-18],[-77,-10],[-81,-3]],
+    // Europe
+    [[-10,36],[-9,43],[-2,44],[-4,48],[2,51],[8,54],[10,58],[5,62],[15,69],[28,71],[40,67],[45,55],[40,45],[28,41],[23,36],[15,38],[12,44],[3,42]],
+    // Great Britain and Ireland
+    [[-6,50],[1,51],[2,53],[-2,57],[-5,59],[-7,57],[-5,54]],
+    [[-10,52],[-6,52],[-6,55],[-8,55]],
+    // Africa
+    [[-17,15],[-17,21],[-10,30],[-6,35],[10,37],[20,32],[32,31],[35,27],[43,12],[51,12],[42,0],[40,-10],[35,-24],[27,-34],[18,-35],[12,-17],[9,-1],[8,5],[-5,5],[-13,8]],
+    // Madagascar
+    [[44,-25],[48,-25],[50,-15],[48,-13],[44,-17]],
+    // Asia
+    [[28,41],[36,36],[35,31],[43,13],[52,16],[58,22],[60,25],[67,24],[73,19],[77,8],[80,15],[88,22],[92,21],[98,16],[100,6],[104,2],[106,10],[109,18],[117,23],[122,31],[121,40],[127,39],[130,42],[141,48],[142,59],[160,60],[170,65],[180,68],[180,72],[140,74],[110,77],[80,73],[65,69],[45,68],[40,67],[45,55],[40,45],[35,42]],
+    // Japan
+    [[130,31],[136,34],[141,38],[142,45],[140,42],[135,35]],
+    // Indonesia and Borneo
+    [[95,5],[105,-6],[115,-8],[120,-9],[125,-8],[119,-4],[117,6],[109,2],[100,2]],
+    // Australia
+    [[114,-22],[122,-18],[130,-12],[137,-12],[142,-11],[146,-19],[153,-26],[151,-34],[146,-39],[138,-35],[132,-32],[124,-34],[115,-34]],
+    // New Zealand
+    [[172,-34],[178,-38],[174,-41],[170,-46],[167,-46],[172,-41]],
+  ];
+
+  const inside = (lon: number, lat: number, poly: [number, number][]) => {
+    let hit = false;
+    for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+      const [xi, yi] = poly[i];
+      const [xj, yj] = poly[j];
+      if (yi > lat !== yj > lat && lon < ((xj - xi) * (lat - yi)) / (yj - yi) + xi) hit = !hit;
+    }
+    return hit;
+  };
+
+  // Deterministic randomness so the globe looks the same on every visit.
+  let seed = 7;
+  const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+
+  const RAD = Math.PI / 180;
+  type Dot = { lon: number; lat: number; city: boolean };
+  const dots: Dot[] = [];
+  for (let lat = -56; lat <= 80; lat += 2.4) {
+    const step = 2.4 / Math.max(0.25, Math.cos(lat * RAD));
+    for (let lon = -180; lon < 180; lon += step) {
+      if (LAND.some((p) => inside(lon, lat, p))) dots.push({ lon, lat, city: rand() < 0.07 });
+    }
+  }
+
+  // Network nodes on land, and arcs between some of them.
+  const nodes = Array.from({ length: 26 }, () => dots[Math.floor(rand() * dots.length)]);
+  const arcs = Array.from({ length: 16 }, (_, i) => ({ a: nodes[i % nodes.length], b: nodes[(i * 7 + 5) % nodes.length], offset: rand() }));
+  const HOT = { lon: -2, lat: 53 }; // pulsing highlight, like the dashboard's
+
+  const canvas = document.getElementById('globe') as HTMLCanvasElement;
+  const ctx = canvas.getContext('2d')!;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let size = 0;
+  let dpr = 1;
+  let rotation = -20; // longitude facing the viewer
+  const tilt = 22 * RAD; // look slightly down on the northern hemisphere
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    size = rect.width;
+    canvas.width = Math.round(size * dpr);
+    canvas.height = Math.round(size * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  // Orthographic projection. Returns screen position and depth (cos of the angle to the viewer; < 0 is hidden).
+  function project(lon: number, lat: number, r: number, lift = 1) {
+    const phi = lat * RAD;
+    const lam = (lon - rotation) * RAD;
+    const cosc = Math.sin(tilt) * Math.sin(phi) + Math.cos(tilt) * Math.cos(phi) * Math.cos(lam);
+    const x = r * lift * Math.cos(phi) * Math.sin(lam);
+    const y = r * lift * (Math.cos(tilt) * Math.sin(phi) - Math.sin(tilt) * Math.cos(phi) * Math.cos(lam));
+    return { x: size / 2 + x, y: size / 2 - y, depth: cosc };
+  }
+
+  function greatCircle(a: Dot, b: Dot, t: number) {
+    const p1 = [Math.cos(a.lat * RAD) * Math.cos(a.lon * RAD), Math.cos(a.lat * RAD) * Math.sin(a.lon * RAD), Math.sin(a.lat * RAD)];
+    const p2 = [Math.cos(b.lat * RAD) * Math.cos(b.lon * RAD), Math.cos(b.lat * RAD) * Math.sin(b.lon * RAD), Math.sin(b.lat * RAD)];
+    const d = Math.acos(Math.min(1, Math.max(-1, p1[0] * p2[0] + p1[1] * p2[1] + p1[2] * p2[2])));
+    if (d < 1e-6) return { lon: a.lon, lat: a.lat };
+    const s1 = Math.sin((1 - t) * d) / Math.sin(d);
+    const s2 = Math.sin(t * d) / Math.sin(d);
+    const x = s1 * p1[0] + s2 * p2[0];
+    const y = s1 * p1[1] + s2 * p2[1];
+    const z = s1 * p1[2] + s2 * p2[2];
+    return { lon: Math.atan2(y, x) / RAD, lat: Math.atan2(z, Math.hypot(x, y)) / RAD };
+  }
+
+  function draw(time: number) {
+    const r = size * 0.39;
+    const c = size / 2;
+    ctx.clearRect(0, 0, size, size);
+
+    // Outer glow and orbit rings.
+    const glow = ctx.createRadialGradient(c, c, r * 0.9, c, c, r * 1.35);
+    glow.addColorStop(0, 'rgba(69,215,239,0.28)');
+    glow.addColorStop(1, 'rgba(69,215,239,0)');
+    ctx.fillStyle = glow;
+    ctx.beginPath();
+    ctx.arc(c, c, r * 1.35, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(69,215,239,0.12)';
+    ctx.lineWidth = 1;
+    for (const [k, rot] of [[1.18, 0.35], [1.27, -0.5]] as const) {
+      ctx.beginPath();
+      ctx.ellipse(c, c, r * k, r * k * 0.34, rot, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    // The sphere: lit from the top-left.
+    const body = ctx.createRadialGradient(c - r * 0.35, c - r * 0.4, r * 0.1, c, c, r);
+    body.addColorStop(0, '#12455a');
+    body.addColorStop(0.55, '#0a2733');
+    body.addColorStop(1, '#04121a');
+    ctx.fillStyle = body;
+    ctx.beginPath();
+    ctx.arc(c, c, r, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Graticule.
+    ctx.fillStyle = 'rgba(120,200,220,0.16)';
+    for (let lat = -60; lat <= 60; lat += 30) {
+      for (let lon = -180; lon < 180; lon += 3) {
+        const p = project(lon, lat, r);
+        if (p.depth > 0) ctx.fillRect(p.x, p.y, 0.8, 0.8);
+      }
+    }
+    for (let lon = -180; lon < 180; lon += 30) {
+      for (let lat = -80; lat <= 80; lat += 3) {
+        const p = project(lon, lat, r);
+        if (p.depth > 0) ctx.fillRect(p.x, p.y, 0.8, 0.8);
+      }
+    }
+
+    // Land dots, fading towards the limb.
+    const dotSize = Math.max(1.1, size / 420);
+    for (const d of dots) {
+      const p = project(d.lon, d.lat, r);
+      if (p.depth <= 0) continue;
+      const a = 0.35 + 0.65 * p.depth;
+      ctx.fillStyle = d.city ? `rgba(255,196,110,${a})` : `rgba(110,228,245,${a})`;
+      const s = d.city ? dotSize * 1.3 : dotSize;
+      ctx.fillRect(p.x - s / 2, p.y - s / 2, s, s);
+    }
+
+    // Arcs lifted above the surface, each with a travelling pulse.
+    for (const arc of arcs) {
+      ctx.beginPath();
+      let started = false;
+      for (let i = 0; i <= 40; i++) {
+        const t = i / 40;
+        const g = greatCircle(arc.a, arc.b, t);
+        const p = project(g.lon, g.lat, r, 1 + 0.18 * Math.sin(Math.PI * t));
+        if (p.depth < -0.1) {
+          started = false;
+          continue;
+        }
+        if (!started) ctx.moveTo(p.x, p.y);
+        else ctx.lineTo(p.x, p.y);
+        started = true;
+      }
+      ctx.strokeStyle = 'rgba(69,215,239,0.35)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      const t = ((time / 3200 + arc.offset) % 1 + 1) % 1;
+      const g = greatCircle(arc.a, arc.b, t);
+      const p = project(g.lon, g.lat, r, 1 + 0.18 * Math.sin(Math.PI * t));
+      if (p.depth > -0.1) {
+        ctx.fillStyle = '#bff6ff';
+        ctx.shadowColor = '#45d7ef';
+        ctx.shadowBlur = 8;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 1.8, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+    }
+
+    // Pulsing highlight.
+    const h = project(HOT.lon, HOT.lat, r);
+    if (h.depth > 0) {
+      const pulse = (time / 1600) % 1;
+      ctx.strokeStyle = `rgba(242,84,95,${0.8 * (1 - pulse)})`;
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(h.x, h.y, 4 + pulse * 18, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.fillStyle = '#f2545f';
+      ctx.shadowColor = '#f2545f';
+      ctx.shadowBlur = 12;
+      ctx.beginPath();
+      ctx.arc(h.x, h.y, 3.5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+
+    // Rim light.
+    const rim = ctx.createRadialGradient(c, c, r * 0.82, c, c, r);
+    rim.addColorStop(0, 'rgba(69,215,239,0)');
+    rim.addColorStop(1, 'rgba(120,235,250,0.45)');
+    ctx.fillStyle = rim;
+    ctx.beginPath();
+    ctx.arc(c, c, r, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // Animate only while on screen, and not at all for reduced motion.
+  let visible = true;
+  let last = performance.now();
+  function frame(now: number) {
+    if (!visible) return;
+    rotation += ((now - last) / 1000) * 5; // degrees per second
+    last = now;
+    draw(now);
+    requestAnimationFrame(frame);
+  }
+
+  resize();
+  new ResizeObserver(() => {
+    resize();
+    draw(performance.now());
+  }).observe(canvas);
+
+  if (reduced) {
+    draw(0);
+  } else {
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible) {
+        last = performance.now();
+        requestAnimationFrame(frame);
+      }
+    }).observe(canvas);
+  }
+</script>

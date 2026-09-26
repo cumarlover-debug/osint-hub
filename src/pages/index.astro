@@ -1,20 +1,113 @@
 ---
 import Base from '../layouts/Base.astro';
 import ToolCard from '../components/ToolCard.astro';
+import Globe from '../components/Globe.astro';
+import Gauge from '../components/Gauge.astro';
 import { tools, taxonomy, usedInputs } from '../lib/tools';
 
 const inputs = usedInputs();
+const total = tools.length;
+
+// Per category: how many tools, and how many can be searched straight from this site.
+const categories = Object.entries(taxonomy.categories)
+  .map(([key, label]) => {
+    const inCat = tools.filter((t) => t.category === key);
+    return { key, label, count: inCat.length, searchable: inCat.filter((t) => t.query_template).length };
+  })
+  .filter((c) => c.count > 0)
+  .sort((a, b) => b.count - a.count);
+const maxCount = Math.max(...categories.map((c) => c.count));
+const maxSearchable = Math.max(1, ...categories.map((c) => c.searchable));
+const maxInput = Math.max(...inputs.map((i) => i.count));
+const sideInputs = [...inputs].sort((a, b) => b.count - a.count).slice(0, 12);
+const sideCategories = categories.slice(0, 12);
+// Ten-dot meter, the brightest bucket shown in orange.
+const meter = (n: number, max: number) => {
+  const on = Math.max(1, Math.round((n / max) * 10));
+  return Array.from({ length: 10 }, (_, i) => (i < on ? (on >= 9 && i >= 8 ? 'hot' : 'on') : ''));
+};
+
+const online = tools.filter((t) => t.health?.status === 'up').length;
+const searchable = tools.filter((t) => t.query_template).length;
+const active = tools.filter((t) => !t.passive).length;
+const pct = (n: number) => (n / total) * 100;
 ---
 
 <Base
   title="osint-hub: OSINT tools by what you're investigating"
   description={`${tools.length} open-source intelligence tools, organised by the input they take: username, email, domain, IP, image and more.`}
 >
-  <section class="hero">
+  <section class="command-centre" aria-label="Overview">
+    <div class="cc-panel">
+      <div class="cc-panel-head">
+        <span class="section-label">Tools by category</span>
+        <div class="legend" aria-hidden="true">
+          <span><i style="background: rgba(200, 220, 226, 0.7)"></i>Listed</span>
+          <span><i style="background: var(--accent)"></i>Searchable from here</span>
+        </div>
+      </div>
+      <div class="bars">
+        {
+          categories.map((c) => (
+            <a
+              class="bar"
+              href={`/?category=${c.key}`}
+              data-category-link={c.key}
+              title={`${c.label}: ${c.count} tools, ${c.searchable} searchable from here`}
+            >
+              <span class="bar-up"><span style={`height: ${Math.max(4, (c.count / maxCount) * 100)}%`} /></span>
+              <span class="bar-label">{c.label}</span>
+              <span class="bar-down"><span style={`height: ${c.searchable ? Math.max(6, (c.searchable / maxSearchable) * 100) : 0}%`} /></span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="stage">
+      <ul class="side-list side-left" aria-label="Input types">
+        <li class="section-label">What you have</li>
+        {
+          sideInputs.map((i) => (
+            <li>
+              <a href={`/?input=${i.key}`} data-input-link={i.key}>
+                <span class="meter" aria-hidden="true">{meter(i.count, maxInput).map((m) => <i class={m} />)}</span>
+                <span>{i.label} <span class="count">{i.count}</span></span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <div>
+        <Globe />
+        <div class="gauges">
+          <Gauge value={online} percent={pct(online)} label="Online" color="cyan" title="Tools whose link answered the last weekly check" />
+          <Gauge value={searchable} percent={pct(searchable)} label="Searchable" color="orange" title="Tools you can search straight from this site" />
+          <Gauge value={active} percent={pct(active)} label="Active" color="red" title="Tools that can touch the target, so it may notice you" />
+        </div>
+      </div>
+      <ul class="side-list side-right" aria-label="Categories">
+        <li class="section-label">Categories</li>
+        {
+          sideCategories.map((c) => (
+            <li>
+              <a href={`/?category=${c.key}`} data-category-link={c.key}>
+                <span>{c.label} <span class="count">{c.count}</span></span>
+                <span class="meter" aria-hidden="true">{meter(c.count, maxCount).map((m) => <i class={m} />)}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="hero home-search">
+    <p class="eyebrow">{total} OSINT tools</p>
     <h1>Start from what you have.</h1>
     <p class="lede">
-      {tools.length} OSINT tools, organised by the input they take. Pick what you're investigating, then filter by
-      cost, type and whether the tool touches the target. Already have a value? <a href="/launch">Search many tools at once</a>.
+      Every tool is organised by the input it takes. Pick what you're investigating, then filter by cost, type and
+      whether the tool touches the target. Already have a value? <a href="/launch">Search many tools at once</a>.
     </p>
     <label class="visually-hidden" for="q">Search tools</label>
     <input id="q" class="search" type="search" placeholder="Search, e.g. subdomains, breaches, EXIF, flights" autocomplete="off" />
@@ -37,6 +130,13 @@ const inputs = usedInputs();
         <select id="type">
           <option value="">Any</option>
           {Object.entries(taxonomy.types).map(([k, v]) => <option value={k}>{v}</option>)}
+        </select>
+      </label>
+      <label>
+        Category
+        <select id="category">
+          <option value="">Any</option>
+          {Object.entries(taxonomy.categories).map(([k, v]) => <option value={k}>{v}</option>)}
         </select>
       </label>
       <label>
@@ -68,6 +168,7 @@ const inputs = usedInputs();
   const q = $<HTMLInputElement>('q');
   const type = $<HTMLSelectElement>('type');
   const cost = $<HTMLSelectElement>('cost');
+  const category = $<HTMLSelectElement>('category');
   const passive = $<HTMLInputElement>('passive');
   const noaccount = $<HTMLInputElement>('noaccount');
   const working = $<HTMLInputElement>('working');
@@ -81,6 +182,7 @@ const inputs = usedInputs();
   q.value = params.get('q') ?? '';
   type.value = params.get('type') ?? '';
   cost.value = params.get('cost') ?? '';
+  category.value = params.get('category') ?? '';
   passive.checked = params.has('passive');
   noaccount.checked = params.has('noaccount');
   working.checked = params.has('working');
@@ -96,6 +198,7 @@ const inputs = usedInputs();
         (!input || d.inputs!.split(' ').includes(input)) &&
         (!type.value || d.type === type.value) &&
         (!cost.value || d.cost === cost.value) &&
+        (!category.value || d.category === category.value) &&
         (!passive.checked || d.passive === 'true') &&
         (!noaccount.checked || d.account === 'false') &&
         (!working.checked || d.broken === 'false') &&
@@ -113,6 +216,7 @@ const inputs = usedInputs();
     if (q.value) next.set('q', q.value);
     if (type.value) next.set('type', type.value);
     if (cost.value) next.set('cost', cost.value);
+    if (category.value) next.set('category', category.value);
     if (passive.checked) next.set('passive', '');
     if (noaccount.checked) next.set('noaccount', '');
     if (working.checked) next.set('working', '');
@@ -127,7 +231,26 @@ const inputs = usedInputs();
       apply();
     });
   }
-  for (const el of [q, type, cost, passive, noaccount, working, mine]) el.addEventListener('input', apply);
+  // The overview links filter in place instead of reloading the page.
+  const results = document.querySelector('.home-search')!;
+  const jump = () => results.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  for (const link of document.querySelectorAll<HTMLAnchorElement>('[data-input-link]')) {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      input = link.dataset.inputLink!;
+      apply();
+      jump();
+    });
+  }
+  for (const link of document.querySelectorAll<HTMLAnchorElement>('[data-category-link]')) {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      category.value = link.dataset.categoryLink!;
+      apply();
+      jump();
+    });
+  }
+  for (const el of [q, type, category, cost, passive, noaccount, working, mine]) el.addEventListener('input', apply);
   // Un-starring a tool while filtering by toolkit hides it straight away.
   window.addEventListener(CHANGED, () => mine.checked && apply());
   apply();

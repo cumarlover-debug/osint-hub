@@ -1,0 +1,47 @@
+---
+// Ring gauge: a tick ring and a 270° arc showing `percent`, with a number and label in the middle.
+interface Props {
+  value: number | string;
+  percent: number;
+  label: string;
+  color: 'cyan' | 'orange' | 'red';
+  title?: string;
+}
+
+const { value, percent, label, color, title } = Astro.props;
+const stroke = { cyan: '#45d7ef', orange: '#f3a53f', red: '#f2545f' }[color];
+
+// Arc from 135° clockwise through 270°, on a 100×100 viewBox.
+const R = 38;
+const circumference = 2 * Math.PI * R;
+const sweep = circumference * 0.75;
+const filled = sweep * Math.max(0, Math.min(1, percent / 100));
+const ticks = Array.from({ length: 60 }, (_, i) => {
+  const a = (i / 60) * 2 * Math.PI;
+  const [x1, y1, x2, y2] = [50 + 46 * Math.cos(a), 50 + 46 * Math.sin(a), 50 + (i % 5 === 0 ? 42.5 : 44) * Math.cos(a), 50 + (i % 5 === 0 ? 42.5 : 44) * Math.sin(a)];
+  return { x1, y1, x2, y2, major: i % 5 === 0 };
+});
+---
+
+<div class="gauge" title={title} role="img" aria-label={`${label}: ${value} (${Math.round(percent)}%)`}>
+  <svg viewBox="0 0 100 100" aria-hidden="true">
+    {ticks.map((t) => <line x1={t.x1} y1={t.y1} x2={t.x2} y2={t.y2} stroke={t.major ? 'rgba(170,210,220,0.45)' : 'rgba(170,210,220,0.2)'} stroke-width="0.6" />)}
+    <circle cx="50" cy="50" r={R} fill="none" stroke="rgba(170,210,220,0.12)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray={`${sweep} ${circumference}`} transform="rotate(135 50 50)" />
+    <circle
+      cx="50"
+      cy="50"
+      r={R}
+      fill="none"
+      stroke={stroke}
+      stroke-width="3.2"
+      stroke-linecap="round"
+      stroke-dasharray={`${filled} ${circumference}`}
+      transform="rotate(135 50 50)"
+      style={`filter: drop-shadow(0 0 3px ${stroke})`}
+    />
+  </svg>
+  <div class="gauge-value">
+    <strong>{value}</strong>
+    <span>{label}</span>
+  </div>
+</div>
