@@ -1,0 +1,28 @@
+name: Spoonbill
+url: https://spoonbill.io/
+description: ''
+category: social-media
+inputs:
+  - username
+type: web
+cost: freemium
+passive: true
+account_required: true
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: low
+  score: 4
+  source_url: https://spoonbill.io/
+  flags:
+    - 'link: could not verify (HTTP 522 (bot protection))'
+  notes:
+    sources:
+      - list: osint-framework
+        section: Social Networks > Twitter > Archive / Deleted Tweets
+        said: Service that tracks Twitter/X profile changes such as bios, names, and avatars over time.
+    framework_input: Twitter/X usernames
+    framework_output: Historical profile snapshots and change alerts
+  hold: true
+  hold_reason: site returned 522 at draft time and tracks X profiles; check by hand

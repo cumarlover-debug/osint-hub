@@ -1,0 +1,10 @@
+name: GrayhatWarfare Public Buckets
+url: https://buckets.grayhatwarfare.com/
+description: Searches files in publicly exposed cloud storage buckets (Amazon S3, Azure, Google Cloud) by keyword or company.
+category: network
+inputs: [domain, company]
+outputs: [url, document]
+type: web
+cost: freemium
+passive: true
+account_required: true

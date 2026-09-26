@@ -1,0 +1,10 @@
+name: FCCID.io
+url: https://fccid.io/
+description: 'Searches FCC equipment filings by FCC ID or company: internal photos, manuals and test reports for wireless devices.'
+category: business
+inputs: [company]
+outputs: [document, image]
+type: web
+cost: freemium
+passive: true
+account_required: false

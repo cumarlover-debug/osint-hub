@@ -1,0 +1,10 @@
+name: scumware.org
+url: https://www.scumware.org/
+description: Long-running community list of domains and URLs that spread malware and spyware.
+category: domain
+inputs: [domain, url]
+outputs: [reputation]
+type: web
+cost: free
+passive: true
+account_required: false

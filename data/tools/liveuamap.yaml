@@ -1,0 +1,10 @@
+name: Liveuamap
+url: https://liveuamap.com/
+description: Live map of news events in conflict zones worldwide, each pinned to a location with its source.
+category: geolocation
+inputs: [location]
+outputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false

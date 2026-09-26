@@ -72,7 +72,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "apache-tika": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "arcgis-living-atlas": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "archivarix-tube-search": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -253,6 +267,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "c2pa-viewer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "carnet-ai": {
     "status": "up",
     "failures": 0,
@@ -370,6 +391,13 @@
     "last_ok": "2026-09-26"
   },
   "crt-sh": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "current-location": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -614,6 +642,27 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "fccid-io": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "filmot": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "find-youtube-video": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "findbyplate": {
     "status": "up",
     "failures": 0,
@@ -677,6 +726,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "frame-by-frame": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "free-carrier-lookup": {
     "status": "unverified",
     "failures": 0,
@@ -685,6 +741,13 @@
     "reason": "HTTP 403 (bot protection)"
   },
   "fylings": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "geonames": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -784,7 +847,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "grayhatwarfare-public-buckets": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "greynoise": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "guidestar-candid": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -894,6 +971,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "immuniweb": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "inflact-instagram-viewer": {
     "status": "up",
     "failures": 0,
@@ -902,6 +986,13 @@
     "last_ok": "2026-09-26"
   },
   "infosniper": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "instant-street-view": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -928,6 +1019,13 @@
     "failures": 1,
     "last_checked": "2026-09-26",
     "reason": "timeout"
+  },
+  "ip2whois": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "iplocation-net": {
     "status": "unverified",
@@ -1027,6 +1125,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "liveuamap": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "lookup-id-com": {
     "status": "up",
     "failures": 0,
@@ -1060,6 +1165,27 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "malwagon": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "mapchecking": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "mapillary": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "marinetraffic": {
     "status": "unverified",
     "failures": 0,
@@ -1080,6 +1206,13 @@
     }
   },
   "maxmind-geoip": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "mediainfo": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1115,6 +1248,13 @@
     "last_ok": "2026-09-26"
   },
   "mit-pgp-key-server": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "mnemonic-passive-dns": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1238,6 +1378,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "onion-lookup": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "online-port-scanner": {
     "status": "up",
     "failures": 0,
@@ -1354,6 +1501,13 @@
     }
   },
   "peeringdb": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "pentest-tools-subdomain-finder": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1496,6 +1650,20 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "scamdb": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "scumware-org": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "securitytrails": {
     "status": "unverified",
     "failures": 0,
@@ -1575,6 +1743,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "sogou-wechat-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "spamhaus-reputation-checker": {
     "status": "unverified",
     "failures": 0,
@@ -1625,6 +1800,20 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "switch-whois-ch-li": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "synapsint": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "sync-me": {
     "status": "up",
     "failures": 0,
@@ -1633,6 +1822,13 @@
     "last_ok": "2026-09-26"
   },
   "team-cymru-ip-to-asn": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "telegago": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1659,6 +1855,13 @@
     }
   },
   "thisnumber": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "threat-actor-usernames": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1707,6 +1910,13 @@
     "last_ok": "2026-09-26"
   },
   "twilio-lookup": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "un-security-council-sanctions-list": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",

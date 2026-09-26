@@ -1,0 +1,13 @@
+name: Apache Tika
+url: https://tika.apache.org/
+description: Extracts text and metadata (author, software, dates) from over a thousand file types, including Office files and PDFs.
+category: metadata
+inputs: [document, image]
+outputs: [metadata, name]
+type: cli
+cost: free
+passive: true
+account_required: false
+install: brew install tika
+platforms: [linux, macos, windows]
+tags: [metadata, open-source]

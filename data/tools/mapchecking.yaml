@@ -1,0 +1,9 @@
+name: MapChecking
+url: https://www.mapchecking.com/
+description: Estimates how many people were in a crowd by drawing its area on a map, to check claims about protest sizes.
+category: geolocation
+inputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false

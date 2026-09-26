@@ -1,0 +1,11 @@
+name: ImmuniWeb
+url: https://www.immuniweb.com/
+description: 'Free website security tests: TLS configuration, security headers, and exposure of the domain on the dark web and in phishing.'
+category: threat-intel
+inputs: [url, domain]
+outputs: [reputation]
+type: web
+cost: freemium
+passive: false
+account_required: true
+notes: The website test actively probes the target.

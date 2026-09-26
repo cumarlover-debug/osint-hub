@@ -1,0 +1,10 @@
+name: UN Security Council Sanctions List
+url: https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list
+description: The official list of people and entities under UN Security Council sanctions, with identifiers and reasons.
+category: business
+inputs: [name, company]
+outputs: [reputation]
+type: web
+cost: free
+passive: true
+account_required: false

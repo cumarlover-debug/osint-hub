@@ -1,0 +1,10 @@
+name: Instant Street View
+url: https://www.instantstreetview.com
+description: Type a place and jump straight into Google Street View, without going through the map first.
+category: geolocation
+inputs: [location]
+outputs: [image]
+type: web
+cost: free
+passive: true
+account_required: false

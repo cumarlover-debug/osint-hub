@@ -1,0 +1,10 @@
+name: Frame by Frame
+url: https://chromewebstore.google.com/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh
+description: Browser extension for stepping through YouTube videos one frame at a time, to catch details in fast footage.
+category: image-video
+inputs: [video]
+type: extension
+cost: free
+passive: true
+account_required: false
+platforms: [chrome]

@@ -1,0 +1,10 @@
+name: GuideStar (Candid)
+url: https://www.guidestar.org
+description: 'Profiles of US nonprofits: tax filings (Form 990), leaders, finances and 501(c)(3) status.'
+category: business
+inputs: [company]
+outputs: [name, document]
+type: web
+cost: freemium
+passive: true
+account_required: false

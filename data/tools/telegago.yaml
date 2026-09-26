@@ -1,0 +1,10 @@
+name: Telegago
+url: https://tools.osintnewsletter.com/osint-tools/telegago-telegram
+description: Custom Google search limited to Telegram, for finding public channels, groups and posts by keyword.
+category: social-media
+inputs: [username, social_post]
+outputs: [social_profile, social_post]
+type: web
+cost: free
+passive: true
+account_required: false

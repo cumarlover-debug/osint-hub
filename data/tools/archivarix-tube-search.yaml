@@ -1,0 +1,10 @@
+name: Archivarix Tube Search
+url: https://tube.archivarix.net/
+description: Searches archives for YouTube videos that were deleted, made private or blocked.
+category: image-video
+inputs: [video, url]
+outputs: [video, archive_snapshot]
+type: web
+cost: freemium
+passive: true
+account_required: false

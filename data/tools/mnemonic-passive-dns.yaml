@@ -1,0 +1,10 @@
+name: mnemonic Passive DNS
+url: https://passivedns.mnemonic.no/
+description: 'Free passive DNS: which IPs a domain has pointed to over time and which domains used an IP.'
+category: domain
+inputs: [domain, ip]
+outputs: [ip, domain, dns_record]
+type: web
+cost: free
+passive: true
+account_required: false

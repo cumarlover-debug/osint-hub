@@ -1,0 +1,10 @@
+name: Threat Actor Usernames
+url: https://threatactorusernames.com/
+description: Searches millions of usernames seen on criminal forums and marketplaces to show where a handle has been active.
+category: threat-intel
+inputs: [username]
+outputs: [url, social_profile]
+type: web
+cost: freemium
+passive: true
+account_required: false
