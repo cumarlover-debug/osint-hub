@@ -1,0 +1,13 @@
+name: JustDeleteMe
+url: https://justdeleteme.xyz
+description: Directory of direct links for deleting your account on hundreds of web services, rated by how hard deletion is.
+category: social-media
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+repo: jdm-contrib/jdm
+license: MIT
+tags: [opsec, account-deletion, open-source]
+notes: Useful for cleaning up sock-puppet accounts, or your own footprint after an investigation.

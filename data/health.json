@@ -801,6 +801,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "dcode": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "digga": {
     "status": "up",
     "failures": 0,
@@ -1172,6 +1179,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "filescan-io": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "filesec-io": {
     "status": "up",
     "failures": 0,
@@ -1359,6 +1373,13 @@
     "last_checked": "2026-09-26",
     "http": 405,
     "reason": "HTTP 405"
+  },
+  "geoguessr": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "geomacfinder-bot": {
     "status": "up",
@@ -1581,6 +1602,18 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "greenshot": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 5136,
+      "archived": false,
+      "pushed_at": "2026-09-26"
+    }
+  },
   "grep-app": {
     "status": "unverified",
     "failures": 0,
@@ -1671,6 +1704,13 @@
     "last_ok": "2026-09-26"
   },
   "honeylabs": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "hunchly": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1929,6 +1969,18 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "justdeleteme": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 1353,
+      "archived": false,
+      "pushed_at": "2026-09-25"
+    }
+  },
   "kagi": {
     "status": "up",
     "failures": 0,
@@ -2142,6 +2194,18 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "metagoofil": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 1321,
+      "archived": false,
+      "pushed_at": "2024-03-21"
+    }
+  },
   "metasleuth": {
     "status": "up",
     "failures": 0,
@@ -2218,6 +2282,18 @@
     "last_checked": "2026-09-26",
     "http": 406,
     "reason": "HTTP 406"
+  },
+  "mr-holmes": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 4239,
+      "archived": false,
+      "pushed_at": "2026-02-21"
+    }
   },
   "multirbl": {
     "status": "up",
@@ -2619,6 +2695,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "phishtank": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "phone-validator": {
     "status": "up",
     "failures": 0,
@@ -2644,6 +2727,18 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "photon": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 13239,
+      "archived": false,
+      "pushed_at": "2026-09-04"
+    }
   },
   "pic2map": {
     "status": "up",
@@ -3362,6 +3457,18 @@
       "pushed_at": "2026-07-29"
     }
   },
+  "trace-labs-osint-vm": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 1136,
+      "archived": false,
+      "pushed_at": "2026-09-18"
+    }
+  },
   "tracepoint": {
     "status": "up",
     "failures": 0,
@@ -3752,6 +3859,13 @@
     "last_ok": "2026-09-26"
   },
   "who-is": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "whocalld": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",

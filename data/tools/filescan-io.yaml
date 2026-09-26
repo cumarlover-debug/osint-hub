@@ -1,0 +1,11 @@
+name: FileScan.io
+url: https://www.filescan.io
+description: Free malware analysis. Upload a file or URL, or look up a hash, for a fast sandbox-style report with indicators and verdicts.
+category: threat-intel
+inputs: [document, hash, url]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [malware, sandbox]
+notes: Public scans are visible to others. Do not upload confidential files.

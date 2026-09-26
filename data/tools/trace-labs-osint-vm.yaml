@@ -1,0 +1,15 @@
+name: Trace Labs OSINT VM
+url: https://github.com/tracelabs/tlosint-vm
+description: A Kali-based virtual machine preloaded with OSINT tools, built by Trace Labs for missing-person search events and everyday investigations.
+category: frameworks
+inputs: [username, email, domain, image]
+type: desktop
+cost: free
+passive: true
+account_required: false
+repo: tracelabs/tlosint-vm
+language: Shell
+license: GPL-3.0
+platforms: [linux, macos, windows]
+tags: [virtual-machine, open-source]
+notes: Runs in VirtualBox or VMware. Keeping investigations inside a VM separates them from your everyday browser and accounts.

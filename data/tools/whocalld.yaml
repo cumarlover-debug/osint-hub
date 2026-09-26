@@ -1,0 +1,10 @@
+name: WhoCalld
+url: https://whocalld.com
+description: Reverse phone lookup with user reports about who called from a number, such as spam, scam or telemarketing, for many countries.
+category: phone
+inputs: [phone]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [caller-id, spam-reports]

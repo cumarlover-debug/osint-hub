@@ -1,0 +1,17 @@
+name: Mr.Holmes
+url: https://github.com/Lucksi/Mr.Holmes
+description: Menu-driven information-gathering tool for usernames, phone numbers, domains and IPs, with Google dork generation and report export.
+category: frameworks
+inputs: [username, phone, domain, ip]
+outputs: [social_profile, url]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: Lucksi/Mr.Holmes
+install: git clone https://github.com/Lucksi/Mr.Holmes.git && cd Mr.Holmes && sudo bash install.sh
+language: Python
+license: GPL-3.0
+platforms: [linux, macos, windows]
+tags: [username-enumeration, open-source]
+notes: Interactive. Start it with python3 MrHolmes.py and pick a module from the menu.

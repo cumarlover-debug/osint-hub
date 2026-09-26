@@ -1,0 +1,10 @@
+name: dCode
+url: https://www.dcode.fr
+description: Hundreds of online solvers for ciphers, encodings and codes, plus a cipher identifier that guesses what an unknown string is.
+category: metadata
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [cipher, encoding]

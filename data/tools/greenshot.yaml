@@ -1,0 +1,15 @@
+name: Greenshot
+url: https://getgreenshot.org
+description: Free, open-source screenshot tool for capturing, annotating and highlighting screens and full web pages, useful for documenting findings.
+category: archives
+inputs: [url]
+type: desktop
+cost: free
+passive: true
+account_required: false
+repo: greenshot/greenshot
+language: C#
+license: GPL-3.0
+platforms: [windows, macos]
+tags: [evidence-capture, documentation, open-source]
+notes: Free on Windows; the macOS version is paid in the App Store.
