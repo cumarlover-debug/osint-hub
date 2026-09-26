@@ -62,6 +62,76 @@ export function detect(raw) {
   return ['username', 'company', 'aircraft', 'vessel'];
 }
 
+// ---- Commands for tools you run on your own machine ----
+
+export const SHELLS = { posix: 'bash / zsh (macOS, Linux)', powershell: 'PowerShell (Windows)' };
+
+/**
+ * Why a value cannot be put on a command line, or '' if it can. Control characters could smuggle in a second
+ * command, and a leading "-" would be read by the tool as an option instead of a value (argument injection).
+ * @param {string} value
+ */
+export function commandProblem(value) {
+  const v = value.trim();
+  if (!v) return 'empty';
+  if (/[\u0000-\u001f\u007f]/.test(v)) return 'contains a line break or control character';
+  if (v.startsWith('-')) return 'starts with "-", which the tool would read as an option';
+  if (v.length > 500) return 'is too long';
+  return '';
+}
+
+/**
+ * Quotes one argument so the shell passes it through literally.
+ * @param {string} value
+ * @param {'posix'|'powershell'} shell
+ */
+export function quoteArg(value, shell = 'posix') {
+  const v = value.trim();
+  if (shell === 'powershell') {
+    // Single quotes are literal in PowerShell; it also treats the curly quotes ‘ ’ as quotes, so double all three.
+    return `'${v.replace(/['‘’]/g, (q) => q + q)}'`;
+  }
+  // Plain values stay readable; anything else goes in single quotes, with ' written as '\''.
+  return /^[A-Za-z0-9@%+=:,./_-]+$/.test(v) ? v : `'${v.replace(/'/g, `'\\''`)}'`;
+}
+
+/**
+ * A template per input type from a command_template / docker_template field.
+ * @param {string | Record<string, string> | undefined} t
+ * @param {string[]} inputs
+ * @returns {Record<string, string>}
+ */
+export function commandTemplatesFor(t, inputs) {
+  if (!t) return {};
+  return typeof t === 'string' ? Object.fromEntries(inputs.map((i) => [i, t])) : { ...t };
+}
+
+/**
+ * Command lines for every tool that can take `value` as `type`, with the value quoted for `shell`.
+ * @template {{name: string, inputs: string[], passive: boolean, command_template?: any, docker_template?: any}} T
+ * @param {T[]} tools
+ * @param {string} type
+ * @param {string} value
+ * @param {{shell?: 'posix'|'powershell', includeActive?: boolean}} [opts]
+ * @returns {{problem: string, rows: {tool: T, command: string, docker?: string}[]}}
+ */
+export function commandsFor(tools, type, value, { shell = 'posix', includeActive = false } = {}) {
+  const problem = commandProblem(value);
+  if (problem) return { problem, rows: [] };
+  const arg = quoteArg(value, shell);
+  const fill = (t) => t.split('{query}').join(arg);
+  const rows = tools
+    .filter((tool) => includeActive || tool.passive)
+    .map((tool) => {
+      const cmd = commandTemplatesFor(tool.command_template, tool.inputs)[type];
+      const docker = commandTemplatesFor(tool.docker_template, tool.inputs)[type];
+      return cmd && { tool, command: fill(cmd), ...(docker && { docker: fill(docker) }) };
+    })
+    .filter(Boolean)
+    .sort((a, b) => Number(!a.tool.passive) - Number(!b.tool.passive) || a.tool.name.localeCompare(b.tool.name));
+  return { problem: '', rows };
+}
+
 /**
  * Tools that can search `value` as `type`, usable first, then passive before active, then by name.
  * @template {{name: string, passive: boolean, inputs: string[], query_template?: any}} T

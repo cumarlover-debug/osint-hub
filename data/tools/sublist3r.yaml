@@ -8,9 +8,10 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: python sublist3r.py -d {query}
 repo: aboul3la/Sublist3r
 language: Python
 license: GPL-2.0
 platforms: [linux, macos, windows]
 tags: [subdomains, recon, open-source]
-notes: The optional brute-force mode queries the target directly. Last updated 2024.
+notes: The optional brute-force mode queries the target directly. Last updated 2024. Run the command from inside the cloned repository.

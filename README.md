@@ -150,6 +150,14 @@ details are in `extension/README.md`.
 Star tools with ★ to build **My toolkit** (`/toolkit`): filter the home page by it, export it as a browser
 bookmarks file, or back it up as JSON. It is stored only in the browser.
 
+## Run on your machine
+
+Command-line tools have no web page to search, so the launcher, the extension and `osint-hub commands <value>` build
+ready-to-run commands instead, from each tool's `command_template` (and `docker_template`). The value is quoted by
+`quoteArg` in `shared/launcher.mjs` for bash/zsh or PowerShell, and refused if it contains control characters or starts
+with `-`, so a pasted value can never become a second command or an option. The schema also rejects templates with
+quotes or shell operators. Every template was taken from the tool's own README.
+
 ## Roadmap
 
 1. ~~MVP: schema, seed data, search by input, page per tool~~

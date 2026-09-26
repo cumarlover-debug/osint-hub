@@ -8,6 +8,7 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: python3 -m social-analyzer --username {query}
 repo: qeeqbox/social-analyzer
 install: pip3 install social-analyzer
 language: JavaScript

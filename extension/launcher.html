@@ -24,6 +24,19 @@
       </div>
       <ul id="results"></ul>
       <p class="hint" id="message"></p>
+      <section id="commands-section" hidden>
+        <h2>Run on your machine</h2>
+        <div class="bar">
+          <select id="shell" aria-label="Shell">
+            <option value="posix">bash / zsh</option>
+            <option value="powershell">PowerShell</option>
+          </select>
+          <label class="check"><input type="checkbox" id="use-docker" /> Docker</label>
+          <button type="button" id="copy-all" class="linklike">Copy all</button>
+        </div>
+        <p class="hint" id="command-problem" hidden></p>
+        <ul id="commands"></ul>
+      </section>
     </main>
     <script type="module" src="launcher.js"></script>
   </body>

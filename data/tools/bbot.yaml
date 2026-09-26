@@ -7,6 +7,7 @@ type: cli
 cost: free
 passive: false
 account_required: false
+command_template: {domain: 'bbot -t {query} -p subdomain-enum -rf passive'}
 repo: blacklanternsecurity/bbot
 install: pipx install bbot
 notes: Some modules scan the target directly; use the passive preset to avoid that.

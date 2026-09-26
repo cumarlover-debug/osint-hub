@@ -8,6 +8,7 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: theHarvester -d {query} -b crtsh,certspotter
 repo: laramies/theHarvester
 install: Preinstalled on Kali Linux. See the repo for other platforms.
 language: Python

@@ -8,6 +8,7 @@ type: cli
 cost: free
 passive: false
 account_required: false
+command_template: sudo masscan -p1-1000 {query} --rate 1000
 repo: robertdavidgraham/masscan
 install: sudo apt install masscan
 language: C

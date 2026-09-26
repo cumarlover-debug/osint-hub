@@ -8,6 +8,8 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: sherlock {query}
+docker_template: docker run --rm sherlock/sherlock {query}
 repo: sherlock-project/sherlock
 install: pipx install sherlock-project
 language: Python

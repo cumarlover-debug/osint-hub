@@ -19,6 +19,11 @@ export const paths = {
 export const taxonomy = JSON.parse(readFileSync(join(root, 'data/taxonomy.json'), 'utf8'));
 
 const templateUrl = { type: 'string', pattern: '^https://.*\\{query\\}' };
+// A command line with exactly one {query}, not inside quotes (the value is quoted when it is filled in).
+const commandLine = { type: 'string', pattern: '^[^{}\'"`$;&|<>]*\\{query\\}[^{}\'"`$;&|<>]*$' };
+const commandTemplate = {
+  oneOf: [commandLine, { type: 'object', minProperties: 1, propertyNames: { enum: Object.keys(taxonomy.inputs) }, additionalProperties: commandLine }],
+};
 
 /** Value formats a query template can be limited to. Kept in sync with src/lib/launcher.ts. */
 export const MATCHERS = {
@@ -67,6 +72,10 @@ const schema = {
         },
       ],
     },
+    // Command lines for tools you run yourself: one for every input, or one per input type. {query} is replaced by
+    // the shell-quoted value (see commandFor in shared/launcher.mjs). docker_template is the same, run via Docker.
+    command_template: commandTemplate,
+    docker_template: commandTemplate,
     repo: { type: 'string', pattern: '^[\\w.-]+/[\\w.-]+$' },
     install: { type: 'string' },
     language: { type: 'string' },
@@ -86,10 +95,14 @@ export function toolErrors(tool) {
   if (!ajvValidate(tool)) return ajvValidate.errors.map((e) => `${e.instancePath || '(root)'} ${e.message}`);
   const errors = [];
   if (tool.type === 'cli' && !tool.repo && !tool.install) errors.push('CLI tools need a repo or install command');
-  if (tool.query_template && typeof tool.query_template === 'object') {
-    for (const input of Object.keys(tool.query_template))
-      if (!tool.inputs.includes(input)) errors.push(`query_template has "${input}", which is not one of the tool's inputs`);
+  for (const field of ['query_template', 'command_template', 'docker_template']) {
+    if (tool[field] && typeof tool[field] === 'object') {
+      for (const input of Object.keys(tool[field]))
+        if (!tool.inputs.includes(input)) errors.push(`${field} has "${input}", which is not one of the tool's inputs`);
+    }
   }
+  if ((tool.command_template || tool.docker_template) && tool.type !== 'cli') errors.push('command_template and docker_template are only for command-line tools');
+  if (tool.docker_template && !tool.command_template) errors.push('docker_template needs a command_template too');
   return errors;
 }
 

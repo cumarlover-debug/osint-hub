@@ -8,6 +8,7 @@ type: cli
 cost: free
 passive: true
 account_required: true
+command_template: {username: 'gitfive user {query}'}
 repo: mxrch/GitFive
 language: Python
 license: MPL-2.0

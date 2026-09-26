@@ -8,6 +8,7 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: waybackpack {query} --list
 repo: jsvine/waybackpack
 install: pipx install waybackpack
 language: Python

@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import ToolCard from '../../components/ToolCard.astro';
 import { tools, taxonomy, inputLabel, isInputKey, toolsTaking, staleSince, type Tool } from '../../lib/tools';
-import { templatesFor } from '../../lib/launcher';
+import { templatesFor, commandTemplatesFor } from '../../lib/launcher';
 import { playbooksUsing } from '../../lib/playbooks';
 import { reportProblemUrl } from '../../lib/site';
 
@@ -26,6 +26,12 @@ const { health } = tool;
 const templates = templatesFor(tool.query_template, tool.inputs);
 const searchInputs = Object.keys(templates);
 const usedIn = playbooksUsing(tool.slug);
+// Usage lines with a placeholder, e.g. "sherlock <username>"; Docker variants after the native ones.
+const placeholder = (input: string) => `<${inputLabel(input).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}>`;
+const usage = [
+  ...Object.entries(commandTemplatesFor(tool.command_template, tool.inputs)),
+  ...Object.entries(commandTemplatesFor(tool.docker_template, tool.inputs)),
+].map(([input, t]) => t.split('{query}').join(placeholder(input)));
 // People search and face recognition get a standard responsible-use notice.
 const sensitive = tool.category === 'people' || !!tool.tags?.includes('face-recognition');
 const repo = health?.repo;
@@ -147,13 +153,29 @@ const exampleInput = tool.inputs[0];
     }
 
     {
-      tool.install && (
+      (tool.install || usage.length > 0) && (
         <section class="panel">
-          <h2>Install</h2>
-          <div class="code">
-            <code>{tool.install}</code>
-            <button type="button" class="copy" data-copy={tool.install}>Copy</button>
-          </div>
+          <h2>{tool.install ? 'Install' : 'Get it'}</h2>
+          {tool.install && (
+            <div class="code">
+              <code>{tool.install}</code>
+              <button type="button" class="copy" data-copy={tool.install}>Copy</button>
+            </div>
+          )}
+          {usage.length > 0 && (
+            <>
+              <h3>Run it</h3>
+              {usage.map((u) => (
+                <div class="code">
+                  <code>{u}</code>
+                </div>
+              ))}
+              <p class="hint">
+                Replace the part in angle brackets, or paste your value into the <a href="/launch">launcher</a> to get the
+                exact command, safely quoted for your shell.
+              </p>
+            </>
+          )}
           {tool.repo && (
             <p class="hint">
               Source: <a href={`https://github.com/${tool.repo}`} target="_blank" rel="noopener noreferrer">github.com/{tool.repo}</a>

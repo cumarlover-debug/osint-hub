@@ -8,6 +8,8 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: phoneinfoga scan -n {query}
+docker_template: docker run --rm sundowndev/phoneinfoga scan -n {query}
 repo: sundowndev/phoneinfoga
 install: docker pull sundowndev/phoneinfoga
 language: Go

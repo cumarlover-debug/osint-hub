@@ -8,6 +8,7 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: nexfil -u {query}
 repo: thewhiteh4t/nexfil
 language: Python
 license: MIT

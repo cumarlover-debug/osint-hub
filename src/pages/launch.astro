@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { tools, taxonomy, inputLabel } from '../lib/tools';
-import { templatesFor } from '../lib/launcher';
+import { templatesFor, commandTemplatesFor } from '../lib/launcher';
 
 // Only what the page needs: the tools that can be searched by URL, and their templates.
 const launchable = tools
@@ -15,8 +15,28 @@ const launchable = tools
   }))
   .filter((t) => Object.keys(t.templates).length > 0);
 
+// Command-line tools you run yourself, with their command templates.
+const runnable = tools
+  .filter((t) => t.command_template)
+  .map((t) => ({
+    slug: t.slug,
+    name: t.name,
+    passive: t.passive,
+    inputs: t.inputs,
+    command_template: t.command_template,
+    docker_template: t.docker_template,
+    install: t.install,
+    repo: t.repo,
+  }));
+
 const inputCounts = (Object.keys(taxonomy.inputs) as (keyof typeof taxonomy.inputs)[])
-  .map((key) => ({ key, label: inputLabel(key), count: launchable.filter((t) => key in t.templates).length }))
+  .map((key) => ({
+    key,
+    label: inputLabel(key),
+    count:
+      launchable.filter((t) => key in t.templates).length +
+      runnable.filter((t) => key in commandTemplatesFor(t.command_template, t.inputs)).length,
+  }))
   .filter((i) => i.count > 0);
 ---
 
@@ -61,15 +81,105 @@ const inputCounts = (Object.keys(taxonomy.inputs) as (keyof typeof taxonomy.inpu
     <ul id="results" class="launch-list"></ul>
     <p class="empty" id="launch-empty">Paste a value above to see which tools can search it.</p>
   </section>
+
+  <section id="commands-section" class="commands" hidden>
+    <h2>Run on your machine</h2>
+    <p class="hint">
+      These tools have no web page to search, so they run in your terminal. Copy a command after installing the tool
+      (each name links to its install steps). The value is quoted so the shell passes it through exactly as typed.
+    </p>
+    <div class="command-controls">
+      <label>
+        Shell
+        <select id="shell">
+          <option value="posix">bash / zsh (macOS, Linux)</option>
+          <option value="powershell">PowerShell (Windows)</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" id="use-docker" /> Use Docker where available (nothing to install but Docker)</label>
+      <button type="button" class="linklike" id="copy-all">Copy all</button>
+    </div>
+    <p class="hint warn-text" id="command-problem" hidden></p>
+    <ul id="commands" class="command-list"></ul>
+  </section>
 </Base>
 
 <script is:inline type="application/json" id="launch-data" set:html={JSON.stringify(launchable).replace(/</g, '\\u003c')} />
+<script is:inline type="application/json" id="run-data" set:html={JSON.stringify(runnable).replace(/</g, '\\u003c')} />
 
 <script>
-  import { applies, buildLink, detect, MATCH_LABELS, type Template } from '../lib/launcher';
+  import { applies, buildLink, detect, commandsFor, MATCH_LABELS, type Template, type Shell } from '../lib/launcher';
 
   type Launchable = { slug: string; name: string; passive: boolean; account: boolean; cost: string; templates: Record<string, Template> };
+  type Runnable = { slug: string; name: string; passive: boolean; inputs: string[]; command_template: unknown; docker_template?: unknown };
   const tools = JSON.parse(document.getElementById('launch-data')!.textContent!) as Launchable[];
+  const runnable = JSON.parse(document.getElementById('run-data')!.textContent!) as Runnable[];
+
+  // Shell choice is a per-browser convenience; default to PowerShell on Windows.
+  const shellSelect = document.getElementById('shell') as HTMLSelectElement;
+  try {
+    shellSelect.value = localStorage.getItem('osint-hub:shell') ?? (/Windows/i.test(navigator.userAgent) ? 'powershell' : 'posix');
+  } catch {
+    shellSelect.value = /Windows/i.test(navigator.userAgent) ? 'powershell' : 'posix';
+  }
+
+  async function copy(text: string, button: HTMLButtonElement) {
+    const label = button.textContent;
+    try {
+      await navigator.clipboard.writeText(text);
+      button.textContent = 'Copied';
+    } catch {
+      button.textContent = 'Copy failed';
+    }
+    setTimeout(() => (button.textContent = label), 1500);
+  }
+
+  let currentCommands: string[] = [];
+  function renderCommands(value: string) {
+    const section = document.getElementById('commands-section')!;
+    const listEl = document.getElementById('commands')!;
+    const problemEl = document.getElementById('command-problem')!;
+    const useDocker = (document.getElementById('use-docker') as HTMLInputElement).checked;
+    const { problem, rows } = value && type ? commandsFor(runnable, type, value, { shell: shellSelect.value as Shell, includeActive: includeActive.checked }) : { problem: '', rows: [] };
+    const hasTools = value && type && runnable.some((t) => (typeof t.command_template === 'string' ? t.inputs.includes(type) : type in (t.command_template as object)));
+    section.hidden = !hasTools;
+    problemEl.hidden = !problem;
+    problemEl.textContent = problem ? `No commands: the value ${problem}.` : '';
+    currentCommands = [];
+    listEl.replaceChildren(
+      ...rows.map(({ tool, command, docker }) => {
+        const line = useDocker && docker ? docker : command;
+        currentCommands.push(line);
+        const li = document.createElement('li');
+        const name = document.createElement('a');
+        name.href = `/tools/${tool.slug}`;
+        name.className = 'launch-name';
+        name.textContent = tool.name;
+        const code = document.createElement('code');
+        code.textContent = line;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'copy';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', () => copy(line, btn));
+        li.append(name);
+        if (!tool.passive) {
+          const b = document.createElement('span');
+          b.className = 'badge warn';
+          b.textContent = 'Active';
+          li.append(b);
+        }
+        if (useDocker && !docker) {
+          const n = document.createElement('span');
+          n.className = 'hint';
+          n.textContent = 'no Docker image';
+          li.append(n);
+        }
+        li.append(code, btn);
+        return li;
+      }),
+    );
+  }
 
   const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
   const input = $<HTMLInputElement>('lq');
@@ -139,7 +249,9 @@ const inputCounts = (Object.keys(taxonomy.inputs) as (keyof typeof taxonomy.inpu
     for (const t of matches) list.append(row(t, t.templates[type], value));
 
     bar.hidden = matches.length === 0;
-    $('launch-empty').hidden = matches.length > 0;
+    renderCommands(value);
+    const hasCommands = !$('commands-section').hidden;
+    $('launch-empty').hidden = matches.length > 0 || (!!value && hasCommands);
     $('launch-empty').textContent = !value ? 'Paste a value above to see which tools can search it.' : 'No tool can search this type directly yet. Pick another type above.';
     updateCount();
   }
@@ -156,6 +268,14 @@ const inputCounts = (Object.keys(taxonomy.inputs) as (keyof typeof taxonomy.inpu
   });
   includeActive.addEventListener('change', render);
   list.addEventListener('change', updateCount);
+  shellSelect.addEventListener('change', () => {
+    try {
+      localStorage.setItem('osint-hub:shell', shellSelect.value);
+    } catch {}
+    render();
+  });
+  $('use-docker').addEventListener('change', render);
+  $('copy-all').addEventListener('click', (e) => copy(currentCommands.join('\n'), e.currentTarget as HTMLButtonElement));
   for (const c of chips) {
     c.addEventListener('click', () => {
       type = c.dataset.type!;

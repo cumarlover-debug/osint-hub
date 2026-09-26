@@ -8,6 +8,7 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: yt-dlp --skip-download --write-info-json {query}
 repo: yt-dlp/yt-dlp
 install: pipx install yt-dlp
 language: Python

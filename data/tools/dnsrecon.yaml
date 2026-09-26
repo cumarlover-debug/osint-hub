@@ -8,6 +8,7 @@ type: cli
 cost: free
 passive: false
 account_required: false
+command_template: {domain: 'dnsrecon -d {query} -t std'}
 repo: darkoperator/dnsrecon
 language: Python
 license: GPL-2.0

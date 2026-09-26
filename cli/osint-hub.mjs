@@ -5,7 +5,7 @@ import { mkdirSync, readFileSync, writeFileSync, existsSync, statSync } from 'no
 import { join } from 'node:path';
 import { homedir } from 'node:os';
 import { spawn } from 'node:child_process';
-import { detect, launchable, templatesFor, applies, buildLink, MATCH_LABELS } from '../shared/launcher.mjs';
+import { detect, launchable, templatesFor, applies, buildLink, commandsFor, SHELLS, MATCH_LABELS } from '../shared/launcher.mjs';
 
 const VERSION = '1.0.0';
 const HELP = `osint-hub ${VERSION}: OSINT tools by what you are investigating
@@ -16,6 +16,7 @@ Usage
   osint-hub show <tool>                Details for one tool (slug or name)
   osint-hub detect <value>             What kind of value this looks like
   osint-hub launch <value> [options]   Search links for every tool that can take the value
+  osint-hub commands <value> [options] Ready-to-run commands for command-line tools that take it
   osint-hub playbooks                  List investigation playbooks
   osint-hub playbook <slug> [--value V] Print a playbook; --value adds search links
   osint-hub update                     Refresh the cached data now
@@ -24,6 +25,9 @@ Filters for "tools":  --input <type>  --category <c>  --type <web|cli|...>  --pa
 Options for "launch": --as <type>  pick the type yourself (e.g. --as company)
                       --active     include tools that contact the target
                       --open       open the links in your browser
+Options for "commands": --as <type>  --active  --docker (use Docker images where available)
+                      --shell <posix|powershell> (default: powershell on Windows, posix elsewhere)
+                      --plain (commands only, one per line)
 Global options:       --json  --no-color  --api <base-url>
 
 Your values never leave your machine except to the tools you open.`;
@@ -35,7 +39,7 @@ const positional = [];
 for (let i = 0; i < argv.length; i++) {
   const a = argv[i];
   if (!a.startsWith('--')) positional.push(a);
-  else if (['--input', '--category', '--type', '--as', '--value', '--api'].includes(a)) flags[a.slice(2)] = argv[++i];
+  else if (['--input', '--category', '--type', '--as', '--value', '--api', '--shell'].includes(a)) flags[a.slice(2)] = argv[++i];
   else flags[a.slice(2)] = true;
 }
 const [command, ...rest] = positional;
@@ -146,6 +150,25 @@ async function main() {
       for (const r of usable) openUrl(r.link);
       out(`\n${green('opened')} ${usable.length} tabs`);
     }
+    return;
+  }
+
+  if (command === 'commands') {
+    const value = rest.join(' ');
+    if (!value) fail('give a value, e.g. osint-hub commands johndoe');
+    const { tools, taxonomy } = await load('tools');
+    const type = flags.as ?? detect(value)[0];
+    if (!type || !(type in taxonomy.inputs)) fail(`could not tell what "${value}" is; pick one with --as <type>`);
+    const shell = flags.shell ?? (process.platform === 'win32' ? 'powershell' : 'posix');
+    if (!(shell in SHELLS)) fail(`unknown shell "${shell}"; use ${Object.keys(SHELLS).join(' or ')}`);
+    const { problem, rows } = commandsFor(tools, type, value, { shell, includeActive: !!flags.active });
+    if (problem) fail(`no commands: the value ${problem}.`);
+    const lines = rows.map((r) => ({ tool: r.tool, line: flags.docker && r.docker ? r.docker : r.command }));
+    if (flags.json) return json({ value, type, shell, commands: lines.map((l) => ({ tool: l.tool.slug, name: l.tool.name, command: l.line })) });
+    if (flags.plain) return lines.forEach((l) => out(l.line)); // just the commands, e.g. to save as a script
+    out(`${bold(value)} ${dim('as')} ${taxonomy.inputs[type]} ${dim(`· ${lines.length} commands for ${SHELLS[shell]}${flags.active ? '' : ' (passive only; add --active for more)'}`)}\n`);
+    for (const l of lines) out(`  ${dim(`# ${l.tool.name}${l.tool.install ? `  (install: ${l.tool.install})` : l.tool.repo ? `  (https://github.com/${l.tool.repo})` : ''}`)}\n  ${l.line}\n`);
+    if (!lines.length) out(dim(`  No command-line tool takes a ${taxonomy.inputs[type].toLowerCase()} yet. Try: osint-hub launch ${value}`));
     return;
   }
 

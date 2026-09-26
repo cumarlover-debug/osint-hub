@@ -8,6 +8,8 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: certgraph {query}
+docker_template: docker run --rm ghcr.io/lanrat/certgraph {query}
 repo: lanrat/certgraph
 install: go install github.com/lanrat/certgraph@latest
 language: Go

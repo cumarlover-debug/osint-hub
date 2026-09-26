@@ -8,7 +8,9 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: {username: 'python blackbird.py --username {query}', email: 'python blackbird.py --email {query}'}
 repo: p1ngul1n0/blackbird
 language: Python
 platforms: [linux, macos, windows]
 tags: [username-enumeration, open-source]
+notes: Run the command from inside the cloned repository.

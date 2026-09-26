@@ -11,3 +11,13 @@ export const templatesFor = core.templatesFor as (qt: QueryTemplate | undefined,
 export const applies = core.applies as (t: Template, value: string) => boolean;
 export const buildLink = core.buildLink as (t: Template, value: string) => string;
 export const detect = core.detect as (raw: string) => string[];
+
+export type Shell = 'posix' | 'powershell';
+export const SHELLS = core.SHELLS as Record<Shell, string>;
+export const commandTemplatesFor = core.commandTemplatesFor as (t: string | Record<string, string> | undefined, inputs: string[]) => Record<string, string>;
+export const commandsFor = core.commandsFor as <T extends { name: string; inputs: string[]; passive: boolean }>(
+  tools: T[],
+  type: string,
+  value: string,
+  opts?: { shell?: Shell; includeActive?: boolean },
+) => { problem: string; rows: { tool: T; command: string; docker?: string }[] };
