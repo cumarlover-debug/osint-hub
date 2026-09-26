@@ -1,0 +1,10 @@
+name: ETDA Threat Group Cards
+url: https://apt.etda.or.th/cgi-bin/listgroups.cgi
+description: Encyclopedia of threat groups and their tools from Thailand's ETDA, with every known alias mapped to one group.
+category: threat-intel
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [threat-actors]

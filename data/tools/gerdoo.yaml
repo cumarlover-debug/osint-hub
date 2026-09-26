@@ -1,0 +1,10 @@
+name: Gerdoo
+url: https://gerdoo.me
+description: Iranian metasearch engine for Persian-language websites, images, video and news.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [search-engine, regional]

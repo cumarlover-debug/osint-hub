@@ -1,0 +1,10 @@
+name: Soovle
+url: https://www.seo.com/soovle/
+description: Shows autocomplete suggestions for a term from several search engines and sites at once, revealing what people search for.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [trends]

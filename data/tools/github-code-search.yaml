@@ -1,0 +1,11 @@
+name: GitHub code search
+url: https://github.com/search?type=code
+description: Searches code across public GitHub repositories, with filters for language, path and repository. Finds config snippets, identifiers and strings.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: true
+query_template: https://github.com/search?type=code&q={query}
+tags: [code]

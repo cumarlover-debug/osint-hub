@@ -1,0 +1,10 @@
+name: searchcode
+url: https://searchcode.com
+description: Searches source code from many public repositories and code hosts.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [code]

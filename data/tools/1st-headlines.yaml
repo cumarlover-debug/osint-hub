@@ -1,0 +1,10 @@
+name: 1st Headlines
+url: https://www.1stheadlines.com
+description: Aggregates breaking-news headlines from newspapers, TV and radio, by topic and region.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [news]

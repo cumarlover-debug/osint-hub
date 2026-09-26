@@ -1,0 +1,10 @@
+name: Newspapers.com
+url: https://www.newspapers.com
+description: Full-text search of hundreds of millions of historical newspaper pages, useful for old names, events and obituaries.
+category: research
+inputs: [keyword]
+type: web
+cost: paid
+passive: true
+account_required: true
+tags: [news, historical]

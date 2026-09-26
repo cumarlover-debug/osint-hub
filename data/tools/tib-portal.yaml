@@ -1,0 +1,10 @@
+name: TIB portal
+url: https://www.tib.eu/en/search-discover/
+description: 'TIB, Germany''s national library for science and technology: searches papers, reports, conference proceedings and research data.'
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [academic]

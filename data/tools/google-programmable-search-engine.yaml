@@ -1,0 +1,9 @@
+name: Google Programmable Search Engine
+url: https://programmablesearchengine.google.com
+description: Build your own Google search limited to a set of sites, for example a region's news sites or a platform's pages.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: true

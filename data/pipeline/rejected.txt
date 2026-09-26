@@ -464,3 +464,95 @@ https://spoonbill.io/  # Spoonbill (site down (HTTP 522 from its own server, twi
 https://register.openownership.org/  # OpenOwnership Register (skipped by owner decision: could not be verified (Cloudflare)), 2026-09-26
 https://www.openownership.org/en/  # OpenOwnership (skipped by owner decision: could not be verified (Cloudflare)), 2026-09-26
 https://www.twitonomy.com/  # Twitonomy (skipped by owner decision: needs X sign-in to use), 2026-09-26
+https://www.academicjournals.org  # Academic Journals (a single publisher; Google Scholar, BASE and CORE search across publishers), 2026-09-26
+https://www.afp.com  # Agence France-Presse (AFP) (a single news outlet, not a search tool; news search engines cover it), 2026-09-26
+https://ascelibrary.org  # American Society of Civil Engineers (a single publisher; Google Scholar, BASE and CORE search across publishers), 2026-09-26
+https://search.aol.com  # Aol (now serves Yahoo results; Yahoo Search covers it), 2026-09-26
+https://hosted.ap.org  # AP (a single news outlet, not a search tool; news search engines cover it), 2026-09-26
+https://apitube.io  # APITube (commercial news API for developers, out of scope), 2026-09-26
+https://www.bbc.co.uk/news  # BBC News (a single news outlet, not a search tool; news search engines cover it), 2026-09-26
+https://www.base-search.net/Search/Advanced  # Bielefeld Academic Search Engine (duplicate of BASE), 2026-09-26
+https://builtwithflarum.com/  # Built With Flarum (showcase of Flarum forums, little OSINT value), 2026-09-26
+https://captainfact.io/  # Captin Fact (video annotation project, little activity), 2026-09-26
+https://meedan.com/check  # Check (fact-checking platform for newsrooms, not a lookup), 2026-09-26
+https://edition.cnn.com  # CNN (a single news outlet, not a search tool; news search engines cover it), 2026-09-26
+https://www.dedigger.com/  # de digger (indexes exposed or shared files, which often include leaked personal data; not listed), 2026-09-26
+https://www.dpa-international.com  # DPA International (a single news outlet, not a search tool; news search engines cover it), 2026-09-26
+https://www.elsevier.com  # Elsevier (corporate site; ScienceDirect is the searchable part), 2026-09-26
+https://www.eniro.se  # Eniro (Sweden) (business and people directory, out of scope for keyword search), 2026-09-26
+https://www.euronews.com  # Euronews (a single news outlet, not a search tool; news search engines cover it), 2026-09-26
+https://www.eyedex.org/  # eyedex (indexes exposed or shared files, which often include leaked personal data; not listed), 2026-09-26
+https://www.facebook.com  # Facebook Groups (Facebook itself, not a tool), 2026-09-26
+https://flipboard.com  # Flipboard (social news reader, not a search tool), 2026-09-26
+https://www.france24.com  # France24 (a single news outlet, not a search tool; news search engines cover it), 2026-09-26
+https://www.goodsearch.com  # Goodsearch (charity shopping and coupons site, out of scope), 2026-09-26
+https://adwords.google.com  # Google Adwords (SEO or advertising product, out of scope), 2026-09-26
+https://www.google.com/cse  # Google Custom Search (duplicate of Google Programmable Search Engine), 2026-09-26
+https://news.google.com/news/advanced_news_search?  # Google News Search (duplicate of Google News), 2026-09-26
+https://grayhatwarfare.com/  # GrayhatWarfare (indexes exposed or shared files, which often include leaked personal data; not listed), 2026-09-26
+https://greyguide.isti.cnr.it  # Grey Guide (a good-practice repository, little OSINT value), 2026-09-26
+https://csulb.libguides.com/graylit  # Grey Literature – List of Gateways (a university library guide, not a tool), 2026-09-26
+https://www.greynet.org  # GreyNet International (an organisation site, not a search tool), 2026-09-26
+https://www.harmari.com/search/unified  # Harmari (Unified Listings Search) (product page, no public search), 2026-09-26
+https://hulbee.com/de  # Hulbee (company site; its web search is no longer offered), 2026-09-26
+https://inshorts.com/en/read  # Inshorts (news summary app, not a search tool), 2026-09-26
+https://www.inshorts.com  # Inshorts (news summary app, not a search tool), 2026-09-26
+https://www.instya.com  # Instya (service closed or domain repurposed), 2026-09-26
+https://github.com/internet-relay-chat/IRCP  # IRCP (connects to IRC networks at scale; not a passive search tool), 2026-09-26
+https://www.journalguide.com  # Journal Guide (journal selector for authors, out of scope), 2026-09-26
+https://journalseek.net  # Journal Seek (journal information database, little OSINT value), 2026-09-26
+https://www.keyworddiscovery.com  # Keyword Discovery (SEO or advertising product, out of scope), 2026-09-26
+https://www.keywordspy.com  # Keyword Spy (SEO or advertising product, out of scope), 2026-09-26
+https://keywordtool.io  # KeywordTool (SEO or advertising product, out of scope), 2026-09-26
+https://guides.uflib.ufl.edu/az.php  # Library Databases (a university library A-Z list, mostly subscription-only), 2026-09-26
+https://www.mmnt.ru/  # Mamont (indexes exposed or shared files, which often include leaked personal data; not listed), 2026-09-26
+https://meawfy.com/  # Meawfy (indexes exposed or shared files, which often include leaked personal data; not listed), 2026-09-26
+https://academic.microsoft.com/  # Microsoft Academic (Microsoft Academic was retired in 2021), 2026-09-26
+https://www.searchftps.net/  # NAPALM FTP Indexer (indexes exposed or shared files, which often include leaked personal data; not listed), 2026-09-26
+https://www.nerdydata.com/reports/new  # NerdyData (duplicate of NerdyData (nerdydata.com)), 2026-09-26
+https://newsmap.jp  # News Map (service closed or domain repurposed), 2026-09-26
+https://getnewsbot.com/  # NewsBot (service closed or domain repurposed), 2026-09-26
+https://www.newseum.org/todaysfrontpages  # Newseum - Today Front Pages (Newseum closed; the page now redirects to the Freedom Forum), 2026-09-26
+https://newsinshorts.com  # Newsinshorts (service closed or domain repurposed), 2026-09-26
+https://www.newslookup.com  # NewsLookup (domain for sale), 2026-09-26
+https://www.newsnow.co.uk/h/  # NewsNow.co.uk (duplicate of NewsNow), 2026-09-26
+https://www.ning.com  # Ning (community website builder, not a search tool), 2026-09-26
+https://get-nod.com  # Nod (service closed or domain repurposed), 2026-09-26
+https://www.notey.com  # Notey (service closed or domain repurposed), 2026-09-26
+https://www.nrcresearchpress.com  # NRC Research Press (a single publisher; Google Scholar, BASE and CORE search across publishers), 2026-09-26
+https://odcrawler.xyz/  # ODCrawler (indexes exposed or shared files, which often include leaked personal data; not listed), 2026-09-26
+https://www.onelook.com/reverse-dictionary.shtml  # One Look Reverse Dictionary (a dictionary, little OSINT value), 2026-09-26
+https://www.onet.pl  # Onet.pl (Poland) (news portal, not a search engine), 2026-09-26
+https://www.pagepress.org  # Open Access Scientific Journals (a single publisher; Google Scholar, BASE and CORE search across publishers), 2026-09-26
+https://www.opengrey.eu  # Open Grey (OpenGrey stopped being updated in 2020), 2026-09-26
+https://www.oxfordjournals.org  # Oxford Journals (a single publisher; Google Scholar, BASE and CORE search across publishers), 2026-09-26
+https://www.parseek.com  # Parseek (Iran) (news aggregator portal, not a search engine), 2026-09-26
+https://phindai.org/  # Phind (unofficial site, not the original Phind), 2026-09-26
+https://www.ncbi.nlm.nih.gov/pubmed  # PubMed (duplicate of PubMed (pubmed.ncbi.nlm.nih.gov)), 2026-09-26
+https://www.quetzal-search.info  # Quetzal Search (unclear status; PubMed covers it), 2026-09-26
+https://www.reuters.com  # Reuters (a single news outlet, not a search tool; news search engines cover it), 2026-09-26
+https://online.sagepub.com  # SAGE Journals (a single publisher; Google Scholar, BASE and CORE search across publishers), 2026-09-26
+https://www.sapo.pt  # SAPO (Portugal) (news portal, not a search engine), 2026-09-26
+https://www.thescipub.com  # Science Publications (a single publisher; Google Scholar, BASE and CORE search across publishers), 2026-09-26
+https://www.sciencedomain.org  # ScienceDomain (a single publisher; Google Scholar, BASE and CORE search across publishers), 2026-09-26
+https://www.scirp.org  # SCIRP (a single publisher; Google Scholar, BASE and CORE search across publishers), 2026-09-26
+https://www.search.com  # Search.com (service closed or domain repurposed), 2026-09-26
+https://bishopfox.com/resources  # SearchDiggity (SearchDiggity is discontinued; the link is a generic resources page), 2026-09-26
+https://searchfiles.de/  # SearchFiles.de (indexes exposed or shared files, which often include leaked personal data; not listed), 2026-09-26
+https://dashboard.shadowserver.org/  # Shadowserver (statistics dashboard, no lookup by input), 2026-09-26
+https://www.sourcebot.dev/  # Sourcebot (self-hosted search for your own code, out of scope), 2026-09-26
+https://storyful.com  # Storyful (news agency service for newsrooms, not a public tool), 2026-09-26
+https://www.superdesk.org  # Superdesk (newsroom publishing software, not a search tool), 2026-09-26
+https://swisscows.com/  # Swisscows (duplicate of Swisscows), 2026-09-26
+https://www.tandfonline.com  # Taylor & Francis Online (a single publisher; Google Scholar, BASE and CORE search across publishers), 2026-09-26
+https://opensyllabusproject.org/  # The Open Syllabus Project (duplicate of Open Syllabus), 2026-09-26
+https://www.twingly.com  # Twingly (commercial data feed for businesses, out of scope), 2026-09-26
+https://ubersuggest.org  # Ubersuggest (SEO or advertising product, out of scope), 2026-09-26
+https://www.wiley.com  # Wiley (a single publisher; Google Scholar, BASE and CORE search across publishers), 2026-09-26
+https://www.wordtracker.com  # Word Tracker (SEO or advertising product, out of scope), 2026-09-26
+https://www.wdl.org  # World Digital Library (retired; now a Library of Congress collection), 2026-09-26
+https://groups.yahoo.com  # Yahoo Groups (Yahoo Groups shut down in 2020), 2026-09-26
+https://news.yahoo.com  # Yahoo News (a single news outlet, not a search tool; news search engines cover it), 2026-09-26
+https://you.com  # YOU (now a search API for developers, out of scope), 2026-09-26
+https://yougotthenews.com/  # YouGotTheNews (redirects to a book promotion), 2026-09-26
+https://zanran.com  # Zanran (no longer working), 2026-09-26

@@ -1,0 +1,11 @@
+name: Seznam
+url: https://seznam.cz
+description: The most used Czech search engine and portal.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://search.seznam.cz/?q={query}
+tags: [search-engine, regional]

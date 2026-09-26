@@ -1,0 +1,10 @@
+name: Google Alerts
+url: https://www.google.com/alerts
+description: Emails you when Google finds new pages matching a query, to monitor a name, topic or phrase over time.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: true
+tags: [monitoring]

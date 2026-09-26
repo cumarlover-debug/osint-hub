@@ -1,0 +1,10 @@
+name: Search Engine Colossus
+url: https://www.searchenginecolossus.com/
+description: Directory of search engines by country, useful for finding the local engine a region actually uses.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [directory]

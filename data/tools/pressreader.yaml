@@ -1,0 +1,10 @@
+name: PressReader
+url: https://www.pressreader.com
+description: Digital editions of thousands of newspapers and magazines, searchable in full text.
+category: research
+inputs: [keyword]
+type: web
+cost: paid
+passive: true
+account_required: true
+tags: [news]

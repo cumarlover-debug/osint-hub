@@ -1,0 +1,10 @@
+name: PubPeer
+url: https://pubpeer.com/
+description: 'Post-publication peer review: comments on published papers, often flagging errors or misconduct.'
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [academic, integrity]

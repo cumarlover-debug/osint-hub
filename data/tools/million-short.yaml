@@ -1,0 +1,9 @@
+name: Million Short
+url: https://millionshort.com
+description: Search engine that can drop the top 100 to one million most popular sites from results, bringing up lesser-known pages.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false

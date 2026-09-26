@@ -1,0 +1,10 @@
+name: iZito
+url: https://www.izito.com
+description: Metasearch engine that combines results from several search engines.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [metasearch]

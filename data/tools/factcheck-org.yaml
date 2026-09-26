@@ -1,0 +1,10 @@
+name: FactCheck.org
+url: https://www.factcheck.org
+description: Nonpartisan fact-checking of US political claims, searchable by topic or person.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [fact-checking]

@@ -1,0 +1,10 @@
+name: Kagi
+url: https://kagi.com/
+description: Paid, ad-free search engine with its own index plus others, and per-site ranking controls to boost or block domains.
+category: search
+inputs: [keyword]
+type: web
+cost: paid
+passive: true
+account_required: true
+tags: [search-engine]

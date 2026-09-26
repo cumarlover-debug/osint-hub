@@ -1,0 +1,10 @@
+name: ThePaperboy
+url: https://www.thepaperboy.com
+description: Directory of online newspapers and front pages by country.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [news, directory]

@@ -1,0 +1,9 @@
+name: abuse.ch Hunting
+url: https://hunting.abuse.ch
+description: Searches all of abuse.ch's threat data at once (MalwareBazaar, URLhaus, ThreatFox, YARAify) for hashes, IPs and domains.
+category: threat-intel
+inputs: [hash, ip, domain]
+type: web
+cost: free
+passive: true
+account_required: true

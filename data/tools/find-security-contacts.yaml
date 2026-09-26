@@ -1,0 +1,9 @@
+name: Find Security Contacts
+url: https://findsecuritycontacts.com
+description: Shows popular websites' security.txt contact details, for reporting vulnerabilities to the right people.
+category: domain
+inputs: [domain]
+type: web
+cost: free
+passive: true
+account_required: false

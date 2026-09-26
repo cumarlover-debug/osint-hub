@@ -1,0 +1,11 @@
+name: Brave Search
+url: https://search.brave.com
+description: Independent web search engine with its own index, not a Google or Bing reseller, so results can differ noticeably.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://search.brave.com/search?q={query}
+tags: [search-engine]

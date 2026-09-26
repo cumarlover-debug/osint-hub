@@ -1,0 +1,10 @@
+name: Lazy Scholar
+url: https://www.lazyscholar.org
+description: Browser extension that finds free full-text versions, citation counts and related details for the paper you are reading.
+category: research
+inputs: [keyword]
+type: extension
+cost: free
+passive: true
+account_required: false
+tags: [academic]

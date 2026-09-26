@@ -1,0 +1,11 @@
+name: Mojeek
+url: https://www.mojeek.com/
+description: Independent search engine with its own crawler and no tracking. Its small index surfaces pages the big engines rank low.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://www.mojeek.com/search?q={query}
+tags: [search-engine, privacy]

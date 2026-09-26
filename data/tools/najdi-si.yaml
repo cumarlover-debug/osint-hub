@@ -1,0 +1,10 @@
+name: Najdi.si
+url: https://www.najdi.si
+description: Slovenian search engine and portal.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [search-engine, regional]

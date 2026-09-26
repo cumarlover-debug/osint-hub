@@ -1,0 +1,10 @@
+name: ZoomEye
+url: https://www.zoomeye.ai/
+description: Search engine for internet-connected devices and services, by IP, domain, port, banner or component.
+category: network
+inputs: [ip, domain, keyword]
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags: [internet-scan]

@@ -1,0 +1,10 @@
+name: OnlineNewspapers.com
+url: https://www.onlinenewspapers.com
+description: Directory of online newspapers from every country, by region.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [news, directory]

@@ -1,0 +1,10 @@
+name: Hunter.how
+url: https://hunter.how/
+description: 'Internet asset search engine for security researchers: look up hosts by IP, domain, product or page title.'
+category: network
+inputs: [ip, domain, keyword]
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags: [internet-scan]

@@ -1,0 +1,10 @@
+name: Full Fact
+url: https://fullfact.org
+description: 'UK fact-checking charity: checks claims in the news and online, searchable by topic.'
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [fact-checking]

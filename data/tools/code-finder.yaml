@@ -1,0 +1,10 @@
+name: Code Finder
+url: https://codefinder.dev/
+description: Searches public source code across code hosts by keyword.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [code]

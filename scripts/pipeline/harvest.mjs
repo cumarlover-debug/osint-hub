@@ -173,7 +173,7 @@ writeFileSync(join(paths.cache, 'candidates.json'), JSON.stringify(candidates, n
 
 const count = (fn) => candidates.reduce((m, c) => ((m[fn(c)] = (m[fn(c)] ?? 0) + 1), m), {});
 console.log(`
-Read ${stats.entries} entries: ${stats.outOfScope} out of scope (search engines, news, courses…),
+Read ${stats.entries} entries: ${stats.outOfScope} out of scope (courses, blogs, browsers, datasets…),
 ${stats.skippedBySource} dead/deprecated/dorks per the source, ${stats.alreadyListed} already listed or drafted, ${stats.rejected} rejected before.
 
 ${candidates.length} new candidates → .cache/pipeline/candidates.json

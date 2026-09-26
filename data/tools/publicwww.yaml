@@ -1,0 +1,10 @@
+name: PublicWWW
+url: https://publicwww.com/
+description: Searches websites' HTML, JavaScript and CSS source for a string, such as an analytics ID, script or snippet, and lists the sites using it.
+category: search
+inputs: [keyword, domain]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [code, source-code]

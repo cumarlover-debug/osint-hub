@@ -1,0 +1,9 @@
+name: filesec.io
+url: https://filesec.io/
+description: Lists file extensions that attackers abuse, with what each one is used for and how to detect it.
+category: threat-intel
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false

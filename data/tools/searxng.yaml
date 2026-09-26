@@ -1,0 +1,11 @@
+name: SearXNG
+url: https://docs.searxng.org
+description: Free, open-source metasearch engine you can self-host or use through public instances; it queries many engines without tracking.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [metasearch, privacy]
+notes: Pick a public instance from searx.space, or run your own.

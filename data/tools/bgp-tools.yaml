@@ -1,0 +1,10 @@
+name: bgp.tools
+url: https://bgp.tools
+description: Shows which network (ASN) announces an IP or prefix, its peers and upstreams, and routing history.
+category: network
+inputs: [ip]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [bgp]

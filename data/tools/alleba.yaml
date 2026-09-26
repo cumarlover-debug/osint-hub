@@ -1,0 +1,10 @@
+name: Alleba
+url: https://www.alleba.com
+description: Philippine search engine and hand-built directory of Filipino websites.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [search-engine, regional]

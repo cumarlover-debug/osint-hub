@@ -1,0 +1,9 @@
+name: IsLegitSite
+url: https://www.islegitsite.com/
+description: Checks whether a website looks like a scam, using its age, reputation and blocklist listings.
+category: domain
+inputs: [domain]
+type: web
+cost: free
+passive: true
+account_required: false

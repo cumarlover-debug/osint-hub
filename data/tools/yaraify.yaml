@@ -1,0 +1,11 @@
+name: YARAify
+url: https://yaraify.abuse.ch
+description: Scans a file or looks up a hash against a large set of public YARA rules to identify malware.
+category: threat-intel
+inputs: [hash, document]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [malware]
+notes: Files you upload are shared with the community. Do not upload confidential files.

@@ -1,0 +1,11 @@
+name: Malpedia
+url: https://malpedia.caad.fkie.fraunhofer.de
+description: Curated reference of malware families and threat actors, with aliases, descriptions and links to public reports.
+category: threat-intel
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [threat-actors, malware]
+notes: Browsing is free. Some samples and rules need an approved account.

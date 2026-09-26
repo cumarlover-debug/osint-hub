@@ -1,0 +1,11 @@
+name: CORE
+url: https://core.ac.uk/search
+description: Searches hundreds of millions of open-access research papers, with full text for many.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://core.ac.uk/search?q={query}
+tags: [academic, open-access]

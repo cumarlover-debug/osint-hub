@@ -1,0 +1,10 @@
+name: Academia.edu
+url: https://www.academia.edu
+description: Platform where researchers share papers; search by topic or author. Some downloads need an account.
+category: research
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [academic]

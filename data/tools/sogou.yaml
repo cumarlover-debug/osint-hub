@@ -1,0 +1,11 @@
+name: Sogou
+url: https://www.sogou.com/
+description: Chinese search engine that can also search WeChat public accounts and articles.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://www.sogou.com/web?query={query}
+tags: [search-engine, regional]

@@ -1,0 +1,10 @@
+name: FOFA
+url: https://en.fofa.info/
+description: 'Search engine for internet-connected hosts: find servers, devices and services by IP, domain, banner, certificate or technology.'
+category: network
+inputs: [ip, domain, keyword]
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags: [internet-scan]

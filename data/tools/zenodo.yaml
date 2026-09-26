@@ -1,0 +1,11 @@
+name: Zenodo
+url: https://zenodo.org/
+description: Open repository of research outputs, including papers, datasets, software and reports, from any field.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://zenodo.org/search?q={query}
+tags: [academic, datasets]

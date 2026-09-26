@@ -1,0 +1,10 @@
+name: Disconnect Search
+url: https://search.disconnect.me/
+description: Sends your query to a search engine of your choice through Disconnect, hiding your identity from it.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [privacy]

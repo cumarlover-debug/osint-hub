@@ -1,0 +1,11 @@
+name: Yandex Search
+url: https://yandex.com
+description: The main search engine for Russian-language content, often stronger than Google for Russia and neighbouring countries.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://yandex.com/search/?text={query}
+tags: [search-engine, regional]

@@ -1,0 +1,10 @@
+name: NewspaperArchive
+url: https://newspaperarchive.com/
+description: Searchable scans of historical newspapers, mostly from the US and UK, going back centuries.
+category: research
+inputs: [keyword]
+type: web
+cost: paid
+passive: true
+account_required: true
+tags: [news, historical]

@@ -1,0 +1,10 @@
+name: Silobreaker
+url: https://www.silobreaker.com
+description: Commercial platform that pulls news, reports and threat data into searchable intelligence for security and risk teams.
+category: research
+inputs: [keyword]
+type: web
+cost: paid
+passive: true
+account_required: true
+tags: [news, threat-intel]

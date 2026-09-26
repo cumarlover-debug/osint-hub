@@ -1,0 +1,10 @@
+name: DocumentCloud
+url: https://www.documentcloud.org
+description: Searches a large public library of primary-source documents uploaded by newsrooms, with full-text search and annotations.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [documents]

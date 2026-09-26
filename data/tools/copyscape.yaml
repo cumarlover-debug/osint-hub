@@ -1,0 +1,10 @@
+name: Copyscape
+url: https://www.copyscape.com/
+description: Finds copies of a page's text elsewhere on the web, to trace where content was copied from or to.
+category: research
+inputs: [url, keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [plagiarism]

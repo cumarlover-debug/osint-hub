@@ -1,0 +1,11 @@
+name: Sourcegraph
+url: https://sourcegraph.com/search
+description: Searches code across millions of open-source repositories, with regex and structural queries.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://sourcegraph.com/search?q={query}
+tags: [code]

@@ -25,7 +25,13 @@ export const awesomeRules = [
   [/People Investigations/i, { category: 'people', inputs: ['name'], confidence: 'medium', flags: ['policy-people: people search, check it is not a doxxing service'] }],
   [/Social Media Tools > /i, { category: 'social-media', inputs: ['username', 'social_post'], confidence: 'low' }],
   [/Social Media Search/i, { category: 'social-media', inputs: ['username', 'social_post'], confidence: 'low' }],
-  // Search engines, news, courses, blogs, browsers, VPNs and the like take no specific input: out of scope for now.
+  // Keyword search: search engines and topic search. Pastebins and dark-web search stay out (leaked data).
+  [/Pastebin|Dark Web/i, skip],
+  [/Code Search/i, { category: 'search', inputs: ['keyword'], confidence: 'high' }],
+  [/General Search|Meta Search|Privacy Focused Search|Main National Search|Speciality Search|Visual Search|Document and Slides Search|File Search|Forums and Discussion|Blog Search|Keywords Discovery/i, { category: 'search', inputs: ['keyword'], confidence: 'medium' }],
+  [/Academic|News Digest|^News$|Fact Checking/i, { category: 'research', inputs: ['keyword'], confidence: 'medium' }],
+  [/Threat Actor Search/i, { category: 'threat-intel', inputs: ['keyword'], confidence: 'medium' }],
+  // Courses, blogs, browsers, VPNs, datasets and the like take no input: out of scope.
   [/./, skip],
 ];
 
@@ -55,6 +61,11 @@ export const frameworkRules = [
   [/^Blockchain|Cryptocurrency/i, { category: 'crypto', inputs: ['crypto_address'], confidence: 'high' }],
   [/^Malicious File/i, { category: 'threat-intel', inputs: ['hash', 'document'], confidence: 'medium' }],
   [/^Cyber Threat/i, { category: 'threat-intel', inputs: ['ip', 'domain'], confidence: 'low' }],
+  [/^Dark Web|FTP Search/i, skip],
+  [/^Search Engines > Code/i, { category: 'search', inputs: ['keyword'], confidence: 'high' }],
+  [/^Search Engines > (Academic|News)/i, { category: 'research', inputs: ['keyword'], confidence: 'medium' }],
+  [/^Search Engines > (General|Meta|Other|Search Tools)/i, { category: 'search', inputs: ['keyword'], confidence: 'medium' }],
+  [/^Online Communities > (Forum|Blog|IRC) Search/i, { category: 'search', inputs: ['keyword'], confidence: 'medium' }],
   [/./, skip],
 ];
 

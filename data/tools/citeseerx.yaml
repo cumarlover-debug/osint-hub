@@ -1,0 +1,10 @@
+name: CiteSeerX
+url: https://citeseer.ist.psu.edu
+description: Searches computer and information science papers, with citation links between them.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [academic]

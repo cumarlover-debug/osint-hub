@@ -1,0 +1,11 @@
+name: arXiv
+url: https://arxiv.org/
+description: Preprint server for physics, maths, computer science and more. Papers often appear here before publication.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://arxiv.org/search/?query={query}&searchtype=all
+tags: [academic, preprints]

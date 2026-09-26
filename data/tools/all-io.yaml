@@ -1,0 +1,10 @@
+name: All-io
+url: https://all-io.net
+description: A start page that lets you run one query on many search engines, switching between them by tab.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [metasearch]

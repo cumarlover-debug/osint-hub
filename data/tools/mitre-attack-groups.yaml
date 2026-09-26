@@ -1,0 +1,10 @@
+name: MITRE ATT&CK Groups
+url: https://attack.mitre.org/groups/
+description: MITRE's catalogue of threat groups, with aliases, the techniques and software each uses, and sources for every claim.
+category: threat-intel
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [threat-actors]

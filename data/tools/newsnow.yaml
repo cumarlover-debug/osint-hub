@@ -1,0 +1,10 @@
+name: NewsNow
+url: https://www.newsnow.co.uk
+description: UK-based news aggregator that tracks thousands of sources by topic, updated every few minutes.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [news]

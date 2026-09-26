@@ -1,0 +1,11 @@
+name: Yahoo Search
+url: https://search.yahoo.com
+description: Web search results powered by Bing, with its own news and answers. Worth a pass when comparing results across engines.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://search.yahoo.com/search?p={query}
+tags: [search-engine]
