@@ -1,0 +1,9 @@
+name: EpicVIN
+url: https://epicvin.com/
+description: 'US vehicle history by VIN or licence plate: title records, accidents, odometer readings and past sales photos.'
+category: transport
+inputs: [vehicle]
+type: web
+cost: freemium
+passive: true
+account_required: false

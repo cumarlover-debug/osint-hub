@@ -1,0 +1,10 @@
+name: Whoisology
+url: https://whoisology.com
+description: Archive of billions of current and historical WHOIS records. Click an email or name to find every other domain registered with it.
+category: domain
+inputs: [domain, email, name]
+outputs: [domain, email, name]
+type: web
+cost: freemium
+passive: true
+account_required: false

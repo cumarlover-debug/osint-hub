@@ -1,0 +1,10 @@
+name: OpenSea
+url: https://opensea.io/
+description: The largest NFT marketplace. A wallet or profile page shows the NFTs it holds, what it has traded and when.
+category: crypto
+inputs: [crypto_address, username]
+outputs: [crypto_address, social_profile]
+type: web
+cost: freemium
+passive: true
+account_required: false

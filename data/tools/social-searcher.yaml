@@ -1,0 +1,10 @@
+name: Social Searcher
+url: https://www.social-searcher.com
+description: Searches recent public posts across several social networks and the web for a name, keyword or username.
+category: social-media
+inputs: [username, social_post]
+outputs: [social_profile, social_post]
+type: web
+cost: freemium
+passive: true
+account_required: false

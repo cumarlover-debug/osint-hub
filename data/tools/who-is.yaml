@@ -1,0 +1,10 @@
+name: Who.is
+url: https://who.is/
+description: WHOIS and RDAP lookup for domains and IPs, plus DNS records and the history of name server changes.
+category: domain
+inputs: [domain, ip]
+outputs: [name, email, dns_record]
+type: web
+cost: free
+passive: true
+account_required: false

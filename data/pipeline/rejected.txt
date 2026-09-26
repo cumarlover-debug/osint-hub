@@ -39,3 +39,20 @@ https://www.similarweb.com  # Similar Web (web traffic analytics, out of scope),
 https://www.statscrop.com  # StatsCrop (web traffic analytics, out of scope), 2026-09-26
 https://stored.website  # stored.website (relies on Google's cache, retired in 2024), 2026-09-26
 https://video.search.yahoo.com  # Yahoo Video Search (general search engine), 2026-09-26
+https://www.crimeflare.com/  # CloudFlare Watch (domain now hosts an unrelated gambling site), 2026-09-26
+https://disposable-emails.github.io/  # Disposable Emails Registry (site no longer serves the registry), 2026-09-26
+https://www.duplichecker.com/reverse-image-search.php  # Dupli Checker (SEO-site wrapper around other image engines), 2026-09-26
+https://99tools.net/email-extractor/  # Email Extractor (text utility, out of scope), 2026-09-26
+https://www.emobiletracker.com/  # EmobileTracker.com (misleading: shows only the region of a number), 2026-09-26
+https://etherscan.io/nft  # Etherscan NFT Tracker (part of Etherscan, already listed), 2026-09-26
+https://faceagle.com/  # Faceagle (domain now hosts an unrelated site), 2026-09-26
+https://globaledge.msu.edu/global-resources  # Global EDGE Resource Directory (a link directory, not a tool), 2026-09-26
+https://www.google.com/finance/  # Google Finance (market data, little OSINT value), 2026-09-26
+https://hikebikemap.org/  # Hiking & Biking Map (OpenStreetMap rendering; OpenStreetMap covers it), 2026-09-26
+https://www.file-analyzer.net/  # Joe File Analyzer (merged into Joe Sandbox, already listed), 2026-09-26
+https://malwareanalysis.tools/  # Malware Analysis Tools (a list of tools, not a tool), 2026-09-26
+https://pingroupie.com  # Pingroupie (Pinterest marketing tool), 2026-09-26
+https://ritetag.com  # RiteTag (hashtag marketing tool), 2026-09-26
+https://shipais.uk/  # Ship AIS (covers a single port area), 2026-09-26
+https://www.slydial.com/  # Slydial (contacts the number's owner), 2026-09-26
+https://subreddits.org  # Subreddits (subreddit directory, little OSINT value), 2026-09-26

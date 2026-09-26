@@ -1,0 +1,10 @@
+name: CompaniesInTheUK
+url: https://www.companiesintheuk.co.uk/
+description: Friendlier search over UK Companies House data, with officers, addresses and links between related companies.
+category: business
+inputs: [company, name]
+outputs: [name, location, company]
+type: web
+cost: free
+passive: true
+account_required: false

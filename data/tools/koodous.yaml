@@ -1,0 +1,10 @@
+name: Koodous
+url: https://koodous.com
+description: 'Community platform for Android malware: look up an app by hash or package name to see detections, analyses and analyst comments.'
+category: threat-intel
+inputs: [document, hash]
+outputs: [reputation]
+type: web
+cost: freemium
+passive: true
+account_required: false

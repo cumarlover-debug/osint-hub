@@ -1,0 +1,10 @@
+name: SANS ISC / DShield
+url: https://isc.sans.edu/
+description: 'SANS Internet Storm Center: look up an IP to see how often it has attacked the sensors of thousands of volunteers, and on which ports.'
+category: network
+inputs: [ip]
+outputs: [reputation, port_service]
+type: web
+cost: free
+passive: true
+account_required: false

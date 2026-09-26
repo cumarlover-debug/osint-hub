@@ -1,0 +1,17 @@
+name: checkip
+url: https://github.com/jreisinger/checkip
+description: Command-line tool that checks an IP against a dozen sources at once (geolocation, blocklists, Shodan, VirusTotal and more) and scores how malicious it looks.
+category: network
+inputs: [ip]
+outputs: [reputation, location]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: jreisinger/checkip
+install: go install github.com/jreisinger/checkip@latest
+language: Go
+license: MIT
+platforms: [linux, macos, windows]
+tags: [open-source]
+notes: Some sources need free API keys.

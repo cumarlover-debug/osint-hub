@@ -1,0 +1,10 @@
+name: NameScan
+url: https://namescan.io
+description: Screens a person or company name against sanctions lists, politically exposed persons and adverse media, with some free checks.
+category: business
+inputs: [name, company]
+outputs: [reputation]
+type: web
+cost: freemium
+passive: true
+account_required: false

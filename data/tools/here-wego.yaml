@@ -1,0 +1,10 @@
+name: HERE WeGo
+url: https://maps.here.com/
+description: HERE's map, with road data and satellite imagery from a different provider than Google, useful for cross-checking a location.
+category: geolocation
+inputs: [location]
+outputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false

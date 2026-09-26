@@ -1,0 +1,10 @@
+name: ViewDNS.info
+url: https://viewdns.info
+description: Dozens of free DNS tools, notably reverse IP (other sites on a server) and reverse WHOIS (other domains owned by the same person).
+category: domain
+inputs: [domain, ip, email, name]
+outputs: [domain, ip, dns_record]
+type: web
+cost: free
+passive: true
+account_required: false

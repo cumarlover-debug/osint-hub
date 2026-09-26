@@ -1,0 +1,10 @@
+name: Email Format
+url: https://email-format.com
+description: Shows the email address pattern a company uses (for example first.last@), with example addresses as evidence.
+category: email
+inputs: [company, domain]
+outputs: [email]
+type: web
+cost: freemium
+passive: true
+account_required: false

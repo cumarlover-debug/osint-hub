@@ -241,6 +241,18 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "checkip": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 253,
+      "archived": false,
+      "pushed_at": "2026-09-21"
+    }
+  },
   "circl-bgp-ranking": {
     "status": "up",
     "failures": 0,
@@ -249,6 +261,13 @@
     "last_ok": "2026-09-26"
   },
   "companies-house": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "companiesintheuk": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -359,6 +378,27 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "email-format": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "email-permutator": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "epicvin": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "etherscan": {
     "status": "unverified",
     "failures": 0,
@@ -435,6 +475,20 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "forensics-media": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "geospy": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "ghidra": {
     "status": "up",
     "failures": 0,
@@ -478,6 +532,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "google-earth": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "google-lens": {
     "status": "up",
     "failures": 0,
@@ -500,7 +561,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "hackertarget-reverse-dns": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "have-i-been-pwned": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "here-wego": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -527,6 +602,13 @@
     }
   },
   "hunter": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "hurricane-electric-bgp-toolkit": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -574,12 +656,26 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "jimpl": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "joe-sandbox": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "jottis-malware-scan": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "jpegsnoop": {
     "status": "up",
@@ -589,6 +685,20 @@
     "last_ok": "2026-09-26"
   },
   "keybase": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "koodous": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "littlesis": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -628,6 +738,27 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "metasleuth": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "misttrack": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "monero-blocks": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "mxtoolbox": {
     "status": "up",
     "failures": 0,
@@ -655,6 +786,13 @@
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "namescan": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "nhtsa-vpic-vin-decoder": {
     "status": "up",
@@ -706,6 +844,13 @@
     "last_ok": "2026-09-26"
   },
   "opensanctions": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "opensea": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -804,7 +949,21 @@
       "pushed_at": "2024-11-01"
     }
   },
+  "redditmetis": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "robtex": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "sans-isc-dshield": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -836,6 +995,13 @@
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)",
+    "last_ok": "2026-09-26"
+  },
+  "social-searcher": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
     "last_ok": "2026-09-26"
   },
   "spiderfoot": {
@@ -915,6 +1081,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "twilio-lookup": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "urlscan": {
     "status": "up",
     "failures": 0,
@@ -948,6 +1121,27 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "vesseltracker": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "viewdns-info": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "vindecodr": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "virustotal": {
     "status": "up",
     "failures": 0,
@@ -963,6 +1157,13 @@
     "last_ok": "2026-09-26"
   },
   "walletexplorer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "wappalyzer": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1007,6 +1208,13 @@
       "pushed_at": "2024-02-26"
     }
   },
+  "website-informer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "whatsmyname": {
     "status": "unverified",
     "failures": 0,
@@ -1018,6 +1226,20 @@
       "archived": false,
       "pushed_at": "2026-09-16"
     }
+  },
+  "who-is": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "whoisology": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "wigle": {
     "status": "up",

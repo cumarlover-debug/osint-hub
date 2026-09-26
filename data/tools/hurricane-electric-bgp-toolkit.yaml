@@ -1,0 +1,10 @@
+name: Hurricane Electric BGP Toolkit
+url: https://bgp.he.net/
+description: Shows who owns an IP range or ASN, which networks it connects to, and the domains hosted on an IP.
+category: network
+inputs: [ip, domain]
+outputs: [company, domain, ip]
+type: web
+cost: free
+passive: true
+account_required: false
