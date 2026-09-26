@@ -1,0 +1,11 @@
+name: PubMed
+url: https://pubmed.ncbi.nlm.nih.gov/
+description: Searches tens of millions of biomedical and life-science citations, with links to full text where available.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://pubmed.ncbi.nlm.nih.gov/?term={query}
+tags: [academic, medical]

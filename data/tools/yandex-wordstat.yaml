@@ -1,0 +1,10 @@
+name: Yandex Wordstat
+url: https://wordstat.yandex.com
+description: 'Yandex search statistics: how often a term is searched, related queries and regional interest, mainly for Russian-language searches.'
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: true
+tags: [trends]

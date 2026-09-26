@@ -1,0 +1,10 @@
+name: Cloudflare Radar
+url: https://radar.cloudflare.com
+description: 'Cloudflare''s view of internet traffic: a domain''s ranking and security scan, an IP or network''s details, and outages and attack trends.'
+category: network
+inputs: [domain, ip]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [internet-scan]

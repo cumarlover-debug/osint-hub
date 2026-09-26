@@ -13,6 +13,20 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "1st-headlines": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "2lingual": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "411-com": {
     "status": "up",
     "failures": 0,
@@ -27,7 +41,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "abuse-ch-hunting": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "abuseipdb": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "academia-edu": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -48,7 +76,35 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "african-journals-online": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "alienvault-otx": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "all-io": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "alleba": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "allyoucanread": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -78,6 +134,13 @@
       "archived": false,
       "pushed_at": "2026-07-19"
     }
+  },
+  "analyzeid": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "ancestry": {
     "status": "unverified",
@@ -156,6 +219,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "arxiv": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "astrometry-net": {
     "status": "up",
     "failures": 0,
@@ -198,6 +268,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "baidu": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "baidu-images": {
     "status": "up",
     "failures": 0,
@@ -206,6 +283,13 @@
     "last_ok": "2026-09-26"
   },
   "baidu-maps": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "base": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -231,6 +315,34 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "bevigil": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "bgp-tools": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "bibsonomy": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "bing": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "bing-images": {
     "status": "up",
     "failures": 0,
@@ -239,6 +351,13 @@
     "last_ok": "2026-09-26"
   },
   "bing-maps": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "bing-news": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -349,6 +468,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "brave-search": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 429,
+    "reason": "HTTP 429"
+  },
   "brb-public-records": {
     "status": "up",
     "failures": 0,
@@ -406,6 +532,13 @@
     "reason": "HTTP 403"
   },
   "carnet-ai": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "carrot2": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -506,6 +639,20 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "cisco-talos-intelligence-center": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "citeseerx": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "cloudfail": {
     "status": "up",
     "failures": 0,
@@ -513,6 +660,20 @@
     "http": 200,
     "last_ok": "2026-09-26",
     "repo_error": "GitHub API HTTP 403"
+  },
+  "cloudflare-radar": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "code-finder": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "companies-house": {
     "status": "up",
@@ -541,6 +702,20 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "copyscape": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "core": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "corona-atlas": {
     "status": "up",
@@ -612,6 +787,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "daum": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "db-ip": {
     "status": "up",
     "failures": 0,
@@ -634,6 +816,13 @@
     "last_ok": "2026-09-26"
   },
   "dilisense": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "disconnect-search": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -696,6 +885,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "documentcloud": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "domain-dossier": {
     "status": "up",
     "failures": 0,
@@ -725,6 +921,13 @@
     "last_ok": "2026-09-26"
   },
   "dualmaps": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "duckduckgo": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -794,12 +997,26 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "etda-threat-group-cards": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "etherscan": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)",
+    "last_ok": "2026-09-26"
+  },
+  "etools-ch": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
     "last_ok": "2026-09-26"
   },
   "eu-vies-vat-check": {
@@ -810,6 +1027,13 @@
     "last_ok": "2026-09-26"
   },
   "europages": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "europe-media-monitor": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -885,6 +1109,27 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "factcheck-org": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "factiva": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "fagan-finder": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "familysearch": {
     "status": "up",
     "failures": 0,
@@ -927,6 +1172,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "filesec-io": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "filmot": {
     "status": "up",
     "failures": 0,
@@ -940,6 +1192,13 @@
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "find-security-contacts": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "find-youtube-video": {
     "status": "up",
@@ -1011,6 +1270,12 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "fofa": {
+    "status": "unverified",
+    "failures": 1,
+    "last_checked": "2026-09-26",
+    "reason": "timeout"
+  },
   "fold3": {
     "status": "unverified",
     "failures": 0,
@@ -1066,6 +1331,13 @@
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "full-fact": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "fullhunt": {
     "status": "up",
@@ -1123,6 +1395,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "gerdoo": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "ghidra": {
     "status": "up",
     "failures": 0,
@@ -1154,6 +1433,13 @@
       "pushed_at": "2026-04-10"
     }
   },
+  "gibiru": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "gitfive": {
     "status": "up",
     "failures": 0,
@@ -1166,7 +1452,21 @@
       "pushed_at": "2025-10-04"
     }
   },
+  "github-code-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "global-fishing-watch": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "google-alerts": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1179,6 +1479,21 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "google-fact-check-explorer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "google-groups": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "moved_to": "https://accounts.google.com/v3/signin/identifier?continue=https://groups.google.com/&followup=https://groups.google.com/&osid=1&passive=1209600&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1456767445:1790427720282439"
   },
   "google-lens": {
     "status": "up",
@@ -1195,6 +1510,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "google-news": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "google-news-archive": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 429,
+    "reason": "HTTP 429",
+    "moved_to": "https://www.google.com/sorry/index?continue=https://news.google.com/newspapers&q=EhAgAQ5oVCIIoenjYI8wef7dGMaE39UGIjCGtLhFfyaRiv8HhjFOO0lcaPQZWvH2EUksqKnTHmARgus_DqcST7Wm7SQErj2O5ikyAnJSWgFD"
+  },
   "google-password-checkup": {
     "status": "up",
     "failures": 0,
@@ -1209,7 +1539,35 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "google-programmable-search-engine": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "google-safe-browsing-site-status": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "google-scholar": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "google-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "google-trends": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1222,6 +1580,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "grep-app": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 429,
+    "reason": "HTTP 429"
   },
   "greynoise": {
     "status": "up",
@@ -1313,6 +1678,13 @@
     "last_ok": "2026-09-26"
   },
   "hunter": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "hunter-how": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1417,6 +1789,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "internet-archive-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "invid-weverify": {
     "status": "up",
     "failures": 0,
@@ -1473,7 +1852,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "islegitsite": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "ismalicious": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "izito": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1515,7 +1908,28 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "jstor": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "judyrecords": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "jurn": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "kagi": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1564,6 +1978,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "lazy-scholar": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "lenso-ai": {
     "status": "up",
     "failures": 0,
@@ -1599,6 +2020,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "lycos": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "maigret": {
     "status": "up",
     "failures": 0,
@@ -1610,6 +2038,13 @@
       "archived": false,
       "pushed_at": "2026-09-25"
     }
+  },
+  "malpedia": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "maltego": {
     "status": "up",
@@ -1626,6 +2061,13 @@
     "last_ok": "2026-09-26"
   },
   "malwagon": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "malwarebazaar": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1707,7 +2149,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "million-short": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "minerva": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "misp-galaxy": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1728,7 +2184,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "mitre-attack-groups": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "mnemonic-passive-dns": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "mojeek": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1770,6 +2240,20 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "myallsearch": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "najdi-si": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "namecheckup": {
     "status": "up",
     "failures": 0,
@@ -1791,7 +2275,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "naver": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "naver-map": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "nerdydata": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1813,6 +2311,48 @@
     "last_ok": "2026-09-26"
   },
   "networkminer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "newsnow": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "newspaper-map": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "newspaperarchive": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "newspaperindex": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "newspapers-com": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "newswhip": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1866,6 +2406,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "odin": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "ofac-sanctions-list-search": {
     "status": "up",
     "failures": 0,
@@ -1887,6 +2434,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "onlinenewspapers-com": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "onyphe": {
     "status": "up",
     "failures": 0,
@@ -1895,6 +2449,20 @@
     "last_ok": "2026-09-26"
   },
   "open-infrastructure-map": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "open-library": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "open-syllabus": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2037,6 +2605,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "perplexity": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "phishstats": {
     "status": "up",
     "failures": 0,
@@ -2105,7 +2680,28 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "pr-newswire": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "predicta-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "presearch": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "pressreader": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2120,6 +2716,27 @@
     "last_ok": "2026-09-26"
   },
   "project-honey-pot": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "publicwww": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "pubmed": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "pubpeer": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2148,6 +2765,13 @@
     "last_ok": "2026-09-26"
   },
   "quicksand": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "qwant": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2193,6 +2817,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "researchgate": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "robtex": {
     "status": "up",
@@ -2250,7 +2881,28 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "sciencedirect": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "scumware-org": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "search-ch": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "search-engine-colossus": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2271,6 +2923,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "searchcode": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "searchpeoplefree": {
     "status": "unverified",
     "failures": 0,
@@ -2285,12 +2944,26 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "searxng": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "securitytrails": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "seznam": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "shadowfinder-web": {
     "status": "up",
@@ -2326,6 +2999,13 @@
     "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-26"
   },
+  "silobreaker": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "skyfi": {
     "status": "up",
     "failures": 0,
@@ -2334,6 +3014,13 @@
     "last_ok": "2026-09-26"
   },
   "skymem": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "slideshare": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2385,7 +3072,28 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "sogou": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "sogou-wechat-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "soovle": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "sourcegraph": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2418,6 +3126,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "springerlink": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "spydialer": {
     "status": "up",
     "failures": 0,
@@ -2433,6 +3148,13 @@
     "last_ok": "2026-09-26"
   },
   "ssl-labs-server-test": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "startpage": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2478,6 +3200,13 @@
     "last_ok": "2026-09-26"
   },
   "suncalc": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "swisscows": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2559,6 +3288,13 @@
     "http": 403,
     "reason": "HTTP 403"
   },
+  "the-national-archives-discovery": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "the-national-archives-uk": {
     "status": "up",
     "failures": 0,
@@ -2578,6 +3314,13 @@
       "pushed_at": "2026-09-21"
     }
   },
+  "thepaperboy": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "thisnumber": {
     "status": "up",
     "failures": 0,
@@ -2586,6 +3329,13 @@
     "last_ok": "2026-09-26"
   },
   "threat-actor-usernames": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "tib-portal": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2928,6 +3678,18 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "wayparam": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo": {
+      "stars": 8,
+      "archived": false,
+      "pushed_at": "2026-09-21"
+    }
+  },
   "web-check": {
     "status": "up",
     "failures": 0,
@@ -3017,7 +3779,28 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "wipo-global-brand-database": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "wireshark": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "wn-world-news": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "wolfram-alpha": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -3031,6 +3814,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "world-newspapers": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "worldlii": {
     "status": "unverified",
     "failures": 0,
@@ -3038,7 +3828,21 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "wpscan-vulnerability-database": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "xmrchain": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "yahoo-search": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -3053,6 +3857,27 @@
     "last_ok": "2026-09-26"
   },
   "yandex-maps": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "yandex-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "yandex-wordstat": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "yaraify": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -3120,6 +3945,27 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "zapmeta": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "zarebin": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "zenodo": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "zone-h": {
     "status": "up",
     "failures": 0,
@@ -3128,6 +3974,13 @@
     "last_ok": "2026-09-26"
   },
   "zoom-earth": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "zoomeye": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",

@@ -1,0 +1,10 @@
+name: NewsWhip
+url: https://www.newswhip.com
+description: Tracks how news stories and topics spread across social media, in real time. For newsrooms and communications teams.
+category: research
+inputs: [keyword]
+type: web
+cost: paid
+passive: true
+account_required: true
+tags: [news, social-media]

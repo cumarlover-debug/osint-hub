@@ -1,0 +1,11 @@
+name: DuckDuckGo
+url: https://duckduckgo.com
+description: Privacy-focused search engine that doesn't track searches. Bangs such as !g or !w jump straight to other sites' search.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://duckduckgo.com/?q={query}
+tags: [search-engine, privacy]

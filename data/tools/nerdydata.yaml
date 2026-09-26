@@ -1,0 +1,10 @@
+name: NerdyData
+url: https://nerdydata.com
+description: Searches the source code of millions of websites for technologies, tags or strings.
+category: search
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [code, source-code]

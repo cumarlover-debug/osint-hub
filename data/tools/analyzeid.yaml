@@ -1,0 +1,11 @@
+name: AnalyzeID
+url: https://analyzeid.com/
+description: Finds other websites that share IDs with a site, such as Google Analytics, AdSense or affiliate IDs, which often points to a common owner.
+category: domain
+inputs: [domain]
+outputs: [domain]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [reverse-analytics]

@@ -1,0 +1,11 @@
+name: Naver
+url: https://www.naver.com
+description: South Korea's leading search engine and portal, including Korean blogs, cafés (forums) and news.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://search.naver.com/search.naver?query={query}
+tags: [search-engine, regional]

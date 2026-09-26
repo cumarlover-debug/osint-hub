@@ -1,0 +1,11 @@
+name: Google Search
+url: https://www.google.com
+description: The largest web search engine. Its operators (site:, filetype:, intitle:, quotes, minus) make it the core of most keyword investigations.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://www.google.com/search?q={query}
+tags: [search-engine, dorks]

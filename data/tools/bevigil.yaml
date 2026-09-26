@@ -1,0 +1,10 @@
+name: BeVigil
+url: https://bevigil.com/search
+description: Searches mobile apps by name or package and shows the security issues and exposed strings found in them.
+category: search
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [mobile-apps]

@@ -39,7 +39,7 @@ body:
       label: Inputs
       description: >-
         What it takes, comma-separated, from: username, email, phone, name, domain, ip, url, image, video, document,
-        company, crypto_address, social_post, location, vehicle, aircraft, vessel, wifi, hash, password
+        company, crypto_address, social_post, location, vehicle, aircraft, vessel, wifi, hash, password, keyword
       placeholder: username, email
     validations:
       required: true

@@ -1,0 +1,10 @@
+name: MyAllSearch
+url: https://www.myallsearch.com
+description: Private metasearch engine that pulls results from several engines without tracking.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [metasearch, privacy]

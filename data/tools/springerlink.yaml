@@ -1,0 +1,10 @@
+name: SpringerLink
+url: https://link.springer.com
+description: Springer Nature's journals, books and conference papers. Abstracts are free, full text is often paid.
+category: research
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [academic]

@@ -1,0 +1,11 @@
+name: Open Library
+url: https://openlibrary.org/
+description: Open catalogue of books, with free borrowing for many digitised titles.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://openlibrary.org/search?q={query}
+tags: [books]

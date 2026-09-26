@@ -1,0 +1,10 @@
+name: ODIN
+url: https://search.odin.io/
+description: 'Internet scanning search engine: search hosts, open ports, certificates and exposed services by IP, domain or keyword.'
+category: network
+inputs: [ip, domain, keyword]
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags: [internet-scan]

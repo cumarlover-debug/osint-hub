@@ -1,0 +1,10 @@
+name: Fagan Finder
+url: https://www.faganfinder.com/engines
+description: 'Picks the right search engine for your question: a large, categorised directory of specialised search tools.'
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [directory]

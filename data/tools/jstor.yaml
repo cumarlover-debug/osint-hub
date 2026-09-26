@@ -1,0 +1,11 @@
+name: JSTOR
+url: https://www.jstor.org
+description: Digital library of academic journals, books and primary sources. Many items are free to read with an account.
+category: research
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+query_template: https://www.jstor.org/action/doBasicSearch?Query={query}
+tags: [academic]

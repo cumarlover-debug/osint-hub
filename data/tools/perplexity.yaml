@@ -1,0 +1,10 @@
+name: Perplexity
+url: https://www.perplexity.ai
+description: AI answer engine that searches the web and replies with a summary that cites its sources. Check the cited pages yourself.
+category: search
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [ai]

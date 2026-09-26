@@ -1,0 +1,10 @@
+name: Internet Archive search
+url: https://archive.org/
+description: Searches the Internet Archive's collections of books, texts, audio, video, software and TV news, beyond archived web pages.
+category: archives
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://archive.org/search?query={query}

@@ -1,0 +1,10 @@
+name: Wolfram|Alpha
+url: https://www.wolframalpha.com
+description: 'Computes answers from curated data instead of listing web pages: statistics, units, dates, places, science and more.'
+category: search
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+query_template: https://www.wolframalpha.com/input?i={query}

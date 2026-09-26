@@ -1,0 +1,10 @@
+name: SlideShare
+url: https://www.slideshare.net
+description: Searches public slide decks and documents, which often include company presentations and conference talks.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [documents]

@@ -1,0 +1,11 @@
+name: Swisscows
+url: https://swisscows.com/en
+description: Swiss search engine that stores no search data and filters out adult content.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://swisscows.com/en/web?query={query}
+tags: [search-engine, privacy]

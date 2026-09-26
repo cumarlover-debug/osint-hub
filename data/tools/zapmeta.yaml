@@ -1,0 +1,10 @@
+name: ZapMeta
+url: https://www.zapmeta.com
+description: Metasearch engine that merges results from several search engines into one list.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [metasearch]

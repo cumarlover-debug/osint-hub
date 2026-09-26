@@ -1,0 +1,11 @@
+name: Google Scholar
+url: https://scholar.google.com
+description: Searches scholarly articles, theses, books and court opinions, with citation counts and "cited by" links.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://scholar.google.com/scholar?q={query}
+tags: [academic]

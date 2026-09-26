@@ -1,0 +1,11 @@
+name: Daum
+url: https://www.daum.net/
+description: South Korean search engine and portal with its own blogs, cafés and news.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://search.daum.net/search?q={query}
+tags: [search-engine, regional]

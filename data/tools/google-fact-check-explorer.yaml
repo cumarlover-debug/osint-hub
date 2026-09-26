@@ -1,0 +1,12 @@
+name: Google Fact Check Explorer
+url: https://toolbox.google.com/factcheck/explorer
+description: Searches fact-checks published by fact-checking organisations worldwide, by claim, topic or person, and can also look up images.
+category: research
+inputs: [keyword, image]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template:
+  keyword: https://toolbox.google.com/factcheck/explorer/search/{query}
+tags: [fact-checking]

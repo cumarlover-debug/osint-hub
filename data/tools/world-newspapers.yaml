@@ -1,0 +1,10 @@
+name: World-Newspapers
+url: https://www.world-newspapers.com
+description: Annotated directory of English-language newspapers, magazines and news sites by country.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [news, directory]

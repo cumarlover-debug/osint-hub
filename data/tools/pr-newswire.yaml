@@ -1,0 +1,10 @@
+name: PR Newswire
+url: https://www.prnewswire.com
+description: Searchable archive of company press releases, useful for announcements, executives and deals.
+category: research
+inputs: [keyword, company]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [news, press-releases]

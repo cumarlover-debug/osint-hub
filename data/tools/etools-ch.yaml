@@ -1,0 +1,10 @@
+name: eTools.ch
+url: https://www.etools.ch
+description: Swiss metasearch engine that queries many engines at once and shows which engine returned each result.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [metasearch]

@@ -1,0 +1,10 @@
+name: ResearchGate
+url: https://www.researchgate.net
+description: 'Social network for researchers: search papers, authors and institutions. Many full texts are shared by the authors.'
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [academic]

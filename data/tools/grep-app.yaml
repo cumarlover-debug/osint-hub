@@ -1,0 +1,11 @@
+name: grep.app
+url: https://grep.app/
+description: Fast regex and exact-string search across half a million public Git repositories.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://grep.app/search?q={query}
+tags: [code]

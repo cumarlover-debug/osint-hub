@@ -1,0 +1,10 @@
+name: NewspaperIndex
+url: https://www.newspaperindex.com
+description: Directory of online newspapers by country.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [news, directory]

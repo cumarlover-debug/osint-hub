@@ -1,0 +1,10 @@
+name: Europe Media Monitor
+url: https://media-monitor.europa.eu
+description: 'The European Commission''s media monitor: clusters news from thousands of outlets in many languages, by topic and country.'
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [news, multilingual]

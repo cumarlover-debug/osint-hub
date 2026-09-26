@@ -1,0 +1,10 @@
+name: Google News Archive
+url: https://news.google.com/newspapers
+description: Scans of historical newspapers from around the world, browsable by paper and date.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [news, historical]

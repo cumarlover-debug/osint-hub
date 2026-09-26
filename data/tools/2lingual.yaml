@@ -1,0 +1,10 @@
+name: 2lingual
+url: https://www.2lingual.com
+description: Runs a Google search in two languages side by side, translating your query into the second language.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [translation]

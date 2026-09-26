@@ -1,0 +1,11 @@
+name: Baidu
+url: https://www.baidu.com
+description: China's dominant search engine. Indexes Chinese-language sites that western engines barely cover.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://www.baidu.com/s?wd={query}
+tags: [search-engine, regional]

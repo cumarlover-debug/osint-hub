@@ -1,0 +1,11 @@
+name: BASE
+url: https://www.base-search.net
+description: 'Bielefeld Academic Search Engine: hundreds of millions of documents from open-access repositories worldwide.'
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://www.base-search.net/Search/Results?lookfor={query}
+tags: [academic, open-access]

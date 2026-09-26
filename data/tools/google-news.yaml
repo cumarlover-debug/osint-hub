@@ -1,0 +1,11 @@
+name: Google News
+url: https://news.google.com
+description: Searches and groups news stories from thousands of sources, with filters by time and region.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://news.google.com/search?q={query}
+tags: [news]

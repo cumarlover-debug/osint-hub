@@ -1,0 +1,11 @@
+name: Startpage
+url: https://www.startpage.com/
+description: 'Google results without the tracking: Startpage fetches them for you, and can open result pages through an anonymous proxy.'
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://www.startpage.com/do/search?q={query}
+tags: [search-engine, privacy]

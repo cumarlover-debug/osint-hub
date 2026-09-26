@@ -1,0 +1,10 @@
+name: WIPO Global Brand Database
+url: https://branddb.wipo.int
+description: Searches trademarks registered in many national and international registries, by brand name, owner or image.
+category: business
+inputs: [company, keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [trademarks]

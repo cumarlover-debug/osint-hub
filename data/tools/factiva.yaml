@@ -1,0 +1,10 @@
+name: Factiva
+url: https://www.dowjones.com/factiva
+description: Dow Jones archive of licensed news and business sources, widely used for due diligence. Usually through an employer or library.
+category: research
+inputs: [keyword]
+type: web
+cost: paid
+passive: true
+account_required: true
+tags: [news, due-diligence]

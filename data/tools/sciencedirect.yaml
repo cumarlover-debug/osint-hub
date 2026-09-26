@@ -1,0 +1,10 @@
+name: ScienceDirect
+url: https://www.sciencedirect.com
+description: Elsevier's platform of scientific journals and books. Abstracts are free, most full text is paid.
+category: research
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [academic]

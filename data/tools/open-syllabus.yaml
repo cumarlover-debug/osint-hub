@@ -1,0 +1,10 @@
+name: Open Syllabus
+url: https://www.opensyllabus.org/
+description: Searches millions of college syllabi to see which texts are assigned, where, and how often.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [academic]

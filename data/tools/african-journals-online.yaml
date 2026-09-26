@@ -1,0 +1,10 @@
+name: African Journals Online
+url: https://www.ajol.info
+description: Searches peer-reviewed journals published in Africa, many of them open access.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [academic, regional]

@@ -1,0 +1,11 @@
+name: Qwant
+url: https://www.qwant.com
+description: European search engine that does not keep search histories or profile users.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://www.qwant.com/?q={query}
+tags: [search-engine, privacy]

@@ -1,0 +1,10 @@
+name: search.ch
+url: https://www.search.ch
+description: Swiss search engine and portal with web search plus Swiss phone book, maps and timetables.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [search-engine, regional]

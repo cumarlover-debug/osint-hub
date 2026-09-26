@@ -1,0 +1,10 @@
+name: MISP Galaxy
+url: https://www.misp-galaxy.org/
+description: Open knowledge base of threat actors, malware, tools and sectors from the MISP community, searchable by name and alias.
+category: threat-intel
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [threat-actors]

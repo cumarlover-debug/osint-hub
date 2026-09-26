@@ -1,0 +1,11 @@
+name: Bing News
+url: https://www.bing.com/news
+description: Bing's news search, with a different source mix from Google News.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://www.bing.com/news/search?q={query}
+tags: [news]

@@ -1,0 +1,11 @@
+name: The National Archives Discovery
+url: https://discovery.nationalarchives.gov.uk/
+description: Searches the catalogue of the UK National Archives and thousands of other UK archives, with some records viewable online.
+category: archives
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://discovery.nationalarchives.gov.uk/results/r?_q={query}
+tags: [government-records]

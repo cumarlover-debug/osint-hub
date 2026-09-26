@@ -1,0 +1,10 @@
+name: Zarebin
+url: https://zarebin.ir
+description: Persian-language search engine from Iran.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [search-engine, regional]

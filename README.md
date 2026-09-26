@@ -107,7 +107,8 @@ Tools for research, journalism, security work and personal safety.
   search. Tool pages in the `people` category, or tagged `face-recognition`, show the notice automatically. Each one
   is reviewed individually (`npm run pipeline:draft -- --people`).
 - **Not accepted:** stalkerware, doxxing services, and anything that sells leaked or breached personal data or
-  credentials, including lookup bots built on leaked databases. The pipeline flags these as `policy-leak` and never
+  credentials, including lookup bots built on leaked databases; also search engines for exposed files, open
+  directories and pastes, since much of what they surface is leaked personal data. The pipeline flags these as `policy-leak` and never
   drafts them unless asked to with `--leaked`.
 
 ## Privacy

@@ -1,0 +1,10 @@
+name: Newspaper Map
+url: https://newspapermap.com
+description: 'Map of newspapers worldwide: click a place to find its local papers, with one-click translation.'
+category: research
+inputs: [keyword, location]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [news, directory]

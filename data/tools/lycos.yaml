@@ -1,0 +1,10 @@
+name: Lycos
+url: https://www.lycos.com
+description: One of the oldest web search engines, still running. Mainly useful for comparing results across engines.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [search-engine]

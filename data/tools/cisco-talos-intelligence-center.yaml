@@ -1,0 +1,11 @@
+name: Cisco Talos Intelligence Center
+url: https://talosintelligence.com/reputation_center
+description: 'Shows Cisco Talos''s reputation for an IP or domain: email and web reputation, blocklist status and owner details.'
+category: threat-intel
+inputs: [ip, domain]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://talosintelligence.com/reputation_center/lookup?search={query}
+tags: [reputation]

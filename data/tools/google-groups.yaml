@@ -1,0 +1,10 @@
+name: Google Groups
+url: https://groups.google.com
+description: Searches Google Groups and the archive of Usenet discussions going back to the early 1980s.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: true
+tags: [forums]

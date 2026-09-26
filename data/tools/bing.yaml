@@ -1,0 +1,11 @@
+name: Bing
+url: https://www.bing.com
+description: 'Microsoft''s web search engine. Its index differs from Google''s, so it often finds pages Google misses; it supports site:, filetype: and other operators.'
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://www.bing.com/search?q={query}
+tags: [search-engine]

@@ -1,0 +1,10 @@
+name: WN (World News)
+url: https://wn.com
+description: News aggregator with headlines and videos from sources worldwide, by country and topic.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [news]

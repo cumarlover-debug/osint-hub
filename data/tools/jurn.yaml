@@ -1,0 +1,10 @@
+name: JURN
+url: https://www.jurn.org/
+description: Search engine for free academic articles, chapters and theses, especially in the arts and humanities.
+category: research
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [academic, open-access]

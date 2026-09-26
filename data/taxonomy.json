@@ -19,7 +19,8 @@
     "vessel": "Vessel",
     "wifi": "Wi-Fi / BSSID",
     "hash": "File hash",
-    "password": "Password"
+    "password": "Password",
+    "keyword": "Keyword / topic"
   },
   "categories": {
     "people": "People",
@@ -36,7 +37,9 @@
     "threat-intel": "Threat intelligence",
     "archives": "Archives",
     "metadata": "Metadata",
-    "frameworks": "Frameworks & automation"
+    "frameworks": "Frameworks & automation",
+    "search": "Search engines",
+    "research": "News & research"
   },
   "types": {
     "web": "Website",

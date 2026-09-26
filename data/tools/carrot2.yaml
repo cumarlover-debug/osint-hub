@@ -1,0 +1,10 @@
+name: Carrot2
+url: https://search.carrot2.org
+description: Clusters search results into topics, so you can see the themes behind a query at a glance.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [metasearch]

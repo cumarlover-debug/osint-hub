@@ -1,0 +1,10 @@
+name: Gibiru
+url: https://gibiru.com/
+description: Search engine that returns uncensored results and does not log searches.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [search-engine, privacy]

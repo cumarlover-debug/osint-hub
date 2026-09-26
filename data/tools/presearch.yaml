@@ -1,0 +1,10 @@
+name: Presearch
+url: https://presearch.com/
+description: Decentralised search engine run on community nodes, with shortcuts to search many other sites.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [search-engine]

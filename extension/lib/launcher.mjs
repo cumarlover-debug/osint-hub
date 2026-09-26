@@ -58,8 +58,9 @@ export function detect(raw) {
   if (MATCHERS.vin.test(v) && /\d/.test(v) && /[A-Z]/.test(v)) return ['vehicle'];
   if (/^(?!-)([a-z0-9-]+\.)+[a-z]{2,}$/i.test(v)) return ['domain'];
   if (/^\+?\d[\d\s().-]{6,}$/.test(v)) return ['phone'];
-  if (/\s/.test(v)) return ['name', 'company', 'location'];
-  return ['username', 'company', 'aircraft', 'vessel'];
+  // Free text can always be searched as a keyword, but a more specific type comes first.
+  if (/\s/.test(v)) return ['name', 'company', 'location', 'keyword'];
+  return ['username', 'company', 'aircraft', 'vessel', 'keyword'];
 }
 
 // ---- Commands for tools you run on your own machine ----

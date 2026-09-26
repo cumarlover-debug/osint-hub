@@ -1,0 +1,13 @@
+name: wayparam
+url: https://github.com/aleff-github/wayparam
+description: Pulls a domain's archived URLs from the Wayback Machine and extracts their query parameters, for mapping a site's attack surface.
+category: archives
+inputs: [domain]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: aleff-github/wayparam
+language: Python
+license: GPL-3.0
+tags: [wayback]
