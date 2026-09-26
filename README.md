@@ -132,3 +132,17 @@ and the listing policy. It keeps one results comment up to date and labels the i
 `needs-changes`. A maintainer adding the `approved` label runs `scripts/submissions/approve.mjs`, which re-checks,
 confirms the labeller has write access, writes and health-checks the tool, and commits it (closing the issue).
 Issue text is untrusted: it is only parsed by the scripts, never put into a shell command. See CONTRIBUTING.md.
+
+## Command-line tool
+
+```bash
+npm install -g github:cumarlover-debug/osint-hub
+osint-hub launch example.com          # search links for every tool that can take it
+osint-hub launch 8.8.8.8 --open       # ...and open them in your browser
+osint-hub tools --input email --passive
+osint-hub playbook suspicious-domain --value example.com
+```
+
+No dependencies; it reads `https://osinthub.pages.dev/api/tools.json` and `playbooks.json`, caches them for a day, and
+falls back to the cache when offline. Run `osint-hub --help` for everything. Detection and links come from
+`shared/launcher.mjs`, the same code the website uses.

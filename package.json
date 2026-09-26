@@ -10,16 +10,25 @@
     "healthcheck": "node scripts/healthcheck.mjs",
     "pipeline:harvest": "node scripts/pipeline/harvest.mjs",
     "pipeline:draft": "node scripts/pipeline/draft.mjs",
-    "pipeline:promote": "node scripts/pipeline/promote.mjs"
+    "pipeline:promote": "node scripts/pipeline/promote.mjs",
+    "cli": "node cli/osint-hub.mjs"
   },
-  "license": "ISC",
+  "license": "UNLICENSED",
   "type": "module",
-  "dependencies": {
-    "astro": "^7.3.5",
-    "js-yaml": "^4.3.2"
-  },
   "devDependencies": {
+    "astro": "^7.3.5",
+    "js-yaml": "^4.3.2",
     "ajv": "^8.20.0"
   },
-  "private": true
+  "private": true,
+  "bin": {
+    "osint-hub": "cli/osint-hub.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "cli",
+    "shared"
+  ]
 }
