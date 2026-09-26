@@ -1,0 +1,10 @@
+name: Trend Micro Site Safety Center
+url: https://global.sitesafety.trendmicro.com/
+description: Shows Trend Micro's safety rating and category for a website.
+category: domain
+inputs: [url, domain]
+outputs: [reputation]
+type: web
+cost: free
+passive: true
+account_required: false

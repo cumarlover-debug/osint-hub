@@ -1,0 +1,10 @@
+name: creationdatebot
+url: https://t.me/creationdatebot
+description: Telegram bot that estimates when a Telegram account was created from its user ID.
+category: social-media
+inputs: [username]
+outputs: [metadata]
+type: web
+cost: free
+passive: true
+account_required: false

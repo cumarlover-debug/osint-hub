@@ -1,0 +1,10 @@
+name: EyeTON
+url: https://telegram.me/istoneyebot
+description: Telegram bot that maps TON wallet connections and links wallets to Telegram usernames and profiles.
+category: crypto
+inputs: [crypto_address, username]
+outputs: [crypto_address, username]
+type: web
+cost: freemium
+passive: true
+account_required: false

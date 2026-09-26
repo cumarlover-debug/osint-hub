@@ -1,0 +1,13 @@
+name: Hachoir
+url: https://hachoir.readthedocs.io/
+description: Python tools (hachoir-metadata) that read metadata from dozens of binary file formats, including ones other tools skip.
+category: metadata
+inputs: [document, image, video]
+outputs: [metadata]
+type: cli
+cost: freemium
+passive: true
+account_required: false
+install: pipx install hachoir
+platforms: [linux, macos, windows]
+tags: [metadata, open-source]

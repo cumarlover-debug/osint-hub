@@ -1,0 +1,10 @@
+name: ARIN WHOIS
+url: https://whois.arin.net/ui/advanced.jsp
+description: 'Official registry lookup for IP ranges and networks in North America: who holds an address block and their contacts.'
+category: domain
+inputs: [ip, company]
+outputs: [company, name, email]
+type: web
+cost: free
+passive: true
+account_required: false

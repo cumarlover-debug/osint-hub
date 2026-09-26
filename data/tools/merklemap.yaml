@@ -1,0 +1,10 @@
+name: MerkleMap
+url: https://www.merklemap.com/
+description: Fast subdomain search built from Certificate Transparency logs, including subdomains that were never publicly linked.
+category: domain
+inputs: [domain]
+outputs: [domain, certificate]
+type: web
+cost: freemium
+passive: true
+account_required: false

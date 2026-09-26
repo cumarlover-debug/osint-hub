@@ -1,0 +1,29 @@
+name: ExportData
+url: https://www.exportdata.io/
+description: ''
+category: social-media
+inputs:
+  - username
+  - social_post
+type: web
+cost: freemium
+passive: true
+account_required: false
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: low
+  score: 3
+  source_url: https://www.exportdata.io/
+  flags:
+    - 'cost: unknown, guessed freemium'
+    - 'account_required: unknown, guessed no'
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Social Media Tools > Twitter
+        said: Data export tool for historical tweets, followers & followings and historical trends.
+    page_description: Export Twitter followers, followings, account timeline, historical tweets and more in CSV and Excel formats
+  hold: true
+  hold_reason: depends on X/Twitter access; check by hand that it still works

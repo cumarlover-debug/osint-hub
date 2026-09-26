@@ -1,0 +1,10 @@
+name: Zone-H
+url: https://zone-h.org/archive
+description: Archive of website defacements with mirrors of the defaced pages and the attacker names that claimed them.
+category: domain
+inputs: [domain]
+outputs: [archive_snapshot, username]
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,10 @@
+name: BrightCloud URL/IP Lookup
+url: https://support.threatintel.opentext.com/tools/url-ip-lookup.php
+description: Webroot BrightCloud (now OpenText) reputation score and content category for a URL or IP.
+category: domain
+inputs: [url, ip, domain]
+outputs: [reputation]
+type: web
+cost: free
+passive: true
+account_required: false
