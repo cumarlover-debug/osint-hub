@@ -32,6 +32,7 @@ const canonical = new URL(Astro.url.pathname.replace(/(index)?\.html$/, ''), Ast
           <a href="/">Tools</a>
           <a href="/launch">Launcher</a>
           <a href="/playbooks">Playbooks</a>
+          <a href="/toolkit" class="nav-toolkit">★ Toolkit<span class="fav-count" hidden></span></a>
           <a href="/about">About</a>
         </nav>
       </div>
@@ -49,5 +50,19 @@ const canonical = new URL(Astro.url.pathname.replace(/(index)?\.html$/, ''), Ast
         <p>Know a tool that is missing? <a href="/submit">Suggest a tool</a>.</p>
       </div>
     </footer>
+    <script>
+      import { wireStars, getFavourites, CHANGED } from '../lib/favourites';
+
+      wireStars();
+      const count = document.querySelector<HTMLElement>('.fav-count')!;
+      const showCount = () => {
+        const n = getFavourites().length;
+        count.hidden = n === 0;
+        count.textContent = String(n);
+      };
+      window.addEventListener(CHANGED, showCount);
+      window.addEventListener('storage', showCount);
+      showCount();
+    </script>
   </body>
 </html>

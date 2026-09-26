@@ -22,7 +22,11 @@ const searchText = [tool.name, tool.description, tool.category, ...(tool.tags ??
   data-account={String(tool.account_required)}
   data-broken={String(isBroken(tool))}
   data-search={searchText}
+  data-slug={tool.slug}
 >
+  <button type="button" class="fav fav-card" data-slug={tool.slug} aria-pressed="false" title="Add to my toolkit">
+    <span aria-hidden="true">★</span><span class="visually-hidden">Add {tool.name} to my toolkit</span>
+  </button>
   <div class="card-head">
     <h3><a href={`/tools/${tool.slug}`}>{tool.name}</a></h3>
     {health?.status === 'down' && <span class="status down" title={`Failed the last ${health.failures} weekly checks`}>down</span>}
