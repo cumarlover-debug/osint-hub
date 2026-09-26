@@ -1,0 +1,109 @@
+# Field labels are parsed by scripts/submissions/lib.mjs: change them there too.
+# Field ids let https://osinthub.pages.dev/submit pre-fill this form through the URL.
+name: Suggest a tool
+description: Suggest an OSINT tool for osint-hub. A bot checks it, then a maintainer reviews it.
+title: "Tool: "
+labels: [tool-submission]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a tool. The easiest way to fill this in is the form at https://osinthub.pages.dev/submit.
+        After you submit, a bot checks the link and details and comments with anything to fix. Edit this issue to fix it
+        and the bot checks again.
+  - type: input
+    id: name
+    attributes:
+      label: Tool name
+      placeholder: Sherlock
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: The tool's own page or GitHub repository. Must start with https://
+      placeholder: https://github.com/sherlock-project/sherlock
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: One or two plain sentences, 20–240 characters, in your own words. What does it do, and what do you get?
+    validations:
+      required: true
+  - type: input
+    id: inputs
+    attributes:
+      label: Inputs
+      description: >-
+        What it takes, comma-separated, from: username, email, phone, name, domain, ip, url, image, video, document,
+        company, crypto_address, social_post, location, vehicle, aircraft, vessel, wifi, hash
+      placeholder: username, email
+    validations:
+      required: true
+  - type: input
+    id: category
+    attributes:
+      label: Category
+      description: >-
+        One of: people, social-media, email, phone, domain, network, image-video, geolocation, transport, business,
+        crypto, threat-intel, archives, metadata, frameworks
+    validations:
+      required: true
+  - type: input
+    id: type
+    attributes:
+      label: Type
+      description: One of web, cli, desktop, extension, api
+    validations:
+      required: true
+  - type: input
+    id: cost
+    attributes:
+      label: Cost
+      description: One of free, freemium, paid
+    validations:
+      required: true
+  - type: input
+    id: passive
+    attributes:
+      label: Passive
+      description: "yes if it never contacts the target or its servers, no if it scans or visits them"
+    validations:
+      required: true
+  - type: input
+    id: account
+    attributes:
+      label: Account required
+      description: yes or no
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: GitHub repo
+      description: Optional, as owner/name. Required for command-line tools unless you give an install command.
+  - type: input
+    id: install
+    attributes:
+      label: Install command
+      description: Optional, for command-line tools.
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes for users
+      description: Optional. Anything people should know before using it (limits, OPSEC, needs an API key).
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it belongs here
+      description: How have you used it, and does it still work? This helps the review.
+  - type: checkboxes
+    id: policy
+    attributes:
+      label: Listing policy
+      options:
+        - label: This tool does not sell or expose leaked or breached personal data or credentials, and is not stalkerware or a doxxing service.
+          required: true

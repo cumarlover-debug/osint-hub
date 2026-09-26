@@ -1,0 +1,175 @@
+---
+import Base from '../layouts/Base.astro';
+import { tools, taxonomy } from '../lib/tools';
+import { REPO } from '../lib/site';
+
+// For the "already listed" warning before anything is sent.
+const listed = tools.map((t) => ({ name: t.name, url: t.url, slug: t.slug }));
+---
+
+<Base title="Suggest a tool | osint-hub" description="Suggest an OSINT tool for osint-hub. A bot checks it and a maintainer reviews it before it is listed.">
+  <section class="hero">
+    <h1>Suggest a tool.</h1>
+    <p class="lede">
+      Fill this in and press the button: it opens a pre-filled issue on GitHub (you need a free GitHub account). A bot
+      checks the link and details within a minute, then a maintainer reviews it. Nothing is sent to osint-hub itself.
+    </p>
+  </section>
+
+  <form id="suggest" class="suggest" novalidate>
+    <div class="field">
+      <label for="f-name">Tool name</label>
+      <input id="f-name" name="name" required maxlength="80" />
+    </div>
+    <div class="field">
+      <label for="f-url">URL</label>
+      <input id="f-url" name="url" type="url" required placeholder="https://" />
+      <p class="hint">The tool's own page, or its GitHub repository.</p>
+      <p class="hint warn-text" id="dup-warning" hidden></p>
+    </div>
+    <div class="field">
+      <label for="f-description">Description</label>
+      <textarea id="f-description" name="description" required maxlength="240" rows="3"></textarea>
+      <p class="hint">One or two plain sentences in your own words: what it does and what you get. <span id="desc-count">0</span>/240</p>
+    </div>
+
+    <fieldset class="field">
+      <legend>What does it take as input?</legend>
+      <div class="check-grid">
+        {Object.entries(taxonomy.inputs).map(([k, v]) => (
+          <label class="check"><input type="checkbox" name="inputs" value={k} /> {v}</label>
+        ))}
+      </div>
+    </fieldset>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="f-category">Category</label>
+        <select id="f-category" name="category" required>
+          <option value="">Choose…</option>
+          {Object.entries(taxonomy.categories).map(([k, v]) => <option value={k}>{v}</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-type">Type</label>
+        <select id="f-type" name="type" required>
+          {Object.entries(taxonomy.types).map(([k, v]) => <option value={k}>{v}</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-cost">Cost</label>
+        <select id="f-cost" name="cost" required>
+          {Object.entries(taxonomy.costs).map(([k, v]) => <option value={k}>{v}</option>)}
+        </select>
+      </div>
+    </div>
+
+    <div class="field-row">
+      <fieldset class="field">
+        <legend>Does it contact the target?</legend>
+        <label class="check"><input type="radio" name="passive" value="yes" checked /> No, passive</label>
+        <label class="check"><input type="radio" name="passive" value="no" /> Yes, it scans or visits the target</label>
+      </fieldset>
+      <fieldset class="field">
+        <legend>Account needed?</legend>
+        <label class="check"><input type="radio" name="account" value="no" checked /> No</label>
+        <label class="check"><input type="radio" name="account" value="yes" /> Yes</label>
+      </fieldset>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="f-repo">GitHub repo <span class="hint">(optional)</span></label>
+        <input id="f-repo" name="repo" placeholder="owner/name" />
+      </div>
+      <div class="field">
+        <label for="f-install">Install command <span class="hint">(optional)</span></label>
+        <input id="f-install" name="install" placeholder="pipx install …" />
+      </div>
+    </div>
+    <div class="field">
+      <label for="f-notes">Notes for users <span class="hint">(optional)</span></label>
+      <textarea id="f-notes" name="notes" rows="2" placeholder="Limits, OPSEC, needs an API key…"></textarea>
+    </div>
+    <div class="field">
+      <label for="f-why">Why it belongs here <span class="hint">(optional, helps the review)</span></label>
+      <textarea id="f-why" name="why" rows="2" placeholder="How you have used it, and that it still works"></textarea>
+    </div>
+
+    <p class="hint">
+      Not accepted: tools that sell or expose leaked or breached personal data or credentials, stalkerware and doxxing
+      services. <a href="/about#responsible-use">Listing policy</a>
+    </p>
+    <p class="hint warn-text" id="form-errors" hidden></p>
+    <button type="submit" class="button">Continue on GitHub ↗</button>
+    <p class="hint">
+      Prefer pull requests? See <a href={`${REPO}/blob/main/CONTRIBUTING.md`}>CONTRIBUTING.md</a>.
+    </p>
+  </form>
+</Base>
+
+<script is:inline type="application/json" id="listed-data" set:html={JSON.stringify(listed).replace(/</g, '\\u003c')} />
+<script is:inline type="application/json" id="repo-data" set:html={JSON.stringify(REPO)} />
+
+<script>
+  const form = document.getElementById('suggest') as HTMLFormElement;
+  const listed = JSON.parse(document.getElementById('listed-data')!.textContent!) as { name: string; url: string; slug: string }[];
+  const repo = JSON.parse(document.getElementById('repo-data')!.textContent!) as string;
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+
+  // Same idea as urlKey() in scripts/lib/data.mjs, enough to catch obvious duplicates before submitting.
+  const key = (u: string) => {
+    try {
+      const x = new URL(u.trim());
+      const host = x.hostname.replace(/^www\./, '').toLowerCase();
+      const parts = x.pathname.split('/').filter(Boolean);
+      return host === 'github.com' && parts.length >= 2 ? `github.com/${parts[0]}/${parts[1]}`.toLowerCase() : `${host}${x.pathname.replace(/\/+$/, '')}`.toLowerCase();
+    } catch {
+      return '';
+    }
+  };
+  const nameKey = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const byUrl = new Map(listed.map((t) => [key(t.url), t]));
+  const byName = new Map(listed.map((t) => [nameKey(t.name), t]));
+
+  function checkDuplicate() {
+    const hit = byUrl.get(key($<HTMLInputElement>('f-url').value)) ?? byName.get(nameKey($<HTMLInputElement>('f-name').value));
+    const warn = $('dup-warning');
+    warn.hidden = !hit || !$<HTMLInputElement>('f-url').value && !$<HTMLInputElement>('f-name').value;
+    if (hit) {
+      warn.replaceChildren('Looks like this is already listed: ');
+      const a = document.createElement('a');
+      a.href = `/tools/${hit.slug}`;
+      a.textContent = hit.name;
+      warn.append(a, '. Use "Report a problem" on its page if something is wrong.');
+    }
+  }
+  $('f-url').addEventListener('input', checkDuplicate);
+  $('f-name').addEventListener('input', checkDuplicate);
+  $('f-description').addEventListener('input', () => ($('desc-count').textContent = String($<HTMLTextAreaElement>('f-description').value.length)));
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const get = (k: string) => String(data.get(k) ?? '').trim();
+    const inputs = data.getAll('inputs').map(String);
+    const errors: string[] = [];
+    if (!get('name')) errors.push('Add the tool name.');
+    if (!/^https:\/\/\S+\.\S+/.test(get('url'))) errors.push('The URL must start with https://');
+    if (get('description').length < 20) errors.push('Write a description of at least 20 characters.');
+    if (!inputs.length) errors.push('Tick at least one input.');
+    if (!get('category')) errors.push('Choose a category.');
+    const box = $('form-errors');
+    box.hidden = errors.length === 0;
+    box.textContent = errors.join(' ');
+    if (errors.length) return;
+
+    // Parameter names are the field ids in .github/ISSUE_TEMPLATE/submit-tool.yml.
+    const params = new URLSearchParams({ template: 'submit-tool.yml', title: `Tool: ${get('name')}` });
+    for (const k of ['name', 'url', 'description', 'category', 'type', 'cost', 'passive', 'account', 'repo', 'install', 'notes', 'why']) {
+      if (get(k)) params.set(k, get(k));
+    }
+    params.set('inputs', inputs.join(', '));
+    window.open(`${repo}/issues/new?${params}`, '_blank', 'noopener,noreferrer');
+  });
+</script>

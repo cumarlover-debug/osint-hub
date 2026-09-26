@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Suggest a tool with the guided form
+    url: https://osinthub.pages.dev/submit
+    about: Dropdowns and checkboxes instead of typing values by hand. It opens this issue form pre-filled.
