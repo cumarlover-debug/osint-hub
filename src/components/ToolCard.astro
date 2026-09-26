@@ -8,7 +8,9 @@ interface Props {
 const { tool } = Astro.props;
 const { health } = tool;
 const stale = staleSince(tool);
-const searchText = [tool.name, tool.description, tool.category, ...(tool.tags ?? []), ...tool.inputs]
+// The name without spaces and the site's host too, so "haveibeenpwned" finds "Have I Been Pwned".
+const host = new URL(tool.url).hostname.replace(/^www\./, '');
+const searchText = [tool.name, tool.name.replace(/[^a-z0-9]/gi, ''), host, tool.description, tool.category, ...(tool.tags ?? []), ...tool.inputs]
   .join(' ')
   .toLowerCase();
 ---
