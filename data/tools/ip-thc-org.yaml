@@ -1,0 +1,10 @@
+name: ip.thc.org
+url: https://ip.thc.org/
+description: Unlimited free reverse DNS, subdomain and reverse CNAME lookups from The Hacker's Choice, with a JSON API.
+category: domain
+inputs: [ip, domain]
+outputs: [domain]
+type: web
+cost: free
+passive: true
+account_required: false

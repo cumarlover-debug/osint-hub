@@ -1,0 +1,10 @@
+name: GeoMacFinder bot
+url: https://t.me/geomacbot
+description: Telegram bot that looks up the location of a Wi-Fi access point from its MAC address (BSSID).
+category: network
+inputs: [wifi]
+outputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false

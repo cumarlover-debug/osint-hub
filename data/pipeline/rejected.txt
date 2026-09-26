@@ -287,3 +287,71 @@ https://www.windy.com/  # Windy (weather forecasts; Zoom Earth covers imagery), 
 https://worldmap.harvard.edu  # WorldMap Harvard (retired platform), 2026-09-26
 https://maps.yahoo.com  # Yahoo Maps (service shut down), 2026-09-26
 https://www.zeemaps.com  # Zeemaps (map-making or GIS product, not an investigation tool), 2026-09-26
+https://www.accuranker.com  # Accuranker (SEO or marketing product, out of scope), 2026-09-26
+https://www.bing.com/toolbox/webmaster  # Bing Webmaster Tools (for site owners only), 2026-09-26
+https://centralops.net  # Central Ops (same site as Domain Dossier, already listed), 2026-09-26
+https://dedicatedornot.com  # Dedicated or Not (now redirects to an unrelated IP site), 2026-09-26
+https://dnsai.com/dns-tools/  # DNSai (redundant; MxToolbox covers it), 2026-09-26
+https://www.dnsstuff.com  # DNSStuff (now a vendor marketing page), 2026-09-26
+https://oti-labs.com/domain-intelligence-api  # Domain Intelligence (paid API, not established), 2026-09-26
+https://kriztalz.sh/domain-recon/  # DomainRecon (redundant; Domain Dossier covers it), 2026-09-26
+https://reporterslab.org/  # Duke Reporters' Lab (research lab site, not a tool), 2026-09-26
+https://follow.net  # Follow.net (service closed), 2026-09-26
+https://telegram.me/getairplane_bot  # Getairplane (Telegram lookup bot likely backed by leaked personal data), 2026-09-26
+https://telegram.me/getchatlistbot  # getChatList (Telegram lookup bot likely backed by leaked personal data), 2026-09-26
+https://telegram.me/GetSendGiftsProBot  # GetSendGifts (Telegram gift tracker, little OSINT value), 2026-09-26
+https://kriztalz.sh/github-recon/  # GithubRecon (redundant; GitFive covers it), 2026-09-26
+https://app.graphystories.com  # GraphyStories (domain now an unrelated agency), 2026-09-26
+https://groupda.com/telegram/group/search  # GroupDa (Telegram group directory), 2026-09-26
+https://t.me/HimeraNeGBL8Pro1dp_Search_bot  # HimeraSearch (Telegram lookup bot likely backed by leaked personal data), 2026-09-26
+https://www.hypestat.com  # HypeStat (SEO or marketing product, out of scope), 2026-09-26
+https://imgur.com/search?q=  # Imgur (image host, not a tool), 2026-09-26
+https://t.me/ibhld_bot  # Insight (Telegram lookup bot likely backed by leaked personal data), 2026-09-26
+https://t.me/instaanonymbot  # InstaAnonym (redundant anonymous Instagram viewer), 2026-09-26
+https://telegram.me/InstaBot  # InstaBot (media downloader bot), 2026-09-26
+https://intodns.ai  # IntoDNS.ai (redundant; MxToolbox covers it), 2026-09-26
+https://ip2geolocation.com  # IP 2 Geolocation (redundant IP geolocation), 2026-09-26
+https://iplocation.io  # IP Location.io (redundant IP geolocation), 2026-09-26
+https://ip2geo.dev  # ip2geo.dev (geolocation API for developers), 2026-09-26
+https://ipok.io  # IPOK (redundant IP reputation checker), 2026-09-26
+https://t.me/osint_maigret_bot  # Maigret OSINT bot (Maigret itself is already listed), 2026-09-26
+https://majestic.com  # Majestic (SEO or marketing product, out of scope), 2026-09-26
+https://whois-webform.markmonitor.com/whois/  # Mark Monitor WHOIS (corporate registrar WHOIS form, redundant), 2026-09-26
+https://t.me/mnp_bot  # mnp_bot (redundant phone-operator lookup), 2026-09-26
+https://kerrick.github.io/Mostly-Harmless/#features  # Mostly Harmless (old, unmaintained extension), 2026-09-26
+https://t.me/MotherSearchBot  # MotherSearchBot (redundant; Telegago covers it), 2026-09-26
+https://t.me/noblackAuto_bot  # NEUROAUTOSEARCH (Telegram lookup bot likely backed by leaked personal data), 2026-09-26
+https://telegram.me/OkSearchBot  # OkSearch (redundant; Telegago covers it), 2026-09-26
+https://t.me/OpenDataUABot  # OpenDataUABot (unclear data sources), 2026-09-26
+https://t.me/OPENLOADTOPBOT  # OPENLOAD Bot (vulnerability-scanning bot, out of scope), 2026-09-26
+https://t.me/osintkit_check_bot  # Osintkit (Telegram lookup bot likely backed by leaked personal data (passport and tax-ID lookups)), 2026-09-26
+https://app.osintnova.com/  # OSINTNova (new AI platform, not established), 2026-09-26
+https://chromewebstore.google.com/detail/pinterest-pin-stats-sort/mcmkeopcpbfgjlakblglpcccpodbjkel  # Pinterest Pin Stats (marketing extension), 2026-09-26
+https://pushshift.io/  # Pushshift API (now restricted to Reddit moderators), 2026-09-26
+https://www.facebook.com/login/identify?ctx=recover  # Recover FB Account (same page as the Facebook account finder, already listed), 2026-09-26
+https://randomtools.io/reddit-comment-search/  # Reddit Comment Lookup (redundant; RedditMetis covers it), 2026-09-26
+https://redditcommentsearch.com/  # Reddit Comment Search (redundant; RedditMetis covers it), 2026-09-26
+https://chrome.google.com/webstore/detail/reddit-enhancement-suite/kbmfpngjjgdllneeigpgjifpgocmfgmb  # Reddit Suite (reading extension, not an investigation tool), 2026-09-26
+https://atomiks.github.io/reddit-user-analyser/  # Reddit User Analyser (redundant; RedditMetis covers it), 2026-09-26
+https://t.me/regdate_clone_bot  # RegDateBot (redundant; creationdatebot covers it), 2026-09-26
+https://relatedrepos.com/  # Related Repos (library recommendations, unrelated), 2026-09-26
+https://t.me/SangMata_beta_bot  # SangMata (beta) (duplicate of the SangMata bot), 2026-09-26
+https://t.me/SaveYoutubeBot  # SaveYoutubeBot (video downloader bot), 2026-09-26
+https://scanmalware.com  # ScanMalware (redundant; urlscan.io covers it), 2026-09-26
+https://t.me/Search_firm_bot  # Search_firm_bot (redundant company lookup bot), 2026-09-26
+https://telegram.me/searchforchatsbot  # Searchforchats (redundant; Telegago covers it), 2026-09-26
+https://t.me/ShtrafKZBot  # ShtrafKZBot (traffic fines for one country, too niche), 2026-09-26
+https://www.similarsites.com  # SimilarSites (SEO or marketing product, out of scope), 2026-09-26
+https://www.siteslike.com  # SitesLike (SEO or marketing product, out of scope), 2026-09-26
+https://www.stopfake.org/  # Stop Fake Tools (fact-check publication, not a lookup tool), 2026-09-26
+https://subdomainradar.io  # SubDomainRadar.io (service paused), 2026-09-26
+https://www.tiny-scan.com  # TinyScan (redundant; urlscan.io covers it), 2026-09-26
+https://kriztalz.sh/traceroute-visualizer/  # TracerouteVisualizer (visualises your own traceroute output), 2026-09-26
+https://vacato.io  # Vacato (domain availability alerts, out of scope), 2026-09-26
+https://vimeo.com  # Vimeo (video platform itself, not a tool), 2026-09-26
+https://webboar.com.w3snoop.com  # w3snoop (domain now an unrelated site), 2026-09-26
+https://webmeup.com  # WebMeUp (SEO or marketing product, out of scope), 2026-09-26
+https://garvit835.github.io/WebScore/  # Webscore (student project, not established), 2026-09-26
+https://whois.arin.net  # Whois Arin Online (duplicate of ARIN WHOIS), 2026-09-26
+https://yasiv.com/youtube/  # yasiv-youtube (related-video visualiser, little OSINT value), 2026-09-26
+https://www.youtube.com  # YouTube (video platform itself, not a tool), 2026-09-26

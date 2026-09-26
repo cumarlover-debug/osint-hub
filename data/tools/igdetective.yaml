@@ -1,0 +1,10 @@
+name: IGDetective
+url: https://www.igdetective.com
+description: 'Tracks a public Instagram account without logging in: recent follows and unfollows, stories and profile changes.'
+category: social-media
+inputs: [username]
+outputs: [social_profile, username]
+type: web
+cost: freemium
+passive: true
+account_required: false

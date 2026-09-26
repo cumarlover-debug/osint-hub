@@ -1,0 +1,10 @@
+name: URLhaus
+url: https://urlhaus.abuse.ch
+description: abuse.ch's database of URLs used to spread malware, with the payloads they delivered and when they were active.
+category: threat-intel
+inputs: [url, domain, ip, hash]
+outputs: [url, hash, reputation]
+type: web
+cost: free
+passive: true
+account_required: false

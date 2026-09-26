@@ -1,0 +1,10 @@
+name: Web-Check
+url: https://web-check.as93.net/
+description: 'Open-source all-in-one website report: IP, DNS, TLS, headers, cookies, tech stack, open ports and more.'
+category: domain
+inputs: [url, domain]
+outputs: [ip, dns_record, port_service]
+type: web
+cost: free
+passive: true
+account_required: false

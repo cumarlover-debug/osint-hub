@@ -1,0 +1,11 @@
+name: SSL Labs Server Test
+url: https://www.ssllabs.com/ssltest/
+description: Tests a server's TLS setup and shows its certificate chain, supported protocols and known weaknesses.
+category: domain
+inputs: [domain]
+outputs: [certificate]
+type: web
+cost: free
+passive: false
+account_required: false
+notes: Connects to the target server repeatedly. Tick "Do not show the results" to keep the test private.

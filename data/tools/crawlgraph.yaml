@@ -1,0 +1,10 @@
+name: CrawlGraph
+url: https://crawlgraph.com
+description: Shows which websites link to a domain, from the open Common Crawl web graph. Useful for mapping networks of related sites.
+category: domain
+inputs: [domain]
+outputs: [domain]
+type: web
+cost: free
+passive: true
+account_required: false

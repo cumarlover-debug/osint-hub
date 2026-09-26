@@ -1,0 +1,10 @@
+name: SteamReveal
+url: https://steam-reveal.vercel.app/en
+description: 'Open-source tool that analyses a public Steam profile: friends list and the locations that friends suggest.'
+category: social-media
+inputs: [username]
+outputs: [social_profile, location]
+type: web
+cost: free
+passive: true
+account_required: false

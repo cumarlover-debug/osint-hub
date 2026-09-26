@@ -1,0 +1,10 @@
+name: Netcraft Site Report
+url: https://sitereport.netcraft.com/
+description: 'Hosting history of a website: which providers and IPs it used over time, plus technologies and risk rating.'
+category: domain
+inputs: [domain, url]
+outputs: [ip, company, reputation]
+type: web
+cost: freemium
+passive: true
+account_required: false

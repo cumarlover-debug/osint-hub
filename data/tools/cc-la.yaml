@@ -1,0 +1,10 @@
+name: CC.LA
+url: https://cc.la
+description: Free WHOIS, RDAP, DNS and IP lookups with name server history and certificate details, no sign-up.
+category: domain
+inputs: [domain, ip]
+outputs: [dns_record, name, certificate]
+type: web
+cost: freemium
+passive: true
+account_required: false

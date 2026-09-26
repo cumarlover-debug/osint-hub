@@ -1,0 +1,30 @@
+name: MyTweetAlerts
+url: https://www.mytweetalerts.com/
+description: ''
+category: social-media
+inputs:
+  - username
+  - social_post
+type: web
+cost: freemium
+passive: true
+account_required: false
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: low
+  score: 3
+  source_url: https://www.mytweetalerts.com/
+  flags:
+    - 'cost: unknown, guessed freemium'
+    - 'account_required: unknown, guessed no'
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Social Media Tools > Twitter
+        said: A tool to create custom email alerts based on Twitter search.
+    page_title: 'Homepage - MyTweetAlerts : MyTweetAlerts'
+    page_description: ''
+  hold: true
+  hold_reason: depends on X/Twitter access; check by hand that it still works

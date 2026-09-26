@@ -1,0 +1,10 @@
+name: GHNames
+url: https://ghnames.com/
+description: 'Shows the history of a GitHub username: past accounts that used it, linked emails and deleted repositories.'
+category: social-media
+inputs: [username]
+outputs: [email, username]
+type: web
+cost: free
+passive: true
+account_required: false

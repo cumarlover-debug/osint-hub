@@ -1,0 +1,10 @@
+name: Validin
+url: https://app.validin.com/
+description: Free search of current and historical DNS, including which domains pointed to an IP and when.
+category: domain
+inputs: [domain, ip]
+outputs: [dns_record, domain, ip]
+type: web
+cost: freemium
+passive: true
+account_required: false

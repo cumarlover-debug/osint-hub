@@ -1,0 +1,10 @@
+name: HoneyLabs
+url: https://honeylabs.net
+description: 'Per-IP reports from a honeypot network: what it scanned for, which exploits it tried and its client fingerprints.'
+category: threat-intel
+inputs: [ip]
+outputs: [reputation]
+type: web
+cost: free
+passive: true
+account_required: false

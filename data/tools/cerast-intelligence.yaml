@@ -1,0 +1,10 @@
+name: Cerast Intelligence
+url: https://search.cerast-intelligence.com/
+description: 'Searches internet-wide scan findings for a domain: exposed admin panels, misconfigurations and leaked files.'
+category: domain
+inputs: [domain]
+outputs: [url, port_service]
+type: web
+cost: freemium
+passive: true
+account_required: false
