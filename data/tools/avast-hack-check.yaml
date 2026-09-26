@@ -1,0 +1,11 @@
+name: Avast Hack Check
+url: https://www.avast.com/hackcheck
+description: Checks whether an email address appears in known data breaches and can email you when it shows up in new ones.
+category: email
+inputs: [email]
+outputs: [breach]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [breaches]

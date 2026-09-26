@@ -18,7 +18,8 @@
     "aircraft": "Aircraft",
     "vessel": "Vessel",
     "wifi": "Wi-Fi / BSSID",
-    "hash": "File hash"
+    "hash": "File hash",
+    "password": "Password"
   },
   "categories": {
     "people": "People",

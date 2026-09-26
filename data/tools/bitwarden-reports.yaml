@@ -1,0 +1,12 @@
+name: Bitwarden reports
+url: https://bitwarden.com/help/reports/
+description: Bitwarden's vault reports check your logins against known breaches and flag exposed, reused or weak passwords.
+category: email
+inputs: [email, password]
+outputs: [breach]
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags: [breaches, passwords]
+notes: The data breach report for a username or email is free. The exposed-passwords and other vault health reports need Premium.

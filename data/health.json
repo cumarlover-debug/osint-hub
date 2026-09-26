@@ -6,6 +6,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "1password-watchtower": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "411-com": {
     "status": "up",
     "failures": 0,
@@ -170,6 +177,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "avast-hack-check": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "avtocod-bot": {
     "status": "up",
     "failures": 0,
@@ -246,6 +260,13 @@
     "reason": "HTTP 403 (bot protection)"
   },
   "bitref": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "bitwarden-reports": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -843,6 +864,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "f-secure-identity-theft-checker": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "facebook-account-finder-recovery-page": {
     "status": "up",
     "failures": 0,
@@ -942,6 +970,13 @@
     "last_ok": "2026-09-26"
   },
   "finnik": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "firefox-breach-alerts": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1154,6 +1189,13 @@
     "moved_to": "https://lens.google/"
   },
   "google-maps": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "google-password-checkup": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1700,6 +1742,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "mozilla-monitor": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 406,
+    "reason": "HTTP 406"
+  },
   "multirbl": {
     "status": "up",
     "failures": 0,
@@ -2085,6 +2134,13 @@
     "reason": "HTTP 403 (bot protection)"
   },
   "pulsedive": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "pwned-passwords": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",

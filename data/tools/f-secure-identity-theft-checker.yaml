@@ -1,0 +1,12 @@
+name: F-Secure Identity Theft Checker
+url: https://www.f-secure.com/en/identity-theft-checker
+description: Emails you a summary of the known data breaches an email address appears in, and what kinds of data each one exposed.
+category: email
+inputs: [email]
+outputs: [breach]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [breaches]
+notes: The results go to the address you check, so it only works for addresses you can read.
