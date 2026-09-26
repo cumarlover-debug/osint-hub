@@ -1,0 +1,10 @@
+name: username_to_id_bot
+url: https://t.me/username_to_id_bot
+description: Telegram bot that returns the permanent numeric ID of a user, group or channel, which survives username changes.
+category: social-media
+inputs: [username]
+outputs: [metadata]
+type: web
+cost: free
+passive: true
+account_required: false

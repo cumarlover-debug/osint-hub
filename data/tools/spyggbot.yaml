@@ -1,0 +1,10 @@
+name: SpyGGbot
+url: https://telegram.me/SpyGGbot
+description: Telegram bot showing TON wallet balances, NFT owners and who holds a given Fragment (Telegram) username.
+category: crypto
+inputs: [crypto_address, username]
+outputs: [crypto_address, username]
+type: web
+cost: freemium
+passive: true
+account_required: false

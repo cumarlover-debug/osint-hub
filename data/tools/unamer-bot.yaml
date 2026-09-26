@@ -1,0 +1,10 @@
+name: Unamer bot
+url: https://telegram.me/unamer_bot
+description: Telegram bot that shows which accounts have held a Telegram username over time.
+category: social-media
+inputs: [username]
+outputs: [username]
+type: web
+cost: free
+passive: true
+account_required: false

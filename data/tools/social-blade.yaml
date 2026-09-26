@@ -1,0 +1,10 @@
+name: Social Blade
+url: https://socialblade.com
+description: 'Growth history for YouTube, Twitch, Instagram and TikTok accounts: follower counts, uploads and past usernames over time.'
+category: social-media
+inputs: [username]
+outputs: [social_profile]
+type: web
+cost: freemium
+passive: true
+account_required: false

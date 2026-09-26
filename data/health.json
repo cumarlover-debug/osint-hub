@@ -2009,6 +2009,13 @@
       "pushed_at": "2026-01-12"
     }
   },
+  "social-blade": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "social-searcher": {
     "status": "up",
     "failures": 0,
@@ -2041,6 +2048,13 @@
       "archived": false,
       "pushed_at": "2026-04-13"
     }
+  },
+  "spyggbot": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "ssl-labs-server-test": {
     "status": "up",
@@ -2129,6 +2143,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "teleteg": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "tgstat": {
     "status": "up",
     "failures": 0,
@@ -2210,6 +2231,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "turibot": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "twilio-lookup": {
     "status": "up",
     "failures": 0,
@@ -2224,12 +2252,26 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "unamer-bot": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "uncoverit": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 429,
     "reason": "HTTP 429"
+  },
+  "universal-scammer-list": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "urldna": {
     "status": "up",
@@ -2279,6 +2321,13 @@
     }
   },
   "user-searcher": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "username-to-id-bot": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2516,6 +2565,13 @@
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "yougetsignal": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "youtube-data-tools": {
     "status": "up",

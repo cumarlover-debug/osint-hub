@@ -1,0 +1,10 @@
+name: Teleteg
+url: https://teleteg.com/
+description: Search engine for messages in public Telegram channels and groups, with a limited free plan.
+category: social-media
+inputs: [username, social_post]
+outputs: [social_post]
+type: web
+cost: freemium
+passive: true
+account_required: false
