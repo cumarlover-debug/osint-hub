@@ -8,6 +8,8 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: maigret {query}
+docker_template: docker run --rm soxoj/maigret:latest {query}
 repo: soxoj/maigret
 install: pip3 install maigret
 language: Python

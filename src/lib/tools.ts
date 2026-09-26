@@ -21,6 +21,8 @@ export interface Tool {
   passive: boolean;
   account_required: boolean;
   query_template?: QueryTemplate;
+  command_template?: string | Record<string, string>;
+  docker_template?: string | Record<string, string>;
   repo?: string;
   install?: string;
   language?: string;

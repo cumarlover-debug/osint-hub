@@ -20,6 +20,8 @@ export function GET() {
       passive: t.passive,
       account_required: t.account_required,
       ...(t.query_template && { query_template: t.query_template }),
+      ...(t.command_template && { command_template: t.command_template }),
+      ...(t.docker_template && { docker_template: t.docker_template }),
       ...(t.repo && { repo: t.repo }),
       ...(t.install && { install: t.install }),
       ...(t.notes && { notes: t.notes }),

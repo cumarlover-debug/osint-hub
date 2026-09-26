@@ -8,6 +8,8 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: dnstwist --registered {query}
+docker_template: docker run --rm elceef/dnstwist --registered {query}
 repo: elceef/dnstwist
 install: pipx install dnstwist
 language: Python

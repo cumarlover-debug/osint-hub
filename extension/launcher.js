@@ -1,6 +1,6 @@
 // The extension's launcher: same logic as https://osinthub.pages.dev/launch, but it opens tabs through the
 // extension API, so opening many at once is not limited by pop-up blocking.
-import { detect, launchable, MATCH_LABELS } from './lib/launcher.mjs';
+import { detect, launchable, commandsFor, commandTemplatesFor, MATCH_LABELS } from './lib/launcher.mjs';
 
 const API = 'https://osinthub.pages.dev/api/tools.json';
 const DAY = 86_400_000;
@@ -33,9 +33,46 @@ function el(tag, props = {}, ...children) {
   return node;
 }
 
+async function copy(text, button) {
+  const label = button.textContent;
+  try {
+    await navigator.clipboard.writeText(text);
+    button.textContent = 'Copied';
+  } catch {
+    button.textContent = 'Copy failed';
+  }
+  setTimeout(() => (button.textContent = label), 1500);
+}
+
+let currentCommands = [];
+function renderCommands(value) {
+  const useDocker = $('use-docker').checked;
+  const hasTools = value && type && data.tools.some((t) => type in commandTemplatesFor(t.command_template, t.inputs));
+  const { problem, rows } = hasTools ? commandsFor(data.tools, type, value, { shell: $('shell').value, includeActive: $('include-active').checked }) : { problem: '', rows: [] };
+  $('commands-section').hidden = !hasTools;
+  $('command-problem').hidden = !problem;
+  $('command-problem').textContent = problem ? `No commands: the value ${problem}.` : '';
+  currentCommands = rows.map((r) => (useDocker && r.docker ? r.docker : r.command));
+  $('commands').replaceChildren(
+    ...rows.map((r, i) => {
+      const btn = el('button', { type: 'button', className: 'linklike', textContent: 'Copy' });
+      btn.addEventListener('click', () => copy(currentCommands[i], btn));
+      return el(
+        'li',
+        {},
+        el('a', { href: `${data.site}/tools/${r.tool.slug}`, target: '_blank', rel: 'noopener noreferrer', textContent: r.tool.name, className: 'name' }),
+        el('code', { textContent: currentCommands[i] }),
+        btn,
+      );
+    }),
+  );
+}
+
 function render() {
   const value = $('value').value.trim();
-  const types = Object.keys(data.taxonomy.inputs).filter((t) => data.tools.some((tool) => launchable([tool], t, 'x', { includeActive: true }).length));
+  const types = Object.keys(data.taxonomy.inputs).filter((t) =>
+    data.tools.some((tool) => launchable([tool], t, 'x', { includeActive: true }).length || t in commandTemplatesFor(tool.command_template, tool.inputs)),
+  );
   if (!chosenByHand) type = detect(value).find((t) => types.includes(t)) ?? '';
 
   $('types').replaceChildren(
@@ -68,7 +105,8 @@ function render() {
     }),
   );
   $('bar').hidden = rows.length === 0;
-  $('message').textContent = !value ? '' : rows.length ? '' : 'No tool can search this type directly. Pick another type above.';
+  renderCommands(value);
+  $('message').textContent = !value || rows.length || !$('commands-section').hidden ? '' : 'No tool can search this type directly. Pick another type above.';
   updateCount();
 }
 
@@ -83,6 +121,10 @@ $('value').addEventListener('input', () => {
   render();
 });
 $('include-active').addEventListener('change', render);
+$('shell').value = /Windows/i.test(navigator.userAgent) ? 'powershell' : 'posix';
+$('shell').addEventListener('change', render);
+$('use-docker').addEventListener('change', render);
+$('copy-all').addEventListener('click', (e) => copy(currentCommands.join('\n'), e.currentTarget));
 $('results').addEventListener('change', updateCount);
 $('select-all').addEventListener('click', () => {
   for (const b of $('results').querySelectorAll('input:not(:disabled)')) b.checked = true;

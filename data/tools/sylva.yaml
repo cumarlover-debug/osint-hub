@@ -8,6 +8,7 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: sylva search {query}
 repo: ppfeister/sylva
 language: Python
 license: AGPL-3.0

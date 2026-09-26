@@ -8,6 +8,7 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: subfinder -d {query}
 repo: projectdiscovery/subfinder
 install: go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 language: Go

@@ -8,6 +8,7 @@ type: cli
 cost: free
 passive: false
 account_required: false
+command_template: nmap -sV {query}
 install: brew install nmap
 platforms: [linux, macos, windows]
 tags: [port-scanning, open-source]

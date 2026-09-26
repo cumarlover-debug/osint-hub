@@ -8,6 +8,7 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: checkip {query}
 repo: jreisinger/checkip
 install: go install github.com/jreisinger/checkip@latest
 language: Go

@@ -845,3 +845,64 @@ a.input-tag:hover {
     margin-right: 14px;
   }
 }
+
+/* Commands (Run on your machine) */
+.commands {
+  margin-top: 36px;
+}
+.commands h2 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+}
+.command-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  align-items: center;
+  margin: 12px 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.command-controls select {
+  margin-left: 6px;
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+.command-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.command-list:empty {
+  display: none;
+}
+.command-list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  align-items: center;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+}
+.command-list li:first-child {
+  border-top: 0;
+}
+.command-list .launch-name {
+  min-width: 150px;
+}
+.command-list code {
+  flex: 1 1 280px;
+  min-width: 0;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--code-bg);
+  font: 0.85rem var(--mono);
+  overflow-wrap: anywhere;
+}

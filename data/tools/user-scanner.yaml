@@ -8,6 +8,7 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: {username: 'user-scanner -u {query}', email: 'user-scanner -e {query}'}
 repo: kaifcodec/user-scanner
 language: Python
 license: MIT

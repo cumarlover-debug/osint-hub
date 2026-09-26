@@ -202,3 +202,47 @@ main {
   overflow: hidden;
   clip: rect(0 0 0 0);
 }
+#commands-section h2 {
+  margin: 20px 0 4px;
+  font-size: 1rem;
+}
+#commands-section select {
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.85rem;
+}
+#commands {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+}
+#commands:empty {
+  display: none;
+}
+#commands li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  align-items: center;
+  padding: 8px 12px;
+  border-top: 1px solid var(--border);
+}
+#commands li:first-child {
+  border-top: 0;
+}
+#commands code {
+  flex: 1 1 240px;
+  min-width: 0;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: var(--bg);
+  font: 0.8rem ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+  overflow-wrap: anywhere;
+}

@@ -8,9 +8,10 @@ type: cli
 cost: free
 passive: false
 account_required: false
+command_template: python3 cloudfail.py --target {query}
 repo: m0rtem/CloudFail
 language: Python
 license: MIT
 platforms: [linux, macos]
 tags: [cloudflare, open-source]
-notes: The subdomain brute force queries the target. Last updated 2024.
+notes: The subdomain brute force queries the target. Last updated 2024. Run the command from inside the cloned repository.

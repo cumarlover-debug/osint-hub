@@ -8,6 +8,7 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: holehe {query}
 repo: megadose/holehe
 install: pip3 install holehe
 language: Python

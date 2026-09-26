@@ -8,6 +8,7 @@ type: cli
 cost: free
 passive: true
 account_required: true
+command_template: ghunt email {query}
 repo: mxrch/GHunt
 install: pipx install ghunt
 language: Python
