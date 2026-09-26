@@ -1,0 +1,10 @@
+name: SangMata bot
+url: https://t.me/SangMataInfo_bot
+description: Telegram bot that shows the history of name and username changes for a Telegram account.
+category: social-media
+inputs: [username]
+outputs: [username, name]
+type: web
+cost: free
+passive: true
+account_required: false

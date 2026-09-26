@@ -1,0 +1,10 @@
+name: Webscout
+url: https://webscout.io/
+description: 'IP and domain intelligence: hosting, network owner, related domains and risk indicators.'
+category: domain
+inputs: [domain, ip]
+outputs: [company, domain, reputation]
+type: web
+cost: freemium
+passive: true
+account_required: false

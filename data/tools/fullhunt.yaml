@@ -1,0 +1,10 @@
+name: FullHunt
+url: https://fullhunt.io/
+description: Maps an organisation's internet-exposed hosts, subdomains, open ports and technologies from one domain.
+category: domain
+inputs: [domain]
+outputs: [domain, ip, port_service]
+type: web
+cost: freemium
+passive: true
+account_required: true

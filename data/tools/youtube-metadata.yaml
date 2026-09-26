@@ -1,0 +1,10 @@
+name: YouTube Metadata
+url: https://mattw.io/youtube-metadata/
+description: Shows all metadata for a YouTube video, playlist or channel, with exact upload time, geotag and links to reverse-search thumbnails.
+category: image-video
+inputs: [video, url]
+outputs: [metadata, location, image]
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,11 @@
+name: urlDNA
+url: https://urldna.io/
+description: Scans a URL in a sandboxed browser and records screenshots, requests, certificates and phishing indicators.
+category: domain
+inputs: [url, domain]
+outputs: [domain, ip, reputation]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Scanning makes the service visit the site.

@@ -1,0 +1,10 @@
+name: Focsec
+url: https://focsec.com
+description: Checks whether an IP belongs to a VPN, proxy, Tor exit or bot network.
+category: network
+inputs: [ip]
+outputs: [reputation]
+type: web
+cost: freemium
+passive: true
+account_required: false

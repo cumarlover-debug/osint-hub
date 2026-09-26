@@ -1,0 +1,10 @@
+name: ICANN Lookup
+url: https://lookup.icann.org/en/lookup
+description: ICANN's official registration data lookup (RDAP) for any domain, straight from the registry and registrar.
+category: domain
+inputs: [domain]
+outputs: [name, email]
+type: web
+cost: free
+passive: true
+account_required: false

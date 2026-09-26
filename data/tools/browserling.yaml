@@ -1,0 +1,10 @@
+name: Browserling
+url: https://www.browserling.com
+description: Opens a suspicious link in a real browser running on a remote machine, so it never touches your own computer.
+category: domain
+inputs: [url]
+outputs: [url]
+type: web
+cost: freemium
+passive: true
+account_required: false

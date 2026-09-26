@@ -1,0 +1,10 @@
+name: digga
+url: https://digga.dev
+description: 'Open-source domain research toolkit: DNS, RDAP/WHOIS, passive subdomains, IP and ASN data, and mail security in one report.'
+category: domain
+inputs: [domain, ip]
+outputs: [dns_record, domain, ip]
+type: web
+cost: free
+passive: true
+account_required: false

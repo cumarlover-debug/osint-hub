@@ -1,0 +1,10 @@
+name: YouTube Data Tools
+url: https://ytdt.digitalmethods.net/
+description: Research tool that exports data about YouTube channels, videos and comments and maps networks of related channels.
+category: image-video
+inputs: [video, username]
+outputs: [social_profile, social_post]
+type: web
+cost: free
+passive: true
+account_required: false

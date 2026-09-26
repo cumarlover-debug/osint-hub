@@ -1,0 +1,30 @@
+name: Predicta Search
+url: https://predictasearch.com
+description: ''
+category: social-media
+inputs:
+  - username
+  - social_post
+type: web
+cost: freemium
+passive: true
+account_required: false
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: low
+  score: 3
+  source_url: https://predictasearch.com
+  flags:
+    - 'cost: unknown, guessed freemium'
+    - 'account_required: unknown, guessed no'
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Real-Time Search, Social Media Search, and General Social Media Tools
+        said: Search for social accounts with e-mail and phone
+    page_title: Reverse email, phone number, username or name lookup - Predicta Search
+    page_description: Search 510+ social networks from a single email, phone number, username, or name. Predicta Search reveals the full digital footprint of any identity in one click.
+  hold: true
+  hold_reason: waiting on the people-search policy decision (reverse email, phone and name lookup)

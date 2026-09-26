@@ -21,3 +21,6 @@ https://developers.google.com/safe-browsing/?csw=1  # now https://transparencyre
 https://www.wireshark.org/download.html  # now https://www.wireshark.org/ (wireshark)
 https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh/  # now https://chromewebstore.google.com/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh (frame-by-frame)
 https://www.brightcloud.com/tools/url-ip-lookup.php  # now https://support.threatintel.opentext.com/tools/url-ip-lookup.php (brightcloud-url-ip-lookup)
+https://toolbar.netcraft.com/site_report?url=undefined#last_reboot  # now https://sitereport.netcraft.com/ (netcraft-site-report)
+https://osint-steam.vercel.app/en  # now https://steam-reveal.vercel.app/en (steamreveal)
+https://tools.digitalmethods.net/netvizz/youtube/  # now https://ytdt.digitalmethods.net/ (youtube-data-tools)

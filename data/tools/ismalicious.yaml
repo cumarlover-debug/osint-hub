@@ -1,0 +1,10 @@
+name: isMalicious
+url: https://ismalicious.com
+description: Checks IPs, domains, emails and crypto wallets against many threat feeds and gives a reputation verdict.
+category: threat-intel
+inputs: [ip, domain, email, crypto_address]
+outputs: [reputation]
+type: web
+cost: freemium
+passive: true
+account_required: false

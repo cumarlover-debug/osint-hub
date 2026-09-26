@@ -1,0 +1,10 @@
+name: PullPush
+url: https://pullpush.io/
+description: Search archive of Reddit posts and comments, including many that were later deleted or removed.
+category: social-media
+inputs: [username, social_post]
+outputs: [social_post]
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,10 @@
+name: CompleteDNS DNS History
+url: https://completedns.com/dns-history/
+description: Shows the name server history of a domain, revealing past hosting providers and ownership changes.
+category: domain
+inputs: [domain]
+outputs: [dns_record]
+type: web
+cost: freemium
+passive: true
+account_required: false

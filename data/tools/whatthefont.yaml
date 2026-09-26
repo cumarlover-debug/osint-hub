@@ -1,0 +1,10 @@
+name: WhatTheFont
+url: https://www.myfonts.com/pages/whatthefont
+description: Identifies a font from an image against a catalogue of over 200,000 fonts.
+category: image-video
+inputs: [image]
+outputs: [metadata]
+type: web
+cost: free
+passive: true
+account_required: false
