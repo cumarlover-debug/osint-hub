@@ -1,0 +1,10 @@
+name: RedditMetis
+url: https://redditmetis.com/
+description: 'Summarises a Reddit account''s activity: most active subreddits, posting times, top posts and words that hint at location or interests.'
+category: social-media
+inputs: [username]
+outputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false

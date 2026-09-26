@@ -1,0 +1,10 @@
+name: Wappalyzer
+url: https://www.wappalyzer.com/
+description: Identifies the technologies a website uses. Its free browser extension works on any page you visit.
+category: domain
+inputs: [url, domain]
+outputs: [domain]
+type: web
+cost: freemium
+passive: true
+account_required: true

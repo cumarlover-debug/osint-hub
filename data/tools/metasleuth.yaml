@@ -1,0 +1,10 @@
+name: MetaSleuth
+url: https://metasleuth.io/
+description: Traces crypto funds across 13+ chains as a graph, including heuristics for following money through mixers.
+category: crypto
+inputs: [crypto_address]
+outputs: [crypto_address, company]
+type: web
+cost: freemium
+passive: true
+account_required: true

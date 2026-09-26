@@ -1,0 +1,10 @@
+name: LittleSis
+url: https://littlesis.org/
+description: 'Maps ties between powerful people and organisations: board seats, donations, lobbying and family links, with sources.'
+category: business
+inputs: [name, company]
+outputs: [name, company]
+type: web
+cost: free
+passive: true
+account_required: false

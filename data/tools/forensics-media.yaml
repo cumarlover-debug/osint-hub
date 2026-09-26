@@ -1,0 +1,10 @@
+name: forensics.media
+url: https://forensics.media/tools/
+description: 'In-browser photo forensics: metadata viewer, error level analysis, clone and double-compression detection. Nothing is uploaded.'
+category: metadata
+inputs: [image]
+outputs: [metadata]
+type: web
+cost: free
+passive: true
+account_required: false

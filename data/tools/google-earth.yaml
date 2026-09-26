@@ -1,0 +1,10 @@
+name: Google Earth
+url: https://earth.google.com/web/
+description: Google's 3D globe with measuring tools and a timelapse. The desktop version (Google Earth Pro) also shows historical imagery by date.
+category: geolocation
+inputs: [location]
+outputs: [location, image]
+type: web
+cost: free
+passive: true
+account_required: false

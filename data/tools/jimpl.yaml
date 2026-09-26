@@ -1,0 +1,11 @@
+name: Jimpl
+url: https://jimpl.com/
+description: Online EXIF viewer that shows when and where a photo was taken and can strip the metadata from it.
+category: metadata
+inputs: [image]
+outputs: [metadata, location]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: The image is uploaded to their server; use an offline tool for sensitive photos.

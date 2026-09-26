@@ -1,0 +1,11 @@
+name: GeoSpy
+url: https://geospy.ai/
+description: AI that estimates where a photo was taken from what is visible in it, such as architecture, vegetation and road markings.
+category: geolocation
+inputs: [image]
+outputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: true
+notes: Aimed at law enforcement and government customers; check the current access terms.

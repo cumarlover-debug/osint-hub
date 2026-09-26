@@ -63,6 +63,7 @@ export const slugify = (name) =>
   name
     .normalize('NFKD')
     .toLowerCase()
+    .replace(/['’]/g, '') // "Jotti's" → "jottis", not "jotti-s"
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
     .slice(0, 40) || 'tool';

@@ -1,0 +1,10 @@
+name: Email Permutator
+url: https://www.polished.app/email-permutator/
+description: Generates every likely email address for a person from their name and company domain, ready to check with a verifier.
+category: email
+inputs: [name, domain]
+outputs: [email]
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,10 @@
+name: HackerTarget Reverse DNS
+url: https://hackertarget.com/reverse-dns-lookup/
+description: Finds the hostnames of an IP address, or of a whole IP range at once, from reverse DNS records.
+category: network
+inputs: [ip]
+outputs: [domain]
+type: web
+cost: freemium
+passive: true
+account_required: false

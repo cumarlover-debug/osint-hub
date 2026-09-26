@@ -1,0 +1,10 @@
+name: Website Informer
+url: https://website.informer.com
+description: 'One-page summary of a website: owner WHOIS, hosting IP, DNS, traffic estimate and similar sites.'
+category: domain
+inputs: [domain, url]
+outputs: [ip, name, domain]
+type: web
+cost: free
+passive: true
+account_required: false

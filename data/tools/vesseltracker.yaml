@@ -1,0 +1,10 @@
+name: VesselTracker
+url: https://www.vesseltracker.com/
+description: Live ship tracking from terrestrial and satellite AIS, with vessel details and port calls.
+category: transport
+inputs: [vessel]
+outputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false

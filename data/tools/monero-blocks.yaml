@@ -1,0 +1,9 @@
+name: Monero Blocks
+url: https://moneroblocks.info/
+description: Monero block explorer for looking up blocks, transactions and payment IDs.
+category: crypto
+inputs: [crypto_address]
+type: web
+cost: free
+passive: true
+account_required: false

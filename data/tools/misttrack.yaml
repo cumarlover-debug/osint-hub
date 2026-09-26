@@ -1,0 +1,10 @@
+name: MistTrack
+url: https://misttrack.io/
+description: Crypto anti-money-laundering tracer from SlowMist with hundreds of millions of labelled addresses and a risk score per address.
+category: crypto
+inputs: [crypto_address]
+outputs: [crypto_address, reputation, company]
+type: web
+cost: freemium
+passive: true
+account_required: true

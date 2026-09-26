@@ -1,0 +1,9 @@
+name: VinDecodr
+url: https://vindecodr.com/
+description: Free VIN decoder returning make, model, year, engine and open recalls.
+category: transport
+inputs: [vehicle]
+type: web
+cost: free
+passive: true
+account_required: false

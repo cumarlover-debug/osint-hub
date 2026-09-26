@@ -1,0 +1,31 @@
+# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
+# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
+name: SpyDialer
+url: https://www.spydialer.com:443/default.aspx
+description: ''
+category: phone
+inputs: [phone]
+type: web
+cost: freemium
+passive: true
+account_required: true
+
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: high
+  score: 8
+  source_url: https://www.spydialer.com:443/default.aspx
+  flags: []
+  notes:
+    sources:
+      - list: osint-framework
+        section: Telephone Numbers
+        said: Reverse phone lookup platform with caller intelligence and voicemail-related lookup features.
+    framework_input: Phone number
+    framework_output: Identity clues, carrier/location context, and related lookup data
+    page_title: Free Phone Number Lookup | SpyDialer
+    page_description: >-
+      Spy Dialer is a free phone number lookup with no charge, no sign-up. Run a reverse phone lookup on any
+      cell, landline, or VOIP number instantly.

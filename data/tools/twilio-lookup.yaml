@@ -1,0 +1,11 @@
+name: Twilio Lookup
+url: https://www.twilio.com/lookup
+description: Developer API that returns a phone number's carrier, line type and, in some countries, the registered caller name.
+category: phone
+inputs: [phone]
+outputs: [name, company]
+type: api
+cost: paid
+passive: true
+account_required: true
+notes: Needs a Twilio developer account; lookups are billed per request.
