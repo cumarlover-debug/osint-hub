@@ -1,0 +1,12 @@
+name: Aperi'Solve
+url: https://www.aperisolve.com/
+description: Runs steganography and metadata tools on an uploaded image, including zsteg, binwalk, steghide and ExifTool.
+category: metadata
+inputs:
+  - image
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - steganography

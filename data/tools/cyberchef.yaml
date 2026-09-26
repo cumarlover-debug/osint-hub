@@ -1,0 +1,17 @@
+name: CyberChef
+url: https://gchq.github.io/CyberChef/
+description: GCHQ's browser toolkit for decoding, encoding, converting and analysing data, from Base64 to timestamps to hashes.
+category: metadata
+inputs:
+  - keyword
+  - hash
+  - document
+type: web
+cost: free
+passive: true
+account_required: false
+repo: gchq/CyberChef
+tags:
+  - encoding
+  - open-source
+notes: Runs entirely in your browser; your data is not uploaded.

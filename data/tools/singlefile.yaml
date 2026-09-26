@@ -1,0 +1,14 @@
+name: SingleFile
+url: https://github.com/gildas-lormeau/SingleFile
+description: Browser extension that saves a complete web page, with images and styles, as a single HTML file.
+category: archives
+inputs:
+  - url
+type: extension
+cost: free
+passive: true
+account_required: false
+repo: gildas-lormeau/SingleFile
+tags:
+  - evidence-capture
+  - open-source

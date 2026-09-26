@@ -1,0 +1,11 @@
+name: JetPhotos
+url: https://www.jetphotos.com/
+description: Large archive of aircraft photos, searchable by registration, airline or airport.
+category: transport
+inputs:
+  - aircraft
+  - image
+type: web
+cost: free
+passive: true
+account_required: false

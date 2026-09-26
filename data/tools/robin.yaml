@@ -1,0 +1,21 @@
+name: Robin
+url: https://github.com/apurvsinghgautam/robin
+description: Uses an AI model to refine dark-web search queries, filter the results and summarise what it finds.
+category: search
+inputs:
+  - keyword
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: apurvsinghgautam/robin
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - tor
+  - ai
+  - open-source
+notes: 'Needs Tor and an AI model API key. Results can include criminal forums: review them with care.'

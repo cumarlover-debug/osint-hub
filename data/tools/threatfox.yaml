@@ -1,0 +1,16 @@
+name: ThreatFox
+url: https://threatfox.abuse.ch/
+description: abuse.ch database of indicators (IPs, domains, URLs, hashes) linked to malware families.
+category: threat-intel
+inputs:
+  - ip
+  - domain
+  - url
+  - hash
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://threatfox.abuse.ch/browse.php?search=ioc%3A{query}
+tags:
+  - ioc

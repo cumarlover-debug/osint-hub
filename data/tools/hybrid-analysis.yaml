@@ -1,0 +1,16 @@
+name: Hybrid Analysis
+url: https://www.hybrid-analysis.com/
+description: 'Free public malware sandbox: submit a file or URL, or search existing reports by hash.'
+category: threat-intel
+inputs:
+  - hash
+  - document
+  - url
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - malware
+  - sandbox
+notes: Submissions are public. Do not upload confidential files.

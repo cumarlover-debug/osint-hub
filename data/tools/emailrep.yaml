@@ -1,0 +1,11 @@
+name: EmailRep
+url: https://emailrep.io/
+description: 'Scores the reputation of an email address: how old it is, where it appears and whether it looks suspicious.'
+category: email
+inputs:
+  - email
+type: api
+cost: freemium
+passive: true
+account_required: true
+notes: Run by Sublime Security. The API needs a free key.

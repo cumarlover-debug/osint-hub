@@ -1,0 +1,23 @@
+name: Pyktok
+url: https://github.com/dfreelon/pyktok
+description: Python library for downloading TikTok videos with their metadata and comments, built for research.
+category: social-media
+inputs:
+  - video
+  - social_post
+outputs:
+  - metadata
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: dfreelon/pyktok
+install: pip install pyktok
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - open-source
+notes: Used from Python code, not as a standalone command.

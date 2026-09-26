@@ -32,8 +32,8 @@ const usage = [
   ...Object.entries(commandTemplatesFor(tool.command_template, tool.inputs)),
   ...Object.entries(commandTemplatesFor(tool.docker_template, tool.inputs)),
 ].map(([input, t]) => t.split('{query}').join(placeholder(input)));
-// People search and face recognition get a standard responsible-use notice.
-const sensitive = tool.category === 'people' || !!tool.tags?.includes('face-recognition');
+// People search, face recognition and tools that surface an individual's contact details get a responsible-use notice.
+const sensitive = tool.category === 'people' || !!tool.tags?.some((t) => t === 'face-recognition' || t === 'personal-data');
 const repo = health?.repo;
 const statusText = { up: 'Online', down: 'Unreachable', unverified: 'Could not verify' };
 const stale = staleSince(tool);

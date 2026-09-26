@@ -1,0 +1,14 @@
+name: Search by Image
+url: https://github.com/dessant/search-by-image
+description: Browser extension that sends an image to more than 30 reverse image search engines at once.
+category: image-video
+inputs:
+  - image
+type: extension
+cost: free
+passive: true
+account_required: false
+repo: dessant/search-by-image
+tags:
+  - reverse-image-search
+  - open-source

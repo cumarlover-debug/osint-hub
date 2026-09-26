@@ -1,0 +1,14 @@
+name: 2GIS
+url: https://2gis.ru/
+description: Detailed city maps and business directory for Russia, Central Asia and the Gulf, down to building entrances.
+category: geolocation
+inputs:
+  - location
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - maps
+  - regional

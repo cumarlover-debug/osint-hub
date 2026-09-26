@@ -1,0 +1,19 @@
+name: Sherloq
+url: https://github.com/GuidoBartoli/sherloq
+description: 'Open-source image forensics toolkit: error level analysis, clone detection, noise analysis and metadata.'
+category: image-video
+inputs:
+  - image
+type: desktop
+cost: free
+passive: true
+account_required: false
+repo: GuidoBartoli/sherloq
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - image-forensics
+  - open-source

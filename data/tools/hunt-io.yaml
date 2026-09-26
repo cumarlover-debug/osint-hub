@@ -1,0 +1,13 @@
+name: Hunt.io
+url: https://hunt.io/
+description: Tracks attacker infrastructure such as command-and-control servers and malicious hosting, searchable by IP or domain.
+category: threat-intel
+inputs:
+  - ip
+  - domain
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags:
+  - c2

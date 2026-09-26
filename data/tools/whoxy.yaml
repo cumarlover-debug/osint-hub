@@ -1,0 +1,20 @@
+name: Whoxy
+url: https://www.whoxy.com/
+description: Current and historical WHOIS records, plus reverse WHOIS to find other domains registered by the same person or company.
+category: domain
+inputs:
+  - domain
+  - email
+  - name
+  - company
+outputs:
+  - domain
+type: web
+cost: freemium
+passive: true
+account_required: false
+query_template:
+  domain: https://www.whoxy.com/{query}
+tags:
+  - whois
+  - reverse-whois

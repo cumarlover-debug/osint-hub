@@ -1,0 +1,12 @@
+name: AirNav Radar
+url: https://www.airnavradar.com/
+description: Flight tracker (formerly RadarBox) with live positions, playback and airport data.
+category: transport
+inputs:
+  - aircraft
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - flight-tracking

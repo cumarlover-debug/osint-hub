@@ -1,0 +1,15 @@
+name: SEC EDGAR Full-Text Search
+url: https://www.sec.gov/edgar/search/
+description: Full-text search of US company filings since 2001, to find every mention of a person, company or phrase.
+category: business
+inputs:
+  - company
+  - name
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://www.sec.gov/edgar/search/#/q={query}
+tags:
+  - government-records

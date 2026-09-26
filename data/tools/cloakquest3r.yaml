@@ -1,0 +1,21 @@
+name: CloakQuest3r
+url: https://github.com/spyboy-productions/CloakQuest3r
+description: Tries to uncover the real origin IP of a website hidden behind Cloudflare, using historical records and subdomains.
+category: network
+inputs:
+  - domain
+outputs:
+  - ip
+type: cli
+cost: free
+passive: false
+account_required: false
+repo: spyboy-productions/CloakQuest3r
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - open-source
+notes: Sends requests to candidate IPs.

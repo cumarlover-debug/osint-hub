@@ -1,0 +1,14 @@
+name: ProPublica Nonprofit Explorer
+url: https://projects.propublica.org/nonprofits/
+description: US nonprofit tax filings (Form 990), including revenue, executives and their pay.
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://projects.propublica.org/nonprofits/search?q={query}
+tags:
+  - government-records

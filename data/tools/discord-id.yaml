@@ -1,0 +1,12 @@
+name: Discord.id
+url: https://discord.id/
+description: Looks up a Discord user ID to show the account's creation date, username and avatar.
+category: social-media
+inputs:
+  - username
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - discord

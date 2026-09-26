@@ -1,0 +1,13 @@
+name: Google Ads Transparency Center
+url: https://adstransparency.google.com/
+description: Shows the ads a verified advertiser runs across Google Search, YouTube and other Google services.
+category: business
+inputs:
+  - company
+  - domain
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - ads

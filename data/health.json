@@ -20,6 +20,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "2gis": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "2lingual": {
     "status": "up",
     "failures": 0,
@@ -76,12 +83,40 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "adsb-fi": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "african-journals-online": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "ahmia": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "airnav-radar": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "airplanes-live": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "alienvault-otx": {
     "status": "up",
@@ -177,6 +212,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "aperisolve": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "apollo-io": {
     "status": "up",
     "failures": 0,
@@ -199,6 +241,13 @@
     "last_ok": "2026-09-26"
   },
   "archive-today": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "arctic-shift": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -232,6 +281,14 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "auto-archiver": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
   },
   "autodna-vin-lookup": {
     "status": "unverified",
@@ -307,6 +364,13 @@
       "archived": false,
       "pushed_at": "2026-09-26"
     }
+  },
+  "bellingcat-osm-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "better-business-bureau": {
     "status": "unverified",
@@ -580,6 +644,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "cert-spotter": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "certgraph": {
     "status": "up",
     "failures": 0,
@@ -639,6 +710,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "circl-hashlookup": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "cisco-talos-intelligence-center": {
     "status": "up",
     "failures": 0,
@@ -652,6 +730,21 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "clearsky": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "cloakquest3r": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
   },
   "cloudfail": {
     "status": "up",
@@ -669,6 +762,13 @@
     "reason": "HTTP 403 (bot protection)"
   },
   "code-finder": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "common-crawl-index": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -697,6 +797,13 @@
     "last_ok": "2026-09-26"
   },
   "completedns-dns-history": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "copernicus-browser": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -759,6 +866,14 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "crosslinked": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "crt-sh": {
     "status": "up",
     "failures": 0,
@@ -779,6 +894,14 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "cyberchef": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
   },
   "daily-dns-changes": {
     "status": "up",
@@ -802,6 +925,13 @@
     "last_ok": "2026-09-26"
   },
   "dcode": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "debank": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -836,6 +966,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "discord-history-tracker": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
+  "discord-id": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "dnsdumpster": {
     "status": "unverified",
     "failures": 0,
@@ -843,6 +988,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-26"
+  },
+  "dnshistory": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "dnslytics": {
     "status": "up",
@@ -983,6 +1135,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "emailrep": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "epicvin": {
     "status": "up",
     "failures": 0,
@@ -996,6 +1155,13 @@
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403"
+  },
+  "equasis": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "esri-world-imagery-wayback": {
     "status": "up",
@@ -1102,6 +1268,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "faa-aircraft-registry": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403"
+  },
   "facebook-account-finder-recovery-page": {
     "status": "up",
     "failures": 0,
@@ -1151,6 +1324,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "fastpeoplesearch": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "faxvin": {
     "status": "up",
     "failures": 0,
@@ -1179,6 +1359,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "feodo-tracker": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "filescan-io": {
     "status": "up",
     "failures": 0,
@@ -1199,6 +1386,14 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "finalrecon": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
   },
   "find-a-grave": {
     "status": "unverified",
@@ -1264,6 +1459,13 @@
     "last_ok": "2026-09-26"
   },
   "flickr-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "flightaware": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1367,6 +1569,14 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "gau": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "genealogybank": {
     "status": "unverified",
     "failures": 0,
@@ -1375,6 +1585,13 @@
     "reason": "HTTP 405"
   },
   "geoguessr": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "geohints": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1442,6 +1659,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "ghostarchive": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "ghunt": {
     "status": "up",
     "failures": 0,
@@ -1480,7 +1704,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "gleif-lei-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "global-fishing-watch": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "google-ads-transparency-center": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1670,6 +1908,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "hive-ai-detection": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "hivemapper": {
     "status": "up",
     "failures": 0,
@@ -1710,7 +1955,29 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "host-io": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "httpx": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "hunchly": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "hunt-io": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1732,6 +1999,13 @@
     "last_ok": "2026-09-26"
   },
   "hurricane-electric-bgp-toolkit": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "hybrid-analysis": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1780,6 +2054,14 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "ignorant": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "imgops": {
     "status": "up",
     "failures": 0,
@@ -1788,6 +2070,13 @@
     "last_ok": "2026-09-26"
   },
   "immuniweb": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "importyeti": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1822,12 +2111,35 @@
     "http": 403,
     "reason": "HTTP 403"
   },
+  "instaloader": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "instant-street-view": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "instant-username-search": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "intelowl": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
   },
   "internet-archive-search": {
     "status": "up",
@@ -1865,6 +2177,13 @@
     "reason": "timeout"
   },
   "ip2whois": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "ipinfo": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -1912,6 +2231,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "jetphotos": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "jimpl": {
     "status": "up",
@@ -1982,6 +2308,13 @@
     }
   },
   "kagi": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "kakao-map": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2079,6 +2412,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "lyzem": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "maigret": {
     "status": "up",
     "failures": 0,
@@ -2091,7 +2431,22 @@
       "pushed_at": "2026-09-25"
     }
   },
+  "mailcat": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "malpedia": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "malshare": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2140,12 +2495,27 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "mapy-com": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "marinetraffic": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "marple": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
   },
   "masscan": {
     "status": "up",
@@ -2173,12 +2543,26 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "mempool-space": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "merklemap": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "meta-ad-library": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403"
   },
   "metadata2go": {
     "status": "up",
@@ -2207,6 +2591,13 @@
     }
   },
   "metasleuth": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "meteostat": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2247,6 +2638,14 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "mitaka": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
   },
   "mitre-attack-groups": {
     "status": "up",
@@ -2323,6 +2722,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "myshiptracking": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "najdi-si": {
     "status": "up",
     "failures": 0,
@@ -2345,6 +2751,20 @@
     "reason": "HTTP 403 (bot protection)"
   },
   "namescan": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "nasa-firms": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "nasa-worldview": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2468,6 +2888,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "north-data": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "nsopw": {
     "status": "up",
     "failures": 0,
@@ -2482,6 +2909,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "numlookup": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "octosuite": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "odin": {
     "status": "up",
     "failures": 0,
@@ -2495,6 +2937,21 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "oklink": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "oletools": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
   },
   "onion-lookup": {
     "status": "up",
@@ -2538,7 +2995,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "open-supply-hub": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "open-syllabus": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "openaerialmap": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2558,6 +3029,14 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "opencti": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
   },
   "openrailwaymap": {
     "status": "up",
@@ -2586,6 +3065,13 @@
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "opensky-network": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "openstreetmap": {
     "status": "up",
@@ -2620,6 +3106,14 @@
       "pushed_at": "2026-09-14"
     }
   },
+  "osmedeus": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "overpass-turbo": {
     "status": "up",
     "failures": 0,
@@ -2641,6 +3135,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "pappers": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "pdf-tools-didier-stevens": {
     "status": "up",
     "failures": 0,
@@ -2652,6 +3153,20 @@
       "archived": false,
       "pushed_at": "2026-09-23"
     }
+  },
+  "pdsls": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "peakvisor": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
   },
   "peeringdb": {
     "status": "up",
@@ -2775,6 +3290,20 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "planespotters-net": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "plonkit": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "pr-newswire": {
     "status": "up",
     "failures": 0,
@@ -2811,6 +3340,13 @@
     "last_ok": "2026-09-26"
   },
   "project-honey-pot": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "propublica-nonprofit-explorer": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2859,6 +3395,14 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "pyktok": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "quicksand": {
     "status": "up",
     "failures": 0,
@@ -2867,6 +3411,20 @@
     "last_ok": "2026-09-26"
   },
   "qwant": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "radaris": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "ransomware-live": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -2891,6 +3449,14 @@
       "archived": false,
       "pushed_at": "2024-11-01"
     }
+  },
+  "reconftw": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
   },
   "redditmetis": {
     "status": "up",
@@ -2919,6 +3485,21 @@
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "reveddit": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "robin": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
   },
   "robtex": {
     "status": "up",
@@ -2969,6 +3550,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "scamalytics": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "scamdb": {
     "status": "up",
     "failures": 0,
@@ -2989,6 +3577,14 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "search-by-image": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
   },
   "search-ch": {
     "status": "up",
@@ -3046,6 +3642,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "sec-edgar-full-text-search": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403"
+  },
   "securitytrails": {
     "status": "unverified",
     "failures": 0,
@@ -3054,6 +3657,13 @@
     "reason": "HTTP 403 (bot protection)"
   },
   "seznam": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "shademap": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -3086,6 +3696,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "sherloq": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
+  "shipspotting": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "shodan": {
     "status": "unverified",
     "failures": 0,
@@ -3100,6 +3725,14 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "singlefile": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
   },
   "skyfi": {
     "status": "up",
@@ -3121,6 +3754,14 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "sn0int": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
   },
   "snoop": {
     "status": "up",
@@ -3167,6 +3808,14 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "socid-extractor": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "sogou": {
     "status": "up",
     "failures": 0,
@@ -3180,6 +3829,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "solscan": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "soovle": {
     "status": "up",
@@ -3228,6 +3884,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "spur": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 429,
+    "reason": "HTTP 429"
+  },
   "spydialer": {
     "status": "up",
     "failures": 0,
@@ -3256,7 +3919,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "steamid-io": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "steamreveal": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "subdomain-center": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -3362,6 +4039,29 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "telegram-phone-number-checker": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
+  "telemetr-io": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "telepathy-community": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "teleteg": {
     "status": "up",
     "failures": 0,
@@ -3430,6 +4130,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "threatfox": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "tib-portal": {
     "status": "up",
     "failures": 0,
@@ -3445,6 +4152,21 @@
     "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-26"
   },
+  "tonviewer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "tookie-osint": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "tosint": {
     "status": "up",
     "failures": 0,
@@ -3456,6 +4178,14 @@
       "archived": false,
       "pushed_at": "2026-07-29"
     }
+  },
+  "toutatis": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
   },
   "trace-labs-osint-vm": {
     "status": "up",
@@ -3497,12 +4227,33 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "triage": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "tronscan": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "truecaller": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "truepeoplesearch": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "turibot": {
     "status": "up",
@@ -3512,6 +4263,13 @@
     "last_ok": "2026-09-26"
   },
   "tweeterid": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "tweetfeed": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -3552,6 +4310,14 @@
     "last_checked": "2026-09-26",
     "http": 429,
     "reason": "HTTP 429"
+  },
+  "unfurl": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
   },
   "unicourt": {
     "status": "unverified",
@@ -3705,6 +4471,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "violation-tracker": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "virustotal": {
     "status": "up",
     "failures": 0,
@@ -3719,6 +4492,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "vortimo": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "voterrecords": {
     "status": "unverified",
     "failures": 0,
@@ -3727,6 +4507,13 @@
     "reason": "HTTP 403 (bot protection)"
   },
   "walletexplorer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "walletlabels": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -3865,6 +4652,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "who-posted-what": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
   "whocalld": {
     "status": "up",
     "failures": 0,
@@ -3873,6 +4667,20 @@
     "last_ok": "2026-09-26"
   },
   "whoisology": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "whoisxml-api": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "whoxy": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
@@ -4067,6 +4875,13 @@
     "last_ok": "2026-09-26"
   },
   "zarebin": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-26",
+    "http": 200,
+    "last_ok": "2026-09-26"
+  },
+  "zefix": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",

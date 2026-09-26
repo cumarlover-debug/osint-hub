@@ -1,0 +1,18 @@
+name: FAA Aircraft Registry
+url: https://registry.faa.gov/aircraftinquiry/
+description: 'Official US registry: look up an N-number for the registered owner, aircraft type and status.'
+category: transport
+inputs:
+  - aircraft
+  - name
+outputs:
+  - name
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+query_template:
+  aircraft: https://registry.faa.gov/AircraftInquiry/Search/NNumberResult?nNumberTxt={query}
+tags:
+  - government-records

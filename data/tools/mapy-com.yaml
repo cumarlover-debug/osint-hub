@@ -1,0 +1,12 @@
+name: Mapy.com
+url: https://mapy.com/
+description: Czech map service with detailed European outdoor maps, aerial imagery and street-level panoramas.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - maps

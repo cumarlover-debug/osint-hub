@@ -1,0 +1,13 @@
+name: Solscan
+url: https://solscan.io/
+description: Solana explorer for accounts, tokens and transfers.
+category: crypto
+inputs:
+  - crypto_address
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - solana
+  - blockchain-explorer

@@ -1,0 +1,18 @@
+name: Mitaka
+url: https://github.com/ninoseki/mitaka
+description: 'Browser extension: select an IP, domain, URL, hash or wallet on any page and search it in dozens of services.'
+category: threat-intel
+inputs:
+  - ip
+  - domain
+  - url
+  - hash
+  - crypto_address
+type: extension
+cost: free
+passive: true
+account_required: false
+repo: ninoseki/mitaka
+tags:
+  - ioc
+  - open-source

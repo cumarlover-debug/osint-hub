@@ -1,0 +1,11 @@
+name: Common Crawl Index
+url: https://index.commoncrawl.org/
+description: Searches Common Crawl's index of captured pages for a URL or domain, with capture dates.
+category: archives
+inputs:
+  - url
+  - domain
+type: web
+cost: free
+passive: true
+account_required: false

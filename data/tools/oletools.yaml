@@ -1,0 +1,22 @@
+name: oletools
+url: https://github.com/decalage2/oletools
+description: Analyses Microsoft Office files for macros, embedded objects, metadata and other signs of malice.
+category: metadata
+inputs:
+  - document
+outputs:
+  - metadata
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: decalage2/oletools
+install: pipx install oletools
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - malware
+  - open-source

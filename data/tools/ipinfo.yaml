@@ -1,0 +1,11 @@
+name: IPinfo
+url: https://ipinfo.io/
+description: Shows an IP address's location, network (ASN), company and whether it is a VPN, proxy or hosting address.
+category: network
+inputs:
+  - ip
+type: web
+cost: freemium
+passive: true
+account_required: false
+query_template: https://ipinfo.io/{query}

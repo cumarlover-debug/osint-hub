@@ -1,0 +1,21 @@
+name: Auto Archiver
+url: https://github.com/bellingcat/auto-archiver
+description: Bellingcat pipeline that archives social media posts and web pages, with screenshots, hashes and timestamps.
+category: archives
+inputs:
+  - url
+  - social_post
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: bellingcat/auto-archiver
+install: pipx install auto-archiver
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - evidence-capture
+  - open-source

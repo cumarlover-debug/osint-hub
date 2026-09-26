@@ -1,0 +1,12 @@
+name: airplanes.live
+url: https://globe.airplanes.live/
+description: Unfiltered community flight tracker with a free API.
+category: transport
+inputs:
+  - aircraft
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - flight-tracking

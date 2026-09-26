@@ -1,0 +1,13 @@
+name: WhoisXML API
+url: https://whoisxmlapi.com/
+description: APIs and lookups for current and historical WHOIS, DNS, IP netblocks and subdomains.
+category: domain
+inputs:
+  - domain
+  - ip
+type: api
+cost: freemium
+passive: true
+account_required: true
+tags:
+  - whois

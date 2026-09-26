@@ -1,0 +1,22 @@
+name: socid-extractor
+url: https://github.com/soxoj/socid-extractor
+description: Extracts account IDs, linked usernames and other profile fields from a social media profile page.
+category: social-media
+inputs:
+  - url
+outputs:
+  - username
+type: cli
+cost: free
+passive: true
+account_required: false
+command_template: socid_extractor --url {query}
+repo: soxoj/socid-extractor
+install: pipx install socid-extractor
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - open-source

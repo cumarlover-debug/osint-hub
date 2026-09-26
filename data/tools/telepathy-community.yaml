@@ -1,0 +1,23 @@
+name: Telepathy Community
+url: https://github.com/prose-intelligence-ltd/Telepathy-Community
+description: Archives Telegram chats and channels, and maps their members and where messages were forwarded from.
+category: social-media
+inputs:
+  - username
+  - social_post
+outputs:
+  - username
+type: cli
+cost: free
+passive: true
+account_required: true
+repo: prose-intelligence-ltd/Telepathy-Community
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - telegram
+  - open-source
+notes: Needs your own Telegram API credentials.

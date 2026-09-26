@@ -1,0 +1,13 @@
+name: Tronscan
+url: https://tronscan.org/
+description: TRON blockchain explorer, essential for tracing USDT sent on TRON.
+category: crypto
+inputs:
+  - crypto_address
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - tron
+  - blockchain-explorer

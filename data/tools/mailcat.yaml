@@ -1,0 +1,21 @@
+name: Mailcat
+url: https://github.com/sharsil/mailcat
+description: Finds existing email addresses for a username across dozens of mail providers.
+category: email
+inputs:
+  - username
+outputs:
+  - email
+type: cli
+cost: free
+passive: true
+account_required: false
+command_template: python mailcat.py {query}
+repo: sharsil/mailcat
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - open-source

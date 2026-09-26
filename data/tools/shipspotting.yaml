@@ -1,0 +1,11 @@
+name: ShipSpotting
+url: https://www.shipspotting.com/
+description: Archive of ship photos, searchable by name or IMO number.
+category: transport
+inputs:
+  - vessel
+  - image
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,18 @@
+name: Unfurl
+url: https://hindsig.ht/unfurl/
+description: Breaks a URL into its parts and decodes what is hidden in it, such as timestamps and IDs in X, TikTok, Discord and search-engine links.
+category: metadata
+inputs:
+  - url
+  - social_post
+outputs:
+  - metadata
+type: web
+cost: free
+passive: true
+account_required: false
+repo: RyanDFIR/unfurl
+tags:
+  - timestamps
+  - open-source
+notes: 'Also available as a Python package: pip install dfir-unfurl'

@@ -1,0 +1,15 @@
+name: SteamID.io
+url: https://steamid.io/
+description: Converts a Steam profile URL or ID into every Steam ID format, for pivoting to other tools.
+category: social-media
+inputs:
+  - username
+  - url
+type: web
+cost: free
+passive: true
+account_required: false
+query_template:
+  username: https://steamid.io/lookup/{query}
+tags:
+  - gaming

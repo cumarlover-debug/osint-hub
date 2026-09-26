@@ -1,0 +1,15 @@
+name: TweetFeed
+url: https://tweetfeed.live/
+description: Collects indicators of compromise that security researchers share on X, searchable and downloadable.
+category: threat-intel
+inputs:
+  - ip
+  - domain
+  - url
+  - hash
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - ioc

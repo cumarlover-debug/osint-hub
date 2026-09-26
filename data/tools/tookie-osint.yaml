@@ -1,0 +1,21 @@
+name: Tookie-OSINT
+url: https://github.com/Alfredredbird/tookie-osint
+description: Username search across many sites, with a web interface, proxy support and exportable results.
+category: social-media
+inputs:
+  - username
+outputs:
+  - social_profile
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: Alfredredbird/tookie-osint
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - username-enumeration
+  - open-source

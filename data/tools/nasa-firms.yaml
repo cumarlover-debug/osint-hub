@@ -1,0 +1,12 @@
+name: NASA FIRMS
+url: https://firms.modaps.eosdis.nasa.gov/map/
+description: Near-real-time map of fires and heat anomalies detected by satellites, useful for verifying strikes and burning.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - satellite-imagery

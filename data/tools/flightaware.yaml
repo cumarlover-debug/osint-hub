@@ -1,0 +1,13 @@
+name: FlightAware
+url: https://www.flightaware.com/
+description: Live and historical flight tracking by flight number or aircraft registration.
+category: transport
+inputs:
+  - aircraft
+type: web
+cost: freemium
+passive: true
+account_required: false
+query_template: https://www.flightaware.com/live/flight/{query}
+tags:
+  - flight-tracking

@@ -1,0 +1,13 @@
+name: Telemetr.io
+url: https://telemetr.io/
+description: Searches Telegram channels and posts, with subscriber growth and mentions between channels.
+category: social-media
+inputs:
+  - keyword
+  - username
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - telegram

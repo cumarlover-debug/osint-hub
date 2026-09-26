@@ -1,0 +1,12 @@
+name: Violation Tracker
+url: https://violationtracker.goodjobsfirst.org/
+description: Searches penalties and enforcement actions against US companies, from federal and state agencies.
+category: business
+inputs:
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - enforcement

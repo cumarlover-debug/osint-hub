@@ -1,0 +1,12 @@
+name: Instant Username Search
+url: https://instantusername.com/
+description: Checks, as you type, whether a username is taken on hundreds of social networks and sites.
+category: social-media
+inputs:
+  - username
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - username-enumeration

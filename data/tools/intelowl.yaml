@@ -1,0 +1,22 @@
+name: IntelOwl
+url: https://github.com/intelowlproject/IntelOwl
+description: Self-hosted platform that runs an IP, domain, URL, hash or file through more than 100 analysers and threat-intel sources at once.
+category: frameworks
+inputs:
+  - ip
+  - domain
+  - url
+  - hash
+  - document
+type: desktop
+cost: free
+passive: true
+account_required: false
+repo: intelowlproject/IntelOwl
+language: Python
+platforms:
+  - linux
+tags:
+  - self-hosted
+  - open-source
+notes: Runs with Docker. Many analysers need their own API keys.

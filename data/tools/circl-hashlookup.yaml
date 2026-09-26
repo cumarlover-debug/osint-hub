@@ -1,0 +1,12 @@
+name: CIRCL hashlookup
+url: https://hashlookup.circl.lu/
+description: Checks whether a file hash belongs to a known, legitimate file (NSRL and other sets), to rule files out quickly.
+category: threat-intel
+inputs:
+  - hash
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - known-good
