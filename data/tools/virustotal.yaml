@@ -8,6 +8,6 @@ type: web
 cost: freemium
 passive: true
 account_required: false
-query_template: https://www.virustotal.com/gui/search/{query}
+query_template: {hash: 'https://www.virustotal.com/gui/search/{query}', url: 'https://www.virustotal.com/gui/search/{query}', domain: 'https://www.virustotal.com/gui/search/{query}', ip: 'https://www.virustotal.com/gui/search/{query}'}
 tags: [malware, reputation]
 notes: Uploaded files are shared with security vendors and paying customers. Never upload a sensitive file; search its hash instead.

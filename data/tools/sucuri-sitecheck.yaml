@@ -8,3 +8,4 @@ type: web
 cost: free
 passive: false
 account_required: false
+query_template: {domain: 'https://sitecheck.sucuri.net/results/{query}'}

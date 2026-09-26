@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import ToolCard from '../../components/ToolCard.astro';
 import { tools, taxonomy, inputLabel, isInputKey, toolsTaking, staleSince, type Tool } from '../../lib/tools';
+import { templatesFor } from '../../lib/launcher';
 
 export function getStaticPaths() {
   return tools.map((tool) => ({ params: { slug: tool.slug }, props: { tool } }));
@@ -20,6 +21,8 @@ const similar = tools
   .slice(0, 6);
 
 const { health } = tool;
+const templates = templatesFor(tool.query_template, tool.inputs);
+const searchInputs = Object.keys(templates);
 // People search and face recognition get a standard responsible-use notice.
 const sensitive = tool.category === 'people' || !!tool.tags?.includes('face-recognition');
 const repo = health?.repo;
@@ -112,15 +115,24 @@ const exampleInput = tool.inputs[0];
     </section>
 
     {
-      tool.query_template && (
+      searchInputs.length > 0 && (
         <section class="panel">
           <h2>Search {tool.name} directly</h2>
-          <p class="hint">Opens {tool.name} in a new tab. Your search goes straight from your browser to {tool.name}, not through this site.</p>
-          <form class="launcher" data-template={tool.query_template}>
-            <label class="visually-hidden" for="launch-q">{inputLabel(exampleInput)}</label>
-            <input id="launch-q" type="text" required placeholder={`Enter ${inputLabel(exampleInput).toLowerCase()}`} autocomplete="off" />
+          <p class="hint">
+            Opens {tool.name} in a new tab. Your search goes straight from your browser to {tool.name}, not through this
+            site. To search many tools at once, use the <a href="/launch">launcher</a>.
+          </p>
+          <form class="launcher" data-templates={JSON.stringify(templates)}>
+            {searchInputs.length > 1 && (
+              <select aria-label="What are you searching for?">
+                {searchInputs.map((i) => <option value={i}>{inputLabel(i)}</option>)}
+              </select>
+            )}
+            <label class="visually-hidden" for="launch-q">Value to search</label>
+            <input id="launch-q" type="text" required placeholder={`Enter ${inputLabel(searchInputs[0]).toLowerCase()}`} autocomplete="off" />
             <button type="submit" class="button">Search ↗</button>
           </form>
+          <p class="hint launcher-error" hidden></p>
         </section>
       )
     }
@@ -180,13 +192,28 @@ const exampleInput = tool.inputs[0];
 </Base>
 
 <script>
+  import { applies, buildLink, MATCH_LABELS, type Template } from '../../lib/launcher';
+
   for (const form of document.querySelectorAll<HTMLFormElement>('.launcher')) {
+    const templates = JSON.parse(form.dataset.templates!) as Record<string, Template>;
+    const select = form.querySelector('select');
+    const input = form.querySelector('input')!;
+    const error = form.nextElementSibling as HTMLElement;
+    select?.addEventListener('change', () => {
+      input.placeholder = `Enter ${select.selectedOptions[0].text.toLowerCase()}`;
+    });
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const value = form.querySelector('input')!.value.trim();
+      const value = input.value.trim();
+      const template = templates[select?.value ?? Object.keys(templates)[0]];
       if (!value) return;
-      const url = form.dataset.template!.replace('{query}', encodeURIComponent(value));
-      window.open(url, '_blank', 'noopener,noreferrer');
+      if (!applies(template, value)) {
+        error.textContent = `This search only works with ${MATCH_LABELS[template.match!]}.`;
+        error.hidden = false;
+        return;
+      }
+      error.hidden = true;
+      window.open(buildLink(template, value), '_blank', 'noopener,noreferrer');
     });
   }
   for (const btn of document.querySelectorAll<HTMLButtonElement>('.copy')) {

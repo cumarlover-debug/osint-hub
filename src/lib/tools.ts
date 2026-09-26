@@ -1,6 +1,7 @@
 import yaml from 'js-yaml';
 import taxonomy from '../../data/taxonomy.json';
 import health from '../../data/health.json';
+import type { QueryTemplate } from './launcher';
 
 export type InputKey = keyof typeof taxonomy.inputs;
 export type CategoryKey = keyof typeof taxonomy.categories;
@@ -19,7 +20,7 @@ export interface Tool {
   cost: CostKey;
   passive: boolean;
   account_required: boolean;
-  query_template?: string;
+  query_template?: QueryTemplate;
   repo?: string;
   install?: string;
   language?: string;

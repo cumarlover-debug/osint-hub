@@ -8,3 +8,4 @@ type: web
 cost: free
 passive: true
 account_required: true
+query_template: {ip: 'https://otx.alienvault.com/indicator/ip/{query}', domain: 'https://otx.alienvault.com/indicator/domain/{query}', hash: 'https://otx.alienvault.com/indicator/file/{query}'}

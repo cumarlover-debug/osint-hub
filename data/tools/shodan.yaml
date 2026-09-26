@@ -8,6 +8,6 @@ type: web
 cost: freemium
 passive: true
 account_required: true
-query_template: https://www.shodan.io/search?query={query}
+query_template: {ip: 'https://www.shodan.io/host/{query}', domain: 'https://www.shodan.io/search?query=hostname%3A{query}'}
 tags: [attack-surface, iot]
 notes: A free account is needed to search. Search filters and the API need a paid membership.

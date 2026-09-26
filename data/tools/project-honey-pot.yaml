@@ -8,3 +8,4 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template: {ip: {url: 'https://www.projecthoneypot.org/ip_{query}', match: ipv4}}

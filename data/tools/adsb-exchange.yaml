@@ -8,4 +8,5 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template: https://globe.adsbexchange.com/?reg={query}
 tags: [flights]

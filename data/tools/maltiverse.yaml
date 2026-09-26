@@ -8,3 +8,4 @@ type: web
 cost: freemium
 passive: true
 account_required: true
+query_template: {ip: 'https://maltiverse.com/ip/{query}', domain: 'https://maltiverse.com/hostname/{query}', hash: 'https://maltiverse.com/sample/{query}'}

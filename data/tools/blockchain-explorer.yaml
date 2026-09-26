@@ -8,5 +8,5 @@ type: web
 cost: free
 passive: true
 account_required: false
-query_template: https://www.blockchain.com/explorer/addresses/btc/{query}
+query_template: {crypto_address: {url: 'https://www.blockchain.com/explorer/addresses/btc/{query}', match: btc}}
 tags: [bitcoin, blockchain]

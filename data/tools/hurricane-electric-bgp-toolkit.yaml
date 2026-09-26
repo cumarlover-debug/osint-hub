@@ -8,3 +8,4 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template: {domain: 'https://bgp.he.net/dns/{query}', ip: 'https://bgp.he.net/ip/{query}'}

@@ -8,5 +8,5 @@ type: web
 cost: free
 passive: true
 account_required: false
-query_template: https://etherscan.io/address/{query}
+query_template: {crypto_address: {url: 'https://etherscan.io/address/{query}', match: eth}}
 tags: [ethereum, blockchain]

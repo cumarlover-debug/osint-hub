@@ -507,3 +507,88 @@ a.input-tag:hover {
   margin: 0 0 12px;
   color: var(--muted);
 }
+
+/* Launcher */
+.launch-controls {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.launch-controls .hint {
+  margin: 0;
+}
+#detected span {
+  color: var(--text);
+  font-weight: 600;
+}
+.launch-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.launch-bar[hidden] {
+  display: none;
+}
+.button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.linklike {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.launch-list {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.launch-list:empty {
+  display: none;
+}
+.launch-list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+}
+.launch-list li:first-child {
+  border-top: 0;
+}
+.launch-name {
+  color: var(--text);
+  font-weight: 500;
+  text-decoration: none;
+}
+.launch-badges {
+  display: flex;
+  flex: 1;
+  gap: 6px;
+}
+.launch-open {
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.muted-row {
+  opacity: 0.55;
+}
+.launcher select {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}

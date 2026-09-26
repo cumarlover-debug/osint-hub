@@ -8,3 +8,4 @@ type: web
 cost: freemium
 passive: true
 account_required: true
+query_template: {ip: 'https://search.criminalip.io/asset/report/{query}'}

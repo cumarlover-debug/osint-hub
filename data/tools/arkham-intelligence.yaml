@@ -8,3 +8,4 @@ type: web
 cost: freemium
 passive: true
 account_required: true
+query_template: {crypto_address: 'https://arkm.com/explorer/address/{query}'}

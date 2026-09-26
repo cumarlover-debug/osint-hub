@@ -17,6 +17,16 @@ export const paths = {
 
 export const taxonomy = JSON.parse(readFileSync(join(root, 'data/taxonomy.json'), 'utf8'));
 
+const templateUrl = { type: 'string', pattern: '^https://.*\\{query\\}' };
+
+/** Value formats a query template can be limited to. Kept in sync with src/lib/launcher.ts. */
+export const MATCHERS = {
+  eth: '^0x[0-9a-fA-F]{40}$',
+  btc: '^(bc1[02-9ac-hj-np-z]{11,71}|[13][1-9A-HJ-NP-Za-km-z]{25,34})$',
+  ipv4: '^(\\d{1,3}\\.){3}\\d{1,3}$',
+  vin: '^[A-HJ-NPR-Z0-9]{17}$',
+};
+
 const schema = {
   type: 'object',
   additionalProperties: false,
@@ -33,7 +43,29 @@ const schema = {
     cost: { enum: Object.keys(taxonomy.costs) },
     passive: { type: 'boolean' },
     account_required: { type: 'boolean' },
-    query_template: { type: 'string', pattern: '^https://.*\\{query\\}' },
+    // Either one search URL for every input, or one per input type. A per-input entry can be limited to one value
+    // format with `match` (see MATCHERS), e.g. Etherscan only takes Ethereum addresses.
+    query_template: {
+      oneOf: [
+        templateUrl,
+        {
+          type: 'object',
+          minProperties: 1,
+          propertyNames: { enum: Object.keys(taxonomy.inputs) },
+          additionalProperties: {
+            oneOf: [
+              templateUrl,
+              {
+                type: 'object',
+                additionalProperties: false,
+                required: ['url', 'match'],
+                properties: { url: templateUrl, match: { enum: Object.keys(MATCHERS) } },
+              },
+            ],
+          },
+        },
+      ],
+    },
     repo: { type: 'string', pattern: '^[\\w.-]+/[\\w.-]+$' },
     install: { type: 'string' },
     language: { type: 'string' },
@@ -53,6 +85,10 @@ export function toolErrors(tool) {
   if (!ajvValidate(tool)) return ajvValidate.errors.map((e) => `${e.instancePath || '(root)'} ${e.message}`);
   const errors = [];
   if (tool.type === 'cli' && !tool.repo && !tool.install) errors.push('CLI tools need a repo or install command');
+  if (tool.query_template && typeof tool.query_template === 'object') {
+    for (const input of Object.keys(tool.query_template))
+      if (!tool.inputs.includes(input)) errors.push(`query_template has "${input}", which is not one of the tool's inputs`);
+  }
   return errors;
 }
 

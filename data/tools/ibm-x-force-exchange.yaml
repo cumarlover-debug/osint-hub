@@ -8,3 +8,4 @@ type: web
 cost: freemium
 passive: true
 account_required: true
+query_template: {ip: 'https://exchange.xforce.ibmcloud.com/ip/{query}', domain: 'https://exchange.xforce.ibmcloud.com/url/{query}', hash: 'https://exchange.xforce.ibmcloud.com/malware/{query}'}
