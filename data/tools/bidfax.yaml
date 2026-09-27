@@ -1,0 +1,12 @@
+name: Bidfax
+url: https://bidfax.info/
+description: Copart and IAAI auction history with photos, by VIN.
+category: transport
+inputs:
+  - vehicle
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - vin

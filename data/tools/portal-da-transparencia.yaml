@@ -1,0 +1,15 @@
+name: Portal da Transparência
+url: https://portaldatransparencia.gov.br/
+description: Brazilian federal spending, contracts, sanctioned companies and public-servant data.
+category: business
+inputs:
+  - company
+  - name
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - procurement
+  - regional

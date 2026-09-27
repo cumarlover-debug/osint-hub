@@ -1,0 +1,14 @@
+name: Annuaire des Entreprises
+url: https://annuaire-entreprises.data.gouv.fr/
+description: French government lookup of every registered company, with its officers, legal filings and establishments.
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - government-records
+  - regional

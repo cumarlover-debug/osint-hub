@@ -1,0 +1,19 @@
+name: DiscordChatExporter
+url: https://github.com/Tyrrrz/DiscordChatExporter
+description: Exports Discord channels and DMs to HTML, JSON or CSV for preservation.
+category: archives
+inputs:
+  - social_post
+type: desktop
+cost: free
+passive: true
+account_required: true
+repo: Tyrrrz/DiscordChatExporter
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - discord
+  - open-source
+notes: Uses your own Discord token, which is against Discord terms for user accounts.

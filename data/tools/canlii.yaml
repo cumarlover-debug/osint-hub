@@ -1,0 +1,14 @@
+name: CanLII
+url: https://www.canlii.org/
+description: Canadian case law and legislation from federal and provincial courts.
+category: research
+inputs:
+  - name
+  - company
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - court-records

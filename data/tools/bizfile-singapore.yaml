@@ -1,0 +1,13 @@
+name: Bizfile (Singapore)
+url: https://www.bizfile.gov.sg/
+description: Singapore ACRA entity search; basic details are free, business profiles are paid.
+category: business
+inputs:
+  - company
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - government-records
+  - regional

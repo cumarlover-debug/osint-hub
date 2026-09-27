@@ -1,0 +1,13 @@
+name: RuPEP
+url: https://rupep.org/en/
+description: Database of Russian and Belarusian politically exposed persons, their relatives and business ties.
+category: people
+inputs:
+  - name
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - pep

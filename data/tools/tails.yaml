@@ -1,0 +1,13 @@
+name: Tails
+url: https://tails.net/
+description: Live operating system that runs from a USB stick, leaves no trace and routes everything through Tor.
+category: opsec
+inputs:
+  - keyword
+type: desktop
+cost: free
+passive: true
+account_required: false
+tags:
+  - opsec
+  - tor

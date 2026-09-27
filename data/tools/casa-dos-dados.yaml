@@ -1,0 +1,12 @@
+name: Casa dos Dados
+url: https://casadosdados.com.br/
+description: Brazilian company search by name or CNPJ, with partners and registration details.
+category: business
+inputs:
+  - company
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - regional

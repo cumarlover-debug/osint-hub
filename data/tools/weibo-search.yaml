@@ -1,0 +1,14 @@
+name: Weibo Search
+url: https://s.weibo.com/
+description: Sina Weibo's own search of posts and users.
+category: social-media
+inputs:
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: true
+tags:
+  - weibo
+  - regional
+notes: Results are limited without a login.

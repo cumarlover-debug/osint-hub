@@ -1,0 +1,15 @@
+name: Kenya Law
+url: https://new.kenyalaw.org/
+description: Kenya's official judgments, legislation and Kenya Gazette.
+category: research
+inputs:
+  - name
+  - company
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - court-records
+  - regional

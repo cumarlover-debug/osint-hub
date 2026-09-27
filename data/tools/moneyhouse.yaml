@@ -1,0 +1,14 @@
+name: Moneyhouse
+url: https://www.moneyhouse.ch/
+description: Swiss company and officer profiles built from commercial-register publications.
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: freemium
+passive: true
+account_required: false
+query_template: https://www.moneyhouse.ch/en/search?q={query}
+tags:
+  - regional

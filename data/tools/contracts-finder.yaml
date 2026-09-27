@@ -1,0 +1,13 @@
+name: Contracts Finder
+url: https://www.contractsfinder.service.gov.uk/
+description: UK public-sector contract opportunities and awards.
+category: business
+inputs:
+  - company
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - procurement

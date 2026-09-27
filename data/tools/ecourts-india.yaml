@@ -1,0 +1,14 @@
+name: eCourts India
+url: https://ecourts.gov.in/
+description: Case status, orders and judgments from Indian district and high courts.
+category: research
+inputs:
+  - name
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - court-records
+  - regional

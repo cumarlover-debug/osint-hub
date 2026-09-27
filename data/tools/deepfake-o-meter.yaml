@@ -1,0 +1,13 @@
+name: Deepfake-o-meter
+url: https://zinc.cse.buffalo.edu/ubmdfl/deep-o-meter/
+description: University at Buffalo platform that runs several open deepfake detectors on your upload.
+category: image-video
+inputs:
+  - image
+  - video
+type: web
+cost: free
+passive: true
+account_required: true
+tags:
+  - ai-detection

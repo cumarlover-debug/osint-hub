@@ -1,0 +1,14 @@
+name: Kohesio
+url: https://kohesio.ec.europa.eu/
+description: Projects and beneficiaries funded by EU cohesion policy.
+category: business
+inputs:
+  - company
+  - keyword
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - grants

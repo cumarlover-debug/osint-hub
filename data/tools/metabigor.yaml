@@ -1,0 +1,19 @@
+name: Metabigor
+url: https://github.com/j3ssie/metabigor
+description: Maps an organisation's networks (ASNs and IP ranges) and related data without needing API keys.
+category: network
+inputs:
+  - company
+  - ip
+  - domain
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: j3ssie/metabigor
+language: Go
+platforms:
+  - linux
+  - macos
+tags:
+  - open-source

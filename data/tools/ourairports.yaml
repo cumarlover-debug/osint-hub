@@ -1,0 +1,11 @@
+name: OurAirports
+url: https://ourairports.com/
+description: Open data on airports, runways and navigation aids worldwide.
+category: transport
+inputs:
+  - location
+  - aircraft
+type: web
+cost: free
+passive: true
+account_required: false

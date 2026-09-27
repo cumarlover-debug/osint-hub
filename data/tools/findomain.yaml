@@ -1,0 +1,20 @@
+name: Findomain
+url: https://github.com/Findomain/Findomain
+description: Fast subdomain enumeration from certificate transparency logs and other public sources.
+category: domain
+inputs:
+  - domain
+type: cli
+cost: freemium
+passive: true
+account_required: false
+command_template: findomain -t {query}
+repo: Findomain/Findomain
+language: Rust
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - subdomains
+  - open-source

@@ -1,0 +1,13 @@
+name: Justia Dockets
+url: https://dockets.justia.com/
+description: Free index of US federal court dockets, by party name.
+category: research
+inputs:
+  - name
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - court-records

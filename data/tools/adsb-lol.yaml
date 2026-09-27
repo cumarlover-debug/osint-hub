@@ -1,0 +1,12 @@
+name: ADSB.lol
+url: https://adsb.lol/
+description: Unfiltered community ADS-B flight tracker with an open API.
+category: transport
+inputs:
+  - aircraft
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - flight-tracking

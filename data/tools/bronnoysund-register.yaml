@@ -1,0 +1,14 @@
+name: Brønnøysund Enhetsregisteret
+url: https://virksomhet.brreg.no/
+description: Norway's official register of companies, their roles (board, CEO, owners) and annual accounts.
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - government-records
+  - regional

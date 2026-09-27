@@ -1,0 +1,21 @@
+name: OnionSearch
+url: https://github.com/megadose/OnionSearch
+description: Collects .onion URLs matching a query from several dark-web search engines at once.
+category: search
+inputs:
+  - keyword
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: megadose/OnionSearch
+install: pipx install onionsearch
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - tor
+  - open-source
+notes: Needs Tor running. Treat onion sites as hostile.

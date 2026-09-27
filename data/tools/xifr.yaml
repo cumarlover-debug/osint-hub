@@ -1,0 +1,12 @@
+name: xIFr
+url: https://addons.mozilla.org/en-US/firefox/addon/xifr/
+description: Firefox extension that shows the EXIF, GPS and IPTC data of any image on a page.
+category: metadata
+inputs:
+  - image
+type: extension
+cost: free
+passive: true
+account_required: false
+tags:
+  - exif

@@ -1,0 +1,13 @@
+name: BlockSec Phalcon Explorer
+url: https://blocksec.com/phalcon/explorer
+description: Traces EVM transactions with fund-flow graphs and balance changes.
+category: crypto
+inputs:
+  - crypto_address
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - ethereum
+  - tracing

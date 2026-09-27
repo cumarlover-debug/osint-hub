@@ -1,0 +1,12 @@
+name: Kasm Workspaces
+url: https://kasm.com/
+description: Disposable browsers and desktops in containers, for isolated research sessions.
+category: opsec
+inputs:
+  - keyword
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags:
+  - opsec

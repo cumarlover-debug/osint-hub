@@ -1,0 +1,13 @@
+name: SimpleLogin
+url: https://simplelogin.io/
+description: Email aliases for registering research accounts without exposing your real inbox.
+category: opsec
+inputs:
+  - keyword
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags:
+  - opsec
+  - sock-puppets

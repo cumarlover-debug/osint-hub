@@ -1,0 +1,13 @@
+name: Allabolag
+url: https://www.allabolag.se/
+description: Swedish company directory with board members, key financials and group structures.
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - regional

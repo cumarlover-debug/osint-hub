@@ -1,0 +1,12 @@
+name: GPSJam
+url: https://gpsjam.org/
+description: Daily map of GPS interference inferred from aircraft data.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - gps-jamming

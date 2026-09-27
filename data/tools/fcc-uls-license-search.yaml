@@ -1,0 +1,14 @@
+name: FCC ULS License Search
+url: https://wireless2.fcc.gov/UlsApp/UlsSearch/searchLicense.jsp
+description: US FCC radio licence records, searchable by licensee name or call sign.
+category: network
+inputs:
+  - name
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - radio
+  - government-records

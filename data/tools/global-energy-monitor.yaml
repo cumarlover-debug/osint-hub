@@ -1,0 +1,13 @@
+name: Global Energy Monitor
+url: https://globalenergymonitor.org/
+description: Trackers of power plants, pipelines, mines and steel plants worldwide, with their owners.
+category: business
+inputs:
+  - company
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - energy

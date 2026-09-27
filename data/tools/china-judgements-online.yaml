@@ -1,0 +1,16 @@
+name: China Judgements Online
+url: https://wenshu.court.gov.cn/
+description: The Supreme People's Court database of published Chinese court judgments.
+category: research
+inputs:
+  - company
+  - name
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: true
+tags:
+  - court-records
+  - regional
+notes: Registration needs phone verification.

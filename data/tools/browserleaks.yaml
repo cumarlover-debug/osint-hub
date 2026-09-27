@@ -1,0 +1,12 @@
+name: BrowserLeaks
+url: https://browserleaks.com/
+description: 'Shows what your browser reveals: IP, WebRTC, fonts, canvas and other fingerprints.'
+category: opsec
+inputs:
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - opsec

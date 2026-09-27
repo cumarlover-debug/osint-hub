@@ -1,0 +1,13 @@
+name: IPLeak
+url: https://ipleak.net/
+description: Checks for IP, DNS and WebRTC leaks while you are on a VPN.
+category: opsec
+inputs:
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - opsec
+  - vpn

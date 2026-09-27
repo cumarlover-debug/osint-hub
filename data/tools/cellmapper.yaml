@@ -1,0 +1,12 @@
+name: CellMapper
+url: https://www.cellmapper.net/
+description: Crowd-sourced cell-tower locations and coverage by mobile carrier.
+category: network
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - cell-towers

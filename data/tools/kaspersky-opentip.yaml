@@ -1,0 +1,15 @@
+name: Kaspersky OpenTIP
+url: https://opentip.kaspersky.com/
+description: Kaspersky's reputation lookups and analysis for files, IPs, domains and URLs.
+category: threat-intel
+inputs:
+  - hash
+  - ip
+  - domain
+  - url
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - reputation

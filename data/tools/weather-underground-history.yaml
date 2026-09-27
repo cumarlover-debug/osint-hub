@@ -1,0 +1,12 @@
+name: Weather Underground History
+url: https://www.wunderground.com/history
+description: Historical observations from weather stations, to check the weather in claimed footage.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - weather

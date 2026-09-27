@@ -1,0 +1,15 @@
+name: Find Case Law
+url: https://caselaw.nationalarchives.gov.uk/
+description: The National Archives service publishing judgments from UK courts and tribunals.
+category: research
+inputs:
+  - name
+  - company
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://caselaw.nationalarchives.gov.uk/search?query={query}
+tags:
+  - court-records

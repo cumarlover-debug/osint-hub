@@ -1,0 +1,12 @@
+name: Legacy.com
+url: https://www.legacy.com/
+description: Obituary search, often naming relatives and places.
+category: people
+inputs:
+  - name
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - obituaries

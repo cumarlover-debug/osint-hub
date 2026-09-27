@@ -1,0 +1,13 @@
+name: TED (Tenders Electronic Daily)
+url: https://ted.europa.eu/
+description: EU public procurement notices and contract awards across all member states.
+category: business
+inputs:
+  - keyword
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - procurement

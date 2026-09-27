@@ -1,0 +1,12 @@
+name: Forensic OSINT
+url: https://www.forensicosint.com/
+description: Evidence-grade page capture with hashes and case logs.
+category: archives
+inputs:
+  - url
+type: extension
+cost: paid
+passive: true
+account_required: true
+tags:
+  - evidence-capture

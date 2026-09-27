@@ -1,0 +1,20 @@
+name: Informer
+url: https://github.com/paulpierre/informer
+description: Uses research accounts to monitor many Telegram groups and log their messages.
+category: social-media
+inputs:
+  - keyword
+type: cli
+cost: free
+passive: true
+account_required: true
+repo: paulpierre/informer
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - telegram
+  - open-source
+notes: Needs Telegram accounts and API credentials.

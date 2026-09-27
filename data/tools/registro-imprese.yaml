@@ -1,0 +1,13 @@
+name: Registro Imprese
+url: https://www.registroimprese.it/
+description: 'Italy''s chambers-of-commerce company register: basic records are free, full filings are paid.'
+category: business
+inputs:
+  - company
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - government-records
+  - regional

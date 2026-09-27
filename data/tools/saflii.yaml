@@ -1,0 +1,14 @@
+name: SAFLII
+url: https://www.saflii.org/
+description: Case law from South Africa and other southern African courts.
+category: research
+inputs:
+  - name
+  - company
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - court-records

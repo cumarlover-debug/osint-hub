@@ -1,0 +1,12 @@
+name: OSINT Framework
+url: https://osintframework.com/
+description: The classic tree of OSINT resources, organised by what you are looking for.
+category: search
+inputs:
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - directory

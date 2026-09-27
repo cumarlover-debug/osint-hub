@@ -1,0 +1,14 @@
+name: e-Business Register (Estonia)
+url: https://ariregister.rik.ee/eng
+description: Estonia's company register, with a free search from a person to their companies.
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - government-records
+  - regional

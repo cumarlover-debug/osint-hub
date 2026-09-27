@@ -1,4 +1,11 @@
 {
+  "1881-no": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "192-com": {
     "status": "unverified",
     "failures": 0,
@@ -34,6 +41,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "3xpl": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 429,
+    "reason": "HTTP 429"
+  },
   "411-com": {
     "status": "up",
     "failures": 0,
@@ -41,12 +55,38 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "4cat": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo": {
+      "stars": 415,
+      "archived": false,
+      "pushed_at": "2026-09-25"
+    }
+  },
+  "4plebs": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "aa419-fake-sites-database": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "abn-lookup": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "abuse-ch-hunting": {
     "status": "up",
@@ -69,6 +109,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "acled-explorer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "ads-b-nl": {
     "status": "up",
     "failures": 0,
@@ -90,6 +137,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "adsb-lol": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "african-journals-online": {
     "status": "up",
     "failures": 0,
@@ -103,6 +157,27 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "ai-or-not": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "airframes-io": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "airhistory-net": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "airnav-radar": {
     "status": "up",
@@ -132,6 +207,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "allabolag": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403"
+  },
   "alleba": {
     "status": "up",
     "failures": 0,
@@ -158,6 +240,13 @@
       "pushed_at": "2025-01-09"
     }
   },
+  "amap": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "amass": {
     "status": "up",
     "failures": 0,
@@ -183,6 +272,13 @@
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "annuaire-des-entreprises": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "annualreports-com": {
     "status": "up",
@@ -219,12 +315,46 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "apollo-image-hunter": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "apollo-io": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "apple-bssid-locator": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo": {
+      "stars": 116,
+      "archived": false,
+      "pushed_at": "2025-06-19"
+    }
+  },
+  "apple-look-around-viewer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "moved_to": "https://lookmap.skzk.dev/"
+  },
+  "apple-maps-web": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "arcgis-living-atlas": {
     "status": "up",
@@ -268,6 +398,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "arolsen-archives": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "arxiv": {
     "status": "up",
     "failures": 0,
@@ -281,6 +418,25 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "atlos": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo": {
+      "stars": 97,
+      "archived": false,
+      "pushed_at": "2026-09-03"
+    }
+  },
+  "austlii": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "auto-archiver": {
     "status": "up",
@@ -310,6 +466,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "aviation-safety-network": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "avtocod-bot": {
     "status": "up",
@@ -346,12 +509,33 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "bailii": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "balticshipping": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "base": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "bbbike-map-compare": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "bbot": {
     "status": "up",
@@ -400,6 +584,20 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "bidfax": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "billiongraves": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "bing": {
     "status": "up",
     "failures": 0,
@@ -435,6 +633,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "bitinfocharts": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "bitquery-explorer": {
     "status": "unverified",
     "failures": 0,
@@ -455,6 +660,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "bizfile-singapore": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "black-book-online": {
     "status": "up",
@@ -518,6 +730,28 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "blocksec-phalcon": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "moved_to": "https://blocksec.com/phalcon/explorer"
+  },
+  "blockstream-explorer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "bluesky-network-analyser": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "bop-inmate-locator": {
     "status": "up",
     "failures": 0,
@@ -560,6 +794,20 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "bronnoysund-register": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "browserleaks": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "browserling": {
     "status": "up",
     "failures": 0,
@@ -588,12 +836,40 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "c99-subdomain-finder": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "cac-search-nigeria": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "canada411": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403"
+  },
+  "canlii": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403"
+  },
+  "cape-sandbox": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "carnet-ai": {
     "status": "up",
@@ -616,6 +892,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "casa-dos-dados": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "caselaw-access-project": {
     "status": "up",
     "failures": 0,
@@ -629,6 +912,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "cellmapper": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "censys": {
     "status": "up",
@@ -684,6 +974,20 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "charity-commission-register": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "check-host": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "checkip": {
     "status": "up",
     "failures": 0,
@@ -696,12 +1000,26 @@
       "pushed_at": "2026-09-21"
     }
   },
+  "checkphish": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "checkshorturl": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "china-judgements-online": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "circl-bgp-ranking": {
     "status": "up",
@@ -768,6 +1086,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "combot": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "common-crawl-index": {
     "status": "up",
     "failures": 0,
@@ -803,6 +1128,28 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "consolidated-screening-list": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "content-credentials-verify": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "moved_to": "https://verify.contentauthenticity.org/"
+  },
+  "contracts-finder": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "copernicus-browser": {
     "status": "up",
     "failures": 0,
@@ -817,10 +1164,24 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "copyseeker": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "core": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "core-cro-ireland": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
@@ -844,6 +1205,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "cover-your-tracks": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "crawlgraph": {
     "status": "up",
@@ -888,12 +1256,26 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "csi-linux": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "current-location": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "cvr-denmark": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "cyberchef": {
     "status": "up",
@@ -909,6 +1291,32 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "dart-korea": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "das-oertliche": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "datashare": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo": {
+      "stars": 759,
+      "archived": false,
+      "pushed_at": "2026-09-26"
+    }
   },
   "daum": {
     "status": "up",
@@ -937,6 +1345,20 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "deepfake-o-meter": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "deepstatemap": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "digga": {
     "status": "up",
@@ -980,6 +1402,32 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "discordchatexporter": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo": {
+      "stars": 12090,
+      "archived": false,
+      "pushed_at": "2026-09-01"
+    }
+  },
+  "distill": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "dnschecker": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "dnsdumpster": {
     "status": "unverified",
@@ -1079,6 +1527,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "dorksearch": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "dualmaps": {
     "status": "up",
     "failures": 0,
@@ -1100,12 +1555,45 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "dvla-vehicle-enquiry": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "earth-engine-timelapse": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "earthcam": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "ecourts-india": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "edgar-cli": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo": {
+      "stars": 214,
+      "archived": false,
+      "pushed_at": "2025-05-15"
+    }
   },
   "egrul-bot": {
     "status": "up",
@@ -1142,6 +1630,25 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "eml-analyzer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo": {
+      "stars": 358,
+      "archived": false,
+      "pushed_at": "2026-09-20"
+    }
+  },
+  "eos-landviewer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "epicvin": {
     "status": "up",
     "failures": 0,
@@ -1170,6 +1677,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "estonia-business-register": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "etda-threat-group-cards": {
     "status": "up",
     "failures": 0,
@@ -1191,6 +1705,34 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "eu-e-justice-business-registers": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403"
+  },
+  "eu-most-wanted": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "eu-sanctions-map": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "eu-transparency-register": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "eu-vies-vat-check": {
     "status": "up",
@@ -1247,6 +1789,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "exolyt": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "exonerator": {
     "status": "up",
     "failures": 0,
@@ -1267,6 +1816,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "f4map": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "faa-aircraft-registry": {
     "status": "unverified",
@@ -1310,6 +1866,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "fake-name-generator": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "familysearch": {
     "status": "up",
     "failures": 0,
@@ -1324,12 +1887,26 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "fara-efile": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "fastpeoplesearch": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "favicon-hash-generator": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "faxvin": {
     "status": "up",
@@ -1345,6 +1922,20 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "fca-register": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "fcc-uls-license-search": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403"
+  },
   "fccid-io": {
     "status": "unverified",
     "failures": 0,
@@ -1358,6 +1949,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "fedidb": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "feodo-tracker": {
     "status": "up",
@@ -1402,6 +2000,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "find-case-law-uk": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "find-security-contacts": {
     "status": "up",
     "failures": 0,
@@ -1416,6 +2021,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "findbiz-taiwan": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "findbyplate": {
     "status": "up",
     "failures": 0,
@@ -1423,12 +2035,31 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "findclone": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "findmypast": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "findomain": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo": {
+      "stars": 3797,
+      "archived": false,
+      "pushed_at": "2026-09-24"
+    }
   },
   "findstickercreator": {
     "status": "up",
@@ -1451,12 +2082,38 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "firefox-multi-account-containers": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo": {
+      "stars": 3149,
+      "archived": false,
+      "pushed_at": "2026-09-22"
+    }
+  },
   "firehol-ip-lists": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "fireshot": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "firesky": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "flickr-search": {
     "status": "up",
@@ -1512,6 +2169,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "forensic-osint": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "forensically": {
     "status": "up",
@@ -1569,6 +2233,14 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "gallery-dl": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "gau": {
     "status": "up",
     "failures": 0,
@@ -1577,12 +2249,41 @@
     "last_ok": "2026-09-26",
     "repo_error": "GitHub API HTTP 403"
   },
+  "gbizinfo": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "gdelt": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "genealogybank": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 405,
     "reason": "HTTP 405"
+  },
+  "geoclip": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
+  "geoconfirmed": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "geoguessr": {
     "status": "up",
@@ -1639,6 +2340,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "gh-archive": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "ghidra": {
     "status": "up",
@@ -1711,12 +2419,27 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "global-energy-monitor": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "global-fishing-watch": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "global-forest-watch": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "moved_to": "https://globalnaturewatch.org/map/"
   },
   "google-ads-transparency-center": {
     "status": "up",
@@ -1768,6 +2491,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "google-messageheader": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "google-news": {
     "status": "up",
@@ -1833,6 +2563,42 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "govmap": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "gowitness": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
+  "gpsjam": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "grantnav": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "graphsense": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "grayhatwarfare-public-buckets": {
     "status": "up",
     "failures": 0,
@@ -1887,6 +2653,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "hadzy": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "have-i-been-pwned": {
     "status": "up",
     "failures": 0,
@@ -1908,6 +2681,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "hitta-se": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "hive-ai-detection": {
     "status": "up",
     "failures": 0,
@@ -1922,12 +2702,33 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "hkexnews": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "hlidac-statu": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "hlr-lookups": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "hoaxy": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "holehe": {
     "status": "up",
@@ -1962,6 +2763,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "houjin-bangou": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "httpx": {
     "status": "up",
     "failures": 0,
@@ -1969,6 +2777,13 @@
     "http": 200,
     "last_ok": "2026-09-26",
     "repo_error": "GitHub API HTTP 403"
+  },
+  "hudoc": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "hunchly": {
     "status": "up",
@@ -2033,6 +2848,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "icij-offshore-leaks": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "id-ransomware": {
     "status": "up",
     "failures": 0,
@@ -2046,6 +2868,13 @@
     "last_checked": "2026-09-26",
     "http": 202,
     "last_ok": "2026-09-26"
+  },
+  "idn-checker": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "igdetective": {
     "status": "up",
@@ -2062,6 +2891,13 @@
     "last_ok": "2026-09-26",
     "repo_error": "GitHub API HTTP 403"
   },
+  "illuminarty": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "imgops": {
     "status": "up",
     "failures": 0,
@@ -2076,10 +2912,24 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "importgenius": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "importyeti": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "indian-kanoon": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
@@ -2096,6 +2946,22 @@
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "information-laundromat": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
+  "informer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
   },
   "infosniper": {
     "status": "up",
@@ -2141,12 +3007,33 @@
     "last_ok": "2026-09-26",
     "repo_error": "GitHub API HTTP 403"
   },
+  "internect": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "internet-archive-search": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "interpol-red-notices": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403"
+  },
+  "intezer-analyze": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "invid-weverify": {
     "status": "up",
@@ -2190,12 +3077,26 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "ipleak": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "iplocation-net": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "ipqualityscore": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "iptoasn": {
     "status": "up",
@@ -2224,6 +3125,14 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "itu-mars": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403",
+    "moved_to": "https://mmsapp.itu.int/mmsapp/shipstation/list"
   },
   "izito": {
     "status": "up",
@@ -2295,6 +3204,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "jusbrasil": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "justdeleteme": {
     "status": "up",
     "failures": 0,
@@ -2306,6 +3222,13 @@
       "archived": false,
       "pushed_at": "2026-09-25"
     }
+  },
+  "justia-dockets": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "kagi": {
     "status": "up",
@@ -2335,12 +3258,55 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "kasm-workspaces": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "kaspersky-opentip": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "katana": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
+  "kbo-public-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "kenya-law": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "keybase": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "kohesio": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "kompass": {
     "status": "unverified",
@@ -2349,12 +3315,33 @@
     "http": 403,
     "reason": "HTTP 403"
   },
+  "kompra-kz": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "koodous": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "krak": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "kvk-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "landsatlook": {
     "status": "up",
@@ -2370,12 +3357,49 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "legacy-com": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "lenso-ai": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "librebor": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "lightningmaps": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "linkdtime": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
+  "linkedin2username": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
   },
   "littlesis": {
     "status": "up",
@@ -2391,6 +3415,20 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "lobbyfacts": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "local-ch": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "lookup-id-com": {
     "status": "up",
     "failures": 0,
@@ -2398,12 +3436,27 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "lookyloo": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "lullar": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "lumen-database": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "lycos": {
     "status": "up",
@@ -2495,6 +3548,14 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "mapswitcher": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "mapy-com": {
     "status": "up",
     "failures": 0,
@@ -2529,6 +3590,21 @@
       "pushed_at": "2026-04-23"
     }
   },
+  "masto": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
+  "mat2": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "maxmind-geoip": {
     "status": "up",
     "failures": 0,
@@ -2557,12 +3633,27 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "message-header-analyzer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "meta-ad-library": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403"
+  },
+  "metabigor": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
   },
   "metadata2go": {
     "status": "up",
@@ -2603,6 +3694,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "mever-image-verification": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "million-short": {
     "status": "unverified",
@@ -2675,6 +3773,20 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "moneyhouse": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "mot-history": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "mozilla-monitor": {
     "status": "unverified",
     "failures": 0,
@@ -2694,12 +3806,26 @@
       "pushed_at": "2026-02-21"
     }
   },
+  "mullvad-browser": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "multirbl": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "mwdb": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "mxtoolbox": {
     "status": "up",
@@ -2813,6 +3939,14 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "neutrosint": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "newsnow": {
     "status": "up",
     "failures": 0,
@@ -2874,6 +4008,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "nicb-vincheck": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "nikto-online": {
     "status": "up",
     "failures": 0,
@@ -2902,6 +4043,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "nullschool-earth": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "numbering-plans": {
     "status": "up",
     "failures": 0,
@@ -2915,6 +4063,27 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "nz-companies-office": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "occrp-aleph": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "occrp-investigative-dashboard": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "octosuite": {
     "status": "up",
@@ -2938,12 +4107,26 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "ogimet": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "oklink": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "old-maps-online": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "oletools": {
     "status": "up",
@@ -2959,6 +4142,14 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "onionsearch": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
   },
   "online-port-scanner": {
     "status": "up",
@@ -2981,6 +4172,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "open-contracting-data-registry": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "open-infrastructure-map": {
     "status": "up",
     "failures": 0,
@@ -2994,6 +4192,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "open-measures": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "open-supply-hub": {
     "status": "up",
@@ -3038,6 +4243,20 @@
     "last_ok": "2026-09-26",
     "repo_error": "GitHub API HTTP 403"
   },
+  "opendatabot": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "openhistoricalmap": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "openrailwaymap": {
     "status": "up",
     "failures": 0,
@@ -3080,12 +4299,33 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "opentender": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "orbis-moodys": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "orbtrack": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "osint-framework": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "osint-industries": {
     "status": "up",
@@ -3114,6 +4354,13 @@
     "last_ok": "2026-09-26",
     "repo_error": "GitHub API HTTP 403"
   },
+  "ourairports": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "overpass-turbo": {
     "status": "up",
     "failures": 0,
@@ -3134,6 +4381,28 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "pagesjaunes": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "pandora-circl": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
+  "panoramax": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "pappers": {
     "status": "unverified",
@@ -3160,6 +4429,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "peakfinder": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "peakvisor": {
     "status": "up",
@@ -3216,6 +4492,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "phishtool": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "phone-validator": {
     "status": "up",
@@ -3283,12 +4566,26 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "pinpoint": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "pipl": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "plane-finder": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "planespotters-net": {
     "status": "unverified",
@@ -3297,12 +4594,40 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "platesmania": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "playboard": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "plonkit": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "poctra": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "portal-da-transparencia": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "pr-newswire": {
     "status": "up",
@@ -3352,6 +4677,20 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "prozorro": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "psnprofiles": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "publicwww": {
     "status": "up",
@@ -3403,6 +4742,20 @@
     "last_ok": "2026-09-26",
     "repo_error": "GitHub API HTTP 403"
   },
+  "qichacha": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "quick-geolocation-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "quicksand": {
     "status": "up",
     "failures": 0,
@@ -3424,6 +4777,28 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "radioreference": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "rammb-slider": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "ransomlook": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "ransomware-live": {
     "status": "up",
     "failures": 0,
@@ -3431,12 +4806,33 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "rapiddns": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "rdw-kentekencheck": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "reacher": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "rechtspraak": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "recon-ng": {
     "status": "up",
@@ -3472,12 +4868,33 @@
     "http": 405,
     "reason": "HTTP 405"
   },
+  "registro-imprese": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "regrid": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "regvk": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "rejestr-io": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "researchgate": {
     "status": "unverified",
@@ -3492,6 +4909,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "ripestat": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "robin": {
     "status": "up",
@@ -3508,12 +4932,40 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "rupep": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "rusprofile": {
     "status": "unverified",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403"
+  },
+  "rzjets": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "saflii": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "sanctions-explorer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "sangmata-bot": {
     "status": "up",
@@ -3656,6 +5108,14 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "seekr": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "seznam": {
     "status": "up",
     "failures": 0,
@@ -3676,6 +5136,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "shadowmap": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "sherlock": {
     "status": "up",
@@ -3719,12 +5186,33 @@
     "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-26"
   },
+  "should-i-answer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "silent-push-explore": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "silobreaker": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "simplelogin": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "singlefile": {
     "status": "up",
@@ -3740,6 +5228,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "skylight": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "skymem": {
     "status": "up",
@@ -3807,6 +5302,14 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "socialscan": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
   },
   "socid-extractor": {
     "status": "up",
@@ -3933,6 +5436,20 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "strava-global-heatmap": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "streams-charts": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "subdomain-center": {
     "status": "up",
     "failures": 0,
@@ -3952,6 +5469,13 @@
       "pushed_at": "2026-09-25"
     }
   },
+  "sublime-eml-analyzer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "sublist3r": {
     "status": "up",
     "failures": 0,
@@ -3964,12 +5488,26 @@
       "pushed_at": "2024-08-02"
     }
   },
+  "submarine-cable-map": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "sucuri-sitecheck": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "sullygnome": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "suncalc": {
     "status": "up",
@@ -4018,12 +5556,26 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "tails": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "team-cymru-ip-to-asn": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "ted": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "telegago": {
     "status": "up",
@@ -4062,12 +5614,50 @@
     "last_ok": "2026-09-26",
     "repo_error": "GitHub API HTTP 403"
   },
+  "telerecon": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "teleteg": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "teletracker": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
+  "tellows": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "tencent-maps": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "tg-archive": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
   },
   "tgstat": {
     "status": "up",
@@ -4082,6 +5672,13 @@
     "last_checked": "2026-09-26",
     "http": 403,
     "reason": "HTTP 403"
+  },
+  "the-gazette": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "the-national-archives-discovery": {
     "status": "up",
@@ -4116,6 +5713,21 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "thephish": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
+  "this-person-does-not-exist": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "thisnumber": {
     "status": "up",
     "failures": 0,
@@ -4144,6 +5756,21 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "tiktok-commercial-content-library": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "tiktok-hashtag-analysis": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "tineye": {
     "status": "unverified",
     "failures": 0,
@@ -4151,6 +5778,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-26"
+  },
+  "tokyo-mou-apcis": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "tonviewer": {
     "status": "up",
@@ -4165,6 +5799,21 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26",
+    "repo_error": "GitHub API HTTP 403"
+  },
+  "tor-relay-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "torbot": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
     "repo_error": "GitHub API HTTP 403"
   },
   "tosint": {
@@ -4205,6 +5854,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "tracker-gg": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "tracxn": {
     "status": "up",
@@ -4255,6 +5911,14 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "truthbrush": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "turibot": {
     "status": "up",
     "failures": 0,
@@ -4283,12 +5947,40 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "twitchtracker": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "uk-phone-book": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "uk-sanctions-list": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "umbra-open-data": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "un-comtrade": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "un-security-council-sanctions-list": {
     "status": "up",
@@ -4303,6 +5995,14 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "uncover": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
   },
   "uncoverit": {
     "status": "unverified",
@@ -4333,12 +6033,26 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "unpacme": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "urldna": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "urlebird": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "urlhaus": {
     "status": "up",
@@ -4367,6 +6081,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "usaspending": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "user-scanner": {
     "status": "up",
@@ -4527,6 +6248,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "war-and-sanctions": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "wayback-machine": {
     "status": "up",
     "failures": 0,
@@ -4565,6 +6293,22 @@
       "pushed_at": "2024-02-26"
     }
   },
+  "waybacktweets": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
+  "waymore": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
   "wayp-international-white-pages": {
     "status": "up",
     "failures": 0,
@@ -4583,6 +6327,21 @@
       "archived": false,
       "pushed_at": "2026-09-21"
     }
+  },
+  "weather-underground-history": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "web-archives-extension": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
   },
   "web-check": {
     "status": "up",
@@ -4611,6 +6370,36 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "weibo-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "moved_to": "https://passport.weibo.com/visitor/visitor?url=https%3A%2F%2Fs.weibo.com%2F&a=enter&entry=miniblog&sudaref=&ua=php-sso_sdk_client-0.6.29&_rand=1790504716.832"
+  },
+  "weibospider": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
+  "whale-alert": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
+  "whatcms": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "whatsmyname": {
     "status": "unverified",
@@ -4666,6 +6455,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "whoisfreaks": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "whoisology": {
     "status": "up",
     "failures": 0,
@@ -4679,6 +6475,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "whonix": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "whoxy": {
     "status": "up",
@@ -4700,6 +6503,13 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "wikitree": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403"
   },
   "wipo-global-brand-database": {
     "status": "up",
@@ -4729,6 +6539,13 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "world-bank-debarred-firms": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "world-monitor": {
     "status": "up",
     "failures": 0,
@@ -4757,12 +6574,34 @@
     "http": 200,
     "last_ok": "2026-09-26"
   },
+  "x-ray": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
+  },
+  "xifr": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
+  },
   "xmrchain": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "xtools": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27"
   },
   "yahoo-search": {
     "status": "up",
@@ -4805,6 +6644,14 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "yaseeker": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
   },
   "yasni": {
     "status": "up",
@@ -4880,6 +6727,21 @@
     "last_checked": "2026-09-26",
     "http": 200,
     "last_ok": "2026-09-26"
+  },
+  "zauba-corp": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
+  "zeeschuimer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-27",
+    "http": 200,
+    "last_ok": "2026-09-27",
+    "repo_error": "GitHub API HTTP 403"
   },
   "zefix": {
     "status": "up",

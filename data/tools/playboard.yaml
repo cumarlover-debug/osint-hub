@@ -1,0 +1,13 @@
+name: Playboard
+url: https://playboard.co/en/
+description: YouTube channel rankings, statistics and Super Chat history.
+category: social-media
+inputs:
+  - username
+  - keyword
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - youtube

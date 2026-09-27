@@ -1,0 +1,13 @@
+name: EU Sanctions Map
+url: https://www.sanctionsmap.eu/
+description: Interactive map of EU sanctions regimes with the people and entities listed under each.
+category: business
+inputs:
+  - name
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - sanctions

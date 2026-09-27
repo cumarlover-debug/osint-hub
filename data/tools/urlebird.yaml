@@ -1,0 +1,13 @@
+name: Urlebird
+url: https://urlebird.com/
+description: View TikTok profiles and videos in a browser without the app.
+category: social-media
+inputs:
+  - username
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - tiktok

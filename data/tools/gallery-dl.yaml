@@ -1,0 +1,20 @@
+name: gallery-dl
+url: https://github.com/mikf/gallery-dl
+description: Bulk downloader of images, videos and posts from over 100 sites, with their metadata.
+category: social-media
+inputs:
+  - url
+type: cli
+cost: free
+passive: true
+account_required: false
+command_template: gallery-dl {query}
+repo: mikf/gallery-dl
+install: pipx install gallery-dl
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - open-source

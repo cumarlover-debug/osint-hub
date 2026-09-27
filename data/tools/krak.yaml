@@ -1,0 +1,13 @@
+name: Krak
+url: https://www.krak.dk/
+description: Danish phone and address directory.
+category: people
+inputs:
+  - name
+  - phone
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - phone-directory

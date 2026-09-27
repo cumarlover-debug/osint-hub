@@ -1,0 +1,14 @@
+name: War & Sanctions
+url: https://war-sanctions.gur.gov.ua/
+description: Ukrainian military intelligence database of people, companies and vessels tied to Russia's war.
+category: business
+inputs:
+  - name
+  - company
+  - vessel
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - sanctions

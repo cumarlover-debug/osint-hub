@@ -1,0 +1,14 @@
+name: Skylight
+url: https://www.skylight.global/
+description: Maritime monitoring platform that flags suspicious vessel behaviour such as dark activity and transshipment.
+category: transport
+inputs:
+  - vessel
+  - location
+type: web
+cost: free
+passive: true
+account_required: true
+tags:
+  - ais
+notes: Free for approved partner organisations.

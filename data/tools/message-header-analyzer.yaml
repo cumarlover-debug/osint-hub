@@ -1,0 +1,12 @@
+name: Message Header Analyzer
+url: https://mha.azurewebsites.net/
+description: Microsoft's email header parser, including Exchange and Outlook anti-spam fields.
+category: email
+inputs:
+  - email
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - email-headers

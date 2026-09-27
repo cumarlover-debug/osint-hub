@@ -1,0 +1,19 @@
+name: Masto
+url: https://github.com/C3n7ral051nt4g3ncy/Masto
+description: Finds Mastodon accounts and instance details for a username.
+category: social-media
+inputs:
+  - username
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: C3n7ral051nt4g3ncy/Masto
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - mastodon
+  - open-source

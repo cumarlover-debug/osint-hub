@@ -1,0 +1,12 @@
+name: Kompra.kz
+url: https://kompra.kz/
+description: 'Kazakh company checks: founders, directors, tax status and court cases.'
+category: business
+inputs:
+  - company
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - regional

@@ -1,0 +1,20 @@
+name: linkedin2username
+url: https://github.com/initstring/linkedin2username
+description: Builds a company's employee names and likely username formats from LinkedIn.
+category: social-media
+inputs:
+  - company
+type: cli
+cost: free
+passive: true
+account_required: true
+repo: initstring/linkedin2username
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - linkedin
+  - open-source
+notes: Needs a LinkedIn account. Typically used in authorised security assessments.

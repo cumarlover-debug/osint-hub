@@ -1,0 +1,12 @@
+name: Cover Your Tracks
+url: https://coveryourtracks.eff.org/
+description: EFF test of how well your browser blocks trackers and how unique its fingerprint is.
+category: opsec
+inputs:
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - opsec

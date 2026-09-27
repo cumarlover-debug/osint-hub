@@ -1,0 +1,13 @@
+name: RIPEstat
+url: https://stat.ripe.net/
+description: RIPE NCC view of routing, registration, geolocation, blocklists and abuse contacts for an IP, prefix or ASN.
+category: network
+inputs:
+  - ip
+  - domain
+type: web
+cost: free
+passive: true
+account_required: false
+query_template:
+  ip: https://stat.ripe.net/{query}

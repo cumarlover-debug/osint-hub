@@ -1,0 +1,12 @@
+name: IDN Checker
+url: https://holdintegrity.com/checker
+description: Finds look-alike domains that use similar-looking characters or punycode.
+category: domain
+inputs:
+  - domain
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - typosquatting

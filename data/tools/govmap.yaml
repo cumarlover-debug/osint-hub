@@ -1,0 +1,13 @@
+name: GovMap
+url: https://www.govmap.gov.il/
+description: Israeli government GIS with land parcels, historical aerial photos and thematic layers.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - maps
+  - regional

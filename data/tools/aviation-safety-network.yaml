@@ -1,0 +1,10 @@
+name: Aviation Safety Network
+url: https://aviation-safety.net/
+description: Database of aviation accidents and incidents, searchable by registration.
+category: transport
+inputs:
+  - aircraft
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,22 @@
+name: Wayback Tweets
+url: https://github.com/claromes/waybacktweets
+description: Retrieves an X/Twitter account's archived tweets from the Wayback Machine, including deleted ones.
+category: archives
+inputs:
+  - username
+type: cli
+cost: free
+passive: true
+account_required: false
+command_template: waybacktweets {query}
+repo: claromes/waybacktweets
+install: pipx install waybacktweets
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - twitter
+  - wayback
+  - open-source

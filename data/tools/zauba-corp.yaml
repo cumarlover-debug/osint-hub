@@ -1,0 +1,13 @@
+name: Zauba Corp
+url: https://www.zaubacorp.com/
+description: Indian company and director profiles from Ministry of Corporate Affairs filings.
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - regional

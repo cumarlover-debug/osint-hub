@@ -1,0 +1,10 @@
+name: Quick Geolocation Search
+url: https://cybdetective.com/quickgeolocationsearch.html
+description: Opens a pair of coordinates in many map and data services at once.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false

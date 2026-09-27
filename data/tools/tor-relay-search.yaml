@@ -1,0 +1,12 @@
+name: Tor Relay Search
+url: https://metrics.torproject.org/rs.html
+description: Checks whether an IP or fingerprint is a Tor relay, with its flags, bandwidth and history.
+category: network
+inputs:
+  - ip
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - tor

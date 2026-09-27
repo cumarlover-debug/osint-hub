@@ -1,0 +1,22 @@
+name: SocialScan
+url: https://github.com/iojw/socialscan
+description: Checks whether a username or email address is registered on major platforms, accurately and fast.
+category: social-media
+inputs:
+  - username
+  - email
+type: cli
+cost: free
+passive: true
+account_required: false
+command_template: socialscan {query}
+repo: iojw/socialscan
+install: pipx install socialscan
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - username-enumeration
+  - open-source

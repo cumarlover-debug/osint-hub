@@ -1,0 +1,14 @@
+name: This Person Does Not Exist
+url: https://thispersondoesnotexist.com/
+description: Generates a new synthetic face on every page load, for sock-puppet avatars.
+category: opsec
+inputs:
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - opsec
+  - sock-puppets
+notes: The faces can be detected as AI-generated.

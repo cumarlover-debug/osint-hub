@@ -1,0 +1,12 @@
+name: BBBike Map Compare
+url: https://mc.bbbike.org/mc/
+description: Compares map and imagery providers side by side for the same place.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - maps

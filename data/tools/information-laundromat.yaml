@@ -1,0 +1,15 @@
+name: Information Laundromat
+url: https://informationlaundromat.com
+description: Finds sites republishing the same content, and indicators such as shared analytics IDs that link domains.
+category: research
+inputs:
+  - url
+  - domain
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+repo: Institute-for-Strategic-Dialogue/information-laundromat
+tags:
+  - disinformation

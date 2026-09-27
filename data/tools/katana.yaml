@@ -1,0 +1,21 @@
+name: Katana
+url: https://github.com/projectdiscovery/katana
+description: Fast crawler that maps a website's endpoints and JavaScript files.
+category: domain
+inputs:
+  - url
+type: cli
+cost: free
+passive: false
+account_required: false
+command_template: katana -u {query}
+repo: projectdiscovery/katana
+install: go install github.com/projectdiscovery/katana/cmd/katana@latest
+language: Go
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - crawler
+  - open-source

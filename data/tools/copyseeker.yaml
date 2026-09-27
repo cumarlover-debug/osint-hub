@@ -1,0 +1,12 @@
+name: Copyseeker
+url: https://copyseeker.net/
+description: Reverse image search that also describes the image and extracts its text.
+category: image-video
+inputs:
+  - image
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - reverse-image-search

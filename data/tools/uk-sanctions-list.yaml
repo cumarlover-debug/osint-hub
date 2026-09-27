@@ -1,0 +1,13 @@
+name: UK Sanctions List Search
+url: https://search-uk-sanctions-list.service.gov.uk/
+description: UK government search of everyone designated under UK sanctions regimes.
+category: business
+inputs:
+  - name
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - sanctions

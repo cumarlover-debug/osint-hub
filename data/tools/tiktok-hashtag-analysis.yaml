@@ -1,0 +1,19 @@
+name: TikTok Hashtag Analysis
+url: https://github.com/bellingcat/tiktok-hashtag-analysis
+description: Bellingcat script that downloads and analyses the TikTok videos under a hashtag.
+category: social-media
+inputs:
+  - keyword
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: bellingcat/tiktok-hashtag-analysis
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - tiktok
+  - open-source

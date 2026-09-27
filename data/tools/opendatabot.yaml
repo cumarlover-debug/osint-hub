@@ -1,0 +1,13 @@
+name: Opendatabot
+url: https://opendatabot.ua/
+description: Ukrainian company, court and sole-trader registry data in one place.
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - regional

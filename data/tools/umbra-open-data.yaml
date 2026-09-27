@@ -1,0 +1,12 @@
+name: Umbra Open Data
+url: https://umbra.space/open-data/
+description: Free high-resolution radar (SAR) satellite images of selected sites.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - satellite-imagery

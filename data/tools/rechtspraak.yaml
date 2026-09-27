@@ -1,0 +1,14 @@
+name: Rechtspraak
+url: https://uitspraken.rechtspraak.nl/
+description: Published rulings from Dutch courts.
+category: research
+inputs:
+  - keyword
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - court-records
+  - regional

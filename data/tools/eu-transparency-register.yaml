@@ -1,0 +1,13 @@
+name: EU Transparency Register
+url: https://transparency-register.europa.eu/
+description: Register of organisations lobbying EU institutions, with declared spending and meetings.
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - lobbying

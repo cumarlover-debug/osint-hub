@@ -1,0 +1,13 @@
+name: BillionGraves
+url: https://billiongraves.com/
+description: GPS-tagged photos of headstones with transcribed names and dates.
+category: people
+inputs:
+  - name
+  - location
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - genealogy

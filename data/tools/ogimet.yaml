@@ -1,0 +1,12 @@
+name: Ogimet
+url: https://www.ogimet.com/
+description: Historical synoptic and airport (METAR) weather reports, to check the weather in a photo or video.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - weather

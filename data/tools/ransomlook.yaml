@@ -1,0 +1,15 @@
+name: RansomLook
+url: https://www.ransomlook.io/
+description: Tracks ransomware groups' leak-site posts and group profiles, without hosting any stolen data.
+category: threat-intel
+inputs:
+  - keyword
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+repo: RansomLook/RansomLook
+tags:
+  - ransomware
+  - open-source

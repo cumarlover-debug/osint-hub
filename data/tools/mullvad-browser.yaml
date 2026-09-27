@@ -1,0 +1,12 @@
+name: Mullvad Browser
+url: https://mullvad.net/en/browser
+description: Anti-fingerprinting browser built by the Tor Project and Mullvad, for use with a VPN.
+category: opsec
+inputs:
+  - keyword
+type: desktop
+cost: free
+passive: true
+account_required: false
+tags:
+  - opsec

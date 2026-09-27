@@ -1,0 +1,13 @@
+name: MWDB (CERT.pl)
+url: https://mwdb.cert.pl/
+description: CERT Polska malware repository with extracted malware configurations.
+category: threat-intel
+inputs:
+  - hash
+  - document
+type: web
+cost: free
+passive: true
+account_required: true
+tags:
+  - malware

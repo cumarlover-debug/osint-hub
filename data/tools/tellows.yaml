@@ -1,0 +1,12 @@
+name: Tellows
+url: https://www.tellows.com/
+description: Crowd-sourced caller reputation scores and comments for many countries.
+category: phone
+inputs:
+  - phone
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - spam-reports

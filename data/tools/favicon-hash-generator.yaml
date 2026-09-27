@@ -1,0 +1,11 @@
+name: Favicon Hash Generator
+url: https://favicon-hash.kmsec.uk/
+description: Calculates a site's favicon hash with ready-made pivots into Shodan, Censys and other scan engines, to find related hosts.
+category: domain
+inputs:
+  - url
+type: web
+cost: free
+passive: false
+account_required: false
+notes: Fetches the target's favicon.

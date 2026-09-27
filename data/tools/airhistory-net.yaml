@@ -1,0 +1,10 @@
+name: AirHistory.net
+url: https://www.airhistory.net/
+description: Historical aircraft photo database, searchable by registration.
+category: transport
+inputs:
+  - aircraft
+type: web
+cost: free
+passive: true
+account_required: false

@@ -1,0 +1,12 @@
+name: FediDB
+url: https://fedidb.org/
+description: Statistics and software details for Fediverse servers such as Mastodon instances.
+category: social-media
+inputs:
+  - domain
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - mastodon

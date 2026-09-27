@@ -1,0 +1,13 @@
+name: Amap (Gaode)
+url: https://www.amap.com/
+description: One of the main Chinese web maps, with detailed points of interest.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - maps
+  - regional

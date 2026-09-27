@@ -1,0 +1,10 @@
+name: WhatCMS
+url: https://whatcms.org/
+description: Detects which CMS and other technologies a website runs.
+category: domain
+inputs:
+  - url
+type: web
+cost: freemium
+passive: false
+account_required: false

@@ -1,0 +1,15 @@
+name: The Gazette
+url: https://www.thegazette.co.uk/
+description: 'The UK''s official public record: insolvencies, winding-up orders, probate and other legal notices.'
+category: business
+inputs:
+  - company
+  - name
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://www.thegazette.co.uk/all-notices/notice?text={query}
+tags:
+  - government-records

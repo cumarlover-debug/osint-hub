@@ -1,0 +1,19 @@
+name: Seekr
+url: https://github.com/seekr-osint/seekr
+description: OSINT toolkit with a web interface for collecting and organising findings on a subject.
+category: frameworks
+inputs:
+  - username
+  - name
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: seekr-osint/seekr
+language: Go
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - open-source

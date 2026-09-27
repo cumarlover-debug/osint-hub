@@ -1,0 +1,12 @@
+name: NICB VINCheck
+url: https://www.nicb.org/vincheck
+description: US check for VINs reported stolen or salvaged.
+category: transport
+inputs:
+  - vehicle
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - vin

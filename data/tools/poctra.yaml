@@ -1,0 +1,12 @@
+name: Poctra
+url: https://poctra.com/
+description: Archive of US salvage-auction photos and records, by VIN.
+category: transport
+inputs:
+  - vehicle
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - vin

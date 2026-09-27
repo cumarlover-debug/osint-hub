@@ -1,0 +1,13 @@
+name: Zeeschuimer
+url: https://github.com/digitalmethodsinitiative/zeeschuimer
+description: Firefox extension that records the TikTok, Instagram, X and other posts you scroll past, for export into 4CAT.
+category: social-media
+inputs:
+  - social_post
+type: extension
+cost: free
+passive: true
+account_required: false
+repo: digitalmethodsinitiative/zeeschuimer
+tags:
+  - open-source

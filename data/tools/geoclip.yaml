@@ -1,0 +1,21 @@
+name: GeoCLIP
+url: https://github.com/VicenteVivan/geo-clip
+description: AI model that estimates the GPS coordinates of a photo; a starting point, not an answer.
+category: geolocation
+inputs:
+  - image
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: VicenteVivan/geo-clip
+install: pip install geoclip
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - ai
+  - open-source
+notes: A Python library; used from code.

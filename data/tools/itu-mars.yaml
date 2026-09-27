@@ -1,0 +1,12 @@
+name: ITU MARS
+url: https://mmsapp.itu.int/mmsapp/shipstation/list
+description: ITU database of ship radio stations, searchable by MMSI, call sign or name.
+category: transport
+inputs:
+  - vessel
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - mmsi

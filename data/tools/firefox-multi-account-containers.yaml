@@ -1,0 +1,14 @@
+name: Firefox Multi-Account Containers
+url: https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/
+description: Keeps cookies separate per container, so research accounts and your own logins never mix.
+category: opsec
+inputs:
+  - keyword
+type: extension
+cost: free
+passive: true
+account_required: false
+repo: mozilla/multi-account-containers
+tags:
+  - opsec
+  - sock-puppets

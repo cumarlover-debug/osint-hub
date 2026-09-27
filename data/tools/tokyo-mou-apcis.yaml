@@ -1,0 +1,12 @@
+name: Tokyo MOU APCIS
+url: https://apcis.tmou.org/public/
+description: Port-state inspection and detention records in the Asia-Pacific, by IMO number.
+category: transport
+inputs:
+  - vessel
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - ship-inspections

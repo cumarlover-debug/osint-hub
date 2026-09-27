@@ -1,0 +1,12 @@
+name: FireShot
+url: https://getfireshot.com/
+description: Browser extension that captures full-page screenshots as PDF or image files.
+category: archives
+inputs:
+  - url
+type: extension
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - evidence-capture

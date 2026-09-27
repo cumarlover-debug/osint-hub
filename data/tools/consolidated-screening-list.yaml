@@ -1,0 +1,13 @@
+name: Consolidated Screening List
+url: https://www.trade.gov/data-visualization/csl-search
+description: US search across the export-control and sanctions lists of several agencies at once.
+category: business
+inputs:
+  - name
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - sanctions

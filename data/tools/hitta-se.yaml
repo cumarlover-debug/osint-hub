@@ -1,0 +1,14 @@
+name: Hitta.se
+url: https://www.hitta.se/
+description: Swedish directory of people, companies and addresses.
+category: people
+inputs:
+  - name
+  - phone
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - phone-directory

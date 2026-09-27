@@ -1,0 +1,21 @@
+name: tg-archive
+url: https://github.com/knadh/tg-archive
+description: Exports a Telegram group or channel to a static, searchable website.
+category: social-media
+inputs:
+  - social_post
+type: cli
+cost: free
+passive: true
+account_required: true
+repo: knadh/tg-archive
+install: pipx install tg-archive
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - telegram
+  - open-source
+notes: Needs your own Telegram API credentials.

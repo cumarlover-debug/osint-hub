@@ -1,0 +1,12 @@
+name: Submarine Cable Map
+url: https://www.submarinecablemap.com/
+description: TeleGeography's map of undersea cables and their landing points.
+category: network
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - infrastructure

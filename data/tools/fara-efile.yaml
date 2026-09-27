@@ -1,0 +1,14 @@
+name: FARA eFile
+url: https://efile.fara.gov/ords/fara/f?p=1235:10
+description: US registrations and filings by people and firms acting as agents of foreign governments or parties.
+category: business
+inputs:
+  - name
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - lobbying
+  - government-records

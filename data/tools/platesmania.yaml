@@ -1,0 +1,12 @@
+name: PlatesMania
+url: https://platesmania.com/
+description: Crowd-sourced photos of vehicles, searchable by number plate, for many countries.
+category: transport
+inputs:
+  - vehicle
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - license-plates

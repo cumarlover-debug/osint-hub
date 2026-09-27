@@ -1,0 +1,20 @@
+name: apple_bssid_locator
+url: https://github.com/darkosancanin/apple_bssid_locator
+description: Asks Apple's location service where a Wi-Fi access point (BSSID) is.
+category: geolocation
+inputs:
+  - wifi
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: darkosancanin/apple_bssid_locator
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - personal-data
+  - open-source
+notes: Can locate home routers, so it can reveal where someone lives. Use it only with a legitimate reason.

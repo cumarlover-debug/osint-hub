@@ -1,0 +1,13 @@
+name: Lumen Database
+url: https://lumendatabase.org/
+description: Archive of copyright and legal takedown notices sent to Google and other platforms, showing what was asked to be removed.
+category: research
+inputs:
+  - url
+  - domain
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+notes: Full notice details need a free researcher account.

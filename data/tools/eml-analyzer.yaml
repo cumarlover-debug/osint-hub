@@ -1,0 +1,16 @@
+name: EML Analyzer
+url: https://github.com/ninoseki/eml_analyzer
+description: Parses .eml files, extracts indicators and attachments and checks them against threat intelligence.
+category: email
+inputs:
+  - email
+  - document
+type: web
+cost: free
+passive: true
+account_required: false
+repo: ninoseki/eml_analyzer
+tags:
+  - phishing
+  - open-source
+notes: Self-hosted; a public demo is linked from the repo.

@@ -1,0 +1,15 @@
+name: ICIJ Offshore Leaks Database
+url: https://offshoreleaks.icij.org/
+description: Offshore companies, trusts and their officers from the Panama, Paradise and Pandora Papers investigations.
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - investigative-journalism
+  - offshore
+notes: Built by ICIJ from leaked documents, curated and redacted by journalists. Appearing in it doesn't mean wrongdoing.

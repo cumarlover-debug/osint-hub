@@ -1,0 +1,20 @@
+name: TorBot
+url: https://github.com/DedSecInside/TorBot
+description: Crawls dark-web sites to map onion links and page details.
+category: search
+inputs:
+  - url
+type: cli
+cost: free
+passive: false
+account_required: false
+repo: DedSecInside/TorBot
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - tor
+  - open-source
+notes: Needs Tor running. Treat onion sites as hostile.

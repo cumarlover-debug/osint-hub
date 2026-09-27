@@ -1,0 +1,13 @@
+name: RDW Kentekencheck
+url: https://ovi.rdw.nl/
+description: Dutch government vehicle data by licence plate.
+category: transport
+inputs:
+  - vehicle
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - license-plates
+  - government-records

@@ -1,0 +1,12 @@
+name: Airframes.io
+url: https://app.airframes.io/
+description: Messages sent by aircraft over ACARS, VDL and HFDL, searchable by tail number or flight.
+category: transport
+inputs:
+  - aircraft
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - flight-tracking

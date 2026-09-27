@@ -1,0 +1,13 @@
+name: Charity Commission Register
+url: https://register-of-charities.charitycommission.gov.uk/
+description: Register of charities in England and Wales, with trustees, finances and filings.
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - government-records

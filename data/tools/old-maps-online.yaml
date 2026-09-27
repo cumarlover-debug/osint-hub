@@ -1,0 +1,12 @@
+name: Old Maps Online
+url: https://www.oldmapsonline.org/
+description: Search engine for historical maps, placed on a modern map.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - historical

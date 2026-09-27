@@ -1,0 +1,19 @@
+name: Datashare
+url: https://datashare.icij.org/
+description: ICIJ app that extracts, OCRs and searches large document collections on your own computer.
+category: metadata
+inputs:
+  - document
+  - keyword
+type: desktop
+cost: free
+passive: true
+account_required: false
+repo: ICIJ/datashare
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - documents
+  - open-source

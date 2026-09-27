@@ -1,0 +1,13 @@
+name: TwitchTracker
+url: https://twitchtracker.com/
+description: Twitch channel statistics, stream history and games played.
+category: social-media
+inputs:
+  - username
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://twitchtracker.com/{query}
+tags:
+  - twitch

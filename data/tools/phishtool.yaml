@@ -1,0 +1,13 @@
+name: PhishTool
+url: https://www.phishtool.com/
+description: Phishing-email investigation workspace with header, link and attachment analysis.
+category: email
+inputs:
+  - email
+  - document
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags:
+  - phishing

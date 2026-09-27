@@ -1,0 +1,13 @@
+name: KBO Public Search
+url: https://kbopub.economie.fgov.be/kbopub/zoeknaamfonetischform.html
+description: 'Belgium''s Crossroads Bank for Enterprises: company details and office-holders.'
+category: business
+inputs:
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - government-records
+  - regional

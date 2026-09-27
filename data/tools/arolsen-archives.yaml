@@ -1,0 +1,12 @@
+name: Arolsen Archives
+url: https://collections.arolsen-archives.org/
+description: Online archive of documents on victims of Nazi persecution and displaced persons.
+category: archives
+inputs:
+  - name
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - historical

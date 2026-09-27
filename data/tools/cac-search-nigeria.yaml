@@ -1,0 +1,13 @@
+name: CAC Search (Nigeria)
+url: https://search.cac.gov.ng/
+description: Public company search of Nigeria's Corporate Affairs Commission.
+category: business
+inputs:
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - government-records
+  - regional
