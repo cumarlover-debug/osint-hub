@@ -1,0 +1,15 @@
+name: Pandora
+url: https://pandora.circl.lu/
+description: CIRCL service that runs an uploaded file, such as an email attachment, through many scanners and analysers.
+category: threat-intel
+inputs:
+  - document
+type: web
+cost: free
+passive: true
+account_required: false
+repo: pandora-analysis/pandora
+tags:
+  - malware
+  - open-source
+notes: Do not upload confidential files.

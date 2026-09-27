@@ -1,0 +1,14 @@
+name: Prozorro
+url: https://prozorro.gov.ua/
+description: Ukraine's open public procurement system, with every tender and bidder.
+category: business
+inputs:
+  - company
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - procurement
+  - regional

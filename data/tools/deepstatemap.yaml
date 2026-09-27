@@ -1,0 +1,12 @@
+name: DeepStateMap
+url: https://deepstatemap.live/
+description: Daily map of the front line in the war in Ukraine.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - conflict

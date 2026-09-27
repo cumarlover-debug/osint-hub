@@ -1,0 +1,13 @@
+name: DVLA Vehicle Enquiry
+url: https://vehicleenquiry.service.gov.uk/
+description: UK number-plate lookup for make, colour, tax and MOT status.
+category: transport
+inputs:
+  - vehicle
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - license-plates
+  - government-records

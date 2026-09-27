@@ -1,0 +1,12 @@
+name: Plane Finder
+url: https://planefinder.net/
+description: Live flight tracking with playback.
+category: transport
+inputs:
+  - aircraft
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - flight-tracking

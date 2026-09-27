@@ -1,0 +1,13 @@
+name: MeVer Image Verification Assistant
+url: https://mever.iti.gr/forensics/
+description: Runs several image-forensics algorithms and summarises the signs of manipulation.
+category: image-video
+inputs:
+  - image
+  - url
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - image-forensics

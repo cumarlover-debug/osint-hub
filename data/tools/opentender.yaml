@@ -1,0 +1,13 @@
+name: OpenTender
+url: https://opentender.eu/
+description: Tender data from over 30 European jurisdictions, with corruption-risk indicators.
+category: business
+inputs:
+  - company
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - procurement

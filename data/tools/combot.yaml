@@ -1,0 +1,12 @@
+name: Combot
+url: https://combot.org/telegram/top/chats
+description: Rankings and statistics for public Telegram groups.
+category: social-media
+inputs:
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - telegram

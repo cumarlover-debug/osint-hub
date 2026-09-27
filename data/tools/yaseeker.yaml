@@ -1,0 +1,19 @@
+name: YaSeeker
+url: https://github.com/HowToFind-bot/YaSeeker
+description: Collects the public data of a Yandex account from its login or email address.
+category: email
+inputs:
+  - username
+  - email
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: HowToFind-bot/YaSeeker
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - open-source

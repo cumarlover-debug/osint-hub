@@ -1,0 +1,12 @@
+name: OpenHistoricalMap
+url: https://www.openhistoricalmap.org/
+description: Crowd-sourced map of places and features through time.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - historical

@@ -1,0 +1,12 @@
+name: EU Most Wanted
+url: https://eumostwanted.eu/
+description: Europol's list of Europe's most wanted fugitives.
+category: people
+inputs:
+  - name
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - wanted

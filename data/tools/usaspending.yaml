@@ -1,0 +1,13 @@
+name: USAspending
+url: https://www.usaspending.gov/
+description: US federal contracts, grants and loans, searchable by recipient, agency or place.
+category: business
+inputs:
+  - company
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - procurement

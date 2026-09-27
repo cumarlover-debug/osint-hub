@@ -1,0 +1,13 @@
+name: MapSwitcher
+url: https://github.com/david-r-edgar/MapSwitcher
+description: Browser extension that opens the place you are viewing in other map services.
+category: geolocation
+inputs:
+  - location
+type: extension
+cost: free
+passive: true
+account_required: false
+repo: david-r-edgar/MapSwitcher
+tags:
+  - open-source

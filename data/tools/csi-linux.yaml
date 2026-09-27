@@ -1,0 +1,12 @@
+name: CSI Linux
+url: https://csilinux.com/
+description: Linux distribution for investigators, with OSINT and forensics tools preinstalled.
+category: opsec
+inputs:
+  - keyword
+type: desktop
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - opsec

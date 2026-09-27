@@ -1,0 +1,12 @@
+name: Bluesky Network Analyser
+url: https://bsky-follow-finder.theo.io/
+description: Finds accounts that many of a user's follows also follow, surfacing clusters on Bluesky.
+category: social-media
+inputs:
+  - username
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - bluesky

@@ -1,0 +1,12 @@
+name: Internect
+url: https://internect.info/
+description: Bluesky and AT Protocol profile lookup with the account ID and handle history.
+category: social-media
+inputs:
+  - username
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - bluesky

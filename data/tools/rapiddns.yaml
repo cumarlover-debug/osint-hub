@@ -1,0 +1,15 @@
+name: RapidDNS
+url: https://rapiddns.io/
+description: Subdomain and reverse-IP lookups from passive DNS data.
+category: domain
+inputs:
+  - domain
+  - ip
+type: web
+cost: free
+passive: true
+account_required: false
+query_template:
+  domain: https://rapiddns.io/subdomain/{query}?full=1
+tags:
+  - subdomains

@@ -1,0 +1,13 @@
+name: Fake Name Generator
+url: https://www.fakenamegenerator.com/
+description: Generates consistent fictional identities for research (sock-puppet) accounts.
+category: opsec
+inputs:
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - opsec
+  - sock-puppets

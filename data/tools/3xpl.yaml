@@ -1,0 +1,12 @@
+name: 3xpl
+url: https://3xpl.com/
+description: Block explorer covering more than 40 blockchains.
+category: crypto
+inputs:
+  - crypto_address
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - blockchain-explorer

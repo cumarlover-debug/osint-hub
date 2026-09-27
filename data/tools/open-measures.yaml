@@ -1,0 +1,12 @@
+name: Open Measures
+url: https://public.openmeasures.io
+description: Searches fringe platforms such as Telegram, Gab, Truth Social and 4chan for a keyword over time.
+category: social-media
+inputs:
+  - keyword
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - extremism

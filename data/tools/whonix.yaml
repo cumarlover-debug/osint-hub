@@ -1,0 +1,14 @@
+name: Whonix
+url: https://www.whonix.org/
+description: Pair of virtual machines that forces all research traffic through Tor and isolates it from your real IP.
+category: opsec
+inputs:
+  - keyword
+type: desktop
+cost: free
+passive: true
+account_required: false
+tags:
+  - opsec
+  - tor
+  - virtual-machine

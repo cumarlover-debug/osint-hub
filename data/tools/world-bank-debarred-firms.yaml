@@ -1,0 +1,14 @@
+name: World Bank Debarred Firms
+url: https://www.worldbank.org/en/projects-operations/procurement/debarred-firms
+description: Firms and individuals barred from World Bank-financed contracts, with the grounds and dates.
+category: business
+inputs:
+  - name
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - sanctions
+  - procurement

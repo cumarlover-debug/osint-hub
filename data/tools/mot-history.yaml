@@ -1,0 +1,13 @@
+name: MOT History
+url: https://www.check-mot.service.gov.uk/
+description: A UK vehicle's MOT test history, with recorded mileage and defects.
+category: transport
+inputs:
+  - vehicle
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - license-plates
+  - government-records

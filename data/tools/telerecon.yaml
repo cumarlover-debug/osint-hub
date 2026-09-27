@@ -1,0 +1,20 @@
+name: Telerecon
+url: https://github.com/sockysec/Telerecon
+description: Collects a Telegram user's messages across channels and analyses their activity and language.
+category: social-media
+inputs:
+  - username
+type: cli
+cost: free
+passive: true
+account_required: true
+repo: sockysec/Telerecon
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - telegram
+  - open-source
+notes: Needs your own Telegram API credentials.

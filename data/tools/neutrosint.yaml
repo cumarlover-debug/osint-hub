@@ -1,0 +1,19 @@
+name: NeutrOSINT
+url: https://github.com/Kr0wZ/NeutrOSINT
+description: Checks whether an address is a Proton Mail account, and gets its creation date and public PGP key.
+category: email
+inputs:
+  - email
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: Kr0wZ/NeutrOSINT
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - protonmail
+  - open-source

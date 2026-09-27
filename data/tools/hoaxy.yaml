@@ -1,0 +1,13 @@
+name: Hoaxy
+url: https://hoaxy.osome.iu.edu/
+description: Indiana University tool that visualises how a link or claim spreads between accounts.
+category: social-media
+inputs:
+  - keyword
+  - url
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - disinformation

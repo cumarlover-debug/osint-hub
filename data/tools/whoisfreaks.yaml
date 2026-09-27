@@ -1,0 +1,15 @@
+name: WhoisFreaks
+url: https://whoisfreaks.com/
+description: Current, historical and reverse WHOIS lookups.
+category: domain
+inputs:
+  - domain
+  - name
+  - email
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - whois
+  - reverse-whois

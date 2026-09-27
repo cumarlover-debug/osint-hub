@@ -1,0 +1,13 @@
+name: Rejestr.io
+url: https://rejestr.io/
+description: Polish company and people graph built from the national court register (KRS).
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - regional

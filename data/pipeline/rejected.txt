@@ -556,3 +556,6 @@ https://news.yahoo.com  # Yahoo News (a single news outlet, not a search tool; n
 https://you.com  # YOU (now a search API for developers, out of scope), 2026-09-26
 https://yougotthenews.com/  # YouGotTheNews (redirects to a book promotion), 2026-09-26
 https://zanran.com  # Zanran (no longer working), 2026-09-26
+https://discordlookup.com/  # Discord Lookup (domain now redirects to an unrelated poll app), 2026-09-27
+https://map.snapchat.com  # Snap Map (public web map discontinued; redirects to the Snapchat home page), 2026-09-27
+http://www.worldlicenseplates.com/  # World License Plates (HTTP only, no HTTPS), 2026-09-27

@@ -1,0 +1,10 @@
+name: RZJets
+url: https://rzjets.net/
+description: Production lists for each airframe, with its full registration history.
+category: transport
+inputs:
+  - aircraft
+type: web
+cost: free
+passive: true
+account_required: false

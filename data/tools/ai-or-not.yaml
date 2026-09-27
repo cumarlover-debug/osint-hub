@@ -1,0 +1,14 @@
+name: AI or Not
+url: https://www.aiornot.com/
+description: Classifies images, video and audio as AI-generated or real.
+category: image-video
+inputs:
+  - image
+  - video
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - ai-detection
+notes: A probability, not proof.

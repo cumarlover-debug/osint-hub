@@ -1,0 +1,13 @@
+name: Sublime EML Analyzer
+url: https://analyzer.sublime.security/
+description: Upload an .eml file to see its headers, links, attachments and detection signals.
+category: email
+inputs:
+  - email
+  - document
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - phishing

@@ -1,0 +1,19 @@
+name: mat2
+url: https://0xacab.org/jvoisin/mat2
+description: Strips metadata from documents, images and audio before you share them.
+category: opsec
+inputs:
+  - document
+  - image
+type: cli
+cost: free
+passive: true
+account_required: false
+install: pipx install mat2
+platforms:
+  - linux
+  - macos
+tags:
+  - opsec
+  - metadata
+  - open-source

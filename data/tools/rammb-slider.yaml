@@ -1,0 +1,13 @@
+name: RAMMB Slider
+url: https://slider.cira.colostate.edu/
+description: Near-real-time weather-satellite imagery that you can loop.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - satellite-imagery
+  - weather

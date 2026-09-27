@@ -1,0 +1,12 @@
+name: Nullschool Earth
+url: https://earth.nullschool.net/
+description: Animated global wind, ocean and air-quality conditions.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - weather

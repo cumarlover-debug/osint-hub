@@ -1,0 +1,13 @@
+name: Librebor
+url: https://librebor.me/
+description: Searchable index of Spain's BORME company gazette, linking companies and their officers.
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags:
+  - regional

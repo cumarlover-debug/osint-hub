@@ -1,0 +1,12 @@
+name: EU e-Justice Business Registers
+url: https://e-justice.europa.eu/topics/registers-business-insolvency-land/business-registers-search-company-eu/general-information-find-company_en
+description: EU portal that searches EU member states' national company registers in one place.
+category: business
+inputs:
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - government-records

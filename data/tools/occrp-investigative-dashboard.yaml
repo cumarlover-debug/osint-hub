@@ -1,0 +1,14 @@
+name: OCCRP Investigative Dashboard
+url: https://id.occrp.org/
+description: OCCRP's research desk and index of company and property registries worldwide, for journalists.
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: free
+passive: true
+account_required: true
+tags:
+  - investigative-journalism
+notes: Access is vetted.

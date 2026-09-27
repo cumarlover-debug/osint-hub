@@ -1,0 +1,13 @@
+name: ABN Lookup
+url: https://abr.business.gov.au/
+description: Australian Business Register lookup by ABN, ACN or business name.
+category: business
+inputs:
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - government-records
+  - regional

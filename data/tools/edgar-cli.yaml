@@ -1,0 +1,20 @@
+name: EDGAR CLI
+url: https://github.com/bellingcat/EDGAR
+description: Bellingcat command-line tool for SEC full-text search and for monitoring new filings via RSS.
+category: business
+inputs:
+  - company
+  - keyword
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: bellingcat/EDGAR
+install: pipx install edgar-tool
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - open-source

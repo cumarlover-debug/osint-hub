@@ -1,0 +1,13 @@
+name: Intezer Analyze
+url: https://analyze.intezer.com/
+description: Identifies malware families from code reused between samples.
+category: threat-intel
+inputs:
+  - hash
+  - document
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags:
+  - malware

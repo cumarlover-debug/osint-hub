@@ -1,0 +1,13 @@
+name: Tencent Maps
+url: https://map.qq.com/
+description: Tencent's map of China, with street-level imagery.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - maps
+  - regional

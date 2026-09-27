@@ -1,0 +1,20 @@
+name: X-Ray
+url: https://github.com/freelawproject/x-ray
+description: Finds bad PDF redactions, where the text is still present under the black boxes.
+category: metadata
+inputs:
+  - document
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: freelawproject/x-ray
+install: pipx install x-ray
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - redactions
+  - open-source

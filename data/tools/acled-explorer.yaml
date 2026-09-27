@@ -1,0 +1,13 @@
+name: ACLED Explorer
+url: https://acleddata.com/platform/explorer
+description: Geocoded conflict, protest and political violence events worldwide.
+category: research
+inputs:
+  - location
+  - keyword
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags:
+  - conflict

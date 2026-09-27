@@ -1,0 +1,14 @@
+name: FCA Register
+url: https://register.fca.org.uk/
+description: UK Financial Conduct Authority register of authorised firms and approved individuals.
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - government-records
+  - financial-regulation

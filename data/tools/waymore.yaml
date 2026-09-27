@@ -1,0 +1,21 @@
+name: Waymore
+url: https://github.com/xnl-h4ck3r/waymore
+description: Pulls every archived URL, and the archived responses, for a domain from Wayback, Common Crawl, OTX and others.
+category: archives
+inputs:
+  - domain
+type: cli
+cost: free
+passive: true
+account_required: false
+command_template: waymore -i {query}
+repo: xnl-h4ck3r/waymore
+install: pipx install waymore
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - wayback
+  - open-source

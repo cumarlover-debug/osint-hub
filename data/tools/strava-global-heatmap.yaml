@@ -1,0 +1,11 @@
+name: Strava Global Heatmap
+url: https://www.strava.com/maps/global-heatmap
+description: Aggregated exercise routes from Strava users, which can reveal paths and sensitive sites.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: true
+notes: Full zoom needs a free login.

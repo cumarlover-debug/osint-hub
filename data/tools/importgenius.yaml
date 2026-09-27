@@ -1,0 +1,12 @@
+name: ImportGenius
+url: https://www.importgenius.com/
+description: Customs shipping records (bills of lading) for tracing suppliers and shipments.
+category: business
+inputs:
+  - company
+type: web
+cost: paid
+passive: true
+account_required: true
+tags:
+  - supply-chain

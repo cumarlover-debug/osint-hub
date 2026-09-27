@@ -1,0 +1,13 @@
+name: 4plebs
+url: https://archive.4plebs.org/
+description: Searchable archive of several 4chan boards, including posts deleted from 4chan itself.
+category: social-media
+inputs:
+  - keyword
+  - username
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - forums

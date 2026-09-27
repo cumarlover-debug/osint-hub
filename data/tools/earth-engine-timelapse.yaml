@@ -1,0 +1,12 @@
+name: Earth Engine Timelapse
+url: https://earthengine.google.com/timelapse/
+description: Global satellite timelapse from 1984 to the present.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - satellite-imagery

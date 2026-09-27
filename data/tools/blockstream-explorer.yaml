@@ -1,0 +1,17 @@
+name: Blockstream Explorer
+url: https://blockstream.info/
+description: Bitcoin and Liquid block explorer, also available as a Tor onion site.
+category: crypto
+inputs:
+  - crypto_address
+type: web
+cost: free
+passive: true
+account_required: false
+query_template:
+  crypto_address:
+    url: https://blockstream.info/address/{query}
+    match: btc
+tags:
+  - bitcoin
+  - blockchain-explorer

@@ -1,0 +1,12 @@
+name: EOS LandViewer
+url: https://eos.com/landviewer/
+description: Browse and analyse Sentinel and Landsat satellite imagery.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags:
+  - satellite-imagery

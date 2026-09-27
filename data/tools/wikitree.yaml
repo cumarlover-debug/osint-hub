@@ -1,0 +1,12 @@
+name: WikiTree
+url: https://www.wikitree.com/
+description: Collaborative single family tree with sourced genealogy profiles.
+category: people
+inputs:
+  - name
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - genealogy

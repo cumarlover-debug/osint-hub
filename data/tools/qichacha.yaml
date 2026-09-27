@@ -1,0 +1,13 @@
+name: Qichacha
+url: https://www.qcc.com/
+description: Chinese corporate database of shareholders, executives, litigation and related companies.
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags:
+  - regional

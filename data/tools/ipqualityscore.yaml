@@ -1,0 +1,16 @@
+name: IPQualityScore
+url: https://www.ipqualityscore.com/
+description: Fraud-risk scores for phone numbers, email addresses, IPs and URLs.
+category: threat-intel
+inputs:
+  - phone
+  - email
+  - ip
+  - url
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags:
+  - reputation
+notes: Free lookups are limited.

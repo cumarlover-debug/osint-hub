@@ -1,0 +1,11 @@
+name: Check-Host
+url: https://check-host.net/
+description: Pings and runs HTTP, TCP and DNS checks against a host from nodes worldwide.
+category: network
+inputs:
+  - domain
+  - ip
+type: web
+cost: free
+passive: false
+account_required: false

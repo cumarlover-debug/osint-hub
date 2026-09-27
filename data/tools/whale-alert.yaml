@@ -1,0 +1,12 @@
+name: Whale Alert
+url: https://whale-alert.io/
+description: Tracks large cryptocurrency transfers and labels the wallets of known entities.
+category: crypto
+inputs:
+  - crypto_address
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - address-labels

@@ -1,0 +1,14 @@
+name: TikTok Commercial Content Library
+url: https://library.tiktok.com/
+description: TikTok's official library of ads and paid content shown in Europe.
+category: social-media
+inputs:
+  - keyword
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - ads
+  - tiktok

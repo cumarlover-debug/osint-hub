@@ -1,0 +1,12 @@
+name: RegVK
+url: https://regvk.com/
+description: Shows a VK account's numeric ID and registration date.
+category: social-media
+inputs:
+  - username
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - vk

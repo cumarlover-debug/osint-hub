@@ -1,0 +1,13 @@
+name: CORE (Ireland CRO)
+url: https://core.cro.ie/
+description: Ireland's Companies Registration Office search; filed documents cost a small fee.
+category: business
+inputs:
+  - company
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - government-records
+  - regional

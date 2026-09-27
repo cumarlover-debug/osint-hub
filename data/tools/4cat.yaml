@@ -1,0 +1,15 @@
+name: 4CAT
+url: https://4cat.nl/
+description: Self-hosted research tool that captures and analyses posts from forums and social platforms.
+category: social-media
+inputs:
+  - keyword
+  - social_post
+type: web
+cost: free
+passive: true
+account_required: false
+repo: digitalmethodsinitiative/4cat
+tags:
+  - research
+  - open-source

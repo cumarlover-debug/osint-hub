@@ -1,0 +1,13 @@
+name: DorkSearch
+url: https://dorksearch.com/
+description: Builds Google dork queries from a simple form.
+category: search
+inputs:
+  - keyword
+  - domain
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - dorks

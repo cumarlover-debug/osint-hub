@@ -1,0 +1,12 @@
+name: Panoramax
+url: https://panoramax.fr/
+description: Open, federated street-level imagery, strongest in France.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - street-level

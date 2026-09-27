@@ -1,0 +1,19 @@
+name: TeleTracker
+url: https://github.com/tsale/TeleTracker
+description: Monitors Telegram channels used by threat actors and retrieves their messages.
+category: threat-intel
+inputs:
+  - social_post
+type: cli
+cost: free
+passive: true
+account_required: true
+repo: tsale/TeleTracker
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - telegram
+  - open-source

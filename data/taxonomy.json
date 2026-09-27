@@ -39,7 +39,8 @@
     "metadata": "Metadata",
     "frameworks": "Frameworks & automation",
     "search": "Search engines",
-    "research": "News & research"
+    "research": "News & research",
+    "opsec": "OPSEC & anonymity"
   },
   "types": {
     "web": "Website",

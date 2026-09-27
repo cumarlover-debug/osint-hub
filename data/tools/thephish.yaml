@@ -1,0 +1,15 @@
+name: ThePhish
+url: https://github.com/emalderson/ThePhish
+description: Automated phishing-email analysis built on TheHive and Cortex.
+category: email
+inputs:
+  - email
+type: web
+cost: free
+passive: true
+account_required: false
+repo: emalderson/ThePhish
+tags:
+  - phishing
+  - self-hosted
+  - open-source

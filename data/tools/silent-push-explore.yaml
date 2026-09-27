@@ -1,0 +1,11 @@
+name: Silent Push Explore
+url: https://explore.silentpush.com/
+description: Free community edition of Silent Push for pivoting through passive DNS and infrastructure fingerprints.
+category: threat-intel
+inputs:
+  - domain
+  - ip
+type: web
+cost: freemium
+passive: true
+account_required: true

@@ -1,0 +1,15 @@
+name: Lookyloo
+url: https://lookyloo.circl.lu/
+description: CIRCL web capture that maps every redirect and resource a page loads, useful for phishing and malvertising chains.
+category: threat-intel
+inputs:
+  - url
+type: web
+cost: free
+passive: false
+account_required: false
+repo: Lookyloo/lookyloo
+tags:
+  - url-scan
+  - open-source
+notes: Visits the page from its own servers, not yours.

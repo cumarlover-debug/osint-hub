@@ -1,0 +1,13 @@
+name: GrantNav
+url: https://grantnav.threesixtygiving.org/
+description: Search of UK grants from funders that publish open grant data.
+category: business
+inputs:
+  - company
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - grants

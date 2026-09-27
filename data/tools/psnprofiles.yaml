@@ -1,0 +1,12 @@
+name: PSNProfiles
+url: https://psnprofiles.com/
+description: Public PlayStation Network profiles with trophy and activity history.
+category: social-media
+inputs:
+  - username
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - gaming

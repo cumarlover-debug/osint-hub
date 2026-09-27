@@ -1,0 +1,16 @@
+name: Atlos
+url: https://www.atlos.org/
+description: Shared workspace for collecting, geolocating and verifying visual evidence as a team.
+category: frameworks
+inputs:
+  - url
+  - image
+  - video
+type: web
+cost: free
+passive: true
+account_required: true
+repo: atlosdotorg/atlos
+tags:
+  - verification
+  - open-source

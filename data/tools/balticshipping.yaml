@@ -1,0 +1,12 @@
+name: BalticShipping
+url: https://www.balticshipping.com/
+description: Vessel details with owner and manager history.
+category: transport
+inputs:
+  - vessel
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - ship-ownership

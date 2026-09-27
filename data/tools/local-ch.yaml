@@ -1,0 +1,13 @@
+name: local.ch
+url: https://www.local.ch/
+description: Swiss telephone directory with reverse phone lookup.
+category: people
+inputs:
+  - name
+  - phone
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - phone-directory

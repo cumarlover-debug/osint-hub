@@ -1,0 +1,20 @@
+name: Truthbrush
+url: https://github.com/w2rc/truthbrush
+description: API client that pulls Truth Social posts, profiles, groups and trends.
+category: social-media
+inputs:
+  - username
+  - keyword
+type: cli
+cost: free
+passive: true
+account_required: true
+repo: w2rc/truthbrush
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - open-source
+notes: Needs a Truth Social account. Maintained fork of the archived Stanford Internet Observatory tool.

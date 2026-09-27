@@ -1,0 +1,12 @@
+name: Illuminarty
+url: https://illuminarty.ai/
+description: Detects AI-generated images and highlights the regions that look generated.
+category: image-video
+inputs:
+  - image
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - ai-detection

@@ -1,0 +1,13 @@
+name: GH Archive
+url: https://www.gharchive.org/
+description: Timeline of public GitHub events since 2011, queryable in BigQuery.
+category: research
+inputs:
+  - username
+  - keyword
+type: api
+cost: free
+passive: true
+account_required: false
+tags:
+  - github

@@ -1,0 +1,12 @@
+name: Interpol Red Notices
+url: https://www.interpol.int/How-we-work/Notices/Red-Notices/View-Red-Notices
+description: The public subset of Interpol's red notices for wanted persons.
+category: people
+inputs:
+  - name
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - wanted

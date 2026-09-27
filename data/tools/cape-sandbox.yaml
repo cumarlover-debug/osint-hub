@@ -1,0 +1,14 @@
+name: CAPE Sandbox
+url: https://capesandbox.com/
+description: Public CAPEv2 malware sandbox that also extracts malware configurations and unpacked payloads.
+category: threat-intel
+inputs:
+  - document
+  - hash
+type: web
+cost: free
+passive: true
+account_required: true
+tags:
+  - malware
+  - sandbox

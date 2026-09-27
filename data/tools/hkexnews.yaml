@@ -1,0 +1,12 @@
+name: HKEXnews
+url: https://www.hkexnews.hk/
+description: Hong Kong Exchange filings, announcements and shareholding disclosures.
+category: business
+inputs:
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - regional

@@ -1,0 +1,12 @@
+name: C99 Subdomain Finder
+url: https://subdomainfinder.c99.nl/
+description: Subdomain enumeration, with earlier scans kept per domain.
+category: domain
+inputs:
+  - domain
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - subdomains

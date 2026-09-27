@@ -1,0 +1,12 @@
+name: DNSChecker
+url: https://dnschecker.org/
+description: Checks DNS records for a domain against resolvers around the world.
+category: domain
+inputs:
+  - domain
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - dns

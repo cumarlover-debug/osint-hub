@@ -1,0 +1,13 @@
+name: RadioReference
+url: https://www.radioreference.com/
+description: Database of radio frequencies and trunked radio systems by area.
+category: network
+inputs:
+  - location
+  - keyword
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - radio

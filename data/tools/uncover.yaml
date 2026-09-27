@@ -1,0 +1,21 @@
+name: Uncover
+url: https://github.com/projectdiscovery/uncover
+description: Runs one query across Shodan, Censys, FOFA and other internet scan engines at once.
+category: network
+inputs:
+  - keyword
+  - domain
+type: cli
+cost: freemium
+passive: true
+account_required: false
+repo: projectdiscovery/uncover
+install: go install -v github.com/projectdiscovery/uncover/cmd/uncover@latest
+language: Go
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - open-source
+notes: Needs each engine's own API key.

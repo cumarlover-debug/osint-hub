@@ -1,0 +1,13 @@
+name: CheckPhish
+url: https://checkphish.bolster.ai/
+description: Scans a URL for phishing or scam content and takes a screenshot.
+category: threat-intel
+inputs:
+  - url
+type: web
+cost: freemium
+passive: false
+account_required: false
+tags:
+  - url-scan
+  - phishing

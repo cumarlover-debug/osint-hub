@@ -1,0 +1,14 @@
+name: BAILII
+url: https://www.bailii.org/
+description: Free British and Irish case law and legislation.
+category: research
+inputs:
+  - name
+  - company
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - court-records

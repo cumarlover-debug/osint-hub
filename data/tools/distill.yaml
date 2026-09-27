@@ -1,0 +1,12 @@
+name: Distill Web Monitor
+url: https://distill.io/
+description: Watches web pages, or parts of them, and alerts you when they change.
+category: archives
+inputs:
+  - url
+type: extension
+cost: freemium
+passive: false
+account_required: false
+tags:
+  - monitoring

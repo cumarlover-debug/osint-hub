@@ -1,0 +1,21 @@
+name: LinkdTime
+url: https://github.com/Lucksi/LinkdTime
+description: Gets the exact creation time of a LinkedIn post or comment from its ID.
+category: social-media
+inputs:
+  - url
+  - social_post
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: Lucksi/LinkdTime
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - linkedin
+  - timestamps
+  - open-source

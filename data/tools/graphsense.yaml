@@ -1,0 +1,13 @@
+name: GraphSense
+url: https://graphsense.org/
+description: Open-source platform for clustering addresses and tracing funds across several blockchains.
+category: crypto
+inputs:
+  - crypto_address
+type: web
+cost: free
+passive: true
+account_required: true
+tags:
+  - tracing
+  - open-source

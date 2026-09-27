@@ -1,0 +1,13 @@
+name: GDELT
+url: https://www.gdeltproject.org/
+description: Global database of news events, geocoded and searchable with its analysis tools.
+category: research
+inputs:
+  - keyword
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - news

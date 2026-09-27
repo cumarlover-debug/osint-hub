@@ -1,0 +1,12 @@
+name: XTools
+url: https://xtools.wmcloud.org/
+description: Wikimedia tool that analyses an editor's contributions and a page's edit history.
+category: research
+inputs:
+  - username
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - wikipedia

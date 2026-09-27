@@ -1,0 +1,12 @@
+name: Streams Charts
+url: https://streamscharts.com/
+description: Live-streaming analytics for Twitch, Kick, YouTube and others.
+category: social-media
+inputs:
+  - username
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - streaming

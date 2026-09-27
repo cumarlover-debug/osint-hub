@@ -1,0 +1,12 @@
+name: Google Admin Toolbox Messageheader
+url: https://toolbox.googleapps.com/apps/messageheader/
+description: Paste email headers to get the delivery path as a timeline, with SPF, DKIM and DMARC results.
+category: email
+inputs:
+  - email
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - email-headers

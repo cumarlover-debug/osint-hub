@@ -1,0 +1,14 @@
+name: KVK Search
+url: https://www.kvk.nl/zoeken/
+description: Netherlands Chamber of Commerce register, searchable by company name or KvK number.
+category: business
+inputs:
+  - company
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - government-records
+  - regional
+notes: Official extracts are paid.

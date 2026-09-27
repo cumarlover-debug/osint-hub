@@ -1,0 +1,12 @@
+name: Apple Maps (web)
+url: https://maps.apple.com/
+description: Apple Maps in the browser, with its own imagery and points of interest.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - maps

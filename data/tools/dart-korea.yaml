@@ -1,0 +1,13 @@
+name: DART (Korea)
+url: https://dart.fss.or.kr/
+description: 'South Korea''s regulatory filing system for listed and large companies: reports, shareholders and executives.'
+category: business
+inputs:
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - government-records
+  - regional

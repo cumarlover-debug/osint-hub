@@ -1,0 +1,13 @@
+name: Exolyt
+url: https://exolyt.com/
+description: TikTok analytics for accounts, hashtags and videos over time.
+category: social-media
+inputs:
+  - username
+  - keyword
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags:
+  - tiktok

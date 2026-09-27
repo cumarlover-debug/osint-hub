@@ -1,0 +1,13 @@
+name: PagesJaunes
+url: https://www.pagesjaunes.fr/
+description: French directory of businesses and private phone listings.
+category: people
+inputs:
+  - name
+  - phone
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - phone-directory

@@ -1,0 +1,13 @@
+name: HUDOC
+url: https://hudoc.echr.coe.int/
+description: Case-law database of the European Court of Human Rights.
+category: research
+inputs:
+  - name
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - court-records

@@ -1,0 +1,12 @@
+name: Open Contracting Data Registry
+url: https://data.open-contracting.org/
+description: Catalogue of public procurement datasets published in the Open Contracting format, by country.
+category: business
+inputs:
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - procurement

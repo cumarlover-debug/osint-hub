@@ -1,0 +1,14 @@
+name: CVR (Denmark)
+url: https://datacvr.virk.dk/
+description: Denmark's central business register, including owners and board members.
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - government-records
+  - regional

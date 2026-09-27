@@ -1,0 +1,13 @@
+name: Hadzy
+url: https://hadzy.com/
+description: Loads every comment on a YouTube video so you can search and filter them.
+category: social-media
+inputs:
+  - url
+  - video
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - youtube

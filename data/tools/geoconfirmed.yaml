@@ -1,0 +1,12 @@
+name: GeoConfirmed
+url: https://geoconfirmed.org/
+description: Map of conflict footage geolocated by volunteers, with the sources and reasoning.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - conflict

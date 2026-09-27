@@ -1,0 +1,12 @@
+name: UN Comtrade
+url: https://comtradeplus.un.org/
+description: UN database of international trade flows by country and commodity.
+category: business
+inputs:
+  - keyword
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - trade

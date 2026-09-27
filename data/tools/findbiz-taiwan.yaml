@@ -1,0 +1,14 @@
+name: Findbiz (Taiwan)
+url: https://findbiz.nat.gov.tw/
+description: Taiwan's official company and business registration search.
+category: business
+inputs:
+  - company
+  - name
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - government-records
+  - regional

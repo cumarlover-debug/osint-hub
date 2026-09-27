@@ -1,0 +1,13 @@
+name: Apollo Mapping Image Hunter
+url: https://imagehunter.apollomapping.com/
+description: Searches commercial high-resolution satellite archives by area and date.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - satellite-imagery
+notes: Browsing previews is free; imagery is paid.

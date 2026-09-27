@@ -1,0 +1,13 @@
+name: Pinpoint
+url: https://journaliststudio.google.com/pinpoint/about
+description: Google tool for journalists that makes large document sets searchable, with OCR, entity extraction and audio transcription.
+category: metadata
+inputs:
+  - document
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: true
+tags:
+  - documents

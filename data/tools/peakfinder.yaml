@@ -1,0 +1,10 @@
+name: PeakFinder
+url: https://www.peakfinder.com/
+description: Draws the mountain skyline seen from any point, for matching horizons in photos.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false

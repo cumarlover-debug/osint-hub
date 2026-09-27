@@ -1,0 +1,13 @@
+name: Web Archives
+url: https://github.com/dessant/web-archives
+description: Browser extension that looks up the current page in many web archives and caches at once.
+category: archives
+inputs:
+  - url
+type: extension
+cost: free
+passive: true
+account_required: false
+repo: dessant/web-archives
+tags:
+  - open-source

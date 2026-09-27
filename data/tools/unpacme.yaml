@@ -1,0 +1,13 @@
+name: UnpacMe
+url: https://www.unpac.me/
+description: Automated malware-unpacking service that returns the unpacked payloads.
+category: threat-intel
+inputs:
+  - document
+  - hash
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags:
+  - malware

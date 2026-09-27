@@ -1,0 +1,13 @@
+name: FindClone
+url: https://findclone.ru/
+description: Face search over profile photos on the Russian social network VK.
+category: people
+inputs:
+  - image
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags:
+  - face-recognition
+notes: Needs a Russian phone number to register.

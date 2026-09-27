@@ -1,0 +1,12 @@
+name: Should I Answer
+url: https://www.shouldianswer.com/
+description: Community ratings and reports on callers, to tell spam and scam numbers apart.
+category: phone
+inputs:
+  - phone
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - spam-reports

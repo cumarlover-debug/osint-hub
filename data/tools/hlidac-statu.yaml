@@ -1,0 +1,16 @@
+name: Hlídač státu
+url: https://www.hlidacstatu.cz/
+description: Czech watchdog database linking public contracts, subsidies, company registers and politicians.
+category: business
+inputs:
+  - company
+  - name
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://www.hlidacstatu.cz/hledat?q={query}
+tags:
+  - procurement
+  - regional

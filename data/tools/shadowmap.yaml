@@ -1,0 +1,12 @@
+name: ShadowMap
+url: https://app.shadowmap.org/
+description: Simulates building and terrain shadows for any date and time.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags:
+  - chronolocation

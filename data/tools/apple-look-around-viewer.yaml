@@ -1,0 +1,12 @@
+name: Apple Look Around Viewer
+url: https://lookmap.skzk.dev/
+description: Browser viewer for Apple Maps' Look Around street-level imagery, which covers places Google doesn't.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - street-level

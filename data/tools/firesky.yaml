@@ -1,0 +1,12 @@
+name: Firesky
+url: https://firesky.tv/
+description: Live, filterable stream of every public Bluesky post.
+category: social-media
+inputs:
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - bluesky

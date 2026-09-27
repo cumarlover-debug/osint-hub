@@ -1,0 +1,13 @@
+name: F4map
+url: https://demo.f4map.com
+description: 3D OpenStreetMap buildings, for checking skylines and building heights.
+category: geolocation
+inputs:
+  - location
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - maps
+  - 3d

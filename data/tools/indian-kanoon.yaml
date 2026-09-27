@@ -1,0 +1,15 @@
+name: Indian Kanoon
+url: https://indiankanoon.org/
+description: Search engine for Indian court judgments, tribunal decisions and statutes.
+category: research
+inputs:
+  - name
+  - company
+  - keyword
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - court-records
+  - regional

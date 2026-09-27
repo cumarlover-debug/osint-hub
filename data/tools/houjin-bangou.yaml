@@ -1,0 +1,13 @@
+name: Houjin Bangou (NTA)
+url: https://www.houjin-bangou.nta.go.jp/en/
+description: Japan National Tax Agency lookup by corporate number, with the company's name and address history.
+category: business
+inputs:
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - government-records
+  - regional

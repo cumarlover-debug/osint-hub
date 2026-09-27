@@ -1,0 +1,20 @@
+name: weiboSpider
+url: https://github.com/dataabc/weiboSpider
+description: Scrapes a Weibo user's profile and posts to CSV or JSON.
+category: social-media
+inputs:
+  - username
+type: cli
+cost: free
+passive: true
+account_required: true
+repo: dataabc/weiboSpider
+language: Python
+platforms:
+  - linux
+  - macos
+  - windows
+tags:
+  - weibo
+  - open-source
+notes: Needs a Weibo session cookie.

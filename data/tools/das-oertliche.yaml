@@ -1,0 +1,13 @@
+name: Das Örtliche
+url: https://www.dasoertliche.de/
+description: German telephone directory with reverse phone search.
+category: people
+inputs:
+  - name
+  - phone
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - phone-directory

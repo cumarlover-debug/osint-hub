@@ -1,0 +1,14 @@
+name: 1881.no
+url: https://www.1881.no/
+description: Norwegian white and yellow pages with reverse phone number lookup.
+category: people
+inputs:
+  - name
+  - phone
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://www.1881.no/?query={query}
+tags:
+  - phone-directory

@@ -1,0 +1,16 @@
+name: OCCRP Aleph
+url: https://aleph.occrp.org/
+description: OCCRP's search engine over company registries, gazettes, court records and document collections from investigations.
+category: business
+inputs:
+  - company
+  - name
+  - keyword
+  - document
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags:
+  - investigative-journalism
+notes: Many datasets need an approved account. Some collections come from leaked documents published by journalists.

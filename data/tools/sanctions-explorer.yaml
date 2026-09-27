@@ -1,0 +1,14 @@
+name: Sanctions Explorer
+url: https://sanctionsexplorer.org/
+description: C4ADS search across US, EU, UK and UN sanctions lists.
+category: business
+inputs:
+  - name
+  - company
+type: web
+cost: free
+passive: true
+account_required: false
+tags:
+  - sanctions
+notes: Check the last-updated date before relying on it.
