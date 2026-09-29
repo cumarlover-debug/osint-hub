@@ -1,0 +1,12 @@
+name: LeakIX
+url: https://leakix.net/
+description: "Search engine over exposed services and published leaks: open databases, misconfigured servers and dumps, by domain, IP or country."
+category: breach
+inputs: [domain, ip, company]
+outputs: [ip, domain, document]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [leak-data]
+notes: Free browsing; the API needs a key. Do not point it at infrastructure you do not own.

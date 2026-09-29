@@ -7,3 +7,4 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template: https://vpic.nhtsa.dot.gov/decoder/VinDecoder?VIN={query}

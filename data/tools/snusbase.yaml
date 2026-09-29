@@ -1,0 +1,14 @@
+name: Snusbase
+url: https://snusbase.com/
+description: Subscription breach-search service with an API, covering leaked credentials, hashes and personal records.
+category: breach
+inputs: [email, username, password, domain]
+outputs: [password, hash, email]
+type: web
+cost: paid
+passive: true
+account_required: true
+tags: [leak-data]
+notes: >-
+  One of the largest credential sets in private hands. Breached records are personal data: in most countries you need a lawful basis to search them, the vendor logs every query against your account,
+  and these sets are often stale, merged between people or planted.

@@ -1,0 +1,12 @@
+name: Lampyre
+url: https://lampyre.io/
+description: Desktop workbench that queries public data sources for a value and links everything it finds into a graph.
+category: frameworks
+inputs: [document, image]
+outputs: [metadata]
+type: desktop
+cost: freemium
+passive: true
+account_required: true
+platforms: [windows]
+notes: Free for personal use; the corporate edition is licensed. Keep the graph project files encrypted, because they hold everything you collected about a target.

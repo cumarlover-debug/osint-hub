@@ -1,0 +1,12 @@
+name: NAPALM FTP Indexer
+url: https://www.searchftps.net/
+description: Indexes publicly reachable FTP servers so you can search them by keyword for exposed files and directories.
+category: breach
+inputs: [keyword]
+outputs: [document]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [leak-data]
+notes: An open FTP server is not an invitation to browse it, and many carry personal data by accident.

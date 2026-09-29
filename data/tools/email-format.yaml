@@ -8,3 +8,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+query_template:
+  company: https://email-format.com/i/search_result/?q={query}

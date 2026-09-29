@@ -163,7 +163,7 @@ export async function checkSubmission(fields) {
 
   // Policy
   const text = `${tool.name ?? ''} ${tool.description ?? ''} ${tool.notes ?? ''} ${fields.why ?? ''}`;
-  if (leakPattern.test(text)) add('warn', 'Mentions breaches, leaks or credentials. Tools that sell or expose leaked data are not listed; breach *notification* services are fine. A maintainer will check.');
+  if (leakPattern.test(text)) add('warn', 'Breach, leak or tracking data. These are listed with a hard responsible-use notice after an individual review (policy of 2026-09-30); the tool page must carry the notice, and the site never queries the tool for the visitor. A maintainer will check the notice tag.');
   if (peoplePattern.test(text) || tool.category === 'people') add('warn', 'People search or face search: listed with a responsible-use notice after an individual review.');
 
   // The link itself

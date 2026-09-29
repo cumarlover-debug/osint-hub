@@ -3,7 +3,11 @@
 //   npm run pipeline:draft -- --limit 50                 best 50, spread evenly across categories
 //   npm run pipeline:draft -- --limit 20 --category email
 //   npm run pipeline:draft -- --people                   also draft people-search and face-search candidates
-//   npm run pipeline:draft -- --leaked                   also draft possible leaked-data services (for rejecting)
+//   npm run pipeline:draft -- --leaked                   also draft breach, leak and tracking candidates
+//
+// People-search and breach/leak candidates are listed with a responsible-use notice (policy decision of
+// 2026-09-30), but they are only drafted when asked for, so each one is reviewed deliberately rather than
+// swept in with a batch.
 //
 // Each candidate's link is checked first and its GitHub repo read; dead, missing, archived and long-abandoned
 // tools are skipped (and listed at the end). Drafts leave `description` empty: it has to be written fresh,

@@ -8,5 +8,6 @@ type: web
 cost: paid
 passive: true
 account_required: true
+query_template: https://www.importgenius.com/search?query={query}
 tags:
   - supply-chain

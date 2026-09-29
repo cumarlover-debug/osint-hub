@@ -125,14 +125,12 @@ https://fediverse.observer/  # Fediverse Observer (server statistics, no account
 https://geoinfer.com  # GeoInfer (no public access (HTTP 402)), 2026-09-26
 https://trends.google.com/trends/  # Google Trends (keyword trends, no investigation input), 2026-09-26
 https://www.certificate-transparency.org/known-logs  # Google's Certificate Transparency (a list of CT logs, not a search), 2026-09-26
-https://grabify.link  # Grabify (covert IP-logging links, out of scope), 2026-09-26
 https://image-net.org/  # ImageNet (research dataset), 2026-09-26
 https://www.imgrab.com/  # Imgrab (domain now hosts an unrelated gambling site), 2026-09-26
 https://imgur.com/search  # Imgur Search (image host search, little OSINT value), 2026-09-26
 https://www.isdglobal.org/  # Institute for Strategic Dialogue (research organisation page, not a tool), 2026-09-26
 https://iplogger.com/  # IP Logger (covert IP-logging links, out of scope), 2026-09-26
 https://www.linkedin.com  # Linkedin (a social network itself, not a tool), 2026-09-26
-https://malpedia.caad.fkie.fraunhofer.de/  # Malpedia (malware reference library without a fitting lookup input), 2026-09-26
 https://www.misp-project.org/  # Malware Information Sharing Platform (self-hosted sharing platform, not a lookup), 2026-09-26
 https://www.malwarepatrol.net/  # Malware Patrol (commercial threat feeds), 2026-09-26
 https://mini-for-instagram.en.softonic.com/  # Mini Instagram (third-party app download page), 2026-09-26
@@ -232,8 +230,6 @@ https://www.cve.org/  # CVE - MITRE (vulnerability database, no fitting investig
 https://t.me/dCallsBot  # dCallsBot (anonymous calling service, out of scope), 2026-09-26
 https://fortypoundhead.com/tools_dpw.asp  # Default Password Lookup Utility (default-credential list, out of scope), 2026-09-26
 https://cirt.net/passwords/  # Default Passwords DB (default-credential list, out of scope), 2026-09-26
-https://default-password.info/  # Default passwords list (default-credential list, out of scope), 2026-09-26
-https://www.routerpasswords.com/  # Default Router Passwords (default-credential list, out of scope), 2026-09-26
 https://telegram.me/discordsensorbot  # Discord Sensor (Telegram lookup bot likely backed by leaked personal data), 2026-09-26
 https://www.dogpile.com/  # Dogpile (general search engine), 2026-09-26
 https://www.dolphinradar.com/web-viewer-for-instagram  # Dolphin Radar (redundant anonymous Instagram viewer), 2026-09-26
@@ -274,7 +270,6 @@ https://www.snopes.com/  # Snopes (fact-check publication, not a lookup tool), 2
 https://soar.earth/  # SOAR (unclear current product), 2026-09-26
 https://storymaps.arcgis.com/en  # StoryMaps (map-making or GIS product, not an investigation tool), 2026-09-26
 https://www.tableausoftware.com  # Tableau (business-intelligence software), 2026-09-26
-https://truthscan.com/  # TruthScan Deepfake Detector (enterprise AI-detection product with unproven reliability), 2026-09-26
 https://tubechop.com/  # TubeChop (video trimming utility), 2026-09-26
 https://verificationhandbook.com/  # Verification Handbook (a guide, not a tool), 2026-09-26
 https://www.viamichelin.com  # ViaMichelin (route planner, little OSINT value), 2026-09-26
@@ -434,7 +429,6 @@ https://intelbase.is/  # IntelBase (unclear data sources), 2026-09-26
 https://infotrackpeople.org/  # ITP Infotrack (unclear data sources), 2026-09-26
 https://ministryofcyberaffairs.com/lers  # LERS Portal Directory (Ministry of Cyber Affairs) (a directory of law-enforcement request portals, not a lookup), 2026-09-26
 https://mugshots.com/  # Mugshots (mugshot-publishing site with a history of pay-for-removal practices), 2026-09-26
-https://www.myregistry.com/  # My Registry (gift-registry search: mainly reveals home addresses and absence dates, little legitimate OSINT use), 2026-09-26
 https://explorer.naco.org/  # NACo County Explorer (county statistics, no person or company lookup), 2026-09-26
 https://www.ncosc.gov/public-information/state-employee-salary-database  # NC Salary DB (single-state salary page, too narrow), 2026-09-26
 https://offendersearch.app  # Offendersearch (redundant; the official NSOPW search covers it), 2026-09-26
@@ -442,7 +436,6 @@ https://opendata.muenchen.de/  # Open-Data-Portal München (German) (open-data p
 https://peekyou.com/  # PeekYou (site shows a domain update notice; unclear if it still works), 2026-09-26
 https://www.pictriev.com  # PicTriev (old celebrity look-alike engine, little OSINT value), 2026-09-26
 https://pimeyes.com/en  # PimEyes Face Search Engine (duplicate of PimEyes), 2026-09-26
-https://registryfinder.com:443/  # Registry Finder (gift-registry search: mainly reveals home addresses and absence dates, little legitimate OSINT use), 2026-09-26
 https://reunion.com  # Reunion (redundant; Whitepages and Spokeo covers it), 2026-09-26
 https://www.reversephonelookup.com/  # Reverse Phone Lookup (redundant; Whitepages and USPhoneBook covers it), 2026-09-26
 https://www.fcc.gov/oet/ea/fccid  # Searchable FCC ID Database (duplicate of FCCID.io), 2026-09-26
@@ -450,7 +443,6 @@ https://surfface.com  # Surfface (redundant; PimEyes and FaceCheck.ID covers it)
 https://registry.thebump.com/babyregistrysearch  # The Bump (gift-registry search: mainly reveals home addresses and absence dates, little legitimate OSINT use), 2026-09-26
 https://www.theknot.com/registry/couplesearch  # The Knot (gift-registry search: mainly reveals home addresses and absence dates, little legitimate OSINT use), 2026-09-26
 https://datacatalog.worldbank.org/  # The World Bank Open Data Catalog (open-data portal, no person or company lookup), 2026-09-26
-https://www.usa-people-search.com/  # usa-people-search.com (paid broker with widespread billing complaints), 2026-09-26
 https://www.belastingdienst.nl/  # VAT Research (duplicate of EU VIES VAT Check), 2026-09-26
 https://verifiedher.com  # VerifiedHer (narrow creator registry, not established), 2026-09-26
 https://vk.com/people  # VK People Search (VK search itself, not a tool), 2026-09-26
@@ -476,12 +468,10 @@ https://builtwithflarum.com/  # Built With Flarum (showcase of Flarum forums, li
 https://captainfact.io/  # Captin Fact (video annotation project, little activity), 2026-09-26
 https://meedan.com/check  # Check (fact-checking platform for newsrooms, not a lookup), 2026-09-26
 https://edition.cnn.com  # CNN (a single news outlet, not a search tool; news search engines cover it), 2026-09-26
-https://www.dedigger.com/  # de digger (indexes exposed or shared files, which often include leaked personal data; not listed), 2026-09-26
 https://www.dpa-international.com  # DPA International (a single news outlet, not a search tool; news search engines cover it), 2026-09-26
 https://www.elsevier.com  # Elsevier (corporate site; ScienceDirect is the searchable part), 2026-09-26
 https://www.eniro.se  # Eniro (Sweden) (business and people directory, out of scope for keyword search), 2026-09-26
 https://www.euronews.com  # Euronews (a single news outlet, not a search tool; news search engines cover it), 2026-09-26
-https://www.eyedex.org/  # eyedex (indexes exposed or shared files, which often include leaked personal data; not listed), 2026-09-26
 https://www.facebook.com  # Facebook Groups (Facebook itself, not a tool), 2026-09-26
 https://flipboard.com  # Flipboard (social news reader, not a search tool), 2026-09-26
 https://www.france24.com  # France24 (a single news outlet, not a search tool; news search engines cover it), 2026-09-26
@@ -506,9 +496,7 @@ https://www.keywordspy.com  # Keyword Spy (SEO or advertising product, out of sc
 https://keywordtool.io  # KeywordTool (SEO or advertising product, out of scope), 2026-09-26
 https://guides.uflib.ufl.edu/az.php  # Library Databases (a university library A-Z list, mostly subscription-only), 2026-09-26
 https://www.mmnt.ru/  # Mamont (indexes exposed or shared files, which often include leaked personal data; not listed), 2026-09-26
-https://meawfy.com/  # Meawfy (indexes exposed or shared files, which often include leaked personal data; not listed), 2026-09-26
 https://academic.microsoft.com/  # Microsoft Academic (Microsoft Academic was retired in 2021), 2026-09-26
-https://www.searchftps.net/  # NAPALM FTP Indexer (indexes exposed or shared files, which often include leaked personal data; not listed), 2026-09-26
 https://www.nerdydata.com/reports/new  # NerdyData (duplicate of NerdyData (nerdydata.com)), 2026-09-26
 https://newsmap.jp  # News Map (service closed or domain repurposed), 2026-09-26
 https://getnewsbot.com/  # NewsBot (service closed or domain repurposed), 2026-09-26
@@ -520,7 +508,6 @@ https://www.ning.com  # Ning (community website builder, not a search tool), 202
 https://get-nod.com  # Nod (service closed or domain repurposed), 2026-09-26
 https://www.notey.com  # Notey (service closed or domain repurposed), 2026-09-26
 https://www.nrcresearchpress.com  # NRC Research Press (a single publisher; Google Scholar, BASE and CORE search across publishers), 2026-09-26
-https://odcrawler.xyz/  # ODCrawler (indexes exposed or shared files, which often include leaked personal data; not listed), 2026-09-26
 https://www.onelook.com/reverse-dictionary.shtml  # One Look Reverse Dictionary (a dictionary, little OSINT value), 2026-09-26
 https://www.onet.pl  # Onet.pl (Poland) (news portal, not a search engine), 2026-09-26
 https://www.pagepress.org  # Open Access Scientific Journals (a single publisher; Google Scholar, BASE and CORE search across publishers), 2026-09-26
@@ -538,7 +525,6 @@ https://www.sciencedomain.org  # ScienceDomain (a single publisher; Google Schol
 https://www.scirp.org  # SCIRP (a single publisher; Google Scholar, BASE and CORE search across publishers), 2026-09-26
 https://www.search.com  # Search.com (service closed or domain repurposed), 2026-09-26
 https://bishopfox.com/resources  # SearchDiggity (SearchDiggity is discontinued; the link is a generic resources page), 2026-09-26
-https://searchfiles.de/  # SearchFiles.de (indexes exposed or shared files, which often include leaked personal data; not listed), 2026-09-26
 https://dashboard.shadowserver.org/  # Shadowserver (statistics dashboard, no lookup by input), 2026-09-26
 https://www.sourcebot.dev/  # Sourcebot (self-hosted search for your own code, out of scope), 2026-09-26
 https://storyful.com  # Storyful (news agency service for newsrooms, not a public tool), 2026-09-26

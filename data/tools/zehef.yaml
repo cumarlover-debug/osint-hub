@@ -1,0 +1,17 @@
+name: Zehef
+url: https://github.com/N0rz3/Zehef
+description: Tracks an email address, username or phone number across breaches, pastes, social networks and leaked databases.
+category: breach
+inputs: [email, username, phone]
+outputs: [password, social_profile]
+type: cli
+cost: free
+passive: false
+account_required: false
+repo: N0rz3/Zehef
+install: pipx install git+https://github.com/N0rz3/Zehef.git
+language: Python
+tags: [leak-data]
+notes: >-
+  Runs a lot of lookups in sequence, so it is noisy from the target's point of view. Breached records are personal data: in most countries you need a lawful basis to search them, the vendor logs every
+  query against your account, and these sets are often stale, merged between people or planted.

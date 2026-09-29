@@ -7,4 +7,5 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template: https://gerdoo.me/search/?query={query}
 tags: [search-engine, regional]

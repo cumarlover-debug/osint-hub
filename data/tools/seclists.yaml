@@ -1,0 +1,13 @@
+name: SecLists
+url: https://github.com/danielmiessler/SecLists
+description: "The standard collection of security test wordlists: passwords, usernames, directories, fuzzing payloads and default credentials."
+category: code-security
+inputs: [password, keyword]
+outputs: [password]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: danielmiessler/SecLists
+install: git clone https://github.com/danielmiessler/SecLists.git
+notes: "A data collection rather than a command: you point your own tooling at it. Included in most Kali and Parrot images."

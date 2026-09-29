@@ -7,4 +7,5 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template: https://search.disconnect.me/searchTerms/search?query={query}
 tags: [privacy]

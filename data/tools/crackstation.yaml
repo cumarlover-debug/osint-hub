@@ -1,0 +1,11 @@
+name: CrackStation
+url: https://crackstation.net/
+description: Looks a hash up in a precomputed table of over a billion password hashes, and hosts wordlists for offline cracking.
+category: code-security
+inputs: [hash, password]
+outputs: [password]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: Only useful for weak or unsalted hashes. Cracking credentials you do not own is a crime in most countries.

@@ -1,0 +1,12 @@
+name: The Knot Registry
+url: https://www.theknot.com/registry
+description: Wedding registry search by couple name, with wedding dates and locations on the registry pages.
+category: people
+inputs: [name]
+outputs: [name, location]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [personal-data]
+notes: The site blocks automated checks, so its link shows as unverified here. Public pages, but still someone's personal plans.

@@ -8,3 +8,6 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template:
+  domain: https://en.utrace.de/?query={query}
+  ip: https://en.utrace.de/?query={query}

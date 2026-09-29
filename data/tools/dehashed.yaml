@@ -1,0 +1,14 @@
+name: DeHashed
+url: https://dehashed.com/
+description: Paid search over a large index of breached credentials and personal records, by email, username, name, phone, IP or address.
+category: breach
+inputs: [email, username, phone, name, ip, domain]
+outputs: [email, username, password, phone]
+type: web
+cost: paid
+passive: true
+account_required: true
+tags: [leak-data]
+notes: >-
+  Subscription only. Breached records are personal data: in most countries you need a lawful basis to search them, the vendor logs every query against your account, and these sets are often stale,
+  merged between people or planted.

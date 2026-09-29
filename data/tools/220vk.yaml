@@ -1,0 +1,12 @@
+name: 220vk
+url: https://old.220vk.com/
+description: Looks up VK profiles and names associated with a phone number.
+category: people
+inputs: [phone]
+outputs: [name, social_profile]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [personal-data]
+notes: Russian-language service; the number you enter is visible to the operator.

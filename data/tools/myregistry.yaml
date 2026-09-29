@@ -1,0 +1,12 @@
+name: MyRegistry
+url: https://www.myregistry.com/
+description: Universal gift-registry search that aggregates registries from many stores under one name.
+category: people
+inputs: [name]
+outputs: [name, location]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [personal-data]
+notes: Reveals an event date and often a town, which is why it is treated as personal data here.

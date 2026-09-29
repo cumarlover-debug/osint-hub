@@ -8,3 +8,4 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template: https://www.earthcam.com/search/ft-search.php?_sbox=1&s1=1&term=&term={query}

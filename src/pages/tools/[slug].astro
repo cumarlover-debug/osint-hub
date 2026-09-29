@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import ToolCard from '../../components/ToolCard.astro';
 import { tools, taxonomy, inputLabel, isInputKey, toolsTaking, staleSince, type Tool } from '../../lib/tools';
 import { templatesFor, commandTemplatesFor } from '../../lib/launcher';
+import { isSensitive } from '../../lib/case';
 import { playbooksUsing } from '../../lib/playbooks';
 import { reportProblemUrl } from '../../lib/site';
 
@@ -32,8 +33,10 @@ const usage = [
   ...Object.entries(commandTemplatesFor(tool.command_template, tool.inputs)),
   ...Object.entries(commandTemplatesFor(tool.docker_template, tool.inputs)),
 ].map(([input, t]) => t.split('{query}').join(placeholder(input)));
-// People search, face recognition and tools that surface an individual's contact details get a responsible-use notice.
-const sensitive = tool.category === 'people' || !!tool.tags?.some((t) => t === 'face-recognition' || t === 'personal-data');
+// People search, face recognition, breach data and covert tracking all get a responsible-use notice. The list of
+// tags lives in shared/case.mjs so the tool page and the workbench cannot disagree about what is sensitive.
+const sensitive = isSensitive(tool);
+const hardNotice = (tool.tags ?? []).some((t) => t === 'leak-data' || t === 'surveillance' || t === 'covert-tracking');
 const repo = health?.repo;
 const statusText = { up: 'Online', down: 'Unreachable', unverified: 'Could not verify' };
 const stale = staleSince(tool);
@@ -101,6 +104,13 @@ const exampleInput = tool.inputs[0];
           are, and never to stalk, harass or expose someone. Results are often wrong or out of date, so verify before
           acting on them. <a href="/about#responsible-use">Our policy</a>
         </p>
+        {hardNotice && (
+          <p>
+            This one is listed because investigators need to know it exists, not because using it is safe. Breached
+            records, other people's devices and a target's location are covered by data-protection and
+            computer-misuse law in most countries, and the data they hold is frequently false, stale or planted.
+          </p>
+        )}
       </aside>
     )}
 

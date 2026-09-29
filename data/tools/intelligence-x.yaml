@@ -1,0 +1,12 @@
+name: Intelligence X
+url: https://intelx.io/
+description: Searches pastes, leaks, darknet pages, document archives and WHOIS history by email, domain, IP, wallet or keyword.
+category: breach
+inputs: [email, domain, ip, url, keyword, crypto_address]
+outputs: [document, email, domain]
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags: [leak-data]
+notes: Free tier for private use; commercial use needs a paid licence. Selectors you search are visible in your account.

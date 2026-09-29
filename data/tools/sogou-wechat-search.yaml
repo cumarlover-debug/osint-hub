@@ -8,4 +8,6 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template:
+  username: https://weixin.sogou.com/weixin?query={query}
 notes: In Chinese.

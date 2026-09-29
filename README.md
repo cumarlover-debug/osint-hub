@@ -10,9 +10,17 @@ domain, IP, image or other input and see every tool that takes it.
 ```bash
 npm install
 npm run dev        # http://localhost:4321
+npm test           # unit tests for the launcher and the data helpers, plus data invariants
 npm run validate   # check every tool file against the schema
 npm run build      # validate + build the static site into dist/
 ```
+
+`npm test` uses Node's built-in test runner (`tests/`), so it needs no extra dependency. It covers value
+detection and command quoting in `shared/launcher.mjs`, the schema and URL/name normalisation in
+`scripts/lib/data.mjs`, and whole-project invariants the validator does not check: a health entry for every
+tool, no tool listed twice by URL or name, a taxonomy key nothing uses, a playbook that starts from an input
+with no tools, and a listed tool that the pipeline still has on its rejected list. CI runs `npm test` and
+`npm run build` on every push and pull request (`.github/workflows/validate.yml`).
 
 ## Adding a tool
 
@@ -61,6 +69,25 @@ On the site, down, archived and missing tools are badged, sorted last, and hidde
 "Open selected" opens them all in new tabs. Everything runs in the browser: the value is never sent to the site or put
 in its URL. Only add a template after checking it with a real value: a template that 404s is worse than none.
 
+## Workbench
+
+`/case` is where an investigation lives. Add every identifier you have — a phone number, a username, an email, a
+domain, an image — one per line; the workbench derives what follows from each one (an email gives its username and
+domain, a URL gives its host, a phone number gives its digits-only form and, only if you ask for them, a name gives
+candidate usernames marked as candidates) and then lists **every** tool that can take each value: passive or active,
+free or paid, account or no account, with a direct search link, a command to run on your own machine, or a link to
+the tool's own page. Tools carrying a responsible-use notice are badged.
+
+- **Safe mode** leaves out everything that contacts the target and everything that needs an account.
+- **Findings** — to do, ran, found something, dead end — are recorded per tool with a note.
+- **The dossier** exports as Markdown: the identifiers, which tools were capable, what you recorded and your notes.
+  It never claims a tool was queried for you.
+- Cases are kept only in this browser, like the toolkit, and back up to JSON that can be restored.
+
+The workbench plans; it does not query. No value is sent anywhere, no tool is run on your behalf, and nothing is
+fetched from the target. The logic lives in `shared/case.mjs` with the page as a thin layer, so it is covered by
+`npm test` like the launcher is.
+
 ## Playbooks and pivots
 
 `data/playbooks/*.yaml` are step-by-step guides (suspicious domain, email, username, IP, photo, video, crypto payment,
@@ -85,13 +112,36 @@ npm run pipeline:promote                 # publish approved drafts, record rejec
 
 - **harvest** maps each source section to a category and input types (`scripts/pipeline/mapping.mjs`) and
   skips tools that are already listed (by URL or name), rejected before, or marked dead by the source.
-  Anything that may deal in leaked personal data gets a policy flag and is left out of drafts unless you pass `--flagged`.
+  Anything that may deal in leaked data, or in covertly tracking a device or person, gets a `policy-leak` flag and is
+  drafted only when you ask for it with `--leaked`, with the responsible-use notice on the page.
 - **draft** spreads each batch across categories, skips dead links and archived or abandoned repos
   (re-checked after 30 days), and pre-fills cost, type, passive and account fields from the source data.
 - **promote** validates approved drafts, names the file after the tool, moves it to `data/tools/`, adds
   rejected URLs to `data/pipeline/rejected.txt`, and health-checks the new tools straight away.
 
 Descriptions are always written fresh: the source lists' own wording stays in the drafts as notes and is never published.
+
+### Search templates
+
+The launcher, the extension and `osint-hub commands` can only offer a tool directly if it has a
+`query_template`, so tools without one are a standing gap. This finds them:
+
+```bash
+node scripts/query-templates.mjs                    # the highest-value candidates
+node scripts/query-templates.mjs --offset 300       # carry on where the last run stopped
+node scripts/query-templates.mjs --write --only a,b # write the verified ones into data/tools/
+```
+
+It reads the search form on the tool's own page (a GET form, so the value can go in the URL), builds the
+template, and then fetches it with two different values. A candidate counts as **verified** only if the page came
+back with both, with the search box itself stripped first — a value echoed into the box it came from proves only
+that the page has a form. It changes nothing until `--write`, and it reverts a file that would not validate.
+A report always lands in `.cache/query-templates/`.
+
+Verified does not mean the right search box: a form on a vendor's marketing site is not the tool's own search.
+Those are dropped by hand before writing, which is why the run above is a report to read, not an import. A tool
+whose box could serve several of its inputs is reported as ambiguous and left alone unless `--mappings map.json`
+says which inputs that one URL belongs to.
 
 ### Sources
 
@@ -103,13 +153,21 @@ projects and their contributors. Only facts (names, URLs, categories, pricing an
 
 Tools for research, journalism, security work and personal safety.
 
-- **Listed with a responsible-use notice:** people-search engines, public and court records, and face-recognition
-  search. Tool pages in the `people` category, or tagged `face-recognition` or `personal-data`, show the notice automatically. Each one
-  is reviewed individually (`npm run pipeline:draft -- --people`).
-- **Not accepted:** stalkerware, doxxing services, and anything that sells leaked or breached personal data or
-  credentials, including lookup bots built on leaked databases; also search engines for exposed files, open
-  directories and pastes, since much of what they surface is leaked personal data. The pipeline flags these as `policy-leak` and never
-  drafts them unless asked to with `--leaked`.
+- **Listed with a responsible-use notice:** people-search engines, public and court records, face-recognition search,
+  and — since the policy decision of 30 September 2026 — breach and leaked-data lookup services, tools that index
+  exposed files, open directories and pastes, IP-logging links, unsecured-camera feeds and last-seen trackers. A tool
+  page shows the notice when it is in the `people` category or carries `face-recognition` or `personal-data`; the
+  harder groups (`leak-data`, `covert-tracking`, `surveillance`) get a second paragraph saying plainly that handling
+  breached records, other people's devices or a target's location is unlawful in most countries and that the data is
+  often false or planted.
+- **Reviewed one by one:** these are only drafted when asked for (`npm run pipeline:draft -- --people --leaked`), so
+  each is a deliberate decision rather than a batch import. The tag list lives in `shared/case.mjs`, so the tool page
+  and the workbench cannot disagree about what counts as sensitive.
+- **Still not accepted:** stalkerware, doxxing-for-hire services, and tools whose only purpose is to track a named
+  person without their knowledge.
+- **Never automated:** listing a tool never means querying it. osint-hub holds no breach-database keys, makes no
+  request on your behalf, and the workbench plans a run rather than performing one (`shared/case.mjs` has no network
+  code, and `npm test` would fail the build if the notice wiring broke).
 
 ## Privacy
 

@@ -1,0 +1,13 @@
+name: SMS Activate
+url: https://sms-activate.org/
+description: Rents virtual phone numbers in many countries to receive a one-time code, for accounts that should not carry your real number.
+category: opsec
+inputs: [keyword]
+outputs: [phone]
+type: web
+cost: freemium
+passive: true
+account_required: true
+notes: >-
+  Numbers are shared and recycled, so the account can be recovered by whoever gets the number next. Many platforms ban services like this, and some jurisdictions require identity checks to buy a
+  number.

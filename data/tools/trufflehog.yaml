@@ -1,0 +1,14 @@
+name: TruffleHog
+url: https://github.com/trufflesecurity/trufflehog
+description: Scans repositories, filesystems, CI logs and cloud storage for live credentials, verifying each key it finds.
+category: code-security
+inputs: [url, document]
+outputs: [password, url]
+type: cli
+cost: free
+passive: false
+account_required: false
+repo: trufflesecurity/trufflehog
+install: brew install trufflehog
+language: Go
+notes: Scan only repositories and buckets you are authorised to read. It verifies keys against the provider, which can trip an alert on the target's side.

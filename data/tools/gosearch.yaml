@@ -1,0 +1,17 @@
+name: GoSearch
+url: https://github.com/ibnaleem/gosearch
+description: Checks a username across 80+ sites and against breach data and pastes in a single run.
+category: breach
+inputs: [username]
+outputs: [social_profile, email]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: ibnaleem/gosearch
+install: go install github.com/ibnaleem/gosearch@latest
+language: Go
+tags: [leak-data]
+notes: >-
+  Breached records are personal data: in most countries you need a lawful basis to search them, the vendor logs every query against your account, and these sets are often stale, merged between people
+  or planted.

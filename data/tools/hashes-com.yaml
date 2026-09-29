@@ -1,0 +1,11 @@
+name: Hashes.com
+url: https://hashes.com/en/decrypt/hash
+description: Submits hashes to a community cracking service and returns recovered plaintext, with paid priority.
+category: code-security
+inputs: [hash]
+outputs: [password]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Free submissions go into a public queue, so anyone can see the hash you submitted. Do not send hashes from a live engagement.

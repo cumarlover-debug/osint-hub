@@ -1,0 +1,15 @@
+name: Telegram Nearby Map
+url: https://github.com/tejado/telegram-nearby-map
+description: Plots Telegram users who have made themselves visible nearby, by watching the accounts the app returns within a radius.
+category: surveillance
+inputs: [location]
+outputs: [username, location]
+type: cli
+cost: free
+passive: false
+account_required: true
+repo: tejado/telegram-nearby-map
+install: npm install && npm start
+language: JavaScript
+tags: [covert-tracking]
+notes: It works only because those accounts opted into being visible to everyone nearby. Collecting the output turns a public signal into a location record, which is personal data.

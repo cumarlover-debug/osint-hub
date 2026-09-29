@@ -1,0 +1,12 @@
+name: de-digger
+url: https://www.dedigger.com/
+description: "Searches publicly shared Google Drive files by keyword, file type and operators such as intext: or OR."
+category: breach
+inputs: [keyword]
+outputs: [document]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [leak-data]
+notes: The operator states that finding a file grants no permission to download or publish it.

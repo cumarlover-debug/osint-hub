@@ -7,4 +7,5 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template: https://www.zapmeta.com/search?q={query}
 tags: [metasearch]

@@ -1,0 +1,11 @@
+name: Sensity
+url: https://sensity.ai/
+description: Enterprise detection of AI-generated images, video and audio, sold to platforms, newsrooms and banks.
+category: image-video
+inputs: [image, video, audio]
+outputs: [metadata]
+type: web
+cost: paid
+passive: true
+account_required: true
+notes: "No public self-service check: you talk to sales. Detect-or-not is a probability, never proof, and detectors age badly against new generators."

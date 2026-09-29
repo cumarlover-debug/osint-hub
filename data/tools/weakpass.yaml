@@ -1,0 +1,11 @@
+name: Weakpass
+url: https://weakpass.com/
+description: Wordlist collection and lookup service that recovers passwords from hashes and publishes rule-based dictionaries.
+category: code-security
+inputs: [password, hash]
+outputs: [password]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: The downloadable lists are for auditing your own systems; using them against someone else's is not.

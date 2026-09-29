@@ -8,5 +8,6 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template: https://www.openhistoricalmap.org/search?query={query}
 tags:
   - historical

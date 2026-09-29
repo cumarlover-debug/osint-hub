@@ -8,4 +8,8 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+query_template:
+  name: https://www.spokeo.com/search?q={query}
+  phone: https://www.spokeo.com/search?q={query}
+  email: https://www.spokeo.com/search?q={query}
 notes: Results come from commercial data brokers and are often outdated or mixed up between people with similar names.

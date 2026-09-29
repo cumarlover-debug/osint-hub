@@ -1,0 +1,12 @@
+name: USA People Search
+url: https://www.usa-people-search.com/
+description: US people-search aggregator with addresses, phone numbers, relatives and background reports behind a paywall.
+category: people
+inputs: [name, phone, email]
+outputs: [location, phone, name]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [personal-data]
+notes: There are widespread reports of hard-to-cancel subscriptions and unclear billing. Prefer the free people-search sites first, and be careful with any card details.

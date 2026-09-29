@@ -9,5 +9,7 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+query_template:
+  keyword: https://playboard.co/en/?q={query}
 tags:
   - youtube

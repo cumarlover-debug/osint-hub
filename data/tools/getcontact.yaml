@@ -1,0 +1,12 @@
+name: GetContact
+url: https://getcontact.com/
+description: Shows the names other people's phones have saved a number under, built from address books users uploaded.
+category: people
+inputs: [phone]
+outputs: [name, company]
+type: web
+cost: freemium
+passive: true
+account_required: true
+tags: [personal-data]
+notes: It exists only because users uploaded their contact books, so it covers people who never agreed to it, and tags are often joke names.
