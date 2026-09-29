@@ -96,6 +96,20 @@ const meta = {
     </p>
     <pre id="report-preview" class="case-report" hidden></pre>
   </section>
+
+  <section>
+    <h2 class="section-title">Run it on your machine</h2>
+    <p class="hint">
+      This site plans and never executes. For the command-line tools in the plan, export the case above and let the
+      CLI run them here — in your shell, with your accounts and your API keys. It asks before each command and saves
+      what every tool printed.
+    </p>
+    <pre class="case-report" id="cli-lines"></pre>
+    <div class="case-bar">
+      <button type="button" class="linklike" id="copy-cli">Copy commands</button>
+      <span class="hint">Output goes to <code>runs/</code> per tool, plus <code>annex.md</code> to paste into the dossier.</span>
+    </div>
+  </section>
 </Base>
 
 <script is:inline type="application/json" id="case-tools" set:html={JSON.stringify(payload).replace(/</g, '\\u003c')} />
@@ -198,6 +212,23 @@ const meta = {
     const c = caseFile();
     $<HTMLTextAreaElement>('case-notes').value = c.notes;
     $<HTMLInputElement>('safe-mode').checked = c.safe;
+    renderCli();
+  }
+
+  /** The two commands that turn this plan into a local run, named after the case that will be exported. */
+  function renderCli() {
+    const name = `osint-hub-${slugify(caseFile().title)}.json`;
+    $('cli-lines').textContent = [
+      '# once, to build the data the CLI reads (this also runs the tests):',
+      'npm run check',
+      '',
+      '# then, from the project folder, with the file from "Back up (JSON)" above:',
+      `npm run cli -- case plan "${name}" --data dist/api/tools.json`,
+      `npm run cli -- case run  "${name}" --data dist/api/tools.json --safe`,
+      '',
+      '# or try the harmless sample case first:',
+      'npm run cli -- case plan examples/case.json --data dist/api/tools.json',
+    ].join('\n');
   }
 
   function badge(text: string, cls = '') {
@@ -639,6 +670,7 @@ const meta = {
     });
     $('copy-md').addEventListener('click', (e) => copyText(buildDossier(), e.currentTarget as HTMLButtonElement));
     $('preview-md').addEventListener('click', () => renderReport($('report-preview').hidden));
+    $('copy-cli').addEventListener('click', (e) => copyText($('cli-lines').textContent ?? '', e.currentTarget as HTMLButtonElement));
     $('export-json').addEventListener('click', () => download(`osint-hub-${slugify(caseFile().title)}.json`, backupJSON(state), 'application/json'));
     $<HTMLInputElement>('import-json').addEventListener('change', async (e) => {
       const file = (e.target as HTMLInputElement).files?.[0];
