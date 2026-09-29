@@ -165,6 +165,30 @@ const badges = (t) =>
 /** Program names that run a script you have to have checked out yourself. */
 const INTERPRETERS = new Set(['python', 'python3', 'py', 'node', 'ruby', 'perl', 'php', 'bash', 'sh', 'pwsh', 'powershell', 'java']);
 
+/** Is `program` on PATH? Nothing is executed: PATH is only read. */
+function onPath(program) {
+  const dirs = (process.env.PATH ?? '').split(process.platform === 'win32' ? ';' : ':').filter(Boolean);
+  const extensions = process.platform === 'win32' ? (process.env.PATHEXT ?? '.COM;.EXE;.BAT;.CMD').split(';').filter(Boolean) : [''];
+  for (const dir of dirs) {
+    for (const ext of extensions) {
+      try {
+        if (existsSync(join(dir, program + ext))) return true;
+      } catch {
+        // An unreadable PATH entry is simply not a match.
+      }
+    }
+  }
+  return false;
+}
+
+/** What this machine can actually run, so "nothing is installed" is visible before the plan rather than after. */
+function machineSummary() {
+  const runtimes = ['python', 'pip', 'pipx', 'node', 'go', 'docker', 'ruby', 'cargo', 'nmap', 'git'];
+  const found = runtimes.filter(onPath);
+  const missing = runtimes.filter((r) => !found.includes(r));
+  return { found, missing };
+}
+
 /**
  * What a generated command needs before it can run here. Nothing is executed: PATH is only read.
  *
@@ -173,24 +197,26 @@ const INTERPRETERS = new Set(['python', 'python3', 'py', 'node', 'ruby', 'perl',
  *               Python proves nothing — the tool still has to be cloned
  *   missing     there is no such program on PATH
  */
+/**
+ * What a generated command needs before it can run here. Nothing is executed: PATH is only read.
+ *
+ *   ready          the program is on this machine
+ *   needs-package  it calls an interpreter with a module (`python3 -m social-analyzer`), so the interpreter
+ *                  being present proves nothing about the module
+ *   needs-files    it runs an interpreter over the tool's own script (`python sublist3r.py`), so the tool still
+ *                  has to be cloned
+ *   missing        there is no such program on PATH
+ */
 function readiness(command) {
   const parts = command.trim().split(/\s+/);
   const program = parts[0]?.replace(/^['"]|['"]$/g, '') ?? '';
   const second = (parts[1] ?? '').replace(/^['"]|['"]$/g, '');
-  if (program.startsWith('./') || program.startsWith('.\\')) return 'local-file';
-  if (INTERPRETERS.has(program.toLowerCase()) && /\.(py|sh|js|rb|pl|php|jar)$/i.test(second)) return 'local-file';
-  const dirs = (process.env.PATH ?? '').split(process.platform === 'win32' ? ';' : ':').filter(Boolean);
-  const extensions = process.platform === 'win32' ? (process.env.PATHEXT ?? '.COM;.EXE;.BAT;.CMD').split(';').filter(Boolean) : [''];
-  for (const dir of dirs) {
-    for (const ext of extensions) {
-      try {
-        if (existsSync(join(dir, program + ext))) return 'ready';
-      } catch {
-        // An unreadable PATH entry is simply not a match.
-      }
-    }
+  if (program.startsWith('./') || program.startsWith('.\\')) return 'needs-files';
+  if (INTERPRETERS.has(program.toLowerCase())) {
+    if (second === '-m') return 'needs-package';
+    if (/\.(py|sh|js|rb|pl|php|jar)$/i.test(second)) return 'needs-files';
   }
-  return 'missing';
+  return onPath(program) ? 'ready' : 'missing';
 }
 
 function toolLine(t, width = 28) {
@@ -389,8 +415,12 @@ async function main() {
     }
 
     if (action === 'plan' || flags['dry-run']) {
+      const machine = machineSummary();
       out(`${bold(theCase.title)} ${dim(`· ${plan.length} identifier${plan.length === 1 ? '' : 's'} · ${totalCommands} command${totalCommands === 1 ? '' : 's'} · ${ready} ready to run here`)}`);
-      out(dim(`shell ${shell}${safe ? ' · safe mode: nothing that contacts the target, nothing needing an account' : ''}\n`));
+      out(dim(`shell ${shell}${safe ? ' · safe mode: nothing that contacts the target, nothing needing an account' : ''}`));
+      out(dim(`this machine has: ${machine.found.join(', ') || 'nothing the tools need'}${machine.missing.length ? ` · missing: ${machine.missing.join(', ')}` : ''}`));
+      out(dim('tools install with pipx (Python), go install (Go), or Docker; the line under each command says which'));
+      out('');
       if (totalCommands && !ready) {
         out(yellow('  None of these tools are installed yet — install them with the line under each command.'));
         out('');
@@ -402,9 +432,10 @@ async function main() {
           const state =
             r.readiness === 'ready'
               ? green('installed')
-              : r.readiness === 'local-file'
-                ? dim(`needs its own files — ${r.install ?? 'see its repository'}`)
-                : dim(`not installed${r.install ? ` — ${r.install}` : ''}${r.account ? ' · needs an account' : ''}`);
+              : dim(
+                  `${r.readiness === 'needs-package' ? 'needs its package' : r.readiness === 'needs-files' ? 'needs its own files' : 'not installed'}` +
+                    `${r.install ? ` — ${r.install}` : ''}${r.account ? ' · needs an account' : ''}`,
+                );
           out(`    ${r.name.padEnd(26)} ${state}`);
           out(`      ${r.command}`);
         }
@@ -434,7 +465,7 @@ async function main() {
       for (const row of p.runnable) {
         if (stopped) break;
         if (!runAll && !flags.json) {
-          const answer = (await ask(`  ${bold(row.name)}${row.readiness === 'ready' ? '' : red(` (${row.readiness === 'local-file' ? 'needs its own files' : 'not installed'})`)}: ${dim(row.command)}\n  Run it? [y]es / [n]o / [a]ll / [q]uit `)).trim().toLowerCase();
+          const answer = (await ask(`  ${bold(row.name)}${row.readiness === 'ready' ? '' : red(` (${row.readiness === 'needs-package' ? 'needs its package' : row.readiness === 'needs-files' ? 'needs its own files' : 'not installed'})`)}: ${dim(row.command)}\n  Run it? [y]es / [n]o / [a]ll / [q]uit `)).trim().toLowerCase();
           if (answer === 'q') { stopped = true; break; }
           if (answer === 'a') runAll = true;
           else if (answer !== 'y' && answer !== 'yes') {
