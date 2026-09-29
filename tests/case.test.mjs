@@ -9,6 +9,7 @@ import {
   groupByCategory,
   isSensitive,
   dossierMarkdown,
+  resultsAnnex,
   FINDING_STATUS,
   sanitiseCaseState,
   emptyCaseState,
@@ -312,6 +313,45 @@ describe('FINDING_STATUS', () => {
       assert.ok(value.label && value.mark, `${key} needs a label and a mark`);
       assert.equal(typeof value.label, 'string');
     }
+  });
+});
+
+describe('resultsAnnex', () => {
+  const results = [
+    { value: 'someone@example.com', type: 'email', slug: 'holehe', name: 'Holehe', command: 'holehe someone@example.com', status: 'ok', exitCode: 0, ms: 1200, file: 'runs/1-holehe.txt' },
+    { value: '+1 555 010 9999', type: 'phone', slug: 'phoneinfoga', name: 'PhoneInfoga', command: 'phoneinfoga scan -n \'+1 555 010 9999\'', status: 'failed', exitCode: 127, note: 'command not found', file: 'runs/2-phoneinfoga.txt' },
+    { value: 'example.com', type: 'domain', slug: 'dnstwist', name: 'dnstwist', command: 'dnstwist --registered example.com', status: 'skipped' },
+  ];
+
+  it('summarises what happened', () => {
+    const md = resultsAnnex({ title: 'Case 7', generated: '2026-09-30', shell: 'bash / zsh', results });
+    assert.match(md, /^# Case 7 — local run annex/);
+    assert.match(md, /Run on the investigator's own machine on 2026-09-30 with bash \/ zsh/);
+    assert.match(md, /- 3 commands: 1 exited cleanly, 1 failed, 1 skipped/);
+  });
+
+  it('says the site did not run anything', () => {
+    const md = resultsAnnex({ results });
+    assert.match(md, /the site never runs a tool and never sees the output/);
+    assert.match(md, /A clean exit code means the tool ran, not that it found anything/);
+  });
+
+  it('lists each command with its verdict, exit code and output file', () => {
+    const md = resultsAnnex({ results });
+    assert.match(md, /\| someone@example\.com \| Holehe \| ran \| 0 \| runs\/1-holehe\.txt \|/);
+    assert.match(md, /\| \+1 555 010 9999 \| PhoneInfoga \| failed \(command not found\) \| 127 \|/);
+    assert.match(md, /\| example\.com \| dnstwist \| skipped \| — \| — \|/);
+  });
+
+  it('says so when nothing could be run, rather than showing an empty table', () => {
+    const md = resultsAnnex({ results: [] });
+    assert.match(md, /_No command-line tool in the plan could take these values\._/);
+    assert.doesNotMatch(md, /\| Identifier \|/);
+  });
+
+  it('escapes a pipe in a value so the table survives', () => {
+    const md = resultsAnnex({ results: [{ value: 'a|b', name: 'Tool', status: 'ok', exitCode: 0 }] });
+    assert.match(md, /\| a\\\|b \| Tool \|/);
   });
 });
 
