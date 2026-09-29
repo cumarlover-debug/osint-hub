@@ -315,3 +315,41 @@ export function dossierMarkdown({ title, generated, notes, sections = [], safe =
   lines.push('---', '', 'Use these tools lawfully, and only on targets you have a legitimate reason to investigate.');
   return lines.join('\n');
 }
+
+/**
+ * An annex to paste into a dossier after running the command-line tools locally: what was executed, what it
+ * returned, and where the raw output was written. The site never sees any of this — the CLI writes it next to
+ * the output files it captured.
+ *
+ * @param {{ title?: string, generated?: string, shell?: string, results?: any[] }} data
+ */
+export function resultsAnnex({ title, generated, shell, results = [] } = {}) {
+  const when = generated ?? new Date().toISOString().slice(0, 10);
+  const count = (status) => results.filter((r) => r.status === status).length;
+  const lines = [
+    `# ${cell(title) || 'Untitled investigation'} — local run annex`,
+    '',
+    `Run on the investigator's own machine on ${when}${shell ? ` with ${cell(shell)}` : ''}. These commands were`,
+    'executed locally, not by osint-hub: the site never runs a tool and never sees the output. Raw output from each',
+    'command is saved beside this file.',
+    '',
+    `- ${results.length} command${results.length === 1 ? '' : 's'}: ${count('ok')} exited cleanly, ${count('failed')} failed, ${count('skipped')} skipped`,
+    '',
+  ];
+
+  if (!results.length) {
+    lines.push('_No command-line tool in the plan could take these values._');
+  } else {
+    lines.push('| Identifier | Tool | Result | Exit | Output |');
+    lines.push('| --- | --- | --- | --- | --- |');
+    for (const r of results) {
+      const verdict = r.status === 'ok' ? 'ran' : r.status === 'failed' ? 'failed' : 'skipped';
+      lines.push(`| ${cell(r.value)} | ${cell(r.name)} | ${verdict}${r.note ? ` (${cell(r.note)})` : ''} | ${cell(r.exitCode ?? '—')} | ${cell(r.file ?? '—')} |`);
+    }
+    lines.push('');
+    lines.push('A clean exit code means the tool ran, not that it found anything. Read the output before drawing a');
+    lines.push('conclusion, and treat anything it returned as a lead to verify.');
+  }
+
+  return lines.join('\n');
+}

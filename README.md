@@ -86,7 +86,10 @@ the tool's own page. Tools carrying a responsible-use notice are badged.
 
 The workbench plans; it does not query. No value is sent anywhere, no tool is run on your behalf, and nothing is
 fetched from the target. The logic lives in `shared/case.mjs` with the page as a thin layer, so it is covered by
-`npm test` like the launcher is.
+`npm test` like the launcher is, and a test fails the suite if either shared module ever gains `fetch` or
+`child_process`. When you want the command-line tools in a plan to actually run, export the case and use
+`osint-hub case run` — that executes them on your machine, and the output comes back as an annex
+(see [Command-line tool](#command-line-tool)).
 
 ## Playbooks and pivots
 
@@ -196,7 +199,27 @@ osint-hub playbook suspicious-domain --value example.com
 
 No dependencies; it reads `https://osinthub.pages.dev/api/tools.json` and `playbooks.json`, caches them for a day, and
 falls back to the cache when offline. Run `osint-hub --help` for everything. Detection and links come from
-`shared/launcher.mjs`, the same code the website uses.
+`shared/launcher.mjs`, the same code the website uses; `--data <tools.json>` reads a local copy instead of downloading.
+
+### Running a case locally
+
+The workbench plans; the CLI executes. Export a case from `/case` (Back up (JSON)) and:
+
+```bash
+osint-hub case plan ./my-case.json              # what would run, per identifier, with install hints
+osint-hub case run  ./my-case.json              # ask before each command, capture what it prints
+osint-hub case run  ./my-case.json --safe       # nothing that contacts the target, nothing needing an account
+osint-hub case run  ./my-case.json --yes --only holehe,dnstwist --timeout 120
+```
+
+- Commands come from each tool's `command_template`, with the value quoted by `quoteArg`, and a value that cannot
+  be quoted safely never becomes a command.
+- `run` prompts per command (yes / no / all / quit); `--yes` runs unattended, `--dry-run` only prints the plan.
+- Each command runs in your shell — PowerShell is invoked directly when that is the chosen shell — with **no stdin**,
+  so a tool that asks a question fails instead of hanging the run, and a `--timeout` (default 300s) kills it.
+- Output lands in `osint-hub-<case>/runs/NN-<tool>.txt`, with `manifest.json` and an `annex.md` written to paste into
+  the dossier. `--write-back` also saves a case file marking what ran cleanly, ready to restore into `/case`.
+- Your keys, your VPN and your Tor are yours: osint-hub holds no credentials and makes no request on your behalf.
 
 ## Browser extension
 
