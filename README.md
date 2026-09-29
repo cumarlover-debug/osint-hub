@@ -233,6 +233,12 @@ it before exporting anything: `npm run cli -- case plan examples/case.json --dat
   the dossier. `--write-back` also saves a case file marking what ran cleanly, ready to restore into `/case`.
 - Your keys, your VPN and your Tor are yours: osint-hub holds no credentials and makes no request on your behalf.
 
+**Two traps worth knowing.** A tool can exit 0 having done nothing at all, which is why the annex records the exit
+code rather than a verdict — read the output. And if a Python tool prints `Could not contact DNS servers` while
+`ping` and the browser work, `aiodns` is installed and this machine's c-ares cannot read the DNS configuration;
+`pip uninstall -y aiodns` makes aiohttp fall back to the threaded resolver and the tool starts working. A
+reinstall of a dependency can bring it back.
+
 ## Browser extension
 
 `extension/` is a Manifest V3 extension for Chrome and Firefox: right-click selected text, a link, an image or the

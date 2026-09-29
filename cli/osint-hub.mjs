@@ -32,8 +32,8 @@ Options for "launch": --as <type>  pick the type yourself (e.g. --as company)
 Options for "commands": --as <type>  --active  --docker (use Docker images where available)
                       --shell <posix|powershell> (default: powershell on Windows, posix elsewhere)
                       --plain (commands only, one per line)
-Options for "case run": --yes (no prompt)  --dry-run (plan only)  --safe (nothing that contacts the target
-                      or needs an account)  --only a,b  --input <type>  --timeout <seconds>  --out <dir>
+Options for "case run": --yes (no prompt)  --dry-run (plan only)  --safe / --no-safe (default: as exported
+                      from the workbench)  --only a,b  --input <type>  --timeout <seconds>  --out <dir>
                       --force (run even when the tool is not installed)
                       --write-back (also save a case file with what ran, for /case)
 Options for any command: --data <tools.json>  use a local copy of the API instead of downloading it
@@ -390,7 +390,9 @@ async function main() {
     const order = Object.keys(taxonomy.categories);
     const shell = flags.shell ?? (process.platform === 'win32' ? 'powershell' : 'posix');
     if (!(shell in SHELLS)) fail(`unknown shell "${shell}"; use ${Object.keys(SHELLS).join(' or ')}`);
-    const safe = !!flags.safe;
+    // The workbench saves the case's safe-mode setting for a reason, so it applies here too: --safe forces it on,
+    // --no-safe forces it off, and otherwise the exported case decides.
+    const safe = flags['no-safe'] ? false : flags.safe === true || theCase.safe === true;
     const only = flags.only ? String(flags.only).split(',').map((s) => s.trim()).filter(Boolean) : [];
 
     const plan = theCase.values
