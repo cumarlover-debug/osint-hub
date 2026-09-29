@@ -1367,3 +1367,156 @@ a.input-tag:hover {
     transition: none !important;
   }
 }
+
+/* ---- Workbench (/case) ---- */
+
+.case-bar {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.case-bar > label {
+  align-items: center;
+  color: var(--muted);
+  display: inline-flex;
+  font-size: 0.9rem;
+  gap: 6px;
+}
+
+.case-bar select,
+.case-finding select,
+.case-bar input[type='text'],
+.case-finding input[type='text'] {
+  background: rgba(14, 30, 37, 0.65);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  color: var(--text);
+  font: 400 0.88rem var(--sans);
+  padding: 6px 10px;
+}
+
+#intake,
+#case-notes {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font: 400 0.92rem/1.55 var(--mono);
+  padding: 12px 14px;
+  resize: vertical;
+  width: 100%;
+}
+
+#intake:focus,
+#case-notes:focus {
+  border-color: var(--border-hi);
+  outline: none;
+}
+
+.case-card {
+  margin-bottom: 14px;
+}
+
+.case-card.case-open {
+  border-color: var(--border-hi);
+}
+
+.case-value {
+  background: none;
+  border: 0;
+  color: var(--accent);
+  cursor: pointer;
+  font: 500 0.98rem var(--mono);
+  padding: 0;
+  text-align: left;
+  word-break: break-all;
+}
+
+.case-value:hover {
+  text-decoration: underline;
+}
+
+.badge.case-type {
+  color: var(--accent);
+}
+
+.case-note {
+  flex: 1 1 200px;
+  min-width: 160px;
+}
+
+.case-plan {
+  margin-top: 10px;
+}
+
+.case-group {
+  color: var(--faint);
+  font: 600 0.76rem var(--sans);
+  letter-spacing: 0.08em;
+  margin: 16px 0 4px;
+  text-transform: uppercase;
+}
+
+.case-row {
+  align-items: center;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+.case-row > .launch-name {
+  min-width: 148px;
+}
+
+.case-action {
+  align-items: center;
+  display: inline-flex;
+  flex: 1 1 auto;
+  gap: 8px;
+  min-width: 0;
+}
+
+.case-action code {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--muted);
+  font: 400 0.78rem var(--mono);
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 3px 7px;
+  white-space: nowrap;
+}
+
+.case-finding {
+  align-items: center;
+  display: inline-flex;
+  gap: 8px;
+}
+
+.case-report {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--muted);
+  font: 400 0.8rem/1.55 var(--mono);
+  margin-top: 12px;
+  max-height: 460px;
+  overflow: auto;
+  padding: 16px;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 720px) {
+  .case-row {
+    align-items: flex-start;
+  }
+  .case-finding {
+    width: 100%;
+  }
+}
