@@ -1,0 +1,12 @@
+name: Grabify
+url: https://grabify.link/
+description: Builds a short link that records the IP address, device and approximate location of everyone who opens it.
+category: surveillance
+inputs: [url]
+outputs: [ip, location]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [covert-tracking]
+notes: Creates or reads a covert tracking mechanism. Using one on a person without their knowledge and a lawful basis is an offence under computer-misuse and stalking laws in many countries.

@@ -1,0 +1,11 @@
+name: TruthScan
+url: https://truthscan.com/
+description: Checks text, images, video and audio for signs of AI generation and reports a confidence score.
+category: image-video
+inputs: [image, video, audio]
+outputs: [metadata]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: The vendor reports high accuracy, but independent validation is limited and results are probabilistic. This was once rejected here for exactly that reason; it is now listed with the caveat attached.

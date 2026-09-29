@@ -1,0 +1,13 @@
+name: WikiLeaks
+url: https://wikileaks.org/
+description: Archive of leaked government and corporate documents, searchable by keyword, with a secure submission drop.
+category: archives
+inputs: [keyword]
+outputs: [document]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://search.wikileaks.org/?q={query}
+tags: [leak-data]
+notes: Some collections contain unredacted personal data; check the source and the redaction state before quoting anything.

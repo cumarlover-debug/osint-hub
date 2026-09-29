@@ -20,6 +20,7 @@
     "wifi": "Wi-Fi / BSSID",
     "hash": "File hash",
     "password": "Password",
+    "audio": "Audio",
     "keyword": "Keyword / topic"
   },
   "categories": {
@@ -35,12 +36,15 @@
     "business": "Business records",
     "crypto": "Cryptocurrency",
     "threat-intel": "Threat intelligence",
+    "breach": "Breach & exposed data",
     "archives": "Archives",
     "metadata": "Metadata",
     "frameworks": "Frameworks & automation",
+    "code-security": "Code & secrets",
     "search": "Search engines",
     "research": "News & research",
-    "opsec": "OPSEC & anonymity"
+    "opsec": "OPSEC & anonymity",
+    "surveillance": "Tracking & surveillance"
   },
   "types": {
     "web": "Website",

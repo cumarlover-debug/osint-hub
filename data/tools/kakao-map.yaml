@@ -8,6 +8,7 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template: https://map.kakao.com/?q={query}
 tags:
   - maps
   - regional

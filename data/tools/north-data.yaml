@@ -9,3 +9,6 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+query_template:
+  company: https://www.northdata.com/?query={query}
+  name: https://www.northdata.com/?query={query}

@@ -1,0 +1,17 @@
+name: h8mail
+url: https://github.com/khast3x/h8mail
+description: Command-line email breach hunter that queries several breach and paste services, with optional API keys for the paid ones.
+category: breach
+inputs: [email]
+outputs: [password, url]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: khast3x/h8mail
+install: pipx install h8mail
+language: Python
+tags: [leak-data]
+notes: >-
+  Works without keys against the free sources, and uses more with them. Breached records are personal data: in most countries you need a lawful basis to search them, the vendor logs every query
+  against your account, and these sets are often stale, merged between people or planted.

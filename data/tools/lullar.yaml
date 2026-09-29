@@ -8,3 +8,7 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template:
+  email: https://lullar-com-3.appspot.com/en?q={query}
+  name: https://lullar-com-3.appspot.com/en?q={query}
+  username: https://lullar-com-3.appspot.com/en?q={query}

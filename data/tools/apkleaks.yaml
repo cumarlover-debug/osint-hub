@@ -1,0 +1,14 @@
+name: APKLeaks
+url: https://github.com/dwisiswant0/apkleaks
+description: Decompiles an Android APK and scans it for hard-coded API keys, endpoints, tokens and URIs.
+category: code-security
+inputs: [document]
+outputs: [url, password]
+type: cli
+cost: free
+passive: true
+account_required: false
+repo: dwisiswant0/apkleaks
+install: pipx install apkleaks
+language: Python
+notes: Works on the file you give it, so it stays local. Needs Java and the Android build tools for the decompile step.

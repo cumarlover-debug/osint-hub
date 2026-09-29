@@ -8,3 +8,5 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template:
+  username: https://namecheckup.com/?username={query}

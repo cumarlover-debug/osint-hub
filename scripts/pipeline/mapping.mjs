@@ -21,7 +21,7 @@ export const awesomeRules = [
   [/Video Search|Video Tools/i, { category: 'image-video', inputs: ['video'], confidence: 'medium' }],
   [/Geospatial|Mapping/i, { category: 'geolocation', inputs: ['location'], confidence: 'medium' }],
   [/Threat Intelligence/i, { category: 'threat-intel', inputs: ['ip', 'domain'], confidence: 'low' }],
-  [/Data Breach/i, { category: 'email', inputs: ['email'], confidence: 'medium', flags: ['policy-leak: breach data, check it does not sell leaked data'] }],
+  [/Data Breach/i, { category: 'email', inputs: ['email'], confidence: 'medium', flags: ['policy-leak: breach data, listed with a responsible-use notice'] }],
   [/People Investigations/i, { category: 'people', inputs: ['name'], confidence: 'medium', flags: ['policy-people: people search, check it is not a doxxing service'] }],
   [/Social Media Tools > /i, { category: 'social-media', inputs: ['username', 'social_post'], confidence: 'low' }],
   [/Social Media Search/i, { category: 'social-media', inputs: ['username', 'social_post'], confidence: 'low' }],
@@ -105,8 +105,13 @@ export function inputsFromText(text) {
   return [...keys];
 }
 
-/** Services that may trade in leaked or breached personal data. The site does not list these. */
-export const leakPattern = /breach|leak|stealer|combo ?list|credential|dump|dox/i;
+/**
+ * Services that deal in leaked or breached personal data, and tools for covertly tracking a device or person.
+ * Listed since the policy decision of 2026-09-30 with a hard responsible-use notice and the `leak-data`,
+ * `covert-tracking` or `surveillance` tag, and reviewed one by one: the notice has to be on the page, and the
+ * site still never queries them for the visitor.
+ */
+export const leakPattern = /breach|leak|stealer|combo ?list|credential|dump|dox|ip ?logger|ip ?grabber|last ?seen|stalker/i;
 
 /**
  * People search and face recognition. Listed (since the policy decision of 2026-09-26) with a responsible-use

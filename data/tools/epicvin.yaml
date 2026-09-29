@@ -7,3 +7,4 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+query_template: https://epicvin.com/?vin={query}

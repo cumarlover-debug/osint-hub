@@ -1,0 +1,14 @@
+name: Gitleaks
+url: https://github.com/gitleaks/gitleaks
+description: Scans git history and working trees for hard-coded secrets, with rules for hundreds of credential formats.
+category: code-security
+inputs: [url, document]
+outputs: [password]
+type: cli
+cost: free
+passive: false
+account_required: false
+repo: gitleaks/gitleaks
+install: brew install gitleaks
+language: Go
+notes: Reads a repository's whole history, so it needs a clone; run it on your own or on public code you are entitled to use.

@@ -132,7 +132,7 @@ for (const entry of entries) {
   c.sources.push({ list: entry.list, section: entry.section, description: entry.description, facts: entry.facts, rule });
   for (const flag of rule.flags ?? []) c.flags.add(flag);
   const text = `${entry.name} ${entry.section} ${entry.description ?? ''}`;
-  if (leakPattern.test(text)) c.flags.add('policy-leak: may deal in leaked data, not listed');
+  if (leakPattern.test(text)) c.flags.add('policy-leak: breach, leak or tracking data — needs the responsible-use notice');
   else if (peoplePattern.test(text)) c.flags.add('policy-people: people or face search, check it is not a data broker of leaked data');
   byKey.set(key, c);
 }

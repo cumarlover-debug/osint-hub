@@ -1,0 +1,14 @@
+name: ClerkBot
+url: https://t.me/ClerkBot
+description: Telegram bot that answers lookups on people and companies from leaked and commercial Russian-language databases.
+category: breach
+inputs: [username, phone, email, name, company]
+outputs: [phone, email, location]
+type: web
+cost: paid
+passive: true
+account_required: false
+tags: [leak-data]
+notes: >-
+  Paid per query, and the operator sees every lookup you make. Bots like this trade in breached personal data; a lawful basis is on you. Breached records are personal data: in most countries you need
+  a lawful basis to search them, the vendor logs every query against your account, and these sets are often stale, merged between people or planted.

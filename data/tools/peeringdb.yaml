@@ -8,3 +8,6 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template:
+  company: https://www.peeringdb.com/search?q={query}
+  ip: https://www.peeringdb.com/search?q={query}

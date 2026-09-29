@@ -1,0 +1,12 @@
+name: Meawfy
+url: https://meawfy.com/
+description: Searches and mirrors files found in exposed directories, filtered by file type and keyword.
+category: breach
+inputs: [keyword]
+outputs: [document]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [leak-data]
+notes: It caches what it indexes, so a file you find may also be sitting on their server.

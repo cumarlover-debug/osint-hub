@@ -1,0 +1,12 @@
+name: The Bump Registry
+url: https://www.thebump.com/registry
+description: Baby-registry search by name, which can indicate a pregnancy and a due date.
+category: people
+inputs: [name]
+outputs: [name, location]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [personal-data]
+notes: A due date is sensitive personal information about someone who did not choose to publish it to investigators.

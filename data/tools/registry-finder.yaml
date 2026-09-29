@@ -1,0 +1,12 @@
+name: Registry Finder
+url: https://registryfinder.com/
+description: Searches gift registries across many retailers by name, which can confirm a wedding or due date and a couple's location.
+category: people
+inputs: [name]
+outputs: [location, name]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [personal-data]
+notes: A registry page is public by design, but it usually carries a full name, a town and a date. Do not treat it as confirmation without a second source.

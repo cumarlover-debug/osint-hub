@@ -1,0 +1,11 @@
+name: AI Voice Detector
+url: https://aivoicedetector.com/
+description: Flags whether a voice recording is likely AI-generated, working in the browser on an uploaded clip.
+category: image-video
+inputs: [audio]
+outputs: [metadata]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Independent accuracy is not established. Corroborate with provenance (C2PA) or the recording's own context.

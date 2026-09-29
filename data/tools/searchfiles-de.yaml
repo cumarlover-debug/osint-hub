@@ -1,0 +1,13 @@
+name: SearchFiles.de
+url: https://searchfiles.de/
+description: Searches open directories and file indexes for exposed documents, media and archives.
+category: breach
+inputs: [keyword]
+outputs: [document, image]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://searchfiles.de/found.php?q={query}
+tags: [leak-data]
+notes: Much of what it surfaces was never meant to be public, and some of it is other people's personal data.

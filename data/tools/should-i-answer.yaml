@@ -8,5 +8,6 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template: https://www.shouldianswer.com/search?q={query}
 tags:
   - spam-reports

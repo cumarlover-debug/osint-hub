@@ -1,0 +1,14 @@
+name: BreachDirectory
+url: https://breachdirectory.org/
+description: Free search of a breach dataset by email, username or phone number, returning partially masked passwords.
+category: breach
+inputs: [email, username, phone]
+outputs: [password]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [leak-data]
+notes: >-
+  Breached records are personal data: in most countries you need a lawful basis to search them, the vendor logs every query against your account, and these sets are often stale, merged between people
+  or planted.

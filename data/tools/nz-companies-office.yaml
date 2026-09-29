@@ -9,6 +9,9 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template:
+  company: https://companies-register.companiesoffice.govt.nz/search/?keyword={query}
+  name: https://companies-register.companiesoffice.govt.nz/search/?keyword={query}
 tags:
   - government-records
   - regional

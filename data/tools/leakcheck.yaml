@@ -1,0 +1,14 @@
+name: LeakCheck
+url: https://leakcheck.io/
+description: Checks an email address, username, domain or phone number against a large collection of leaked databases.
+category: breach
+inputs: [email, username, domain, phone]
+outputs: [password, hash]
+type: web
+cost: freemium
+passive: true
+account_required: false
+tags: [leak-data]
+notes: >-
+  A free search is limited to a few fields; the API and full records need an account. Breached records are personal data: in most countries you need a lawful basis to search them, the vendor logs
+  every query against your account, and these sets are often stale, merged between people or planted.

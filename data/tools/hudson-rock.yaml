@@ -1,0 +1,14 @@
+name: Hudson Rock
+url: https://www.hudsonrock.com/
+description: Free check of whether an email address or domain appears in infostealer logs, the malware that harvests saved browser passwords.
+category: breach
+inputs: [email, domain]
+outputs: [password, url]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [leak-data]
+notes: >-
+  The free lookup is meant for checking your own exposure. Breached records are personal data: in most countries you need a lawful basis to search them, the vendor logs every query against your
+  account, and these sets are often stale, merged between people or planted.

@@ -1,0 +1,11 @@
+name: Resemble Detect
+url: https://www.resemble.ai/products/detect/
+description: Detects synthetic speech in an uploaded clip, from the company behind a commercial voice-cloning service.
+category: image-video
+inputs: [audio]
+outputs: [metadata]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Free sample check with an account. It detects this vendor's own synthesis well; treat a "real" verdict as weak evidence.

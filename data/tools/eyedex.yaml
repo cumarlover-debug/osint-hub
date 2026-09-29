@@ -1,0 +1,13 @@
+name: Eyedex
+url: https://www.eyedex.org/
+description: Searches publicly accessible directory listings for exposed documents, archives and datasets by keyword or file type.
+category: breach
+inputs: [keyword]
+outputs: [document]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://www.eyedex.org/search/?q={query}
+tags: [leak-data]
+notes: Indexes only what is already public; treat anything found as a lead to verify, not as evidence.

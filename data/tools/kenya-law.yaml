@@ -10,6 +10,8 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template:
+  keyword: https://new.kenyalaw.org/search/?q={query}
 tags:
   - court-records
   - regional

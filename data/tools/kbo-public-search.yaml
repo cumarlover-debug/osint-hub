@@ -8,6 +8,7 @@ type: web
 cost: free
 passive: true
 account_required: false
+query_template: https://kbopub.economie.fgov.be/kbopub/zoeknaamfonetischform.html?searchWord={query}
 tags:
   - government-records
   - regional
