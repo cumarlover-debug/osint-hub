@@ -215,8 +215,14 @@ osint-hub case run  ./my-case.json --safe       # nothing that contacts the targ
 osint-hub case run  ./my-case.json --yes --only holehe,dnstwist --timeout 120
 ```
 
+There is a harmless sample case in `examples/case.json` (example.com is reserved for documentation), so you can try
+it before exporting anything: `npm run cli -- case plan examples/case.json --data dist/api/tools.json`.
+
 - Commands come from each tool's `command_template`, with the value quoted by `quoteArg`, and a value that cannot
   be quoted safely never becomes a command.
+- The plan marks each command **installed**, **needs its own files** (it runs an interpreter over the tool's own
+  script, so Python being present proves nothing) or **not installed** with the install line. `run` refuses to start
+  when nothing is installed unless you pass `--force`, instead of failing the same way N times.
 - `run` prompts per command (yes / no / all / quit); `--yes` runs unattended, `--dry-run` only prints the plan.
 - Each command runs in your shell — PowerShell is invoked directly when that is the chosen shell — with **no stdin**,
   so a tool that asks a question fails instead of hanging the run, and a `--timeout` (default 300s) kills it.

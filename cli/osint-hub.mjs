@@ -34,6 +34,7 @@ Options for "commands": --as <type>  --active  --docker (use Docker images where
                       --plain (commands only, one per line)
 Options for "case run": --yes (no prompt)  --dry-run (plan only)  --safe (nothing that contacts the target
                       or needs an account)  --only a,b  --input <type>  --timeout <seconds>  --out <dir>
+                      --force (run even when the tool is not installed)
                       --write-back (also save a case file with what ran, for /case)
 Options for any command: --data <tools.json>  use a local copy of the API instead of downloading it
 Global options:       --json  --no-color  --api <base-url>
@@ -160,6 +161,37 @@ const badges = (t) =>
   [!t.passive && yellow('active'), t.account_required && dim('account'), t.cost !== 'free' && dim(t.cost), t.status === 'down' && red('down')]
     .filter(Boolean)
     .join(' ');
+
+/** Program names that run a script you have to have checked out yourself. */
+const INTERPRETERS = new Set(['python', 'python3', 'py', 'node', 'ruby', 'perl', 'php', 'bash', 'sh', 'pwsh', 'powershell', 'java']);
+
+/**
+ * What a generated command needs before it can run here. Nothing is executed: PATH is only read.
+ *
+ *   ready       the program is on this machine
+ *   local-file  it starts with an interpreter and the tool's own script (`python sublist3r.py`), so having
+ *               Python proves nothing — the tool still has to be cloned
+ *   missing     there is no such program on PATH
+ */
+function readiness(command) {
+  const parts = command.trim().split(/\s+/);
+  const program = parts[0]?.replace(/^['"]|['"]$/g, '') ?? '';
+  const second = (parts[1] ?? '').replace(/^['"]|['"]$/g, '');
+  if (program.startsWith('./') || program.startsWith('.\\')) return 'local-file';
+  if (INTERPRETERS.has(program.toLowerCase()) && /\.(py|sh|js|rb|pl|php|jar)$/i.test(second)) return 'local-file';
+  const dirs = (process.env.PATH ?? '').split(process.platform === 'win32' ? ';' : ':').filter(Boolean);
+  const extensions = process.platform === 'win32' ? (process.env.PATHEXT ?? '.COM;.EXE;.BAT;.CMD').split(';').filter(Boolean) : [''];
+  for (const dir of dirs) {
+    for (const ext of extensions) {
+      try {
+        if (existsSync(join(dir, program + ext))) return 'ready';
+      } catch {
+        // An unreadable PATH entry is simply not a match.
+      }
+    }
+  }
+  return 'missing';
+}
 
 function toolLine(t, width = 28) {
   const name = t.name.length > width ? `${t.name.slice(0, width - 1)}…` : t.name.padEnd(width);
@@ -331,11 +363,14 @@ async function main() {
       .filter((v) => !flags.input || v.type === flags.input)
       .map((v) => {
         const rows = capabilityRows(tools, v.type, v.value, { safe, shell, order });
-        const runnable = rows.filter((r) => r.kind === 'command' && r.command && (!only.length || only.includes(r.slug)));
+        const runnable = rows
+          .filter((r) => r.kind === 'command' && r.command && (!only.length || only.includes(r.slug)))
+          .map((r) => ({ ...r, readiness: readiness(r.command) }));
         return { value: v, rows, runnable };
       });
 
     const totalCommands = plan.reduce((n, p) => n + p.runnable.length, 0);
+    const ready = plan.reduce((n, p) => n + p.runnable.filter((r) => r.readiness === 'ready').length, 0);
     const outDir = flags.out ?? `osint-hub-${slugifyName(theCase.title)}`;
 
     if (flags.json && action === 'plan') {
@@ -354,24 +389,37 @@ async function main() {
     }
 
     if (action === 'plan' || flags['dry-run']) {
-      out(`${bold(theCase.title)} ${dim(`· ${plan.length} identifier${plan.length === 1 ? '' : 's'} · ${totalCommands} command${totalCommands === 1 ? '' : 's'}`)}`);
+      out(`${bold(theCase.title)} ${dim(`· ${plan.length} identifier${plan.length === 1 ? '' : 's'} · ${totalCommands} command${totalCommands === 1 ? '' : 's'} · ${ready} ready to run here`)}`);
       out(dim(`shell ${shell}${safe ? ' · safe mode: nothing that contacts the target, nothing needing an account' : ''}\n`));
+      if (totalCommands && !ready) {
+        out(yellow('  None of these tools are installed yet — install them with the line under each command.'));
+        out('');
+      }
       for (const p of plan) {
         out(`${bold(p.value.value)} ${dim(`(${taxonomy.inputs[p.value.type] ?? p.value.type})`)}`);
         out(dim(`  ${p.rows.length} tools can take this value · ${p.runnable.length} with a command · ${p.rows.filter((r) => r.link).length} with a search link`));
         for (const r of p.runnable) {
-          out(`    ${r.name.padEnd(26)} ${dim(r.install ? `install: ${r.install}` : r.account ? 'needs an account' : '')}`);
+          const state =
+            r.readiness === 'ready'
+              ? green('installed')
+              : r.readiness === 'local-file'
+                ? dim(`needs its own files — ${r.install ?? 'see its repository'}`)
+                : dim(`not installed${r.install ? ` — ${r.install}` : ''}${r.account ? ' · needs an account' : ''}`);
+          out(`    ${r.name.padEnd(26)} ${state}`);
           out(`      ${r.command}`);
         }
         if (!p.runnable.length) out(dim('    no command-line tool here; open the search links in the workbench'));
         out('');
       }
-      if (totalCommands && !flags['dry-run']) out(dim(`Run them: osint-hub case run "${file}"${safe ? ' --safe' : ''}`));
+      if (totalCommands && !flags['dry-run']) out(dim(`Run them: ${bold(`npm run cli -- case run "${file}" --data ${flags.data ?? '<tools.json>'}${safe ? ' --safe' : ''}`)}`));
       return;
     }
 
     // ---- run ----
     if (!totalCommands) return out(dim('Nothing to run: no command-line tool in this plan takes these values.'));
+    if (!ready && !flags.force) {
+      fail(`none of the ${totalCommands} commands has its tool installed yet, so every one would fail. The plan prints an install line under each; add --force to run them regardless.`);
+    }
     if (!flags.yes && !process.stdin.isTTY) fail('there is no terminal to confirm on: add --yes to run the commands unattended, or --dry-run to only see the plan.');
 
     // With --json the progress lines are held back, so the output stays machine-readable.
@@ -386,7 +434,7 @@ async function main() {
       for (const row of p.runnable) {
         if (stopped) break;
         if (!runAll && !flags.json) {
-          const answer = (await ask(`  ${bold(row.name)}: ${dim(row.command)}\n  Run it? [y]es / [n]o / [a]ll / [q]uit `)).trim().toLowerCase();
+          const answer = (await ask(`  ${bold(row.name)}${row.readiness === 'ready' ? '' : red(` (${row.readiness === 'local-file' ? 'needs its own files' : 'not installed'})`)}: ${dim(row.command)}\n  Run it? [y]es / [n]o / [a]ll / [q]uit `)).trim().toLowerCase();
           if (answer === 'q') { stopped = true; break; }
           if (answer === 'a') runAll = true;
           else if (answer !== 'y' && answer !== 'yes') {
@@ -428,6 +476,7 @@ async function main() {
     const ok = results.filter((r) => r.status === 'ok').length;
     if (flags.json) return json({ case: theCase.title, shell, safe, outDir, annex: join(outDir, 'annex.md'), results });
     out(`\n${bold(`${ok}/${results.length} exited cleanly`)} ${dim(`· output in ${outDir}/runs/`)}`);
+    if (ready < totalCommands) out(dim(`${totalCommands - ready} command${totalCommands - ready === 1 ? '' : 's'} had no tool installed; the plan lists what to install.`));
     out(dim(`Annex to paste into the dossier: ${join(outDir, 'annex.md')}`));
     return;
   }

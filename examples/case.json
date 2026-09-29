@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "activeId": "example",
+  "cases": [
+    {
+      "id": "example",
+      "title": "Example case",
+      "created": "2026-09-30T00:00:00.000Z",
+      "updated": "2026-09-30T00:00:00.000Z",
+      "notes": "A harmless sample so you can try `osint-hub case plan` before exporting your own case from /case. example.com is reserved by IANA for documentation, so nothing here points at a real person.",
+      "safe": true,
+      "values": [
+        { "id": "v1", "value": "example.com", "type": "domain" },
+        { "id": "v2", "value": "someone@example.com", "type": "email" },
+        { "id": "v3", "value": "johndoe", "type": "username" }
+      ],
+      "findings": [
+        { "valueId": "v1", "slug": "dnstwist", "status": "todo", "note": "try this one first: it installs with pipx", "at": "2026-09-30T00:00:00.000Z" }
+      ]
+    }
+  ]
+}
