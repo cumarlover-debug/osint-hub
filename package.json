@@ -4,6 +4,7 @@
   "description": "A searchable directory of OSINT tools, organised by what you are investigating.",
   "scripts": {
     "dev": "astro dev",
+    "test": "node --test",
     "validate": "node scripts/validate.mjs",
     "build": "npm run validate && astro build",
     "preview": "astro preview",
