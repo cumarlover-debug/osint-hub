@@ -165,20 +165,26 @@ const badges = (t) =>
 /** Program names that run a script you have to have checked out yourself. */
 const INTERPRETERS = new Set(['python', 'python3', 'py', 'node', 'ruby', 'perl', 'php', 'bash', 'sh', 'pwsh', 'powershell', 'java']);
 
-/** Is `program` on PATH? Nothing is executed: PATH is only read. */
-function onPath(program) {
+/** The full path of a program on PATH, or undefined. Nothing is executed: PATH is only read. */
+function resolveProgram(program) {
   const dirs = (process.env.PATH ?? '').split(process.platform === 'win32' ? ';' : ':').filter(Boolean);
   const extensions = process.platform === 'win32' ? (process.env.PATHEXT ?? '.COM;.EXE;.BAT;.CMD').split(';').filter(Boolean) : [''];
   for (const dir of dirs) {
     for (const ext of extensions) {
       try {
-        if (existsSync(join(dir, program + ext))) return true;
+        const full = join(dir, program + ext);
+        if (existsSync(full)) return full;
       } catch {
         // An unreadable PATH entry is simply not a match.
       }
     }
   }
-  return false;
+  return undefined;
+}
+
+/** Is `program` on PATH? */
+function onPath(program) {
+  return resolveProgram(program) !== undefined;
 }
 
 /** What this machine can actually run, so "nothing is installed" is visible before the plan rather than after. */
@@ -200,7 +206,8 @@ function machineSummary() {
 /**
  * What a generated command needs before it can run here. Nothing is executed: PATH is only read.
  *
- *   ready          the program is on this machine
+ *   ready          the program is on this machine (and `path` says which file, so a program that merely
+ *                  shares a name with the tool — Python's httpx is not ProjectDiscovery's httpx — is visible)
  *   needs-package  it calls an interpreter with a module (`python3 -m social-analyzer`), so the interpreter
  *                  being present proves nothing about the module
  *   needs-files    it runs an interpreter over the tool's own script (`python sublist3r.py`), so the tool still
@@ -211,12 +218,13 @@ function readiness(command) {
   const parts = command.trim().split(/\s+/);
   const program = parts[0]?.replace(/^['"]|['"]$/g, '') ?? '';
   const second = (parts[1] ?? '').replace(/^['"]|['"]$/g, '');
-  if (program.startsWith('./') || program.startsWith('.\\')) return 'needs-files';
+  if (program.startsWith('./') || program.startsWith('.\\')) return { state: 'needs-files', program };
   if (INTERPRETERS.has(program.toLowerCase())) {
-    if (second === '-m') return 'needs-package';
-    if (/\.(py|sh|js|rb|pl|php|jar)$/i.test(second)) return 'needs-files';
+    if (second === '-m') return { state: 'needs-package', program };
+    if (/\.(py|sh|js|rb|pl|php|jar)$/i.test(second)) return { state: 'needs-files', program };
   }
-  return onPath(program) ? 'ready' : 'missing';
+  const path = resolveProgram(program);
+  return { state: path ? 'ready' : 'missing', program, path };
 }
 
 function toolLine(t, width = 28) {
@@ -396,7 +404,7 @@ async function main() {
       });
 
     const totalCommands = plan.reduce((n, p) => n + p.runnable.length, 0);
-    const ready = plan.reduce((n, p) => n + p.runnable.filter((r) => r.readiness === 'ready').length, 0);
+    const ready = plan.reduce((n, p) => n + p.runnable.filter((r) => r.readiness.state === 'ready').length, 0);
     const outDir = flags.out ?? `osint-hub-${slugifyName(theCase.title)}`;
 
     if (flags.json && action === 'plan') {
@@ -430,10 +438,10 @@ async function main() {
         out(dim(`  ${p.rows.length} tools can take this value · ${p.runnable.length} with a command · ${p.rows.filter((r) => r.link).length} with a search link`));
         for (const r of p.runnable) {
           const state =
-            r.readiness === 'ready'
-              ? green('installed')
+            r.readiness.state === 'ready'
+              ? `${green('installed')} ${dim(r.readiness.path)}`
               : dim(
-                  `${r.readiness === 'needs-package' ? 'needs its package' : r.readiness === 'needs-files' ? 'needs its own files' : 'not installed'}` +
+                  `${r.readiness.state === 'needs-package' ? 'needs its package' : r.readiness.state === 'needs-files' ? 'needs its own files' : 'not installed'}` +
                     `${r.install ? ` — ${r.install}` : ''}${r.account ? ' · needs an account' : ''}`,
                 );
           out(`    ${r.name.padEnd(26)} ${state}`);
@@ -465,7 +473,7 @@ async function main() {
       for (const row of p.runnable) {
         if (stopped) break;
         if (!runAll && !flags.json) {
-          const answer = (await ask(`  ${bold(row.name)}${row.readiness === 'ready' ? '' : red(` (${row.readiness === 'needs-package' ? 'needs its package' : row.readiness === 'needs-files' ? 'needs its own files' : 'not installed'})`)}: ${dim(row.command)}\n  Run it? [y]es / [n]o / [a]ll / [q]uit `)).trim().toLowerCase();
+          const answer = (await ask(`  ${bold(row.name)}${row.readiness.state === 'ready' ? '' : red(` (${row.readiness.state === 'needs-package' ? 'needs its package' : row.readiness.state === 'needs-files' ? 'needs its own files' : 'not installed'})`)}: ${dim(row.command)}\n  Run it? [y]es / [n]o / [a]ll / [q]uit `)).trim().toLowerCase();
           if (answer === 'q') { stopped = true; break; }
           if (answer === 'a') runAll = true;
           else if (answer !== 'y' && answer !== 'yes') {
