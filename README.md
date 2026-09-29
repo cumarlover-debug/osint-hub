@@ -9,10 +9,12 @@ domain, IP, image or other input and see every tool that takes it.
 
 ```bash
 npm install
-npm run dev        # http://localhost:4321
-npm test           # unit tests for the launcher and the data helpers, plus data invariants
-npm run validate   # check every tool file against the schema
-npm run build      # validate + build the static site into dist/
+npm run dev        # http://localhost:4321, with hot reload
+npm run check      # everything CI runs: the tests, then validate + build (~10s)
+npm run preview    # serve dist/ at http://localhost:4321, as Cloudflare Pages serves it
+npm test           # just the unit tests
+npm run validate   # just the schema check on every tool file
+npm run build      # just validate + build into dist/
 ```
 
 `npm test` uses Node's built-in test runner (`tests/`), so it needs no extra dependency. It covers value
@@ -20,7 +22,8 @@ detection and command quoting in `shared/launcher.mjs`, the schema and URL/name 
 `scripts/lib/data.mjs`, and whole-project invariants the validator does not check: a health entry for every
 tool, no tool listed twice by URL or name, a taxonomy key nothing uses, a playbook that starts from an input
 with no tools, and a listed tool that the pipeline still has on its rejected list. CI runs `npm test` and
-`npm run build` on every push and pull request (`.github/workflows/validate.yml`).
+`npm run build` on every push and pull request (`.github/workflows/validate.yml`) — the same two steps as
+`npm run check`, so a green `check` means CI will pass.
 
 ## Adding a tool
 
