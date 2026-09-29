@@ -14,6 +14,7 @@ const canonical = new URL(Astro.url.pathname.replace(/(index)?\.html$/, ''), Ast
 const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/') || '/';
 const nav = [
   { href: '/', label: 'Tools', match: (p: string) => p === '/' || p.startsWith('/tools') || p.startsWith('/inputs') },
+  { href: '/case', label: 'Workbench', match: (p: string) => p.startsWith('/case') },
   { href: '/launch', label: 'Launcher', match: (p: string) => p.startsWith('/launch') },
   { href: '/playbooks', label: 'Playbooks', match: (p: string) => p.startsWith('/playbooks') },
   { href: '/about', label: 'About', match: (p: string) => p.startsWith('/about') },

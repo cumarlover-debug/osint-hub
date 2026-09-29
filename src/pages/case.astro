@@ -1,0 +1,671 @@
+---
+import Base from '../layouts/Base.astro';
+import { tools, taxonomy } from '../lib/tools';
+import { SENSITIVE_TAGS } from '../lib/case';
+
+// Everything the capability map needs, for every tool. Kept as small as possible: the page carries all of it
+// inline so the workbench works without another request.
+const sensitive = new Set(SENSITIVE_TAGS as string[]);
+const payload = tools.map((t) => ({
+  slug: t.slug,
+  name: t.name,
+  category: t.category,
+  inputs: t.inputs,
+  passive: t.passive,
+  account_required: t.account_required,
+  cost: t.cost,
+  query_template: t.query_template,
+  command_template: t.command_template,
+  install: t.install,
+  // Only the tags that change how a tool is shown; the rest would be dead weight in this payload.
+  tags: (t.tags ?? []).filter((tag) => sensitive.has(tag)),
+  status: t.health?.status,
+}));
+
+const meta = {
+  categoryOrder: Object.keys(taxonomy.categories),
+  categoryLabels: taxonomy.categories as Record<string, string>,
+  inputOptions: Object.entries(taxonomy.inputs).map(([key, label]) => ({ key, label })),
+};
+---
+
+<Base
+  title="Workbench: one target, every capable tool | osint-hub"
+  description="Put in every identifier you have — phone, username, email, domain, image — and see every tool that can take each one, what it needs, and what you found."
+>
+  <section class="hero">
+    <h1>One target, every capable tool.</h1>
+    <p class="lede">
+      Put in everything you already have. The workbench derives what follows from each value, lists every tool in
+      the directory that can take it — passive or active, free or paid, with a search link or a command to run —
+      and keeps a record of what you found. Values, notes and findings stay in this browser: nothing is sent to
+      osint-hub, and no tool is queried for you.
+    </p>
+  </section>
+
+  <section class="case-bar" aria-label="Case controls">
+    <label>Case <select id="case-select"></select></label>
+    <button type="button" class="linklike" id="case-new">New case</button>
+    <button type="button" class="linklike" id="case-rename">Rename</button>
+    <button type="button" class="linklike" id="case-delete">Delete</button>
+  </section>
+
+  <section class="case-bar" aria-label="Workbench options">
+    <label class="check"><input type="checkbox" id="safe-mode" /> Safe mode: nothing that contacts the target, nothing that needs an account</label>
+    <label class="check"><input type="checkbox" id="candidates" /> Propose usernames from a name (candidates)</label>
+    <label>Shell
+      <select id="shell">
+        <option value="posix">bash / zsh</option>
+        <option value="powershell">PowerShell</option>
+      </select>
+    </label>
+  </section>
+
+  <section aria-label="Add identifiers">
+    <label class="visually-hidden" for="intake">Identifiers, one per line</label>
+    <textarea id="intake" rows="3" spellcheck="false" placeholder={'One per line, for example:\nsomeone@example.com\n+1 555 010 9999\nexample.com\n@someone'}></textarea>
+    <div class="case-bar">
+      <button type="button" class="button" id="add-values">Add to case</button>
+      <button type="button" class="linklike" id="add-derive">Add and derive what follows</button>
+      <span class="hint" id="intake-hint"></span>
+    </div>
+  </section>
+
+  <p class="hint" id="case-status" aria-live="polite"></p>
+
+  <section>
+    <h2 class="section-title">Identifiers</h2>
+    <div id="values"></div>
+    <p class="empty" id="values-empty">Nothing yet. Add an identifier above to see which tools can take it.</p>
+  </section>
+
+  <section>
+    <h2 class="section-title">Report</h2>
+    <label class="visually-hidden" for="case-notes">Notes for the report</label>
+    <textarea id="case-notes" rows="3" placeholder="Anything the report should say: authorisation, scope, what you concluded."></textarea>
+    <div class="case-bar">
+      <button type="button" class="button" id="export-md">Download dossier (.md)</button>
+      <button type="button" class="linklike" id="copy-md">Copy dossier</button>
+      <button type="button" class="linklike" id="preview-md">Preview</button>
+      <button type="button" class="linklike" id="export-json">Back up (JSON)</button>
+      <label class="linklike file-label">Restore from backup<input type="file" id="import-json" accept="application/json,.json" hidden /></label>
+      <button type="button" class="linklike" id="clear-case">Clear this case</button>
+    </div>
+    <p class="hint">
+      The dossier records what you chose to run and what you saw. It never claims a tool was queried for you.
+    </p>
+    <pre id="report-preview" class="case-report" hidden></pre>
+  </section>
+</Base>
+
+<script is:inline type="application/json" id="case-tools" set:html={JSON.stringify(payload).replace(/</g, '\\u003c')} />
+<script is:inline type="application/json" id="case-meta" set:html={JSON.stringify(meta).replace(/</g, '\\u003c')} />
+
+<script>
+  import {
+    capabilityRows,
+    summariseRows,
+    groupByCategory,
+    derivePivots,
+    dossierMarkdown,
+    FINDING_STATUS,
+    type CapabilityRow,
+    type CaseTool,
+    type FindingStatus,
+    type Shell,
+  } from '../lib/case';
+  import { detect } from '../lib/launcher';
+  import {
+    readState,
+    writeState,
+    newCase,
+    activeCase,
+    uid,
+    backupJSON,
+    restoreJSON,
+    type CaseFile,
+    type CaseState,
+    type CaseValue,
+  } from '../lib/caseStore';
+
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  const tools = JSON.parse($('case-tools').textContent!) as CaseTool[];
+  const meta = JSON.parse($('case-meta').textContent!) as {
+    categoryOrder: string[];
+    categoryLabels: Record<string, string>;
+    inputOptions: { key: string; label: string }[];
+  };
+
+  let state: CaseState = readState();
+  let expanded: string | null = activeCase(state).values[0]?.id ?? null;
+  const picked = new Map<string, Set<string>>();
+
+  const store = { shellKey: 'osint-hub:shell' };
+  const safeMode = () => $<HTMLInputElement>('safe-mode').checked;
+  const shell = () => $<HTMLSelectElement>('shell').value as Shell;
+  const status = (msg: string) => ($('case-status').textContent = msg);
+
+  const caseFile = () => activeCase(state);
+  const typeLabel = (key: string) => meta.inputOptions.find((i) => i.key === key)?.label ?? key;
+  const categoryLabel = (key: string) => meta.categoryLabels[key] ?? key;
+  const rowsFor = (v: CaseValue) => capabilityRows(tools, v.type, v.value, { safe: safeMode(), shell: shell(), order: meta.categoryOrder });
+  const findingsFor = (v: CaseValue) => caseFile().findings.filter((f) => f.valueId === v.id);
+  const finding = (valueId: string, slug: string) => caseFile().findings.find((f) => f.valueId === valueId && f.slug === slug);
+
+  function save() {
+    const c = caseFile();
+    c.updated = new Date().toISOString();
+    c.safe = safeMode();
+    if (!writeState(state)) status('Storage is blocked in this browser, so this case will not be here next time.');
+  }
+
+  function recordFinding(valueId: string, slug: string, patch: { status?: FindingStatus; note?: string }) {
+    const c = caseFile();
+    let f = c.findings.find((x) => x.valueId === valueId && x.slug === slug);
+    if (!f) {
+      f = { valueId, slug, status: 'todo', at: new Date().toISOString() };
+      c.findings.push(f);
+    }
+    if (patch.status) f.status = patch.status;
+    if (patch.note !== undefined) f.note = patch.note;
+    f.at = new Date().toISOString();
+    // A tool back at "to do" with nothing written down is not worth keeping.
+    if (f.status === 'todo' && !f.note) c.findings = c.findings.filter((x) => x !== f);
+    save();
+    renderReport(!$('report-preview').hidden);
+  }
+
+  // ---- selection for "open selected" ----
+  function selectionFor(valueId: string, rows: CapabilityRow[]) {
+    if (!picked.has(valueId)) {
+      picked.set(valueId, new Set(rows.filter((r) => r.link && r.passive).map((r) => r.slug)));
+    }
+    return picked.get(valueId)!;
+  }
+
+  // ---- rendering ----
+  function renderCases() {
+    const select = $<HTMLSelectElement>('case-select');
+    select.replaceChildren(
+      ...state.cases.map((c) => {
+        const o = document.createElement('option');
+        o.value = c.id;
+        o.textContent = c.title;
+        o.selected = c.id === state.activeId;
+        return o;
+      }),
+    );
+    const c = caseFile();
+    $<HTMLTextAreaElement>('case-notes').value = c.notes;
+    $<HTMLInputElement>('safe-mode').checked = c.safe;
+  }
+
+  function badge(text: string, cls = '') {
+    const b = document.createElement('span');
+    b.className = `badge ${cls}`.trim();
+    b.textContent = text;
+    return b;
+  }
+
+  function toolRow(v: CaseValue, row: CapabilityRow, rows: CapabilityRow[]): HTMLLIElement {
+    const li = document.createElement('li');
+    li.className = `case-row${row.usable ? '' : ' muted-row'}`;
+
+    const box = document.createElement('input');
+    box.type = 'checkbox';
+    box.checked = selectionFor(v.id, rows).has(row.slug);
+    box.disabled = !row.link;
+    box.setAttribute('aria-label', `Include ${row.name}`);
+    box.addEventListener('change', () => {
+      const set = selectionFor(v.id, rows);
+      if (box.checked) set.add(row.slug);
+      else set.delete(row.slug);
+      updateOpenButton(v, rows);
+    });
+
+    const name = document.createElement('a');
+    name.href = `/tools/${row.slug}`;
+    name.className = 'launch-name';
+    name.textContent = row.name;
+
+    const badges = document.createElement('span');
+    badges.className = 'launch-badges';
+    if (!row.passive) badges.append(badge('Active', 'warn'));
+    if (row.account) badges.append(badge('Account'));
+    if (row.cost !== 'free') badges.append(badge(row.cost === 'paid' ? 'Paid' : 'Freemium'));
+    if (row.sensitive) badges.append(badge('Notice', 'warn'));
+    if (row.status === 'down') badges.append(badge('Down', 'warn'));
+
+    const action = document.createElement('span');
+    action.className = 'case-action';
+    if (row.kind === 'link' && row.link) {
+      const open = document.createElement('a');
+      open.className = 'launch-open';
+      open.href = row.link;
+      open.target = '_blank';
+      open.rel = 'noopener noreferrer';
+      open.textContent = 'Open ↗';
+      action.append(open);
+    } else if (row.command) {
+      const code = document.createElement('code');
+      code.textContent = row.command;
+      const copy = document.createElement('button');
+      copy.type = 'button';
+      copy.className = 'copy';
+      copy.textContent = 'Copy';
+      copy.addEventListener('click', () => copyText(row.command!, copy));
+      action.append(code, copy);
+    } else if (row.why) {
+      const why = document.createElement('span');
+      why.className = 'hint';
+      why.textContent = `only takes ${row.why}`;
+      action.append(why);
+    } else {
+      const a = document.createElement('a');
+      a.className = 'launch-open';
+      a.href = `/tools/${row.slug}`;
+      a.textContent = 'No direct search ↗';
+      action.append(a);
+    }
+
+    const existing = finding(v.id, row.slug);
+    const controls = document.createElement('span');
+    controls.className = 'case-finding';
+    const select = document.createElement('select');
+    select.setAttribute('aria-label', `Finding for ${row.name}`);
+    for (const [key, value] of Object.entries(FINDING_STATUS)) {
+      const o = document.createElement('option');
+      o.value = key;
+      o.textContent = value.label;
+      o.selected = (existing?.status ?? 'todo') === key;
+      select.append(o);
+    }
+    const note = document.createElement('input');
+    note.type = 'text';
+    note.placeholder = 'What did you see?';
+    note.value = existing?.note ?? '';
+    note.hidden = (existing?.status ?? 'todo') === 'todo' && !existing?.note;
+    select.addEventListener('change', () => {
+      note.hidden = select.value === 'todo';
+      recordFinding(v.id, row.slug, { status: select.value as FindingStatus });
+    });
+    note.addEventListener('change', () => recordFinding(v.id, row.slug, { note: note.value.trim() }));
+    controls.append(select, note);
+
+    li.append(box, name, badges, action, controls);
+    return li;
+  }
+
+  function updateOpenButton(v: CaseValue, rows: CapabilityRow[]) {
+    const button = document.querySelector<HTMLButtonElement>(`#open-${v.id}`);
+    if (!button) return;
+    const n = rows.filter((r) => r.link && selectionFor(v.id, rows).has(r.slug)).length;
+    button.textContent = `Open selected (${n})`;
+    button.disabled = n === 0 || safeMode();
+  }
+
+  function plan(v: CaseValue): HTMLElement {
+    const rows = rowsFor(v);
+    const summary = summariseRows(rows);
+    const wrap = document.createElement('div');
+    wrap.className = 'case-plan';
+
+    const stats = document.createElement('p');
+    stats.className = 'hint';
+    stats.textContent =
+      `${summary.total} capable tool${summary.total === 1 ? '' : 's'}: ${summary.passive} passive, ${summary.active} active, ` +
+      `${summary.links} with a direct search link, ${summary.commands} runnable on your machine, ${summary.account} need an account` +
+      (summary.sensitive ? `, ${summary.sensitive} carry a responsible-use notice` : '') +
+      (safeMode() ? ' — safe mode is on' : '');
+
+    const bar = document.createElement('div');
+    bar.className = 'case-bar';
+    const open = document.createElement('button');
+    open.type = 'button';
+    open.className = 'button';
+    open.id = `open-${v.id}`;
+    open.textContent = `Open selected (${rows.filter((r) => r.link && selectionFor(v.id, rows).has(r.slug)).length})`;
+    open.disabled = safeMode();
+    open.addEventListener('click', () => {
+      for (const row of rows) {
+        if (row.link && selectionFor(v.id, rows).has(row.slug)) window.open(row.link, '_blank', 'noopener,noreferrer');
+      }
+      status('Browsers often block all but the first tab. Allow pop-ups for this site, or open them one by one below.');
+    });
+
+    const links = document.createElement('button');
+    links.type = 'button';
+    links.className = 'linklike';
+    links.textContent = 'Copy links';
+    links.addEventListener('click', () => copyText(rows.filter((r) => r.link).map((r) => `${r.name}: ${r.link}`).join('\n'), links));
+
+    const commands = document.createElement('button');
+    commands.type = 'button';
+    commands.className = 'linklike';
+    commands.textContent = 'Copy commands';
+    const withCommands = rows.filter((r) => r.command);
+    commands.hidden = withCommands.length === 0;
+    commands.addEventListener('click', () => copyText(withCommands.map((r) => `# ${r.name}\n${r.command}`).join('\n'), commands));
+
+    bar.append(open, links, commands);
+    wrap.append(stats, bar);
+
+    if (!rows.length) {
+      const empty = document.createElement('p');
+      empty.className = 'hint';
+      empty.textContent = safeMode()
+        ? 'Safe mode leaves nothing that can take this value. Turn it off to see the rest.'
+        : 'No tool in the directory takes this type yet.';
+      wrap.append(empty);
+      return wrap;
+    }
+
+    for (const group of groupByCategory(rows, meta.categoryOrder)) {
+      const h = document.createElement('h4');
+      h.className = 'case-group';
+      h.textContent = categoryLabel(group.category);
+      const ul = document.createElement('ul');
+      ul.className = 'launch-list';
+      for (const row of group.rows) ul.append(toolRow(v, row, rows));
+      wrap.append(h, ul);
+    }
+    return wrap;
+  }
+
+  function valueCard(v: CaseValue): HTMLElement {
+    const card = document.createElement('article');
+    card.className = `card case-card${expanded === v.id ? ' case-open' : ''}`;
+
+    const head = document.createElement('div');
+    head.className = 'card-head';
+    const value = document.createElement('button');
+    value.type = 'button';
+    value.className = 'case-value';
+    value.textContent = v.value;
+    value.title = expanded === v.id ? 'Hide the plan' : 'Show the plan';
+    value.addEventListener('click', () => {
+      expanded = expanded === v.id ? null : v.id;
+      renderValues();
+    });
+    head.append(value, badge(typeLabel(v.type), 'case-type'));
+    if (v.via) head.append(badge(v.guess ? `candidate from ${v.via}` : `from ${v.via}`));
+    if (v.guess) head.append(badge('unconfirmed', 'warn'));
+
+    const remove = document.createElement('button');
+    remove.type = 'button';
+    remove.className = 'linklike';
+    remove.textContent = 'Remove';
+    remove.addEventListener('click', () => {
+      const c = caseFile();
+      c.values = c.values.filter((x) => x.id !== v.id);
+      c.findings = c.findings.filter((f) => f.valueId !== v.id);
+      picked.delete(v.id);
+      if (expanded === v.id) expanded = c.values[0]?.id ?? null;
+      save();
+      renderValues();
+    });
+    head.append(remove);
+    card.append(head);
+
+    const tooling = document.createElement('div');
+    tooling.className = 'case-bar';
+    const typeSelect = document.createElement('select');
+    typeSelect.setAttribute('aria-label', 'Type of this value');
+    for (const option of meta.inputOptions) {
+      const o = document.createElement('option');
+      o.value = option.key;
+      o.textContent = option.label;
+      o.selected = option.key === v.type;
+      typeSelect.append(o);
+    }
+    typeSelect.addEventListener('change', () => {
+      v.type = typeSelect.value;
+      save();
+      renderValues();
+    });
+
+    const note = document.createElement('input');
+    note.type = 'text';
+    note.className = 'case-note';
+    note.placeholder = 'Note about this value';
+    note.value = v.note ?? '';
+    note.addEventListener('change', () => {
+      v.note = note.value.trim() || undefined;
+      save();
+    });
+
+    const pivots = derivePivots(v.value, { candidates: $<HTMLInputElement>('candidates').checked });
+    const derive = document.createElement('button');
+    derive.type = 'button';
+    derive.className = 'linklike';
+    derive.textContent = `Derive (${pivots.length})`;
+    derive.disabled = pivots.length === 0;
+    derive.addEventListener('click', () => {
+      const c = caseFile();
+      let added = 0;
+      for (const p of pivots) {
+        if (c.values.some((x) => x.value === p.value && x.type === p.type)) continue;
+        c.values.push({ id: uid(), value: p.value, type: p.type, via: v.value, guess: p.guess });
+        added += 1;
+      }
+      save();
+      renderValues();
+      status(added ? `Added ${added} derived value${added === 1 ? '' : 's'}.` : 'Nothing new to derive.');
+    });
+
+    tooling.append(typeSelect, note, derive);
+    card.append(tooling);
+
+    if (expanded === v.id) card.append(plan(v));
+    return card;
+  }
+
+  function renderValues() {
+    const c = caseFile();
+    const wrap = $('values');
+    wrap.replaceChildren(...c.values.map(valueCard));
+    $('values-empty').hidden = c.values.length > 0;
+    $('intake-hint').textContent = c.values.length ? `${c.values.length} identifier${c.values.length === 1 ? '' : 's'} in this case` : '';
+  }
+
+  async function copyText(text: string, button: HTMLButtonElement) {
+    const label = button.textContent;
+    try {
+      await navigator.clipboard.writeText(text);
+      button.textContent = 'Copied';
+    } catch {
+      button.textContent = 'Copy failed';
+    }
+    setTimeout(() => (button.textContent = label), 1500);
+  }
+
+  // ---- the report ----
+  function buildDossier(): string {
+    const c = caseFile();
+    const sections = c.values.map((v) => {
+      const rows = rowsFor(v);
+      const findings = findingsFor(v).map((f) => ({
+        name: tools.find((t) => t.slug === f.slug)?.name ?? f.slug,
+        status: f.status,
+        note: f.note,
+        link: rows.find((r) => r.slug === f.slug)?.link,
+      }));
+      return { value: v.value, type: typeLabel(v.type), via: v.via, guess: v.guess, note: v.note, rows, findings };
+    });
+    return dossierMarkdown({ title: c.title, notes: c.notes, sections, safe: safeMode() });
+  }
+
+  function renderReport(show: boolean) {
+    const pre = $('report-preview');
+    pre.hidden = !show;
+    if (show) pre.textContent = buildDossier();
+  }
+
+  function download(name: string, text: string, type = 'text/plain') {
+    const url = URL.createObjectURL(new Blob([text], { type }));
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = name;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'case';
+
+  // ---- adding values ----
+  function addFromIntake(alsoDerive: boolean) {
+    const c = caseFile();
+    const lines = $<HTMLTextAreaElement>('intake')
+      .value.split('\n')
+      .map((l) => l.trim())
+      .filter(Boolean);
+    if (!lines.length) {
+      status('Type at least one value first.');
+      return;
+    }
+    let added = 0;
+    let derived = 0;
+    for (const line of lines) {
+      const type = detect(line)[0] ?? 'keyword';
+      if (c.values.some((v) => v.value === line)) continue;
+      c.values.push({ id: uid(), value: line, type });
+      added += 1;
+      if (!alsoDerive) continue;
+      for (const p of derivePivots(line, { candidates: $<HTMLInputElement>('candidates').checked })) {
+        if (c.values.some((v) => v.value === p.value && v.type === p.type)) continue;
+        c.values.push({ id: uid(), value: p.value, type: p.type, via: line, guess: p.guess });
+        derived += 1;
+      }
+    }
+    expanded = c.values[0]?.id ?? null;
+    save();
+    $<HTMLTextAreaElement>('intake').value = '';
+    renderValues();
+    status(added ? `Added ${added} value${added === 1 ? '' : 's'}${derived ? ` and ${derived} derived from them` : ''}.` : 'Those values are already in this case.');
+  }
+
+  // ---- wiring ----
+  function wire() {
+    $<HTMLSelectElement>('shell').value = (() => {
+      try {
+        return localStorage.getItem(store.shellKey) ?? (/Windows/i.test(navigator.userAgent) ? 'powershell' : 'posix');
+      } catch {
+        return /Windows/i.test(navigator.userAgent) ? 'powershell' : 'posix';
+      }
+    })();
+
+    $('add-values').addEventListener('click', () => addFromIntake(false));
+    $('add-derive').addEventListener('click', () => addFromIntake(true));
+    $('safe-mode').addEventListener('change', () => {
+      picked.clear();
+      save();
+      renderValues();
+      renderReport(!$('report-preview').hidden);
+    });
+    $('candidates').addEventListener('change', () => {
+      derivedHint();
+      renderValues();
+    });
+    $<HTMLSelectElement>('shell').addEventListener('change', () => {
+      try {
+        localStorage.setItem(store.shellKey, $<HTMLSelectElement>('shell').value);
+      } catch {}
+      picked.clear();
+      renderValues();
+    });
+
+    $<HTMLSelectElement>('case-select').addEventListener('change', (e) => {
+      state.activeId = (e.target as HTMLSelectElement).value;
+      expanded = caseFile().values[0]?.id ?? null;
+      picked.clear();
+      save();
+      renderCases();
+      renderValues();
+      renderReport(false);
+    });
+    $('case-new').addEventListener('click', () => {
+      const title = prompt('Name this case', 'New investigation');
+      if (title === null) return;
+      const c = newCase(title.trim() || 'Untitled investigation');
+      state.cases.push(c);
+      state.activeId = c.id;
+      expanded = null;
+      picked.clear();
+      save();
+      renderCases();
+      renderValues();
+    });
+    $('case-rename').addEventListener('click', () => {
+      const c = caseFile();
+      const title = prompt('Rename this case', c.title);
+      if (title === null) return;
+      c.title = title.trim() || c.title;
+      save();
+      renderCases();
+    });
+    $('case-delete').addEventListener('click', () => {
+      const c = caseFile();
+      if (!confirm(`Delete "${c.title}" and everything in it? This cannot be undone.`)) return;
+      state.cases = state.cases.filter((x) => x.id !== c.id);
+      if (!state.cases.length) state.cases.push(newCase());
+      state.activeId = state.cases[0].id;
+      expanded = caseFile().values[0]?.id ?? null;
+      picked.clear();
+      save();
+      renderCases();
+      renderValues();
+      renderReport(false);
+    });
+    $('clear-case').addEventListener('click', () => {
+      const c = caseFile();
+      if (!confirm('Remove every identifier and finding from this case?')) return;
+      c.values = [];
+      c.findings = [];
+      expanded = null;
+      picked.clear();
+      save();
+      renderValues();
+      renderReport(false);
+    });
+
+    $<HTMLTextAreaElement>('case-notes').addEventListener('change', () => {
+      caseFile().notes = $<HTMLTextAreaElement>('case-notes').value;
+      save();
+    });
+    $('export-md').addEventListener('click', () => {
+      const c = caseFile();
+      download(`${slugify(c.title)}.md`, buildDossier(), 'text/markdown');
+      renderReport(true);
+    });
+    $('copy-md').addEventListener('click', (e) => copyText(buildDossier(), e.currentTarget as HTMLButtonElement));
+    $('preview-md').addEventListener('click', () => renderReport($('report-preview').hidden));
+    $('export-json').addEventListener('click', () => download(`osint-hub-${slugify(caseFile().title)}.json`, backupJSON(state), 'application/json'));
+    $<HTMLInputElement>('import-json').addEventListener('change', async (e) => {
+      const file = (e.target as HTMLInputElement).files?.[0];
+      if (!file) return;
+      const { state: restored, error } = restoreJSON(await file.text());
+      if (!restored) {
+        status(error ?? 'Could not read that file.');
+        return;
+      }
+      state = restored;
+      expanded = caseFile().values[0]?.id ?? null;
+      picked.clear();
+      save();
+      renderCases();
+      renderValues();
+      renderReport(false);
+      status(`Restored ${restored.cases.length} case${restored.cases.length === 1 ? '' : 's'}.`);
+    });
+  }
+
+  function derivedHint() {
+    $('intake-hint').textContent = $<HTMLInputElement>('candidates').checked
+      ? 'Candidate usernames will be proposed from names you add.'
+      : '';
+  }
+
+  wire();
+  renderCases();
+  renderValues();
+</script>
