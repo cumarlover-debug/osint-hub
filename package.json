@@ -7,6 +7,7 @@
     "test": "node --test",
     "validate": "node scripts/validate.mjs",
     "build": "npm run validate && astro build",
+    "check": "npm test && npm run build",
     "preview": "astro preview",
     "healthcheck": "node scripts/healthcheck.mjs",
     "pipeline:harvest": "node scripts/pipeline/harvest.mjs",
