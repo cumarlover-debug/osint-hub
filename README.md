@@ -220,9 +220,11 @@ it before exporting anything: `npm run cli -- case plan examples/case.json --dat
 
 - Commands come from each tool's `command_template`, with the value quoted by `quoteArg`, and a value that cannot
   be quoted safely never becomes a command.
-- The plan marks each command **installed**, **needs its own files** (it runs an interpreter over the tool's own
-  script, so Python being present proves nothing) or **not installed** with the install line. `run` refuses to start
-  when nothing is installed unless you pass `--force`, instead of failing the same way N times.
+- The plan starts with what this machine can run (`python, pip, node, nmap, git · missing: pipx, go, docker`) and
+  marks each command **installed**, **needs its package**, **needs its own files** or **not installed** with the
+  install line. `python3 -m social-analyzer` counts as needing its package: Python being present says nothing about
+  the module. `run` refuses to start when nothing is installed unless you pass `--force`, instead of failing the
+  same way N times.
 - `run` prompts per command (yes / no / all / quit); `--yes` runs unattended, `--dry-run` only prints the plan.
 - Each command runs in your shell — PowerShell is invoked directly when that is the chosen shell — with **no stdin**,
   so a tool that asks a question fails instead of hanging the run, and a `--timeout` (default 300s) kills it.
