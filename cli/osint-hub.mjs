@@ -3,7 +3,7 @@
 // No dependencies. Data comes from https://osinthub.pages.dev/api/*.json and is cached for a day.
 import { mkdirSync, readFileSync, writeFileSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
-import { homedir } from 'node:os';
+import { homedir, tmpdir } from 'node:os';
 import { spawn } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import { detect, launchable, templatesFor, applies, buildLink, commandsFor, SHELLS, MATCH_LABELS } from '../shared/launcher.mjs';
@@ -24,6 +24,7 @@ Usage
   osint-hub case plan <case.json>      Plan a case exported from the workbench (/case)
   osint-hub case run <case.json>       Run its command-line tools here, and capture what they return
   osint-hub case fetch <case.json>     Fetch its search-link tools here, and keep the pages that came back
+  osint-hub case agent <case.json>     Render them in your installed browser, so JavaScript-only tools answer too
   osint-hub case report <case.json>    Rebuild the single-file report from what is in the output folder
   osint-hub update                     Refresh the cached data now
 
@@ -40,6 +41,9 @@ Options for "case run": --yes (no prompt)  --dry-run (plan only)  --safe / --no-
                       --write-back (also save a case file with what ran, for /case)
 Options for "case fetch": --yes  --dry-run (list the pages)  --limit <n>  --delay <ms between requests>
                       --only a,b  --input <type>  --timeout <seconds>  --out <dir>
+Options for "case agent": --yes  --dry-run (list the pages)  --limit <n>  --delay <ms between pages>
+                      --settle <ms to wait after load, default 2500>  --only a,b  --input <type>
+                      --timeout <seconds per page>  --port <devtools port>  --out <dir>
 Options for any command: --data <tools.json>  use a local copy of the API instead of downloading it
 Global options:       --json  --no-color  --api <base-url>
 
@@ -55,7 +59,7 @@ const positional = [];
 for (let i = 0; i < argv.length; i++) {
   const a = argv[i];
   if (!a.startsWith('--')) positional.push(a);
-  else if (['--input', '--category', '--type', '--as', '--value', '--api', '--shell', '--only', '--out', '--timeout', '--data', '--limit', '--delay'].includes(a)) flags[a.slice(2)] = argv[++i];
+  else if (['--input', '--category', '--type', '--as', '--value', '--api', '--shell', '--only', '--out', '--timeout', '--data', '--limit', '--delay', '--settle', '--port'].includes(a)) flags[a.slice(2)] = argv[++i];
   else flags[a.slice(2)] = true;
 }
 const [command, ...rest] = positional;
@@ -168,6 +172,21 @@ function runCommand(row, value, outDir, index, timeout, shell) {
 
 const UA = 'Mozilla/5.0 (compatible; osint-hub-cli/1.0; +https://osinthub.pages.dev)';
 
+/** A bot check dressed up as a page: it must not be counted as a result, whoever fetched it. */
+const CHALLENGE = /just a moment|checking your browser|attention required|enable javascript and cookies|verify you are human|are you a robot|cf-browser-verification/i;
+
+/** An error page served with a 200, common with proxies and CDNs. */
+const ERROR_PAGE = /^\s*(4\d\d|5\d\d)\b|bad gateway|service unavailable|internal server error|access denied|site can.?t be reached/i;
+
+/** ok, empty (nothing readable), blocked (bot protection) or failed (gone, broken, timeout). */
+function classify({ http, text, title, challenged }) {
+  if (http && (http === 403 || http === 429 || challenged)) return 'blocked';
+  if (http && http >= 400) return 'failed';
+  if (CHALLENGE.test(title ?? '') || CHALLENGE.test(String(text ?? '').slice(0, 400))) return 'blocked';
+  if (ERROR_PAGE.test(title ?? '')) return 'failed';
+  return String(text ?? '').length < 200 ? 'empty' : 'ok';
+}
+
 /** Readable text from a page, with scripts and markup stripped. */
 function pageText(html) {
   return html
@@ -204,13 +223,7 @@ async function fetchPage(row, value, outDir, index, timeout) {
     const challenged = res.headers.has('cf-mitigated') || /cloudflare|ddos-guard/i.test(res.headers.get('server') ?? '');
     const file = body ? join(outDir, 'url-results', `${String(index).padStart(2, '0')}-${row.slug}.html`) : undefined;
     if (file) writeFileSync(file, body);
-    const status = !res.ok
-      ? res.status === 403 || res.status === 429 || challenged
-        ? 'blocked'
-        : 'failed'
-      : text.length < 200
-        ? 'empty'
-        : 'ok';
+    const status = classify({ http: res.ok ? undefined : res.status, text, title, challenged });
     return { ...base, status, http: res.status, title, excerpt: text.slice(0, 2000), file };
   } catch (e) {
     return { ...base, status: 'failed', note: e.name === 'TimeoutError' ? 'timeout' : (e.cause?.code ?? e.message) };
@@ -218,8 +231,8 @@ async function fetchPage(row, value, outDir, index, timeout) {
 }
 
 /**
- * The one file: the plan, every capable tool, what the CLI ran, what it fetched, and what was recorded. Results
- * already in the output folder are picked up, so this can be rebuilt after either kind of run.
+ * The one file: the plan, every capable tool, what the CLI ran, what it fetched, what the browser rendered, and
+ * what was recorded. Results already in the output folder are picked up, so this can be rebuilt after any run.
  */
 function writeReport({ theCase, plan, tools, outDir, safe, taxonomy }) {
   const readResults = (name) => {
@@ -234,6 +247,7 @@ function writeReport({ theCase, plan, tools, outDir, safe, taxonomy }) {
   };
   const runs = readResults('manifest.json');
   const fetches = readResults('fetch.json');
+  const renders = readResults('agent.json');
 
   const sections = plan.map((p) => ({
     value: p.value.value,
@@ -244,6 +258,7 @@ function writeReport({ theCase, plan, tools, outDir, safe, taxonomy }) {
     rows: p.rows,
     runs: runs.filter((r) => r.value === p.value.value),
     fetches: fetches.filter((f) => f.value === p.value.value),
+    renders: renders.filter((r) => r.value === p.value.value),
     findings: theCase.findings
       .filter((f) => f.valueId === p.value.id)
       .map((f) => ({
@@ -258,6 +273,152 @@ function writeReport({ theCase, plan, tools, outDir, safe, taxonomy }) {
   const file = join(outDir, 'report.html');
   writeFileSync(file, reportHTML({ title: theCase.title, notes: theCase.notes, safe, sections }));
   return file;
+}
+
+// ---- The browser agent ------------------------------------------------------------------------------------
+// Some tools only build their results in JavaScript, so a plain request sees an empty shell. A real browser
+// renders them. This drives the browser that is already installed, headlessly, over the DevTools protocol, using
+// nothing but what Node ships — no Playwright, no npm install, and a throwaway profile that is deleted after.
+
+const BROWSER_PATHS = [
+  'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+  'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+  'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
+  'C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe',
+  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+  '/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge',
+  '/usr/bin/google-chrome',
+  '/usr/bin/chromium',
+  '/usr/bin/microsoft-edge',
+];
+
+const findBrowser = () => BROWSER_PATHS.find((p) => existsSync(p));
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/** Minimal DevTools-protocol client: one socket, sessions multiplexed by id. */
+class CDP {
+  constructor(ws) {
+    this.ws = ws;
+    this.id = 0;
+    this.pending = new Map();
+    this.handlers = [];
+    ws.addEventListener('message', (e) => {
+      const m = JSON.parse(e.data);
+      if (m.id && this.pending.has(m.id)) {
+        this.pending.get(m.id)(m);
+        this.pending.delete(m.id);
+      } else this.handlers.forEach((h) => h(m));
+    });
+  }
+  send(method, params = {}, sessionId) {
+    const id = ++this.id;
+    return new Promise((resolve, reject) => {
+      this.pending.set(id, (m) => (m.error ? reject(new Error(m.error.message)) : resolve(m.result)));
+      this.ws.send(JSON.stringify({ id, method, params, ...(sessionId ? { sessionId } : {}) }));
+    });
+  }
+  on(fn) {
+    this.handlers.push(fn);
+  }
+}
+
+async function launchBrowser(port, timeoutMs) {
+  const binary = findBrowser();
+  const profile = join(tmpdir(), `osint-hub-agent-${Date.now()}`);
+  mkdirSync(profile, { recursive: true });
+  const child = spawn(
+    binary,
+    [
+      `--remote-debugging-port=${port}`,
+      `--user-data-dir=${profile}`,
+      '--headless=new',
+      '--no-first-run',
+      '--no-default-browser-check',
+      '--disable-gpu',
+      '--mute-audio',
+      '--disable-background-networking',
+      'about:blank',
+    ],
+    { stdio: 'ignore' },
+  );
+
+  const deadline = Date.now() + timeoutMs;
+  let wsUrl;
+  while (Date.now() < deadline && !wsUrl) {
+    try {
+      const res = await fetch(`http://127.0.0.1:${port}/json/version`);
+      if (res.ok) wsUrl = (await res.json()).webSocketDebuggerUrl;
+    } catch {
+      // still starting
+    }
+    if (!wsUrl) await sleep(250);
+  }
+  if (!wsUrl) {
+    child.kill();
+    throw new Error(`${binary} did not open its debugging port on ${port}`);
+  }
+  const ws = new WebSocket(wsUrl);
+  await new Promise((resolve, reject) => {
+    ws.addEventListener('open', resolve);
+    ws.addEventListener('error', () => reject(new Error('could not attach to the browser')));
+  });
+  return { child, cdp: new CDP(ws), profile };
+}
+
+function closeBrowser({ child, cdp }) {
+  try {
+    cdp.ws.close();
+  } catch {
+    // already gone
+  }
+  try {
+    child.kill();
+    if (process.platform === 'win32') spawn('taskkill', ['/pid', String(child.pid), '/t', '/f'], { stdio: 'ignore' });
+  } catch {
+    // already gone
+  }
+}
+
+/** Opens one URL in a real browser, waits for it to settle, and keeps the visible text and a screenshot. */
+async function renderPage(cdp, row, value, outDir, index, timeout, settle) {
+  const base = { value: value.value, type: value.type, slug: row.slug, name: row.name, link: row.link };
+  const shot = join(outDir, 'browser', `${String(index).padStart(2, '0')}-${row.slug}.png`);
+  let sessionId;
+  try {
+    const { targetId } = await cdp.send('Target.createTarget', { url: 'about:blank' });
+    ({ sessionId } = await cdp.send('Target.attachToTarget', { targetId, flatten: true }));
+    await cdp.send('Page.enable', {}, sessionId);
+    await cdp.send('Runtime.enable', {}, sessionId);
+
+    const loaded = new Promise((resolve) => cdp.on((m) => m.method === 'Page.loadEventFired' && m.sessionId === sessionId && resolve()));
+    await cdp.send('Page.navigate', { url: row.link }, sessionId);
+    await Promise.race([loaded, sleep(timeout)]);
+    await sleep(settle); // results often arrive after load
+
+    const { result } = await cdp.send(
+      'Runtime.evaluate',
+      {
+        expression: 'JSON.stringify({title: document.title || "", text: (document.body ? document.body.innerText : "") || ""})',
+        returnByValue: true,
+      },
+      sessionId,
+    );
+    const { title, text } = JSON.parse(result.value);
+    const clean = String(text).replace(/\s+/g, ' ').trim();
+    const image = await cdp.send('Page.captureScreenshot', { format: 'png' }, sessionId);
+    writeFileSync(shot, Buffer.from(image.data, 'base64'));
+    return {
+      ...base,
+      status: classify({ text: clean, title }),
+      title: title.replace(/\s+/g, ' ').trim(),
+      excerpt: clean.slice(0, 2000),
+      screenshot: join('browser', `${String(index).padStart(2, '0')}-${row.slug}.png`),
+    };
+  } catch (e) {
+    return { ...base, status: 'failed', note: e.name === 'TimeoutError' ? 'timeout' : e.message };
+  } finally {
+    if (sessionId) cdp.send('Target.closeTarget', { targetId: sessionId }).catch(() => {});
+  }
 }
 
 // ---- Formatting ----
@@ -476,8 +637,8 @@ async function main() {
 
   if (command === 'case') {
     const [action, file] = rest;
-    if (!['plan', 'run', 'fetch', 'report'].includes(action)) {
-      fail('usage: osint-hub case plan|run|fetch|report <case.json> [--yes --safe --only a,b --input email --out DIR]');
+    if (!['plan', 'run', 'fetch', 'agent', 'report'].includes(action)) {
+      fail('usage: osint-hub case plan|run|fetch|agent|report <case.json> [--yes --safe --only a,b --input email --out DIR]');
     }
     if (!file) fail('point at the JSON backup exported from the workbench: /case → Back up (JSON).');
     if (!existsSync(file)) fail(`no such file: ${file}`);
@@ -602,6 +763,66 @@ async function main() {
       out(`\n${bold(`${okPages}/${results.length} pages returned readable text`)} ${dim(`· raw pages in ${outDir}/url-results/`)}`);
       if (accountSkipped) out(dim(`${accountSkipped} tool${accountSkipped === 1 ? '' : 's'} skipped: they need an account, so the page would only be a login form.`));
       out(dim('Blocked and empty pages are normal: many sites block bots, and JavaScript-only ones return a shell.'));
+      out(`${green('One file with everything:')} ${report}`);
+      return;
+    }
+
+    // ---- agent: the same pages, rendered in your own browser ----
+    if (action === 'agent') {
+      const targets = plan.flatMap((p) =>
+        p.rows.filter((r) => r.kind === 'link' && r.link && (!only.length || only.includes(r.slug))).map((r) => ({ value: p.value, row: r })),
+      );
+      const accountSkipped = targets.filter((t) => t.row.account).length;
+      const list = targets.filter((t) => !t.row.account).slice(0, Number(flags.limit ?? 60));
+      const binary = findBrowser();
+
+      if (!binary) fail('no Chrome or Edge found. The agent drives the browser you already have; install one, or use "case fetch" for the plain-request version.');
+      if (!list.length) return out(dim('Nothing to render: no tool with a verified search link takes these values.'));
+      if (flags['dry-run']) {
+        out(`${bold(theCase.title)} ${dim(`· would render ${list.length} page${list.length === 1 ? '' : 's'} in ${binary}`)}`);
+        for (const t of list) out(`  ${t.row.name.padEnd(26)} ${dim(t.row.link)}`);
+        return;
+      }
+      out(`${bold(theCase.title)} ${dim(`· rendering ${list.length} page${list.length === 1 ? '' : 's'} in a headless browser`)}`);
+      out(dim(`${binary}`));
+      out(dim('a real browser makes these requests from your IP, and some sites will still block or demand a login'));
+      if (!flags.yes) {
+        if (!process.stdin.isTTY) fail('there is no terminal to confirm on: add --yes to run unattended, or --dry-run to list the pages.');
+        const answer = (await ask(`  Render ${list.length} page${list.length === 1 ? '' : 's'}? [y/N] `)).trim().toLowerCase();
+        if (answer !== 'y' && answer !== 'yes') return out(dim('Nothing rendered.'));
+      }
+
+      mkdirSync(join(outDir, 'browser'), { recursive: true });
+      const results = [];
+      const delay = Number(flags.delay ?? 300);
+      const settle = Number(flags.settle ?? 2500);
+      let browser;
+      try {
+        browser = await launchBrowser(Number(flags.port ?? 9333), 20_000);
+      } catch (e) {
+        return fail(`could not start the browser: ${e.message}`);
+      }
+      try {
+        for (const t of list) {
+          const result = await renderPage(browser.cdp, t.row, t.value, outDir, results.length + 1, Number(flags.timeout ?? 30) * 1000, settle);
+          results.push(result);
+          if (!flags.json) {
+            const mark = result.status === 'ok' ? green('ok') : result.status === 'empty' ? yellow('empty') : red(result.status);
+            out(`  ${mark.padEnd(3)} ${result.name.padEnd(24)} ${dim(result.title || result.excerpt?.slice(0, 60) || result.note || '')}`);
+          }
+          if (delay) await sleep(delay);
+        }
+      } finally {
+        closeBrowser(browser);
+      }
+
+      writeFileSync(join(outDir, 'agent.json'), JSON.stringify({ case: theCase.title, rendered: new Date().toISOString(), safe, outDir, results }, null, 2));
+      const report = writeReport({ theCase, plan, tools, outDir, safe, taxonomy });
+      const okPages = results.filter((f) => f.status === 'ok').length;
+      if (flags.json) return json({ case: theCase.title, outDir, report, results });
+      out(`\n${bold(`${okPages}/${results.length} pages rendered readable text`)} ${dim(`· screenshots in ${outDir}/browser/`)}`);
+      if (accountSkipped) out(dim(`${accountSkipped} tool${accountSkipped === 1 ? '' : 's'} skipped: they need an account, so the page would only be a login form.`));
+      out(dim('A page that renders nothing readable is usually a login wall or a bot check.'));
       out(`${green('One file with everything:')} ${report}`);
       return;
     }
