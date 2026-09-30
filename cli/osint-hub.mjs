@@ -7,7 +7,7 @@ import { homedir } from 'node:os';
 import { spawn } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import { detect, launchable, templatesFor, applies, buildLink, commandsFor, SHELLS, MATCH_LABELS } from '../shared/launcher.mjs';
-import { sanitiseCaseState, activeCase, capabilityRows, resultsAnnex } from '../shared/case.mjs';
+import { sanitiseCaseState, activeCase, capabilityRows, resultsAnnex, reportHTML } from '../shared/case.mjs';
 
 const VERSION = '1.0.0';
 const HELP = `osint-hub ${VERSION}: OSINT tools by what you are investigating
@@ -23,6 +23,8 @@ Usage
   osint-hub playbook <slug> [--value V] Print a playbook; --value adds search links
   osint-hub case plan <case.json>      Plan a case exported from the workbench (/case)
   osint-hub case run <case.json>       Run its command-line tools here, and capture what they return
+  osint-hub case fetch <case.json>     Fetch its search-link tools here, and keep the pages that came back
+  osint-hub case report <case.json>    Rebuild the single-file report from what is in the output folder
   osint-hub update                     Refresh the cached data now
 
 Filters for "tools":  --input <type>  --category <c>  --type <web|cli|...>  --passive  --free  --no-account
@@ -36,11 +38,15 @@ Options for "case run": --yes (no prompt)  --dry-run (plan only)  --safe / --no-
                       from the workbench)  --only a,b  --input <type>  --timeout <seconds>  --out <dir>
                       --force (run even when the tool is not installed)
                       --write-back (also save a case file with what ran, for /case)
+Options for "case fetch": --yes  --dry-run (list the pages)  --limit <n>  --delay <ms between requests>
+                      --only a,b  --input <type>  --timeout <seconds>  --out <dir>
 Options for any command: --data <tools.json>  use a local copy of the API instead of downloading it
 Global options:       --json  --no-color  --api <base-url>
 
-Your values never leave your machine except to the tools you open. "case run" executes the generated commands
-here, under your own shell, your own accounts and your own API keys: osint-hub itself never runs a tool for you.`;
+Every "case" run writes one file — <case>/report.html — holding the plan, every capable tool, what ran, what was
+fetched and what you recorded. Your values never leave your machine except to the tools you run or fetch.
+"case run" executes the generated commands here and "case fetch" requests the search pages here, both under your
+own connection, your own accounts and your own API keys: osint-hub itself never runs or fetches a tool for you.`;
 
 // ---- Arguments ----
 const argv = process.argv.slice(2);
@@ -49,7 +55,7 @@ const positional = [];
 for (let i = 0; i < argv.length; i++) {
   const a = argv[i];
   if (!a.startsWith('--')) positional.push(a);
-  else if (['--input', '--category', '--type', '--as', '--value', '--api', '--shell', '--only', '--out', '--timeout', '--data'].includes(a)) flags[a.slice(2)] = argv[++i];
+  else if (['--input', '--category', '--type', '--as', '--value', '--api', '--shell', '--only', '--out', '--timeout', '--data', '--limit', '--delay'].includes(a)) flags[a.slice(2)] = argv[++i];
   else flags[a.slice(2)] = true;
 }
 const [command, ...rest] = positional;
@@ -154,6 +160,104 @@ function runCommand(row, value, outDir, index, timeout, shell) {
       }),
     );
   });
+}
+
+// ---- The tools that live at a URL ------------------------------------------------------------------------
+// A browser is not allowed to read another site's response, so the website can only open these links. Your machine
+// can read them, so the CLI requests the search page the plan already built and keeps what came back.
+
+const UA = 'Mozilla/5.0 (compatible; osint-hub-cli/1.0; +https://osinthub.pages.dev)';
+
+/** Readable text from a page, with scripts and markup stripped. */
+function pageText(html) {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<noscript[\s\S]*?<\/noscript>/gi, ' ')
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#\d+;/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+const decode = (s) => String(s ?? '').replace(/&amp;/g, '&').replace(/&#0?39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+
+/** Fetches one result page and keeps both the raw HTML and the readable text. */
+async function fetchPage(row, value, outDir, index, timeout) {
+  const base = { value: value.value, type: value.type, slug: row.slug, name: row.name, link: row.link };
+  try {
+    const res = await fetch(row.link, {
+      redirect: 'follow',
+      signal: AbortSignal.timeout(timeout),
+      headers: { 'user-agent': UA, accept: 'text/html,application/xhtml+xml,*/*;q=0.8' },
+    });
+    const body = res.ok ? (await res.text()).slice(0, 2_000_000) : '';
+    res.body?.cancel?.().catch(() => {});
+    const text = pageText(body);
+    const title = decode((body.match(/<title[^>]*>([^<]*)</i)?.[1] ?? '').replace(/\s+/g, ' ').trim());
+    const challenged = res.headers.has('cf-mitigated') || /cloudflare|ddos-guard/i.test(res.headers.get('server') ?? '');
+    const file = body ? join(outDir, 'url-results', `${String(index).padStart(2, '0')}-${row.slug}.html`) : undefined;
+    if (file) writeFileSync(file, body);
+    const status = !res.ok
+      ? res.status === 403 || res.status === 429 || challenged
+        ? 'blocked'
+        : 'failed'
+      : text.length < 200
+        ? 'empty'
+        : 'ok';
+    return { ...base, status, http: res.status, title, excerpt: text.slice(0, 2000), file };
+  } catch (e) {
+    return { ...base, status: 'failed', note: e.name === 'TimeoutError' ? 'timeout' : (e.cause?.code ?? e.message) };
+  }
+}
+
+/**
+ * The one file: the plan, every capable tool, what the CLI ran, what it fetched, and what was recorded. Results
+ * already in the output folder are picked up, so this can be rebuilt after either kind of run.
+ */
+function writeReport({ theCase, plan, tools, outDir, safe, taxonomy }) {
+  const readResults = (name) => {
+    try {
+      const path = join(outDir, name);
+      if (!existsSync(path)) return [];
+      const data = JSON.parse(readFileSync(path, 'utf8'));
+      return Array.isArray(data) ? data : (data.results ?? []);
+    } catch {
+      return [];
+    }
+  };
+  const runs = readResults('manifest.json');
+  const fetches = readResults('fetch.json');
+
+  const sections = plan.map((p) => ({
+    value: p.value.value,
+    type: taxonomy.inputs[p.value.type] ?? p.value.type,
+    via: p.value.via,
+    guess: p.value.guess,
+    note: p.value.note,
+    rows: p.rows,
+    runs: runs.filter((r) => r.value === p.value.value),
+    fetches: fetches.filter((f) => f.value === p.value.value),
+    findings: theCase.findings
+      .filter((f) => f.valueId === p.value.id)
+      .map((f) => ({
+        name: tools.find((t) => t.slug === f.slug)?.name ?? f.slug,
+        status: f.status,
+        note: f.note,
+        link: p.rows.find((r) => r.slug === f.slug)?.link,
+      })),
+  }));
+
+  mkdirSync(outDir, { recursive: true });
+  const file = join(outDir, 'report.html');
+  writeFileSync(file, reportHTML({ title: theCase.title, notes: theCase.notes, safe, sections }));
+  return file;
 }
 
 // ---- Formatting ----
@@ -372,8 +476,8 @@ async function main() {
 
   if (command === 'case') {
     const [action, file] = rest;
-    if (action !== 'plan' && action !== 'run') {
-      fail('usage: osint-hub case plan <case.json>  |  osint-hub case run <case.json> [--yes --safe --only a,b --input email --timeout 300 --out DIR]');
+    if (!['plan', 'run', 'fetch', 'report'].includes(action)) {
+      fail('usage: osint-hub case plan|run|fetch|report <case.json> [--yes --safe --only a,b --input email --out DIR]');
     }
     if (!file) fail('point at the JSON backup exported from the workbench: /case → Back up (JSON).');
     if (!existsSync(file)) fail(`no such file: ${file}`);
@@ -424,7 +528,7 @@ async function main() {
       });
     }
 
-    if (action === 'plan' || flags['dry-run']) {
+    if (action === 'plan' || (action === 'run' && flags['dry-run'])) {
       const machine = machineSummary();
       out(`${bold(theCase.title)} ${dim(`· ${plan.length} identifier${plan.length === 1 ? '' : 's'} · ${totalCommands} command${totalCommands === 1 ? '' : 's'} · ${ready} ready to run here`)}`);
       out(dim(`shell ${shell}${safe ? ' · safe mode: nothing that contacts the target, nothing needing an account' : ''}`));
@@ -454,6 +558,58 @@ async function main() {
       }
       if (totalCommands && !flags['dry-run']) out(dim(`Run them: ${bold(`npm run cli -- case run "${file}" --data ${flags.data ?? '<tools.json>'}${safe ? ' --safe' : ''}`)}`));
       return;
+    }
+
+    // ---- fetch: the tools that live at a URL ----
+    if (action === 'fetch') {
+      const targets = plan.flatMap((p) =>
+        p.rows.filter((r) => r.kind === 'link' && r.link && (!only.length || only.includes(r.slug))).map((r) => ({ value: p.value, row: r })),
+      );
+      const accountSkipped = targets.filter((t) => t.row.account).length;
+      const list = targets.filter((t) => !t.row.account).slice(0, Number(flags.limit ?? 500));
+
+      if (!list.length) return out(dim('Nothing to fetch: no tool with a verified search link takes these values.'));
+      if (flags['dry-run']) {
+        out(`${bold(theCase.title)} ${dim(`· would fetch ${list.length} page${list.length === 1 ? '' : 's'}`)}`);
+        for (const t of list) out(`  ${t.row.name.padEnd(26)} ${dim(t.row.link)}`);
+        return;
+      }
+      out(`${bold(theCase.title)} ${dim(`· fetching ${list.length} result page${list.length === 1 ? '' : 's'} from your connection`)}`);
+      out(dim('each request goes from your IP to that site, and some sites do not allow automated access'));
+      if (!flags.yes) {
+        if (!process.stdin.isTTY) fail('there is no terminal to confirm on: add --yes to fetch unattended, or --dry-run to only list the pages.');
+        const answer = (await ask(`  Fetch ${list.length} page${list.length === 1 ? '' : 's'}? [y/N] `)).trim().toLowerCase();
+        if (answer !== 'y' && answer !== 'yes') return out(dim('Nothing fetched.'));
+      }
+
+      mkdirSync(join(outDir, 'url-results'), { recursive: true });
+      const results = [];
+      const delay = Number(flags.delay ?? 400);
+      for (const t of list) {
+        const result = await fetchPage(t.row, t.value, outDir, results.length + 1, Number(flags.timeout ?? 30) * 1000);
+        results.push(result);
+        if (!flags.json) {
+          const mark = result.status === 'ok' ? green('ok') : result.status === 'blocked' ? yellow('blocked') : red(result.status);
+          out(`  ${mark.padEnd(3)} ${result.name.padEnd(24)} ${dim(result.title || result.note || result.link || '')}`);
+        }
+        if (delay) await new Promise((r) => setTimeout(r, delay));
+      }
+
+      writeFileSync(join(outDir, 'fetch.json'), JSON.stringify({ case: theCase.title, fetched: new Date().toISOString(), safe, outDir, results }, null, 2));
+      const report = writeReport({ theCase, plan, tools, outDir, safe, taxonomy });
+      const okPages = results.filter((f) => f.status === 'ok').length;
+      if (flags.json) return json({ case: theCase.title, outDir, report, results });
+      out(`\n${bold(`${okPages}/${results.length} pages returned readable text`)} ${dim(`· raw pages in ${outDir}/url-results/`)}`);
+      if (accountSkipped) out(dim(`${accountSkipped} tool${accountSkipped === 1 ? '' : 's'} skipped: they need an account, so the page would only be a login form.`));
+      out(dim('Blocked and empty pages are normal: many sites block bots, and JavaScript-only ones return a shell.'));
+      out(`${green('One file with everything:')} ${report}`);
+      return;
+    }
+
+    // ---- report: rebuild the single file from whatever is already in the output folder ----
+    if (action === 'report') {
+      const report = writeReport({ theCase, plan, tools, outDir, safe, taxonomy });
+      return out(`${green('wrote')} ${report}`);
     }
 
     // ---- run ----
@@ -497,6 +653,7 @@ async function main() {
       join(outDir, 'manifest.json'),
       JSON.stringify({ case: theCase.title, ran: new Date().toISOString(), shell, safe, outDir, results }, null, 2),
     );
+    const report = writeReport({ theCase, plan, tools, outDir, safe, taxonomy });
 
     // Optionally hand the workbench back a case where everything that ran cleanly is marked as run. A command
     // that could not start (not installed, timed out) is not recorded as if it had produced anything.
@@ -515,10 +672,11 @@ async function main() {
     }
 
     const ok = results.filter((r) => r.status === 'ok').length;
-    if (flags.json) return json({ case: theCase.title, shell, safe, outDir, annex: join(outDir, 'annex.md'), results });
+    if (flags.json) return json({ case: theCase.title, shell, safe, outDir, annex: join(outDir, 'annex.md'), report, results });
     out(`\n${bold(`${ok}/${results.length} exited cleanly`)} ${dim(`· output in ${outDir}/runs/`)}`);
     if (ready < totalCommands) out(dim(`${totalCommands - ready} command${totalCommands - ready === 1 ? '' : 's'} had no tool installed; the plan lists what to install.`));
     out(dim(`Annex to paste into the dossier: ${join(outDir, 'annex.md')}`));
+    out(`${green('One file with everything:')} ${report}`);
     return;
   }
 

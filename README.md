@@ -206,17 +206,24 @@ falls back to the cache when offline. Run `osint-hub --help` for everything. Det
 
 ### Running a case locally
 
-The workbench plans; the CLI executes. Export a case from `/case` (Back up (JSON)) and:
+The workbench plans; the CLI executes — both kinds of tool, and everything ends in one file.
 
 ```bash
-osint-hub case plan ./my-case.json              # what would run, per identifier, with install hints
-osint-hub case run  ./my-case.json              # ask before each command, capture what it prints
-osint-hub case run  ./my-case.json --safe       # nothing that contacts the target, nothing needing an account
-osint-hub case run  ./my-case.json --yes --only holehe,dnstwist --timeout 120
+osint-hub case plan   ./my-case.json           # what would run, per identifier, with install hints
+osint-hub case run    ./my-case.json           # the command-line tools; ask before each, capture what they print
+osint-hub case fetch  ./my-case.json           # the search-link tools; request each result page and keep it
+osint-hub case report ./my-case.json           # rebuild the single report from the output folder
+osint-hub case fetch  ./my-case.json --dry-run --limit 20 --delay 500
+osint-hub case run    ./my-case.json --safe --yes --only holehe,dnstwist --timeout 120
 ```
 
 There is a harmless sample case in `examples/case.json` (example.com is reserved for documentation), so you can try
 it before exporting anything: `npm run cli -- case plan examples/case.json --data dist/api/tools.json`.
+
+**One file per case.** Every `case` command writes `osint-hub-<case>/report.html`: the plan, **every** capable tool
+(not only the ones that ran), what the CLI executed with its output, what `fetch` pulled from the web, and the
+findings you recorded. Self-contained — no scripts, no external assets — so it opens offline, prints or attaches.
+The raw material stays beside it in `runs/` and `url-results/`, with `manifest.json` and `fetch.json` for scripting.
 
 - Commands come from each tool's `command_template`, with the value quoted by `quoteArg`, and a value that cannot
   be quoted safely never becomes a command.
@@ -229,9 +236,13 @@ it before exporting anything: `npm run cli -- case plan examples/case.json --dat
 - `run` prompts per command (yes / no / all / quit); `--yes` runs unattended, `--dry-run` only prints the plan.
 - Each command runs in your shell — PowerShell is invoked directly when that is the chosen shell — with **no stdin**,
   so a tool that asks a question fails instead of hanging the run, and a `--timeout` (default 300s) kills it.
-- Output lands in `osint-hub-<case>/runs/NN-<tool>.txt`, with `manifest.json` and an `annex.md` written to paste into
-  the dossier. `--write-back` also saves a case file marking what ran cleanly, ready to restore into `/case`.
-- Your keys, your VPN and your Tor are yours: osint-hub holds no credentials and makes no request on your behalf.
+- `fetch` takes the search URLs the plan already verified and requests them **from your connection**, keeping the raw
+  page and the readable text. A browser cannot do this — it is not allowed to read another site's response. It asks
+  first, waits `--delay` ms between requests (default 400), and skips tools that need an account, since those return
+  a login form. Pages that block bots come back `blocked`; JavaScript-only ones come back `empty`.
+- `--write-back` also saves a case file marking what ran cleanly, ready to restore into `/case`.
+- Your keys, your VPN and your Tor are yours: osint-hub holds no credentials, and it only makes the requests you
+  asked it to make.
 
 **Two traps worth knowing.** A tool can exit 0 having done nothing at all, which is why the annex records the exit
 code rather than a verdict — read the output. And if a Python tool prints `Could not contact DNS servers` while

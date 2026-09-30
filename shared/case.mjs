@@ -353,3 +353,142 @@ export function resultsAnnex({ title, generated, shell, results = [] } = {}) {
 
   return lines.join('\n');
 }
+
+// ---------------------------------------------------------------------------------------------------------
+// The single-file report
+//
+// Everything the CLI collected — the plan, what ran, what was fetched — in one self-contained HTML file. Tool
+// output is untrusted text, so every value that reaches the document is escaped here and nowhere else.
+
+const esc = (value) =>
+  String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+
+const oneLine = (value) => String(value ?? '').replace(/\s+/g, ' ').trim();
+
+/** A collapsed block of raw output, escaped. */
+const raw = (text, label = 'raw output') =>
+  text ? `<details><summary>${esc(label)}</summary><pre>${esc(text)}</pre></details>` : '';
+
+const RESULT_LABEL = { ok: 'ran', failed: 'failed', skipped: 'skipped', blocked: 'blocked', empty: 'no readable text', error: 'error' };
+
+function runsTable(runs) {
+  return `<table><thead><tr><th>Tool</th><th>Result</th><th>Exit</th><th>Output</th></tr></thead><tbody>${runs
+    .map(
+      (r) =>
+        `<tr><td>${esc(r.name)}</td><td>${esc(RESULT_LABEL[r.status] ?? r.status)}${r.note ? ` <span class="why">${esc(r.note)}</span>` : ''}</td>` +
+        `<td>${esc(r.exitCode ?? '—')}</td><td>${raw(r.output ?? (r.file ? `(saved to ${r.file})` : ''))}</td></tr>`,
+    )
+    .join('')}</tbody></table>`;
+}
+
+function fetchesTable(fetches) {
+  return `<table><thead><tr><th>Tool</th><th>Result</th><th>Page title</th><th>Text found</th></tr></thead><tbody>${fetches
+    .map(
+      (f) =>
+        `<tr><td>${f.link ? `<a href="${esc(f.link)}" rel="noopener noreferrer">${esc(f.name)}</a>` : esc(f.name)}</td>` +
+        `<td>${esc(RESULT_LABEL[f.status] ?? f.status)}${f.http ? ` <span class="why">HTTP ${esc(f.http)}</span>` : ''}</td>` +
+        `<td>${esc(oneLine(f.title) || '—')}</td><td>${raw(f.excerpt, 'text found on the page')}</td></tr>`,
+    )
+    .join('')}</tbody></table>`;
+}
+
+function findingsList(findings) {
+  if (!findings?.length) return '<p class="muted">Nothing recorded yet.</p>';
+  return `<ul class="findings">${findings
+    .map((f) => {
+      const status = FINDING_STATUS[f.status] ?? FINDING_STATUS.todo;
+      return `<li><strong>${esc(f.name)}</strong> — ${esc(status.label)}${f.note ? `: ${esc(f.note)}` : ''}${
+        f.link ? ` <a href="${esc(f.link)}" rel="noopener noreferrer">open</a>` : ''
+      }</li>`;
+    })
+    .join('')}</ul>`;
+}
+
+function toolsTable(rows) {
+  if (!rows?.length) return '<p class="muted">No tool in the directory takes this type.</p>';
+  return `<table><thead><tr><th>Tool</th><th>What it can do</th><th>Flags</th></tr></thead><tbody>${rows
+    .map((r) => {
+      const flags = [!r.passive && 'active', r.account && 'account', r.cost !== 'free' && r.cost, r.sensitive && 'notice', r.status === 'down' && 'down']
+        .filter(Boolean)
+        .map((f) => `<span class="flag">${esc(f)}</span>`)
+        .join(' ');
+      const action =
+        r.kind === 'link' && r.link
+          ? `<a href="${esc(r.link)}" rel="noopener noreferrer">search link</a>`
+          : r.command
+            ? `<code>${esc(r.command)}</code>`
+            : `<a href="https://osinthub.pages.dev/tools/${esc(r.slug)}" rel="noopener noreferrer">its page</a>`;
+      return `<tr><td>${esc(r.name)}</td><td>${action}</td><td>${flags}</td></tr>`;
+    })
+    .join('')}</tbody></table>`;
+}
+
+/**
+ * One self-contained HTML file for a case: the plan, every capable tool, what the CLI ran, what it fetched locally,
+ * and what the investigator recorded. No external assets, so it opens offline and can be printed or attached.
+ *
+ * @param {{ title?: string, generated?: string, notes?: string, safe?: boolean, sections?: any[] }} data
+ */
+export function reportHTML({ title, generated, notes, safe = false, sections = [] } = {}) {
+  const when = generated ?? new Date().toISOString().slice(0, 10);
+  const runs = sections.flatMap((s) => s.runs ?? []);
+  const fetches = sections.flatMap((s) => s.fetches ?? []);
+  const toolCount = sections.reduce((n, s) => n + (s.rows?.length ?? 0), 0);
+  const body = sections
+    .map((section) => {
+      const summary = section.summary ?? summariseRows(section.rows ?? []);
+      return `<section>
+  <h2>${esc(section.value)}</h2>
+  <p class="meta">${esc(section.type)}${section.via ? ` · derived from ${esc(section.via)}${section.guess ? ' (candidate)' : ''}` : ''}${
+    section.note ? ` · ${esc(section.note)}` : ''
+  }</p>
+  <p class="meta">${summary.total} capable tools · ${summary.passive} passive · ${summary.links} with a search link · ${summary.commands} runnable on your machine · ${summary.sensitive} with a responsible-use notice</p>
+  ${section.runs?.length ? `<h3>Ran on your machine</h3>${runsTable(section.runs)}` : ''}
+  ${section.fetches?.length ? `<h3>Fetched from the web</h3>${fetchesTable(section.fetches)}` : ''}
+  <h3>Every capable tool</h3>
+  ${toolsTable(section.rows)}
+  <h3>Findings</h3>
+  ${findingsList(section.findings)}
+</section>`;
+    })
+    .join('\n');
+
+  return `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>${esc(title) || 'Untitled investigation'} — osint-hub case report</title>
+<style>
+:root{color-scheme:light dark}
+body{font:15px/1.55 system-ui,-apple-system,'Segoe UI',sans-serif;max-width:1100px;margin:0 auto;padding:24px;color:#16222a;background:#fbfdfe}
+h1{margin:0 0 4px;font-size:1.6rem}
+h2{margin:2rem 0 .3rem;font-size:1.2rem;border-top:1px solid #d7e3e8;padding-top:1rem}
+h3{margin:1.2rem 0 .4rem;font-size:.95rem;text-transform:uppercase;letter-spacing:.06em;color:#5b7280}
+.meta{color:#5b7280;font-size:.9rem;margin:.2rem 0}
+.muted{color:#7b8f9a}
+table{border-collapse:collapse;width:100%;margin:.3rem 0 1rem;font-size:.9rem}
+th,td{border-bottom:1px solid #e3edf1;padding:6px 8px;text-align:left;vertical-align:top}
+th{color:#5b7280;font-weight:600}
+code,pre{font-family:ui-monospace,'Cascadia Code',Consolas,monospace;font-size:.82rem}
+pre{background:#f2f7f9;border:1px solid #e0eaee;border-radius:6px;padding:10px;overflow:auto;max-height:420px;white-space:pre-wrap}
+details{margin:.2rem 0}
+summary{cursor:pointer;color:#166b80}
+.flag{display:inline-block;border:1px solid #cfe0e6;border-radius:999px;padding:0 6px;font-size:.75rem;color:#5b7280;margin-right:4px}
+.why{color:#7b8f9a;font-size:.8rem}
+.findings{margin:.3rem 0 1rem;padding-left:1.1rem}
+.banner{background:#f2f7f9;border:1px solid #dbe8ec;border-radius:8px;padding:12px 14px;font-size:.9rem;color:#3f5560}
+footer{margin-top:2rem;border-top:1px solid #d7e3e8;padding-top:1rem;color:#5b7280;font-size:.85rem}
+@media print{body{background:#fff}}
+</style></head><body>
+<h1>${esc(title) || 'Untitled investigation'}</h1>
+<p class="meta">Case report compiled ${esc(when)} · ${sections.length} identifier${sections.length === 1 ? '' : 's'} · ${toolCount} capable tools · ${runs.length} command${runs.length === 1 ? '' : 's'} run · ${fetches.length} page${fetches.length === 1 ? '' : 's'} fetched</p>
+<p class="banner">Assembled on the investigator's own machine. osint-hub planned it and stores nothing; the commands ran
+and the pages were fetched locally, from your connection, and are attributed to you. A tool returning results is not
+evidence — verify before acting.${safe ? ' <strong>Safe mode was on</strong>, so nothing that contacts the target or needs an account was included.' : ''}</p>
+${body}
+${notes && notes.trim() ? `<section><h2>Notes</h2><p>${esc(notes.trim()).replace(/\n/g, '<br>')}</p></section>` : ''}
+<footer>Use these tools lawfully, and only on targets you have a legitimate reason to investigate. Every capable tool is listed, including ones this run did not touch.</footer>
+</body></html>`;
+}
+

@@ -215,7 +215,7 @@ const meta = {
     renderCli();
   }
 
-  /** The two commands that turn this plan into a local run, named after the case that will be exported. */
+  /** The commands that turn this plan into a local run, named after the case that will be exported. */
   function renderCli() {
     const name = `osint-hub-${slugify(caseFile().title)}.json`;
     $('cli-lines').textContent = [
@@ -223,8 +223,11 @@ const meta = {
       'npm run check',
       '',
       '# then, from the project folder, with the file from "Back up (JSON)" above:',
-      `npm run cli -- case plan "${name}" --data dist/api/tools.json`,
-      `npm run cli -- case run  "${name}" --data dist/api/tools.json --safe`,
+      `npm run cli -- case run   "${name}" --data dist/api/tools.json --safe   # the command-line tools`,
+      `npm run cli -- case fetch "${name}" --data dist/api/tools.json --safe   # the tools that live at a URL`,
+      '',
+      '# everything lands in one file:',
+      '#   osint-hub-<case>/report.html — the plan, every capable tool, what ran, what came back',
       '',
       '# or try the harmless sample case first:',
       'npm run cli -- case plan examples/case.json --data dist/api/tools.json',

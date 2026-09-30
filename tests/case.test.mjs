@@ -10,6 +10,7 @@ import {
   isSensitive,
   dossierMarkdown,
   resultsAnnex,
+  reportHTML,
   FINDING_STATUS,
   sanitiseCaseState,
   emptyCaseState,
@@ -352,6 +353,96 @@ describe('resultsAnnex', () => {
   it('escapes a pipe in a value so the table survives', () => {
     const md = resultsAnnex({ results: [{ value: 'a|b', name: 'Tool', status: 'ok', exitCode: 0 }] });
     assert.match(md, /\| a\\\|b \| Tool \|/);
+  });
+});
+
+describe('reportHTML', () => {
+  const sections = [
+    {
+      value: 'someone@example.com',
+      type: 'Email address',
+      rows: capabilityRows(tools, 'email', 'someone@example.com'),
+      runs: [{ value: 'someone@example.com', name: 'Holehe', status: 'ok', exitCode: 0, output: '[+] github.com\n[-] twitter.com' }],
+      fetches: [{ name: 'Hunter', link: 'https://hunter.example/?q=a%40b.com', status: 'ok', http: 200, title: 'Hunter results', excerpt: 'Found 3 emails' }],
+      findings: [{ name: 'Holehe', status: 'found', note: 'account on github', link: 'https://github.com/' }],
+    },
+  ];
+
+  it('is a complete standalone document', () => {
+    const html = reportHTML({ title: 'Case 42', generated: '2026-10-01', sections });
+    assert.match(html, /^<!doctype html>/);
+    assert.match(html, /<title>Case 42 — osint-hub case report<\/title>/);
+    assert.match(html, /<\/html>$/);
+    assert.doesNotMatch(html, /<script/i, 'no scripts: the report must not run anything');
+  });
+
+  it('summarises what was collected', () => {
+    const html = reportHTML({ title: 'Case 42', generated: '2026-10-01', sections });
+    assert.match(html, /Case report compiled 2026-10-01/);
+    assert.match(html, /1 identifier/);
+    assert.match(html, /1 command run/);
+    assert.match(html, /1 page fetched/);
+  });
+
+  it('shows every capable tool, not only the ones that ran', () => {
+    const html = reportHTML({ sections });
+    assert.match(html, /Every capable tool/);
+    assert.match(html, /Holehe/);
+    assert.match(html, /Hunter/);
+    assert.match(html, /Spokeo/, 'a tool with no command and no link is still listed');
+  });
+
+  it('includes the commands run and the pages fetched with their text', () => {
+    const html = reportHTML({ sections });
+    assert.match(html, /Ran on your machine/);
+    assert.match(html, /\[\+\] github\.com/);
+    assert.match(html, /Fetched from the web/);
+    assert.match(html, /Found 3 emails/);
+    assert.match(html, /HTTP 200/);
+  });
+
+  it('records the findings', () => {
+    assert.match(reportHTML({ sections }), /<strong>Holehe<\/strong> — Found something: account on github/);
+  });
+
+  it('says when nothing was recorded instead of implying a result', () => {
+    assert.match(reportHTML({ sections: [{ value: 'x@y.com', type: 'Email address', rows: [], findings: [] }] }), /Nothing recorded yet\./);
+  });
+
+  it('escapes tool output, so a page cannot inject markup into the report', () => {
+    const html = reportHTML({
+      title: '<img src=x onerror=alert(1)>',
+      notes: 'quote " and <b>bold</b>',
+      sections: [
+        {
+          value: '<script>alert(1)</script>',
+          type: 'Keyword / topic',
+          rows: [],
+          runs: [{ name: 'Evil', status: 'ok', exitCode: 0, output: '<script>alert(2)</script>' }],
+          fetches: [{ name: 'Evil2', status: 'ok', title: '</title><script>alert(3)</script>', excerpt: '<iframe src=//evil>' }],
+        },
+      ],
+    });
+    assert.equal(html.includes('<script>'), false, 'no raw script tag may survive');
+    assert.equal(html.includes('onerror=alert(1)>'), false, 'attribute injection must be escaped');
+    assert.match(html, /&lt;script&gt;alert\(2\)&lt;\/script&gt;/);
+    assert.match(html, /&lt;iframe src=\/\/evil&gt;/);
+    assert.match(html, /quote &quot; and &lt;b&gt;bold&lt;\/b&gt;/);
+  });
+
+  it('flags safe mode in the banner', () => {
+    assert.match(reportHTML({ safe: true, sections: [] }), /Safe mode was on/);
+    assert.doesNotMatch(reportHTML({ safe: false, sections: [] }), /Safe mode was on/);
+  });
+
+  it('always carries the lawful-use footer and the no-evidence warning', () => {
+    const html = reportHTML({ sections: [] });
+    assert.match(html, /not\s+evidence — verify before acting/);
+    assert.match(html, /Use these tools lawfully/);
+  });
+
+  it('keeps the investigator\u2019s notes', () => {
+    assert.match(reportHTML({ notes: 'Authorised by the client.', sections: [] }), /Authorised by the client\./);
   });
 });
 
