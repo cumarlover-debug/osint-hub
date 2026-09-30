@@ -1,0 +1,13 @@
+name: Mamont
+url: https://www.mmnt.ru/
+description: Searches a huge index of publicly reachable FTP servers by file name, type and size.
+category: breach
+inputs: [keyword]
+outputs: [document]
+type: web
+cost: free
+passive: true
+account_required: false
+query_template: https://www.mmnt.ru/get?st={query}
+tags: [leak-data]
+notes: The interface is in Russian. Open FTP servers routinely hold files nobody meant to publish, including personal data; finding a file is not permission to download or republish it.

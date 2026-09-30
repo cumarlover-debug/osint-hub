@@ -3826,6 +3826,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "mamont": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-09-30",
+    "http": 200,
+    "last_ok": "2026-09-30"
+  },
   "mapchecking": {
     "status": "up",
     "failures": 0,
