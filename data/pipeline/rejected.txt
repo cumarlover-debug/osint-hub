@@ -495,7 +495,6 @@ https://www.keyworddiscovery.com  # Keyword Discovery (SEO or advertising produc
 https://www.keywordspy.com  # Keyword Spy (SEO or advertising product, out of scope), 2026-09-26
 https://keywordtool.io  # KeywordTool (SEO or advertising product, out of scope), 2026-09-26
 https://guides.uflib.ufl.edu/az.php  # Library Databases (a university library A-Z list, mostly subscription-only), 2026-09-26
-https://www.mmnt.ru/  # Mamont (indexes exposed or shared files, which often include leaked personal data; not listed), 2026-09-26
 https://academic.microsoft.com/  # Microsoft Academic (Microsoft Academic was retired in 2021), 2026-09-26
 https://www.nerdydata.com/reports/new  # NerdyData (duplicate of NerdyData (nerdydata.com)), 2026-09-26
 https://newsmap.jp  # News Map (service closed or domain repurposed), 2026-09-26
