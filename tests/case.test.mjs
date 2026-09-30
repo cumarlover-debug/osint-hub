@@ -430,6 +430,35 @@ describe('reportHTML', () => {
     assert.match(html, /quote &quot; and &lt;b&gt;bold&lt;\/b&gt;/);
   });
 
+  it('shows a section for pages rendered in a browser, with the screenshot', () => {
+    const html = reportHTML({
+      sections: [
+        {
+          value: 'example.com',
+          type: 'Domain',
+          rows: [],
+          renders: [
+            { name: 'DNSViz', link: 'https://dnsviz.net/d/example.com/dnssec/', status: 'ok', title: 'example.com | DNSViz', excerpt: 'Delegation: com', screenshot: 'browser/01-dnsviz.png' },
+            { name: 'Blocked One', status: 'blocked', title: 'Just a moment...' },
+          ],
+        },
+      ],
+    });
+    assert.match(html, /Rendered in a browser/);
+    assert.match(html, /Delegation: com/);
+    assert.match(html, /href="browser\/01-dnsviz\.png"/);
+    assert.match(html, /Just a moment\.\.\./);
+    assert.match(html, /2 pages rendered/);
+  });
+
+  it('escapes a rendered page\u2019s title and text', () => {
+    const html = reportHTML({
+      sections: [{ value: 'x', type: 'Keyword / topic', rows: [], renders: [{ name: 'Evil', status: 'ok', title: '<script>bad()</script>', excerpt: '<img onerror=alert(1)>' }] }],
+    });
+    assert.equal(html.includes('<script>bad()'), false);
+    assert.match(html, /&lt;img onerror=alert\(1\)&gt;/);
+  });
+
   it('flags safe mode in the banner', () => {
     assert.match(reportHTML({ safe: true, sections: [] }), /Safe mode was on/);
     assert.doesNotMatch(reportHTML({ safe: false, sections: [] }), /Safe mode was on/);

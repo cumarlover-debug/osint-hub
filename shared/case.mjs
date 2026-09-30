@@ -408,6 +408,19 @@ function findingsList(findings) {
     .join('')}</ul>`;
 }
 
+/** Pages rendered in a real browser: the readable text a plain request cannot get, plus the screenshot. */
+function rendersTable(renders) {
+  return `<table><thead><tr><th>Tool</th><th>Result</th><th>Page title</th><th>Visible text</th><th>Screenshot</th></tr></thead><tbody>${renders
+    .map(
+      (r) =>
+        `<tr><td>${r.link ? `<a href="${esc(r.link)}" rel="noopener noreferrer">${esc(r.name)}</a>` : esc(r.name)}</td>` +
+        `<td>${esc(RESULT_LABEL[r.status] ?? r.status)}${r.note ? ` <span class="why">${esc(r.note)}</span>` : ''}</td>` +
+        `<td>${esc(oneLine(r.title) || '—')}</td><td>${raw(r.excerpt, 'text rendered on the page')}</td>` +
+        `<td>${r.screenshot ? `<a href="${esc(r.screenshot)}">image</a>` : '—'}</td></tr>`,
+    )
+    .join('')}</tbody></table>`;
+}
+
 function toolsTable(rows) {
   if (!rows?.length) return '<p class="muted">No tool in the directory takes this type.</p>';
   return `<table><thead><tr><th>Tool</th><th>What it can do</th><th>Flags</th></tr></thead><tbody>${rows
@@ -437,6 +450,7 @@ export function reportHTML({ title, generated, notes, safe = false, sections = [
   const when = generated ?? new Date().toISOString().slice(0, 10);
   const runs = sections.flatMap((s) => s.runs ?? []);
   const fetches = sections.flatMap((s) => s.fetches ?? []);
+  const renders = sections.flatMap((s) => s.renders ?? []);
   const toolCount = sections.reduce((n, s) => n + (s.rows?.length ?? 0), 0);
   const body = sections
     .map((section) => {
@@ -449,6 +463,7 @@ export function reportHTML({ title, generated, notes, safe = false, sections = [
   <p class="meta">${summary.total} capable tools · ${summary.passive} passive · ${summary.links} with a search link · ${summary.commands} runnable on your machine · ${summary.sensitive} with a responsible-use notice</p>
   ${section.runs?.length ? `<h3>Ran on your machine</h3>${runsTable(section.runs)}` : ''}
   ${section.fetches?.length ? `<h3>Fetched from the web</h3>${fetchesTable(section.fetches)}` : ''}
+  ${section.renders?.length ? `<h3>Rendered in a browser</h3>${rendersTable(section.renders)}` : ''}
   <h3>Every capable tool</h3>
   ${toolsTable(section.rows)}
   <h3>Findings</h3>
@@ -482,7 +497,7 @@ footer{margin-top:2rem;border-top:1px solid #d7e3e8;padding-top:1rem;color:#5b72
 @media print{body{background:#fff}}
 </style></head><body>
 <h1>${esc(title) || 'Untitled investigation'}</h1>
-<p class="meta">Case report compiled ${esc(when)} · ${sections.length} identifier${sections.length === 1 ? '' : 's'} · ${toolCount} capable tools · ${runs.length} command${runs.length === 1 ? '' : 's'} run · ${fetches.length} page${fetches.length === 1 ? '' : 's'} fetched</p>
+<p class="meta">Case report compiled ${esc(when)} · ${sections.length} identifier${sections.length === 1 ? '' : 's'} · ${toolCount} capable tools · ${runs.length} command${runs.length === 1 ? '' : 's'} run · ${fetches.length} page${fetches.length === 1 ? '' : 's'} fetched · ${renders.length} page${renders.length === 1 ? '' : 's'} rendered</p>
 <p class="banner">Assembled on the investigator's own machine. osint-hub planned it and stores nothing; the commands ran
 and the pages were fetched locally, from your connection, and are attributed to you. A tool returning results is not
 evidence — verify before acting.${safe ? ' <strong>Safe mode was on</strong>, so nothing that contacts the target or needs an account was included.' : ''}</p>

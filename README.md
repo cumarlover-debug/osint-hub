@@ -212,8 +212,10 @@ The workbench plans; the CLI executes — both kinds of tool, and everything end
 osint-hub case plan   ./my-case.json           # what would run, per identifier, with install hints
 osint-hub case run    ./my-case.json           # the command-line tools; ask before each, capture what they print
 osint-hub case fetch  ./my-case.json           # the search-link tools; request each result page and keep it
+osint-hub case agent  ./my-case.json           # the same pages, rendered in your own browser
 osint-hub case report ./my-case.json           # rebuild the single report from the output folder
 osint-hub case fetch  ./my-case.json --dry-run --limit 20 --delay 500
+osint-hub case agent  ./my-case.json --limit 30 --settle 3000 --only crt.sh,dnsviz
 osint-hub case run    ./my-case.json --safe --yes --only holehe,dnstwist --timeout 120
 ```
 
@@ -221,9 +223,10 @@ There is a harmless sample case in `examples/case.json` (example.com is reserved
 it before exporting anything: `npm run cli -- case plan examples/case.json --data dist/api/tools.json`.
 
 **One file per case.** Every `case` command writes `osint-hub-<case>/report.html`: the plan, **every** capable tool
-(not only the ones that ran), what the CLI executed with its output, what `fetch` pulled from the web, and the
-findings you recorded. Self-contained — no scripts, no external assets — so it opens offline, prints or attaches.
-The raw material stays beside it in `runs/` and `url-results/`, with `manifest.json` and `fetch.json` for scripting.
+(not only the ones that ran), what the CLI executed with its output, what `fetch` pulled from the web, what the
+browser rendered, and the findings you recorded. Self-contained — no scripts, and screenshots by relative path — so
+it opens offline, prints or attaches. Raw material stays beside it in `runs/`, `url-results/` and `browser/`, with
+`manifest.json`, `fetch.json` and `agent.json` for scripting.
 
 - Commands come from each tool's `command_template`, with the value quoted by `quoteArg`, and a value that cannot
   be quoted safely never becomes a command.
@@ -240,6 +243,12 @@ The raw material stays beside it in `runs/` and `url-results/`, with `manifest.j
   page and the readable text. A browser cannot do this — it is not allowed to read another site's response. It asks
   first, waits `--delay` ms between requests (default 400), and skips tools that need an account, since those return
   a login form. Pages that block bots come back `blocked`; JavaScript-only ones come back `empty`.
+- `agent` renders the same pages in **the browser you already have** — headless Chrome or Edge, driven over the
+  DevTools protocol with nothing but what Node ships, in a throwaway profile. It gives JavaScript-only tools a chance
+  to answer, and keeps the visible text plus a screenshot per page. It is slower than `fetch` (a few seconds a page,
+  so use `--limit`), and a headless browser is still detected by some sites: a Cloudflare challenge, a login wall and
+  a JavaScript-only page all end up honestly labelled rather than counted as results. Nothing else changes — same
+  safety mode, same confirmation, same one report.
 - `--write-back` also saves a case file marking what ran cleanly, ready to restore into `/case`.
 - Your keys, your VPN and your Tor are yours: osint-hub holds no credentials, and it only makes the requests you
   asked it to make.
