@@ -8,6 +8,7 @@ type: web
 cost: paid
 passive: true
 account_required: true
+manual: api-key
 tags: [leak-data]
 notes: >-
   Subscription only. Breached records are personal data: in most countries you need a lawful basis to search them, the vendor logs every query against your account, and these sets are often stale,

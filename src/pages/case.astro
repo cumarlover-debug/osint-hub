@@ -266,6 +266,9 @@ const meta = {
 
     const badges = document.createElement('span');
     badges.className = 'launch-badges';
+    // By hand: a request cannot get an answer out of these, so they are a checklist rather than something the
+    // fetch or browser pass should be pointed at.
+    if (row.manual) badges.append(badge('By hand', 'warn'));
     if (!row.passive) badges.append(badge('Active', 'warn'));
     if (row.account) badges.append(badge('Account'));
     if (row.cost !== 'free') badges.append(badge(row.cost === 'paid' ? 'Paid' : 'Freemium'));

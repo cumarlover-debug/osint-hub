@@ -8,6 +8,7 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 tags: [leak-data]
 notes: >-
   A free search is limited to a few fields; the API and full records need an account. Breached records are personal data: in most countries you need a lawful basis to search them, the vendor logs

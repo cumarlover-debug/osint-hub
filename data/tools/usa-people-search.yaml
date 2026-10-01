@@ -8,5 +8,6 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: captcha
 tags: [personal-data]
 notes: There are widespread reports of hard-to-cancel subscriptions and unclear billing. Prefer the free people-search sites first, and be careful with any card details.

@@ -8,5 +8,6 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: login
 tags: [face-recognition]
 notes: Face search can identify strangers from a single photo. Many jurisdictions restrict it (for example under GDPR biometric rules).

@@ -8,6 +8,7 @@ type: web
 cost: paid
 passive: true
 account_required: false
+manual: post-form
 tags: [leak-data]
 notes: >-
   Paid per query, and the operator sees every lookup you make. Bots like this trade in breached personal data; a lawful basis is on you. Breached records are personal data: in most countries you need

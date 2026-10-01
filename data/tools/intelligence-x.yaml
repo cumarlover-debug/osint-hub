@@ -8,5 +8,6 @@ type: web
 cost: freemium
 passive: true
 account_required: true
+manual: api-key
 tags: [leak-data]
 notes: Free tier for private use; commercial use needs a paid licence. Selectors you search are visible in your account.

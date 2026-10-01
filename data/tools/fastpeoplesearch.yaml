@@ -10,4 +10,5 @@ type: web
 cost: free
 passive: true
 account_required: false
+manual: captcha
 notes: US only. Verify anything you find elsewhere.

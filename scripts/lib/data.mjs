@@ -49,6 +49,10 @@ const schema = {
     cost: { enum: Object.keys(taxonomy.costs) },
     passive: { type: 'boolean' },
     account_required: { type: 'boolean' },
+    // Why a service has to be used by hand: it only answers a submitted form, hides behind a captcha, needs a key,
+    // needs a login, or is an interactive console. Marked tools are listed in the report as a to-do list and are
+    // left out of the fetch and browser passes, which cannot get anything from them.
+    manual: { enum: ['captcha', 'post-form', 'api-key', 'login', 'interactive'] },
     // Either one search URL for every input, or one per input type. A per-input entry can be limited to one value
     // format with `match` (see MATCHERS), e.g. Etherscan only takes Ethereum addresses.
     query_template: {

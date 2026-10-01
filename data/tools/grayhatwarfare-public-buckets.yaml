@@ -8,6 +8,7 @@ type: web
 cost: freemium
 passive: true
 account_required: true
+manual: login
 tags: [leak-data]
 query_template:
   domain: https://buckets.grayhatwarfare.com/files?keywords={query}
