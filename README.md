@@ -217,6 +217,18 @@ osint-hub case report ./my-case.json           # rebuild the single report from 
 osint-hub case fetch  ./my-case.json --dry-run --limit 20 --delay 500
 osint-hub case agent  ./my-case.json --limit 30 --settle 3000 --only crt.sh,dnsviz
 osint-hub case run    ./my-case.json --safe --yes --only holehe,dnstwist --timeout 120
+osint-hub case run    ./my-case.json --only maigret --extra "maigret=--tags dating" --timeout 900
+```
+
+`--extra "slug=arguments"` appends flags to one tool's command, for passes the directory does not carry on its own.
+It is repeatable. The whole point is that the deeper run still lands in the same report:
+
+```bash
+# maigret checks its 500 busiest sites by default; its full list is 5,900, tagged by category
+osint-hub case run ./my-case.json --safe --yes --timeout 900 \
+  --only maigret --extra "maigret=--tags dating"        # dating sites only
+osint-hub case run ./my-case.json --safe --yes --timeout 3600 \
+  --only maigret --extra "maigret=-a"                   # every site it knows
 ```
 
 There is a harmless sample case in `examples/case.json` (example.com is reserved for documentation), so you can try

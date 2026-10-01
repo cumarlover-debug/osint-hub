@@ -37,7 +37,8 @@ Options for "commands": --as <type>  --active  --docker (use Docker images where
                       --plain (commands only, one per line)
 Options for "case run": --yes (no prompt)  --dry-run (plan only)  --safe / --no-safe (default: as exported
                       from the workbench)  --only a,b  --input <type>  --timeout <seconds>  --out <dir>
-                      --force (run even when the tool is not installed)
+                      --extra "slug=arguments" (add flags to one tool, e.g. --extra "maigret=--tags dating";
+                      repeatable)  --force (run even when the tool is not installed)
                       --write-back (also save a case file with what ran, for /case)
 Options for "case fetch": --yes  --dry-run (list the pages)  --limit <n>  --delay <ms between requests>
                       --only a,b  --input <type>  --timeout <seconds>  --out <dir>
@@ -56,10 +57,14 @@ own connection, your own accounts and your own API keys: osint-hub itself never 
 const argv = process.argv.slice(2);
 const flags = {};
 const positional = [];
+const repeatable = ['--extra'];
 for (let i = 0; i < argv.length; i++) {
   const a = argv[i];
   if (!a.startsWith('--')) positional.push(a);
-  else if (['--input', '--category', '--type', '--as', '--value', '--api', '--shell', '--only', '--out', '--timeout', '--data', '--limit', '--delay', '--settle', '--port'].includes(a)) flags[a.slice(2)] = argv[++i];
+  else if (repeatable.includes(a)) {
+    const key = a.slice(2);
+    flags[key] = [...(flags[key] ?? []), argv[++i]];
+  } else if (['--input', '--category', '--type', '--as', '--value', '--api', '--shell', '--only', '--out', '--timeout', '--data', '--limit', '--delay', '--settle', '--port'].includes(a)) flags[a.slice(2)] = argv[++i];
   else flags[a.slice(2)] = true;
 }
 const [command, ...rest] = positional;
@@ -799,6 +804,33 @@ async function main() {
           .map((r) => ({ ...r, readiness: readiness(r.command) }));
         return { value: v, rows, runnable };
       });
+
+    // --extra "slug=arguments" lets one tool run with flags the directory does not carry, so a narrower or deeper
+    // pass still lands in the same report. The arguments are appended to the command the tool data already built.
+    const extras = new Map();
+    for (const raw of flags.extra ?? []) {
+      const text = String(raw ?? '').trim();
+      const eq = text.indexOf('=');
+      if (eq < 1) fail(`--extra wants "slug=arguments", for example --extra "maigret=--tags dating" (got "${text}")`);
+      extras.set(text.slice(0, eq).trim(), text.slice(eq + 1).trim());
+    }
+    const usedExtras = new Set();
+    if (extras.size) {
+      for (const p of plan) {
+        p.runnable = p.runnable.map((r) => {
+          const extra = extras.get(r.slug);
+          if (!extra) return r;
+          usedExtras.add(r.slug);
+          return { ...r, command: `${r.command} ${extra}`, extra };
+        });
+      }
+      for (const slug of extras.keys()) {
+        if (!usedExtras.has(slug)) {
+          // Not an error: the tool may simply not take these values, and the run should still happen.
+          out(yellow(`  --extra for "${slug}" matched nothing in this plan — check the slug with case plan.`));
+        }
+      }
+    }
 
     const totalCommands = plan.reduce((n, p) => n + p.runnable.length, 0);
     const ready = plan.reduce((n, p) => n + p.runnable.filter((r) => r.readiness.state === 'ready').length, 0);
