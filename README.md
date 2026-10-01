@@ -245,13 +245,15 @@ it opens offline, prints or attaches. Raw material stays beside it in `runs/`, `
   a login form. Pages that block bots come back `blocked`; JavaScript-only ones come back `empty`.
 - `agent` renders the same pages in **the browser you already have** — headless Chrome or Edge, driven over the
   DevTools protocol with nothing but what Node ships, in a throwaway profile. It gives JavaScript-only tools a chance
-  to answer, and keeps the visible text plus a screenshot per page. It is slower than `fetch` (a few seconds a page,
-  so use `--limit`), and a headless browser is still detected by some sites: a Cloudflare challenge, a login wall and
-  a JavaScript-only page all end up honestly labelled rather than counted as results. Nothing else changes — same
-  safety mode, same confirmation, same one report.
+  to answer, and keeps the visible text plus a screenshot per page. It waits for the text to stop changing and takes
+  `--settle` (default 2500 ms) as the ceiling, and it keeps waiting while a page is a bot check, since the challenge
+  is the part that comes *before* the content. `--show` runs the browser visibly instead of headless, which clears
+  more of them: DNS History answers a visible browser after a few seconds where it refuses both a plain request and
+  headless Chrome. Nothing else changes — same safety mode, same confirmation, same one report.
 - `--write-back` also saves a case file marking what ran cleanly, ready to restore into `/case`.
 - Your keys, your VPN and your Tor are yours: osint-hub holds no credentials, and it only makes the requests you
-  asked it to make.
+  asked it to make. Rendering a public page in a real browser is ordinary browsing; it is still automated access,
+  which some sites' terms forbid, so decide per target.
 
 **Two traps worth knowing.** A tool can exit 0 having done nothing at all, which is why the annex records the exit
 code rather than a verdict — read the output. And if a Python tool prints `Could not contact DNS servers` while
