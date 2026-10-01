@@ -373,7 +373,15 @@ const oneLine = (value) => String(value ?? '').replace(/\s+/g, ' ').trim();
 const raw = (text, label = 'raw output', open = false) =>
   text ? `<details${open ? ' open' : ''}><summary>${esc(label)}</summary><pre>${esc(text)}</pre></details>` : '';
 
-const RESULT_LABEL = { ok: 'ran', failed: 'failed', skipped: 'skipped', blocked: 'blocked', empty: 'no readable text', error: 'error' };
+const RESULT_LABEL = {
+  ok: 'ran',
+  failed: 'failed',
+  skipped: 'skipped',
+  blocked: 'blocked',
+  empty: 'no readable text',
+  'needs-js': 'needs a browser',
+  error: 'error',
+};
 
 function runsTable(runs) {
   return `<table><thead><tr><th>Tool</th><th>Ran</th><th>Exit</th><th>What it printed</th></tr></thead><tbody>${runs
