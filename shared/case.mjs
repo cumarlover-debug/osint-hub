@@ -369,19 +369,26 @@ const esc = (value) =>
 
 const oneLine = (value) => String(value ?? '').replace(/\s+/g, ' ').trim();
 
-/** A collapsed block of raw output, escaped. */
-const raw = (text, label = 'raw output') =>
-  text ? `<details><summary>${esc(label)}</summary><pre>${esc(text)}</pre></details>` : '';
+/** A block of raw output, escaped. Tool output is long, so it is a details element; `open` shows it straight away. */
+const raw = (text, label = 'raw output', open = false) =>
+  text ? `<details${open ? ' open' : ''}><summary>${esc(label)}</summary><pre>${esc(text)}</pre></details>` : '';
 
 const RESULT_LABEL = { ok: 'ran', failed: 'failed', skipped: 'skipped', blocked: 'blocked', empty: 'no readable text', error: 'error' };
 
 function runsTable(runs) {
-  return `<table><thead><tr><th>Tool</th><th>Result</th><th>Exit</th><th>Output</th></tr></thead><tbody>${runs
-    .map(
-      (r) =>
-        `<tr><td>${esc(r.name)}</td><td>${esc(RESULT_LABEL[r.status] ?? r.status)}${r.note ? ` <span class="why">${esc(r.note)}</span>` : ''}</td>` +
-        `<td>${esc(r.exitCode ?? '—')}</td><td>${raw(r.output ?? (r.file ? `(saved to ${r.file})` : ''))}</td></tr>`,
-    )
+  return `<table><thead><tr><th>Tool</th><th>Ran</th><th>Exit</th><th>What it printed</th></tr></thead><tbody>${runs
+    .map((r) => {
+      // The output is the point of the report, so it is shown open rather than behind a click. Anything trimmed
+      // points at the file on disk that still holds all of it.
+      const body = r.output
+        ? raw(r.output, r.truncated ? `output (trimmed — full text in ${r.file})` : 'output', true)
+        : esc(r.file ? `(saved to ${r.file})` : 'nothing captured');
+      const when = r.ms ? ` <span class="why">${(r.ms / 1000).toFixed(1)}s</span>` : '';
+      return (
+        `<tr><td>${esc(r.name)}</td><td>${esc(RESULT_LABEL[r.status] ?? r.status)}${r.note ? ` <span class="why">${esc(r.note)}</span>` : ''}${when}</td>` +
+        `<td>${esc(r.exitCode ?? '—')}</td><td>${body}</td></tr>`
+      );
+    })
     .join('')}</tbody></table>`;
 }
 
@@ -391,7 +398,7 @@ function fetchesTable(fetches) {
       (f) =>
         `<tr><td>${f.link ? `<a href="${esc(f.link)}" rel="noopener noreferrer">${esc(f.name)}</a>` : esc(f.name)}</td>` +
         `<td>${esc(RESULT_LABEL[f.status] ?? f.status)}${f.http ? ` <span class="why">HTTP ${esc(f.http)}</span>` : ''}</td>` +
-        `<td>${esc(oneLine(f.title) || '—')}</td><td>${raw(f.excerpt, 'text found on the page')}</td></tr>`,
+        `<td>${esc(oneLine(f.title) || '—')}</td><td>${raw(f.excerpt, 'text found on the page', true)}</td></tr>`,
     )
     .join('')}</tbody></table>`;
 }
@@ -415,7 +422,7 @@ function rendersTable(renders) {
       (r) =>
         `<tr><td>${r.link ? `<a href="${esc(r.link)}" rel="noopener noreferrer">${esc(r.name)}</a>` : esc(r.name)}</td>` +
         `<td>${esc(RESULT_LABEL[r.status] ?? r.status)}${r.note ? ` <span class="why">${esc(r.note)}</span>` : ''}</td>` +
-        `<td>${esc(oneLine(r.title) || '—')}</td><td>${raw(r.excerpt, 'text rendered on the page')}</td>` +
+        `<td>${esc(oneLine(r.title) || '—')}</td><td>${raw(r.excerpt, 'text rendered on the page', true)}</td>` +
         `<td>${r.screenshot ? `<a href="${esc(r.screenshot)}">image</a>` : '—'}</td></tr>`,
     )
     .join('')}</tbody></table>`;

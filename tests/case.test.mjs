@@ -401,6 +401,19 @@ describe('reportHTML', () => {
     assert.match(html, /HTTP 200/);
   });
 
+  it('shows what each tool printed, open, rather than a path to go and open', () => {
+    const html = reportHTML({ sections });
+    assert.match(html, /<details open><summary>output<\/summary><pre>\[\+\] github\.com/);
+    assert.doesNotMatch(html, /saved to/, 'the old behaviour printed a file path instead of the output');
+  });
+
+  it('says where the untrimmed output lives when a result was trimmed', () => {
+    const html = reportHTML({
+      sections: [{ value: 'x', type: 'Username', rows: [], runs: [{ name: 'Maigret', status: 'ok', exitCode: 0, output: 'lots', truncated: true, file: 'runs/01-maigret.txt' }] }],
+    });
+    assert.match(html, /output \(trimmed — full text in runs\/01-maigret\.txt\)/);
+  });
+
   it('records the findings', () => {
     assert.match(reportHTML({ sections }), /<strong>Holehe<\/strong> — Found something: account on github/);
   });

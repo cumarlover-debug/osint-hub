@@ -152,8 +152,23 @@ function runCommand(row, value, outDir, index, timeout, shell) {
     child.stderr.on('data', (chunk) => { stderr = keep(stderr, chunk); });
     const finish = (result) => {
       const ms = Date.now() - started;
-      writeFileSync(file, `# ${row.name} (${row.slug})\n# ${row.command}\n# exit ${result.exitCode ?? '-'} in ${ms} ms\n\n${stdout}${stderr ? `\n--- stderr ---\n${stderr}` : ''}`);
-      resolve({ value: value.value, type: value.type, slug: row.slug, name: row.name, command: row.command, ms, file, ...result });
+      const full = `${stdout}${stderr ? `\n--- stderr ---\n${stderr}` : ''}`;
+      writeFileSync(file, `# ${row.name} (${row.slug})\n# ${row.command}\n# exit ${result.exitCode ?? '-'} in ${ms} ms\n\n${full}`);
+      // The output itself travels with the result, so the report can show it inline instead of a path the reader
+      // has to go and open. Long output is trimmed here; the untrimmed text stays in the file beside it.
+      const inline = full.slice(0, 60_000);
+      resolve({
+        value: value.value,
+        type: value.type,
+        slug: row.slug,
+        name: row.name,
+        command: row.command,
+        ms,
+        file,
+        ...(inline && { output: inline }),
+        ...(full.length > inline.length && { truncated: true }),
+        ...result,
+      });
     };
     child.on('error', (e) => finish({ status: 'failed', note: e.message }));
     child.on('close', (code, signal) =>
@@ -267,7 +282,22 @@ function writeReport({ theCase, plan, tools, outDir, safe, taxonomy }) {
       return [];
     }
   };
-  const runs = readResults('manifest.json');
+  /**
+   * Results recorded before the output started travelling with them only carry a file path. Read the file back so
+   * an earlier run still shows its output in the report rather than sending the reader off to open it.
+   */
+  const withOutput = (r) => {
+    if (r.output !== undefined || !r.file) return r;
+    try {
+      const text = readFileSync(r.file, 'utf8');
+      const inline = text.slice(0, 60_000);
+      return { ...r, output: inline, ...(text.length > inline.length && { truncated: true }) };
+    } catch {
+      return r;
+    }
+  };
+
+  const runs = readResults('manifest.json').map(withOutput);
   const fetches = readResults('fetch.json');
   const renders = readResults('agent.json');
 
