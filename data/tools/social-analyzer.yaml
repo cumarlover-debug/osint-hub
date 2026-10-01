@@ -8,10 +8,11 @@ type: cli
 cost: free
 passive: true
 account_required: false
-command_template: python3 -m social-analyzer --username {query}
+command_template: social-analyzer --username {query}
 repo: qeeqbox/social-analyzer
-install: pip3 install social-analyzer
-language: JavaScript
+install: pip3 install --user social-analyzer
+language: Python
 license: AGPL-3.0
 platforms: [linux, macos, windows]
 tags: [username-enumeration, open-source]
+notes: The package installs a command called social-analyzer; it cannot be reached as `python -m social-analyzer`, because the package directory it ships is named with a hyphen and Python's -m needs an importable name. If pipx reports no apps for it, install it with pip inside a virtualenv instead.
