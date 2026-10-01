@@ -8,6 +8,7 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: {email: 'h8mail -t {query}'}
 repo: khast3x/h8mail
 install: pipx install h8mail
 language: Python

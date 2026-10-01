@@ -8,10 +8,12 @@ type: cli
 cost: free
 passive: true
 account_required: false
+command_template: {username: 'gosearch -u {query}'}
 repo: ibnaleem/gosearch
 install: go install github.com/ibnaleem/gosearch@latest
 language: Go
 tags: [leak-data]
 notes: >-
-  Breached records are personal data: in most countries you need a lawful basis to search them, the vendor logs every query against your account, and these sets are often stale, merged between people
-  or planted.
+  Written in Go, so it needs a Go toolchain to install. It is one of the few breach tools that also enumerates social accounts, and it has a --no-false-positives flag worth using when the handle is
+  a common word. An optional API key (-b) widens the breach checks. Breached records are personal data: in most countries you need a lawful basis to search them, the vendor logs every query against
+  your account, and these sets are often stale, merged between people or planted.

@@ -8,10 +8,13 @@ type: cli
 cost: free
 passive: false
 account_required: false
+command_template: {email: 'zehef {query}'}
 repo: N0rz3/Zehef
-install: pipx install git+https://github.com/N0rz3/Zehef.git
+install: git clone https://github.com/N0rz3/Zehef (no packaging upstream — see notes)
 language: Python
 tags: [leak-data]
 notes: >-
-  Runs a lot of lookups in sequence, so it is noisy from the target's point of view. Breached records are personal data: in most countries you need a lawful basis to search them, the vendor logs every
-  query against your account, and these sets are often stale, merged between people or planted.
+  Upstream ships no packaging, only zehef.py and requirements.txt, so the pipx line that used to be here could never have worked. Clone it, install requirements.txt, and put a wrapper on your PATH
+  that cd's into the clone and runs zehef.py with the arguments it was given, the same shape as Blackbird. The documented usage takes an email address, so that is the only input it carries a command
+  for. Runs a lot of lookups in sequence, so it is noisy from the target's point of view. Breached records are personal data: in most countries you need a lawful basis to search them, the vendor logs
+  every query against your account, and these sets are often stale, merged between people or planted.
