@@ -11,7 +11,7 @@ outputs:
 type: cli
 cost: free
 passive: true
-account_required: false
+account_required: true
 command_template: instaloader {query}
 repo: instaloader/instaloader
 install: pipx install instaloader
@@ -22,4 +22,4 @@ platforms:
   - windows
 tags:
   - open-source
-notes: Private profiles and stories need a login. Heavy use can get the account rate-limited.
+notes: Instagram answers anonymous profile queries with 429 Too Many Requests and tells the tool to retry in about eleven minutes, which it obediently does, so without a session this mostly times out rather than reporting anything. A logged-in session (--login) is what makes it work, and that uses your own account and can get it flagged. Read a 429 as blocked, never as an account that does not exist.
