@@ -235,18 +235,24 @@ function runCommand(row, value, outDir, index, timeout, shell, live = false) {
 const UA = 'Mozilla/5.0 (compatible; osint-hub-cli/1.0; +https://osinthub.pages.dev)';
 
 /** A bot check dressed up as a page: it must not be counted as a result, whoever fetched it. */
-const CHALLENGE = /just a moment|checking your browser|attention required|enable javascript and cookies|verify you are human|are you a robot|cf-browser-verification/i;
+const CHALLENGE = /just a moment|checking your browser|attention required|enable javascript and cookies|verify you are human|are you a robot|cf-browser-verification|datadome|px-captcha|perimeterx|incapsula|kasada|_pxhd|access denied/i;
 
 /** An error page served with a 200, common with proxies and CDNs. */
-const ERROR_PAGE = /^\s*(4\d\d|5\d\d)\b|bad gateway|service unavailable|internal server error|access denied|site can.?t be reached/i;
+const ERROR_PAGE = /^\s*(4\d\d|5\d\d)\b|bad gateway|service unavailable|internal server error|site can.?t be reached/i;
 
-/** ok, empty (nothing readable), blocked (bot protection) or failed (gone, broken, timeout). */
-function classify({ http, text, title, challenged }) {
+/** A page shell that only JavaScript can fill: an empty mount point plus a bundle to run in it. */
+const JS_SHELL = /id="(root|app|__next)"|__NEXT_DATA__|data-reactroot|window\.__NUXT__|ng-app/i;
+
+/** ok, empty (nothing readable), needs-js (a shell a browser would fill in), blocked (bot protection) or failed. */
+function classify({ http, text, title, challenged, html }) {
   if (http && (http === 403 || http === 429 || challenged)) return 'blocked';
   if (http && http >= 400) return 'failed';
   if (CHALLENGE.test(title ?? '') || CHALLENGE.test(String(text ?? '').slice(0, 400))) return 'blocked';
   if (ERROR_PAGE.test(title ?? '')) return 'failed';
-  return String(text ?? '').length < 200 ? 'empty' : 'ok';
+  if (String(text ?? '').length >= 200) return 'ok';
+  // A short page that carries a JavaScript mount point is not empty, it is unfinished without a browser.
+  if (JS_SHELL.test(String(html ?? ''))) return 'needs-js';
+  return 'empty';
 }
 
 /** Readable text from a page, with scripts and markup stripped. */
@@ -285,8 +291,11 @@ async function fetchPage(row, value, outDir, index, timeout) {
     const challenged = res.headers.has('cf-mitigated') || /cloudflare|ddos-guard/i.test(res.headers.get('server') ?? '');
     const file = body ? join(outDir, 'url-results', `${String(index).padStart(2, '0')}-${row.slug}.html`) : undefined;
     if (file) writeFileSync(file, body);
-    const status = classify({ http: res.ok ? undefined : res.status, text, title, challenged });
-    return { ...base, status, http: res.status, title, excerpt: text.slice(0, 2000), file };
+    const status = classify({ http: res.ok ? undefined : res.status, text, title, challenged, html: body });
+    // A page that only a browser can finish is worth naming as such: it tells the reader to try case agent
+    // rather than leaving them to conclude the site had nothing.
+    const note = status === 'needs-js' ? 'JavaScript-only: try case agent on it' : undefined;
+    return { ...base, status, http: res.status, title, excerpt: text.slice(0, 2000), file, ...(note && { note }) };
   } catch (e) {
     return { ...base, status: 'failed', note: e.name === 'TimeoutError' ? 'timeout' : (e.cause?.code ?? e.message) };
   }
@@ -888,6 +897,8 @@ async function main() {
       if (flags.json) return json({ case: theCase.title, outDir, report, results });
       out(`\n${bold(`${okPages}/${results.length} pages returned readable text`)} ${dim(`· raw pages in ${outDir}/url-results/`)}`);
       if (accountSkipped) out(dim(`${accountSkipped} tool${accountSkipped === 1 ? '' : 's'} skipped: they need an account, so the page would only be a login form.`));
+      const needsJs = results.filter((f) => f.status === 'needs-js').length;
+      if (needsJs) out(yellow(`  ${needsJs} of these build their content in JavaScript, so a plain request sees an empty shell. Run case agent to render them.`));
       out(dim('Blocked and empty pages are normal: many sites block bots, and JavaScript-only ones return a shell.'));
       out(`${green('One file with everything:')} ${report}`);
       return;
