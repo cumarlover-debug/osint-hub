@@ -1,0 +1,75 @@
+title: Verify a person by name
+summary: Work out who someone is from a name alone, and which accounts are really theirs rather than a namesake's.
+starts_with: name
+for: Verifying a person you already deal with — a hire, a supplier, a client, or someone who contacted you — with their knowledge or a documented mandate.
+time: 45–120 minutes
+steps:
+  - title: Record why you are looking, and the one question
+    why: A name is shared by many people, and a profile built from the wrong namesake is worse than no profile at all.
+    do: Write down who authorised this, the date, and the single question the answer has to serve. Put it in the case notes so the report carries it.
+    look_for:
+      - The written authority or the client reference
+      - The question in one sentence
+      - What you are deliberately not collecting
+    opsec: Everything here is personal data about someone who may not know you are looking. Keep the case on an encrypted disk and delete it when the question is answered.
+    tools: []
+
+  - title: Find out how many people share the name
+    input: name
+    why: Two people with the same name is the standard failure mode. Without a second identifier nothing you find is attributable.
+    do: Search the name together with a place, employer, profession or year, and look for a second anchor you can test against.
+    look_for:
+      - An employer, city, school or profession
+      - Several clearly different people with that name
+      - How common the name is in that country, which sets how careful you have to be
+    tools: [google-news, gdelt, documentcloud]
+
+  - title: Anchor the person in records that carry more than a name
+    input: name
+    why: A register attaches a role, an address or a filing date — that is evidence, not a name match.
+    do: Search the anchored name in company, court and funding records.
+    look_for:
+      - Officer or director roles with dates
+      - An address or company that appears in two independent sources
+      - Court or regulatory cases naming both the person and a company
+    tools: [companies-house, opencorporates, gleif-lei-search, courtlistener, fec-campaign-finance-data]
+
+  - title: Screen the official lists, if the mandate needs it
+    input: name
+    why: Sanctions, PEP and debarment lists are what a compliance mandate actually requires, and they are authoritative.
+    do: Run the anchored name and every spelling variant through the screening lists.
+    look_for:
+      - Near matches that share a date of birth or a nationality
+      - The same entry appearing on more than one list
+    opsec: A name-only hit is not an identification. Confirm identifiers before reporting anyone as listed.
+    tools: [opensanctions, pepchecker, rupep, ofac-sanctions-list-search, un-security-council-sanctions-list]
+
+  - title: Turn the anchor into candidate handles, then sweep those
+    input: username
+    why: Every enumeration tool takes a username, not a name — a bare name gives them nothing to query.
+    do: Build the likely handles from the anchored name, nickname and employer domain, then sweep each candidate.
+    look_for:
+      - A handle that also appears in a known email address or on a company page
+      - Accounts whose creation dates cluster
+      - Handles that resolve to the same person across sites
+    opsec: Each sweep asks hundreds of platforms about the handle, and every request comes from your IP. Test only candidates you have a reason to test.
+    tools: [whatsmyname, maigret, sherlock, social-analyzer, tookie-osint, nexfil, namecheckup]
+
+  - title: Verify each claimed account before attributing it
+    why: A handle match is not an identification. Attributing the wrong person's accounts is the harm this step exists to prevent.
+    do: For each candidate, compare the photo, bio, linked accounts, posting times and cross-links to the anchor.
+    look_for:
+      - The same photo reused across accounts, or taken from a stock or someone else's profile
+      - An employer, email or city in the bio that matches the anchor
+      - Activity in the anchor's time zone
+      - Anything that contradicts the anchor
+    tools: [tineye, google-lens, yandex-images, wayback-machine]
+
+  - title: Write it down with the confidence it deserves
+    why: An unattributed list of accounts is a liability, not a finding.
+    do: Mark each account confirmed, probable or discarded, with the evidence that decided it, and say what you could not verify.
+    look_for:
+      - Links resting on a single source
+      - What would upgrade a probable to a confirmed
+    opsec: Report only what the mandate needs. Do not publish, and do not hand a private person's profile to anyone outside the authorisation.
+    tools: []
