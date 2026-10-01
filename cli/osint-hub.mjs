@@ -231,6 +231,28 @@ async function fetchPage(row, value, outDir, index, timeout) {
 }
 
 /**
+ * Writes a results file, keeping what an earlier run of the same kind already recorded. Tools have to be run from
+ * different working directories (a `python blackbird.py` command only resolves in its own folder), and without this
+ * each run would erase the previous one's findings from the report. A tool run again replaces its own entry.
+ */
+function mergeResults(file, results, meta) {
+  const key = (r) => `${r.value}\u0000${r.slug}`;
+  let existing = [];
+  try {
+    if (existsSync(file)) {
+      const data = JSON.parse(readFileSync(file, 'utf8'));
+      existing = Array.isArray(data) ? data : (data.results ?? []);
+    }
+  } catch {
+    // A corrupt results file is not worth failing a run over; it is replaced.
+  }
+  const merged = new Map(existing.map((r) => [key(r), r]));
+  for (const r of results) merged.set(key(r), r);
+  writeFileSync(file, JSON.stringify({ ...meta, results: [...merged.values()] }, null, 2));
+  return { kept: [...merged.keys()].length - results.length, total: merged.size };
+}
+
+/**
  * The one file: the plan, every capable tool, what the CLI ran, what it fetched, what the browser rendered, and
  * what was recorded. Results already in the output folder are picked up, so this can be rebuilt after any run.
  */
@@ -782,7 +804,7 @@ async function main() {
         if (delay) await new Promise((r) => setTimeout(r, delay));
       }
 
-      writeFileSync(join(outDir, 'fetch.json'), JSON.stringify({ case: theCase.title, fetched: new Date().toISOString(), safe, outDir, results }, null, 2));
+      const merged = mergeResults(join(outDir, 'fetch.json'), results, { case: theCase.title, fetched: new Date().toISOString(), safe, outDir });
       const report = writeReport({ theCase, plan, tools, outDir, safe, taxonomy });
       const okPages = results.filter((f) => f.status === 'ok').length;
       if (flags.json) return json({ case: theCase.title, outDir, report, results });
@@ -843,8 +865,7 @@ async function main() {
         closeBrowser(browser);
       }
 
-      writeFileSync(join(outDir, 'agent.json'), JSON.stringify({ case: theCase.title, rendered: new Date().toISOString(), safe, outDir, results }, null, 2));
-      const report = writeReport({ theCase, plan, tools, outDir, safe, taxonomy });
+      mergeResults(join(outDir, 'agent.json'), results, { case: theCase.title, rendered: new Date().toISOString(), safe, outDir });      const report = writeReport({ theCase, plan, tools, outDir, safe, taxonomy });
       const okPages = results.filter((f) => f.status === 'ok').length;
       if (flags.json) return json({ case: theCase.title, outDir, report, results });
       out(`\n${bold(`${okPages}/${results.length} pages rendered readable text`)} ${dim(`· screenshots in ${outDir}/browser/`)}`);
@@ -897,10 +918,7 @@ async function main() {
 
     const annex = resultsAnnex({ title: theCase.title, shell: SHELLS[shell], results });
     writeFileSync(join(outDir, 'annex.md'), annex);
-    writeFileSync(
-      join(outDir, 'manifest.json'),
-      JSON.stringify({ case: theCase.title, ran: new Date().toISOString(), shell, safe, outDir, results }, null, 2),
-    );
+    const merged = mergeResults(join(outDir, 'manifest.json'), results, { case: theCase.title, ran: new Date().toISOString(), shell, safe, outDir });
     const report = writeReport({ theCase, plan, tools, outDir, safe, taxonomy });
 
     // Optionally hand the workbench back a case where everything that ran cleanly is marked as run. A command
