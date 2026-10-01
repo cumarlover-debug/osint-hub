@@ -41,9 +41,9 @@ Options for "case run": --yes (no prompt)  --dry-run (plan only)  --safe / --no-
                       --write-back (also save a case file with what ran, for /case)
 Options for "case fetch": --yes  --dry-run (list the pages)  --limit <n>  --delay <ms between requests>
                       --only a,b  --input <type>  --timeout <seconds>  --out <dir>
-Options for "case agent": --yes  --dry-run (list the pages)  --limit <n>  --delay <ms between pages>
-                      --settle <ms to wait after load, default 2500>  --only a,b  --input <type>
-                      --timeout <seconds per page>  --port <devtools port>  --out <dir>
+Options for "case agent": --yes  --show (run the browser visibly, which passes more bot checks)  --dry-run
+                      --limit <n>  --delay <ms between pages>  --settle <ms to wait after load, default 2500>
+                      --only a,b  --input <type>  --timeout <seconds per page>  --port <devtools port>  --out <dir>
 Options for any command: --data <tools.json>  use a local copy of the API instead of downloading it
 Global options:       --json  --no-color  --api <base-url>
 
@@ -322,25 +322,24 @@ class CDP {
   }
 }
 
-async function launchBrowser(port, timeoutMs) {
+async function launchBrowser(port, timeoutMs, show = false) {
   const binary = findBrowser();
   const profile = join(tmpdir(), `osint-hub-agent-${Date.now()}`);
   mkdirSync(profile, { recursive: true });
-  const child = spawn(
-    binary,
-    [
-      `--remote-debugging-port=${port}`,
-      `--user-data-dir=${profile}`,
-      '--headless=new',
-      '--no-first-run',
-      '--no-default-browser-check',
-      '--disable-gpu',
-      '--mute-audio',
-      '--disable-background-networking',
-      'about:blank',
-    ],
-    { stdio: 'ignore' },
-  );
+  const args = [
+    `--remote-debugging-port=${port}`,
+    `--user-data-dir=${profile}`,
+    '--no-first-run',
+    '--no-default-browser-check',
+    '--mute-audio',
+    '--disable-background-networking',
+  ];
+  // Headless is faster and leaves the desktop alone, but plenty of sites treat it as a bot on sight. --show is a
+  // real window, which gets past more of them and lets you watch what is being asked.
+  if (show) args.push('--new-window', '--window-size=1280,900');
+  else args.push('--headless=new', '--disable-gpu');
+  args.push('about:blank');
+  const child = spawn(binary, args, { stdio: 'ignore' });
 
   const deadline = Date.now() + timeoutMs;
   let wsUrl;
@@ -393,25 +392,38 @@ async function renderPage(cdp, row, value, outDir, index, timeout, settle) {
     const loaded = new Promise((resolve) => cdp.on((m) => m.method === 'Page.loadEventFired' && m.sessionId === sessionId && resolve()));
     await cdp.send('Page.navigate', { url: row.link }, sessionId);
     await Promise.race([loaded, sleep(timeout)]);
-    await sleep(settle); // results often arrive after load
 
-    const { result } = await cdp.send(
-      'Runtime.evaluate',
-      {
-        expression: 'JSON.stringify({title: document.title || "", text: (document.body ? document.body.innerText : "") || ""})',
-        returnByValue: true,
-      },
-      sessionId,
-    );
-    const { title, text } = JSON.parse(result.value);
-    const clean = String(text).replace(/\s+/g, ' ').trim();
+    // A bot check clears after load, then the real page paints. Reading the text once, straight after load, caught
+    // the challenge instead of the results, so poll until the page stops changing — with `settle` as the ceiling.
+    const read = async () => {
+      const { result } = await cdp.send(
+        'Runtime.evaluate',
+        { expression: 'JSON.stringify({title: document.title || "", text: (document.body ? document.body.innerText : "") || ""})', returnByValue: true },
+        sessionId,
+      );
+      const parsed = JSON.parse(result.value);
+      return { title: String(parsed.title).replace(/\s+/g, ' ').trim(), text: String(parsed.text).replace(/\s+/g, ' ').trim() };
+    };
+
+    const deadline = Date.now() + Math.max(settle, 1000);
+    let best = await read();
+    while (Date.now() < deadline) {
+      await sleep(400);
+      const now = await read();
+      if (now.text.length > best.text.length) best = now;
+      // A bot check is stable while it verifies, so only stop early once the page has settled on something that is
+      // not a challenge — otherwise the interesting content, the part after verification, is never seen.
+      const held = CHALLENGE.test(now.title) || CHALLENGE.test(now.text.slice(0, 400));
+      if (!held && now.text === best.text && now.text.length > 0) break;
+    }
+
     const image = await cdp.send('Page.captureScreenshot', { format: 'png' }, sessionId);
     writeFileSync(shot, Buffer.from(image.data, 'base64'));
     return {
       ...base,
-      status: classify({ text: clean, title }),
-      title: title.replace(/\s+/g, ' ').trim(),
-      excerpt: clean.slice(0, 2000),
+      status: classify({ text: best.text, title: best.title }),
+      title: best.title,
+      excerpt: best.text.slice(0, 2000),
       screenshot: join('browser', `${String(index).padStart(2, '0')}-${row.slug}.png`),
     };
   } catch (e) {
@@ -783,8 +795,8 @@ async function main() {
         for (const t of list) out(`  ${t.row.name.padEnd(26)} ${dim(t.row.link)}`);
         return;
       }
-      out(`${bold(theCase.title)} ${dim(`· rendering ${list.length} page${list.length === 1 ? '' : 's'} in a headless browser`)}`);
-      out(dim(`${binary}`));
+      out(`${bold(theCase.title)} ${dim(`· rendering ${list.length} page${list.length === 1 ? '' : 's'} in ${flags.show ? 'a visible' : 'a headless'} browser`)}`);
+      out(dim(`${binary}${flags.show ? ' — a window will open and close itself' : ''}`));
       out(dim('a real browser makes these requests from your IP, and some sites will still block or demand a login'));
       if (!flags.yes) {
         if (!process.stdin.isTTY) fail('there is no terminal to confirm on: add --yes to run unattended, or --dry-run to list the pages.');
@@ -798,7 +810,7 @@ async function main() {
       const settle = Number(flags.settle ?? 2500);
       let browser;
       try {
-        browser = await launchBrowser(Number(flags.port ?? 9333), 20_000);
+        browser = await launchBrowser(Number(flags.port ?? 9333), 20_000, !!flags.show);
       } catch (e) {
         return fail(`could not start the browser: ${e.message}`);
       }
