@@ -134,7 +134,7 @@ function ask(question) {
 
 /** Runs one generated command in the user's shell, capturing what it prints. The child gets no stdin, so a tool
  *  that asks a question fails instead of hanging the run. */
-function runCommand(row, value, outDir, index, timeout, shell) {
+function runCommand(row, value, outDir, index, timeout, shell, live = false) {
   const file = join(outDir, 'runs', `${String(index).padStart(2, '0')}-${row.slug}.txt`);
   const started = Date.now();
   return new Promise((resolve) => {
@@ -148,8 +148,16 @@ function runCommand(row, value, outDir, index, timeout, shell) {
     let stdout = '';
     let stderr = '';
     const keep = (text, chunk) => (text.length > 512_000 ? text : text + String(chunk));
-    child.stdout.on('data', (chunk) => { stdout = keep(stdout, chunk); });
-    child.stderr.on('data', (chunk) => { stderr = keep(stderr, chunk); });
+    // A tool like maigret runs for minutes. Staying silent until it exits makes the whole run look hung, so the
+    // output is echoed as it arrives while still being captured for the report.
+    child.stdout.on('data', (chunk) => {
+      stdout = keep(stdout, chunk);
+      if (live) process.stdout.write(chunk);
+    });
+    child.stderr.on('data', (chunk) => {
+      stderr = keep(stderr, chunk);
+      if (live) process.stderr.write(chunk);
+    });
     const finish = (result) => {
       const ms = Date.now() - started;
       const full = `${stdout}${stderr ? `\n--- stderr ---\n${stderr}` : ''}`;
@@ -895,7 +903,8 @@ async function main() {
         closeBrowser(browser);
       }
 
-      mergeResults(join(outDir, 'agent.json'), results, { case: theCase.title, rendered: new Date().toISOString(), safe, outDir });      const report = writeReport({ theCase, plan, tools, outDir, safe, taxonomy });
+      mergeResults(join(outDir, 'agent.json'), results, { case: theCase.title, rendered: new Date().toISOString(), safe, outDir });
+      const report = writeReport({ theCase, plan, tools, outDir, safe, taxonomy });
       const okPages = results.filter((f) => f.status === 'ok').length;
       if (flags.json) return json({ case: theCase.title, outDir, report, results });
       out(`\n${bold(`${okPages}/${results.length} pages rendered readable text`)} ${dim(`· screenshots in ${outDir}/browser/`)}`);
@@ -939,9 +948,14 @@ async function main() {
             continue;
           }
         }
-        const result = await runCommand(row, p.value, outDir, results.length + 1, Number(flags.timeout ?? 300) * 1000, shell);
+        // Say what is starting before it starts, so a three-minute tool does not look like a hung one, and echo its
+        // output as it arrives. Each result is also written to the manifest straight away, so an interrupted run
+        // keeps everything it had already collected.
+        say(`  ${dim('running')} ${bold(row.name)} ${dim(row.command)}`);
+        const result = await runCommand(row, p.value, outDir, results.length + 1, Number(flags.timeout ?? 300) * 1000, shell, !flags.json);
         results.push(result);
-        say(`  ${result.status === 'ok' ? green('ok') : red('failed')} ${row.name} ${dim(`→ ${result.file}`)}`);
+        mergeResults(join(outDir, 'manifest.json'), [result], { case: theCase.title, ran: new Date().toISOString(), shell, safe, outDir });
+        say(`  ${result.status === 'ok' ? green('ok') : red('failed')} ${row.name} ${dim(`→ ${result.file}`)}\n`);
       }
       if (stopped) break;
     }
