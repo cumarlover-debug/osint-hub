@@ -8,9 +8,10 @@ type: cli
 cost: free
 passive: true
 account_required: false
-command_template: {username: 'python blackbird.py --username {query}', email: 'python blackbird.py --email {query}'}
+command_template: {username: 'blackbird --username {query}', email: 'blackbird --email {query}'}
 repo: p1ngul1n0/blackbird
+install: git clone https://github.com/p1ngul1n0/blackbird (no packaging upstream — see notes)
 language: Python
 platforms: [linux, macos, windows]
 tags: [username-enumeration, open-source]
-notes: Run the command from inside the cloned repository.
+notes: Upstream ships no packaging, so it cannot be pip-installed. Clone it, install requirements.txt, and put a two-line wrapper on your PATH that cd's into the clone and runs blackbird.py with the arguments it was given — then it works from anywhere, including from a case run. It can also export CSV and PDF reports.

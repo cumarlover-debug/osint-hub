@@ -10,8 +10,9 @@ type: cli
 cost: free
 passive: true
 account_required: false
-command_template: python mailcat.py {query}
+command_template: mailcat {query}
 repo: sharsil/mailcat
+install: pipx install mailcat-osint
 language: Python
 platforms:
   - linux
@@ -19,3 +20,4 @@ platforms:
   - windows
 tags:
   - open-source
+notes: Install it as mailcat-osint — the PyPI package called plain "mailcat" is a different project (a MIME viewer). It takes a nickname and returns the addresses that exist for it, so pair it with an email validation step. It supports --tor if the lookups should not come from your own address.
