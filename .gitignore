@@ -3,3 +3,8 @@ dist/
 .astro/
 .env*
 .cache/
+
+# Case output: the report, the run logs, the fetched pages and the screenshots are personal data about whatever
+# you investigated. They are written next to the project by default, so they must never be committed or pushed.
+osint-hub-*/
+osint-hub-*.json
