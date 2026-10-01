@@ -212,6 +212,25 @@ describe('capabilityRows', () => {
     assert.equal(row.manual, 'captcha');
   });
 
+  it('keeps a by-hand service visible in safe mode even when it wants an account', () => {
+    // Snusbase and Dehashed are account-based, which safe mode hides. Marked by hand, they are listed instead,
+    // because the investigator is the one who logs in.
+    const breach = {
+      slug: 'snusbase',
+      name: 'Snusbase',
+      category: 'breach',
+      inputs: ['email'],
+      passive: true,
+      account_required: true,
+      manual: 'api-key',
+      cost: 'paid',
+    };
+    const rows = capabilityRows([...tools, breach], 'email', 'someone@example.com', { safe: true });
+    assert.ok(rows.some((r) => r.slug === 'snusbase'));
+    // Hunter is account-based without being marked, so safe mode still hides it.
+    assert.ok(!rows.some((r) => r.slug === 'hunter'));
+  });
+
   it('lists the by-hand services in the report, with their link and reason', () => {
     const manual = capabilityRows(tools, 'email', 'someone@example.com').filter((r) => r.manual);
     const html = reportHTML({ sections: [{ value: 'someone@example.com', type: 'Email address', rows: [], manual }] });
