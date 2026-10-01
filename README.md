@@ -261,6 +261,35 @@ code rather than a verdict — read the output. And if a Python tool prints `Cou
 `pip uninstall -y aiodns` makes aiohttp fall back to the threaded resolver and the tool starts working. A
 reinstall of a dependency can bring it back.
 
+### From a Linux VM
+
+The CLI has **no dependencies at all** — it imports nothing but Node builtins and the two shared modules — so a
+Linux box needs only Node 18+, and running it there is the shortest route to a machine with the real tools on it
+(Kali and Parrot ship most of them, and `pipx` works without the PATH surgery Windows needs).
+
+```bash
+git clone https://github.com/cumarlover-debug/osint-hub.git
+cd osint-hub
+# no npm install: the CLI is dependency-free and reads the live data itself
+node cli/osint-hub.mjs case plan  my-case.json
+node cli/osint-hub.mjs case run   my-case.json --safe
+node cli/osint-hub.mjs case fetch my-case.json --safe --limit 40
+node cli/osint-hub.mjs case agent my-case.json --safe --limit 30
+```
+
+- Export the case from `/case` on whatever machine has the browser, then copy the JSON into the VM. `plan` prints
+  what that machine can actually run, so you find out immediately what is preinstalled there.
+- `case agent` needs Chrome or Chromium (`sudo apt install chromium`). Headless is the default and needs no
+  display; `--show` wants a desktop session.
+- The report folder is portable: move `osint-hub-<case>/` anywhere and the screenshots and raw pages still open.
+- Only the *site* needs `npm install` (Astro for the build). `npm run check` then `npm run preview` serves it from
+  the VM if you want the workbench there too.
+- A VM is not anonymity by itself — the traffic still leaves through your host. If attribution matters, put the VM
+  behind a VPN or a bridge network, not just NAT on your own connection.
+
+The whole `osint-hub-<case>/` folder is listed in `.gitignore`: it holds the target's identifiers, the pages fetched
+about them and the screenshots, so it must never be committed or pushed.
+
 ## Browser extension
 
 `extension/` is a Manifest V3 extension for Chrome and Firefox: right-click selected text, a link, an image or the
