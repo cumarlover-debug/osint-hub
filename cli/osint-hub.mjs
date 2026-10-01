@@ -738,7 +738,12 @@ async function main() {
         if (!p.runnable.length) out(dim('    no command-line tool here; open the search links in the workbench'));
         out('');
       }
-      if (totalCommands && !flags['dry-run']) out(dim(`Run them: ${bold(`npm run cli -- case run "${file}" --data ${flags.data ?? '<tools.json>'}${safe ? ' --safe' : ''}`)}`));
+      // Only mention --data when the run is actually using a local copy; printing a placeholder made people copy a
+      // command that could not work.
+      if (totalCommands && !flags['dry-run']) {
+        const dataFlag = flags.data ? ` --data ${flags.data}` : '';
+        out(dim(`Run them: ${bold(`npm run cli -- case run "${file}"${dataFlag}${safe ? ' --safe' : ''}`)}`));
+      }
       return;
     }
 
