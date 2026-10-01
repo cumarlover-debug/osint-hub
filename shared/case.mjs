@@ -189,8 +189,10 @@ export function capabilityRows(tools, type, value, { safe = false, shell = 'posi
 
   for (const tool of tools) {
     if (!tool.inputs.includes(type)) continue;
-    // Safe mode is the investigator's own guard: nothing that contacts the target, nothing that signs in.
-    if (safe && (!tool.passive || tool.account_required)) continue;
+    // Safe mode is the investigator's own guard: nothing that contacts the target, nothing that signs in on its own.
+    // A service marked "by hand" is exempt from the account rule, because you sign in yourself and decide when —
+    // hiding Dehashed or Snusbase from a safe-mode case is how the two best-known breach databases went missing.
+    if (safe && (!tool.passive || (tool.account_required && !tool.manual))) continue;
 
     const template = templatesFor(tool.query_template, tool.inputs)[type];
     const command = commandTemplatesFor(tool.command_template, tool.inputs)[type];
@@ -402,7 +404,9 @@ function manualList(rows) {
       (r) =>
         `<li>${r.link ? `<a href="${esc(r.link)}" rel="noopener noreferrer">${esc(r.name)}</a>` : esc(r.name)} — ${esc(
           MANUAL_LABEL[r.manual] ?? r.manual,
-        )}${r.sensitive ? ' <span class="warn">notice</span>' : ''}</li>`,
+        )}${r.account ? ' <span class="why">you sign in yourself</span>' : ''}${r.cost && r.cost !== 'free' ? ` <span class="why">${esc(r.cost)}</span>` : ''}${
+          r.sensitive ? ' <span class="warn">notice</span>' : ''
+        }</li>`,
     )
     .join('')}</ul>`;
 }

@@ -802,7 +802,9 @@ async function main() {
       .map((v) => {
         const rows = capabilityRows(tools, v.type, v.value, { safe, shell, order });
         const runnable = rows
-          .filter((r) => r.kind === 'command' && r.command && (!only.length || only.includes(r.slug)))
+          // A tool marked "by hand" is never started automatically, even when it has a command: that marking is a
+          // statement that a person has to drive it. --include-manual overrides.
+          .filter((r) => r.kind === 'command' && r.command && (flags['include-manual'] || !r.manual) && (!only.length || only.includes(r.slug)))
           .map((r) => ({ ...r, readiness: readiness(r.command) }));
         return { value: v, rows, runnable };
       });
