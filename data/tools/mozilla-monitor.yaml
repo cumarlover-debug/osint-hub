@@ -8,5 +8,6 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 tags: [breaches]
 notes: Uses the Have I Been Pwned breach list. The one-off check is free; ongoing alerts need a Mozilla account.

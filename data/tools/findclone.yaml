@@ -8,6 +8,7 @@ type: web
 cost: freemium
 passive: true
 account_required: true
+manual: login
 tags:
   - face-recognition
 notes: Needs a Russian phone number to register.

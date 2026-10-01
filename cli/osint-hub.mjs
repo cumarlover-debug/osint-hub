@@ -369,6 +369,8 @@ function writeReport({ theCase, plan, tools, outDir, safe, taxonomy }) {
     guess: p.value.guess,
     note: p.value.note,
     rows: p.rows,
+    // Tools a request cannot get anything from: the report turns these into a to-do list with their links.
+    manual: p.rows.filter((r) => r.manual),
     runs: runs.filter((r) => r.value === p.value.value),
     fetches: fetches.filter((f) => f.value === p.value.value),
     renders: renders.filter((r) => r.value === p.value.value),
@@ -865,6 +867,11 @@ async function main() {
       for (const p of plan) {
         out(`${bold(p.value.value)} ${dim(`(${taxonomy.inputs[p.value.type] ?? p.value.type})`)}`);
         out(dim(`  ${p.rows.length} tools can take this value · ${p.runnable.length} with a command · ${p.rows.filter((r) => r.link).length} with a search link`));
+        const byHand = p.rows.filter((r) => r.manual);
+        if (byHand.length) {
+          // Said plainly, because these will not appear in fetch or agent output and would otherwise look missing.
+          out(yellow(`  ${byHand.length} have to be done by hand (${byHand.map((r) => r.name).slice(0, 5).join(', ')}${byHand.length > 5 ? ', …' : ''})`));
+        }
         for (const r of p.runnable) {
           const state =
             r.readiness.state === 'ready'
@@ -894,7 +901,16 @@ async function main() {
         p.rows.filter((r) => r.kind === 'link' && r.link && (!only.length || only.includes(r.slug))).map((r) => ({ value: p.value, row: r })),
       );
       const accountSkipped = targets.filter((t) => t.row.account).length;
-      const list = targets.filter((t) => !t.row.account).slice(0, Number(flags.limit ?? 500));
+      // Tools that only answer a form, a captcha or a key are left for a human: a request gets a wall, and the
+      // report lists them instead. --include-manual forces them through anyway.
+      const manualSkipped = targets.filter((t) => t.row.manual || t.row.account).length;
+      const eligible = targets.filter((t) => flags['include-manual'] || (!t.row.manual && !t.row.account));
+      if (!eligible.length) {
+        if (manualSkipped) out(dim(`Nothing to fetch: all ${manualSkipped} of these have to be done by hand. The report lists them.`));
+        else out(dim('Nothing to fetch: no tool with a verified search link takes these values.'));
+        return;
+      }
+      const list = eligible.slice(0, Number(flags.limit ?? 500));
 
       if (!list.length) return out(dim('Nothing to fetch: no tool with a verified search link takes these values.'));
       if (flags['dry-run']) {
@@ -929,6 +945,7 @@ async function main() {
       if (flags.json) return json({ case: theCase.title, outDir, report, results });
       out(`\n${bold(`${okPages}/${results.length} pages returned readable text`)} ${dim(`· raw pages in ${outDir}/url-results/`)}`);
       if (accountSkipped) out(dim(`${accountSkipped} tool${accountSkipped === 1 ? '' : 's'} skipped: they need an account, so the page would only be a login form.`));
+      if (manualSkipped) out(yellow(`  ${manualSkipped} skipped as manual: a form, a captcha or a key is what they answer, so a request gets a wall. The report lists them to do by hand.`));
       const needsJs = results.filter((f) => f.status === 'needs-js').length;
       if (needsJs) out(yellow(`  ${needsJs} of these build their content in JavaScript, so a plain request sees an empty shell. Run case agent to render them.`));
       out(dim('Blocked and empty pages are normal: many sites block bots, and JavaScript-only ones return a shell.'));
@@ -942,11 +959,16 @@ async function main() {
         p.rows.filter((r) => r.kind === 'link' && r.link && (!only.length || only.includes(r.slug))).map((r) => ({ value: p.value, row: r })),
       );
       const accountSkipped = targets.filter((t) => t.row.account).length;
-      const list = targets.filter((t) => !t.row.account).slice(0, Number(flags.limit ?? 60));
+      const manualSkipped = targets.filter((t) => t.row.manual || t.row.account).length;
+      const eligible = targets.filter((t) => flags['include-manual'] || (!t.row.manual && !t.row.account));
+      const list = eligible.slice(0, Number(flags.limit ?? 60));
       const binary = findBrowser();
 
       if (!binary) fail('no Chrome or Edge found. The agent drives the browser you already have; install one, or use "case fetch" for the plain-request version.');
-      if (!list.length) return out(dim('Nothing to render: no tool with a verified search link takes these values.'));
+      if (!list.length) {
+        if (manualSkipped) return out(dim(`Nothing to render: all ${manualSkipped} of these have to be done by hand. The report lists them.`));
+        return out(dim('Nothing to render: no tool with a verified search link takes these values.'));
+      }
       if (flags['dry-run']) {
         out(`${bold(theCase.title)} ${dim(`· would render ${list.length} page${list.length === 1 ? '' : 's'} in ${binary}`)}`);
         for (const t of list) out(`  ${t.row.name.padEnd(26)} ${dim(t.row.link)}`);
@@ -992,6 +1014,7 @@ async function main() {
       if (flags.json) return json({ case: theCase.title, outDir, report, results });
       out(`\n${bold(`${okPages}/${results.length} pages rendered readable text`)} ${dim(`· screenshots in ${outDir}/browser/`)}`);
       if (accountSkipped) out(dim(`${accountSkipped} tool${accountSkipped === 1 ? '' : 's'} skipped: they need an account, so the page would only be a login form.`));
+      if (manualSkipped) out(yellow(`  ${manualSkipped} skipped as manual: a form, a captcha or a key is what they answer, so rendering them just shows a wall. The report lists them to do by hand.`));
       out(dim('A page that renders nothing readable is usually a login wall or a bot check.'));
       out(`${green('One file with everything:')} ${report}`);
       return;

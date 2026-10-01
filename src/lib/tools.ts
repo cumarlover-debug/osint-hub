@@ -20,6 +20,8 @@ export interface Tool {
   cost: CostKey;
   passive: boolean;
   account_required: boolean;
+  /** Why the service has to be queried by hand: captcha, post-form, api-key, login or an interactive console. */
+  manual?: 'captcha' | 'post-form' | 'api-key' | 'login' | 'interactive';
   query_template?: QueryTemplate;
   command_template?: string | Record<string, string>;
   docker_template?: string | Record<string, string>;

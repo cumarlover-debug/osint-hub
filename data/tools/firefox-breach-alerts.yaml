@@ -8,5 +8,6 @@ type: desktop
 cost: free
 passive: true
 account_required: false
+manual: post-form
 tags: [breaches, passwords]
 notes: Built into Firefox. See the alerts under about:logins.

@@ -209,6 +209,9 @@ export function capabilityRows(tools, type, value, { safe = false, shell = 'posi
       status: tool.status,
       kind: template ? 'link' : command ? 'command' : 'page',
       usable,
+      // Some services cannot be queried from a URL at all: they answer only a POST form, sit behind a captcha, or
+      // need a key. Sending a browser at them wastes a pass, so they are marked for a human instead.
+      manual: tool.manual,
       why: template && !usable ? template.match : undefined,
       link: template && usable && v ? buildLink(template, v) : undefined,
       command: command && v && !commandIssue ? command.split('{query}').join(quoteArg(v, shell)) : undefined,
@@ -383,6 +386,27 @@ const RESULT_LABEL = {
   error: 'error',
 };
 
+/** Why a service has to be queried by a person rather than by a request. */
+const MANUAL_LABEL = {
+  captcha: 'answers only after a captcha',
+  'post-form': 'answers only a submitted form',
+  'api-key': 'needs an API key',
+  login: 'needs a logged-in session',
+  interactive: 'is an interactive console',
+};
+
+/** The to-do list: services no request can get an answer from, with the link to do them by hand. */
+function manualList(rows) {
+  return `<ul class="manual">${rows
+    .map(
+      (r) =>
+        `<li>${r.link ? `<a href="${esc(r.link)}" rel="noopener noreferrer">${esc(r.name)}</a>` : esc(r.name)} — ${esc(
+          MANUAL_LABEL[r.manual] ?? r.manual,
+        )}${r.sensitive ? ' <span class="warn">notice</span>' : ''}</li>`,
+    )
+    .join('')}</ul>`;
+}
+
 function runsTable(runs) {
   return `<table><thead><tr><th>Tool</th><th>Ran</th><th>Exit</th><th>What it printed</th></tr></thead><tbody>${runs
     .map((r) => {
@@ -479,6 +503,7 @@ export function reportHTML({ title, generated, notes, safe = false, sections = [
   ${section.runs?.length ? `<h3>Ran on your machine</h3>${runsTable(section.runs)}` : ''}
   ${section.fetches?.length ? `<h3>Fetched from the web</h3>${fetchesTable(section.fetches)}` : ''}
   ${section.renders?.length ? `<h3>Rendered in a browser</h3>${rendersTable(section.renders)}` : ''}
+  ${section.manual?.length ? `<h3>Do these by hand</h3>${manualList(section.manual)}` : ''}
   <h3>Every capable tool</h3>
   ${toolsTable(section.rows)}
   <h3>Findings</h3>

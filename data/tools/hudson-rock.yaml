@@ -8,6 +8,7 @@ type: web
 cost: free
 passive: true
 account_required: false
+manual: post-form
 tags: [leak-data]
 notes: >-
   The free lookup is meant for checking your own exposure. Breached records are personal data: in most countries you need a lawful basis to search them, the vendor logs every query against your

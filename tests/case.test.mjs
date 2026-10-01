@@ -77,6 +77,7 @@ const tools = [
     inputs: ['name', 'phone', 'email'],
     passive: true,
     account_required: false,
+    manual: 'captcha',
     cost: 'paid',
   },
   {
@@ -204,6 +205,18 @@ describe('capabilityRows', () => {
 
   it('ignores tools that do not take the type', () => {
     assert.deepEqual(capabilityRows(tools, 'vessel', 'IMO 9074729'), []);
+  });
+
+  it('carries the reason a service has to be used by hand', () => {
+    const [row] = capabilityRows(tools, 'email', 'someone@example.com').filter((r) => r.slug === 'spokeo');
+    assert.equal(row.manual, 'captcha');
+  });
+
+  it('lists the by-hand services in the report, with their link and reason', () => {
+    const manual = capabilityRows(tools, 'email', 'someone@example.com').filter((r) => r.manual);
+    const html = reportHTML({ sections: [{ value: 'someone@example.com', type: 'Email address', rows: [], manual }] });
+    assert.match(html, /Do these by hand/);
+    assert.match(html, /answers only after a captcha/);
   });
 });
 

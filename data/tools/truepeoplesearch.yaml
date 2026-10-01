@@ -10,4 +10,5 @@ type: web
 cost: free
 passive: true
 account_required: false
+manual: captcha
 notes: US only. Records are often outdated or mix up people with the same name.
