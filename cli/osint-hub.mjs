@@ -288,12 +288,17 @@ const BROWSER_PATHS = [
   '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
   '/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge',
   '/usr/bin/google-chrome',
+  '/usr/bin/google-chrome-stable',
   '/usr/bin/chromium',
+  '/usr/bin/chromium-browser',
   '/usr/bin/microsoft-edge',
 ];
 
 const findBrowser = () => BROWSER_PATHS.find((p) => existsSync(p));
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/** Root is the norm inside a Kali VM, and Chromium refuses to start its sandbox as root. */
+const isRoot = typeof process.getuid === 'function' && process.getuid() === 0;
 
 /** Minimal DevTools-protocol client: one socket, sessions multiplexed by id. */
 class CDP {
@@ -338,6 +343,10 @@ async function launchBrowser(port, timeoutMs, show = false) {
   // real window, which gets past more of them and lets you watch what is being asked.
   if (show) args.push('--new-window', '--window-size=1280,900');
   else args.push('--headless=new', '--disable-gpu');
+  // VMs usually give /dev/shm far less room than Chromium expects, and Kali is normally used as root, where the
+  // sandbox refuses to start at all. Both would look like "the browser never came up".
+  if (process.platform === 'linux') args.push('--disable-dev-shm-usage');
+  if (isRoot) args.push('--no-sandbox', '--disable-setuid-sandbox');
   args.push('about:blank');
   const child = spawn(binary, args, { stdio: 'ignore' });
 
@@ -797,6 +806,7 @@ async function main() {
       }
       out(`${bold(theCase.title)} ${dim(`· rendering ${list.length} page${list.length === 1 ? '' : 's'} in ${flags.show ? 'a visible' : 'a headless'} browser`)}`);
       out(dim(`${binary}${flags.show ? ' — a window will open and close itself' : ''}`));
+      if (isRoot) out(yellow('  running as root: the browser sandbox is off, which is what Kali needs but is not free'));
       out(dim('a real browser makes these requests from your IP, and some sites will still block or demand a login'));
       if (!flags.yes) {
         if (!process.stdin.isTTY) fail('there is no terminal to confirm on: add --yes to run unattended, or --dry-run to list the pages.');
