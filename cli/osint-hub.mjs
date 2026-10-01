@@ -2,7 +2,7 @@
 // osint-hub CLI: search the directory, turn a value into search links, and read playbooks from the terminal.
 // No dependencies. Data comes from https://osinthub.pages.dev/api/*.json and is cached for a day.
 import { mkdirSync, readFileSync, writeFileSync, existsSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { homedir, tmpdir } from 'node:os';
 import { spawn } from 'node:child_process';
 import { createInterface } from 'node:readline';
@@ -332,7 +332,8 @@ function writeReport({ theCase, plan, tools, outDir, safe, taxonomy }) {
   mkdirSync(outDir, { recursive: true });
   const file = join(outDir, 'report.html');
   writeFileSync(file, reportHTML({ title: theCase.title, notes: theCase.notes, safe, sections }));
-  return file;
+  // Absolute, so a run started from the wrong folder is obvious instead of quietly writing somewhere else.
+  return resolve(file);
 }
 
 // ---- The browser agent ------------------------------------------------------------------------------------
@@ -930,7 +931,7 @@ async function main() {
     // With --json the progress lines are held back, so the output stays machine-readable.
     const say = (s = '') => { if (!flags.json) out(s); };
     mkdirSync(join(outDir, 'runs'), { recursive: true });
-    say(`${bold(theCase.title)} ${dim(`· running ${totalCommands} command${totalCommands === 1 ? '' : 's'} with ${shell} → ${outDir}/`)}\n`);
+    say(`${bold(theCase.title)} ${dim(`· running ${totalCommands} command${totalCommands === 1 ? '' : 's'} with ${shell} → ${resolve(outDir)}/`)}\n`);
 
     const results = [];
     let runAll = !!flags.yes;
