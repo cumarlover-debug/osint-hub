@@ -144,7 +144,39 @@ function runCommand(row, value, outDir, index, timeout, shell, live = false) {
       shell === 'powershell'
         ? ['powershell', ['-NoProfile', '-NonInteractive', '-Command', row.command], {}]
         : [row.command, [], { shell: true }];
-    const child = spawn(cmd, args, { stdio: ['ignore', 'pipe', 'pipe'], timeout, ...opts });
+    const child = spawn(cmd, args, {
+      stdio: ['ignore', 'pipe', 'pipe'],
+      // A tool that retries, waits or spawns helpers keeps its own process group on POSIX, so the whole tree can be
+      // stopped at the deadline. Without this, killing the shell left the real process running: instaloader was told
+      // by Instagram to retry in 666 seconds and outlived a 20 minute timeout by two and a half minutes.
+      detached: process.platform !== 'win32',
+      ...opts,
+    });
+    let timedOut = false;
+    const killTree = () => {
+      if (process.platform === 'win32') {
+        try {
+          spawn('taskkill', ['/pid', String(child.pid), '/t', '/f'], { stdio: 'ignore' });
+        } catch {
+          child.kill();
+        }
+        return;
+      }
+      try {
+        process.kill(-child.pid, 'SIGKILL');
+      } catch {
+        try {
+          child.kill('SIGKILL');
+        } catch {
+          // already gone
+        }
+      }
+    };
+    const alarm = setTimeout(() => {
+      timedOut = true;
+      killTree();
+    }, timeout);
+    alarm.unref?.();
     let stdout = '';
     let stderr = '';
     const keep = (text, chunk) => (text.length > 512_000 ? text : text + String(chunk));
@@ -159,6 +191,7 @@ function runCommand(row, value, outDir, index, timeout, shell, live = false) {
       if (live) process.stderr.write(chunk);
     });
     const finish = (result) => {
+      clearTimeout(alarm);
       const ms = Date.now() - started;
       const full = `${stdout}${stderr ? `\n--- stderr ---\n${stderr}` : ''}`;
       writeFileSync(file, `# ${row.name} (${row.slug})\n# ${row.command}\n# exit ${result.exitCode ?? '-'} in ${ms} ms\n\n${full}`);
@@ -183,7 +216,13 @@ function runCommand(row, value, outDir, index, timeout, shell, live = false) {
       finish({
         status: code === 0 ? 'ok' : 'failed',
         exitCode: code,
-        ...(signal ? { note: `killed (${signal})` } : {}),
+        // Say what actually happened: a tool stopped at the deadline is waiting or being rate limited, which is a
+        // different finding from a tool that crashed.
+        ...(timedOut
+          ? { note: `timed out after ${Math.round(timeout / 1000)}s` }
+          : signal
+            ? { note: `killed (${signal})` }
+            : {}),
       }),
     );
   });
