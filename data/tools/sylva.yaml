@@ -7,11 +7,11 @@ outputs: [social_profile, email, username]
 type: cli
 cost: free
 passive: true
-account_required: false
+account_required: true
 command_template: sylva search {query}
 repo: ppfeister/sylva
 language: Python
 license: AGPL-3.0
 platforms: [linux, macos, windows]
 tags: [username-enumeration, open-source]
-notes: Early-stage project; some sources need API keys.
+notes: Configure it first with `sylva config` and the API keys for the sources you intend to use; an unconfigured search fails rather than returning nothing. Because it depends on those keys it is treated as account-based, so safe mode leaves it out.
