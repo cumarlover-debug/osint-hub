@@ -627,6 +627,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "bi-zone-threat-intelligence": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "bibsonomy": {
     "status": "up",
     "failures": 0,
@@ -4428,6 +4435,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "netenrich-knowledge-now": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "netlas-io": {
     "status": "up",
     "failures": 0,
@@ -6515,6 +6529,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-26"
+  },
+  "tinfoleak": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "tokyo-mou-apcis": {
     "status": "up",

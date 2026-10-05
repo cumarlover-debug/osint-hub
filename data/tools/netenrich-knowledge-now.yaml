@@ -1,0 +1,10 @@
+name: Netenrich Knowledge Now
+url: https://know.netenrich.com/content/track/threat-actor
+description: Netenrich's knowledge portal, whose threat-actor section indexes the groups it tracks with the activity and reporting filed against each one.
+category: threat-intel
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: 'A research portal rather than a query engine: browse or search it in the browser. Netenrich publishes alongside its own detection work, so the entries read as an analyst''s notes on a group rather than a bare list of aliases.'
