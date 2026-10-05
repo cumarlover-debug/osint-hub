@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: 'One of the older OSINT toolkits and still maintained: it installs from PyPI and covers the same ground as several single-purpose tools, with a common output format for piping into other work.'

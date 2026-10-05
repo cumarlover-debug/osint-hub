@@ -8,4 +8,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: Results come from commercial data brokers and are often outdated or mixed up between people with similar names.

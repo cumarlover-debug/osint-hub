@@ -11,6 +11,7 @@ type: web
 cost: free
 passive: true
 account_required: false
+manual: post-form
 repo: RyanDFIR/unfurl
 tags:
   - timestamps

@@ -8,6 +8,7 @@ type: web
 cost: free
 passive: true
 account_required: false
+manual: post-form
 tags:
   - maps
   - regional

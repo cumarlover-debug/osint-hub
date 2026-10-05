@@ -8,5 +8,6 @@ type: web
 cost: free
 passive: true
 account_required: false
+manual: post-form
 tags: [covert-tracking]
 notes: Creates or reads a covert tracking mechanism. Using one on a person without their knowledge and a lawful basis is an offence under computer-misuse and stalking laws in many countries.

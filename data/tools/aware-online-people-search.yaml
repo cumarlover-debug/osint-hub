@@ -7,5 +7,6 @@ type: web
 cost: free
 passive: true
 account_required: false
+manual: post-form
 tags: [personal-data]
 notes: 'Written by an investigation training company, so the queries are chosen rather than scraped together, and each one opens in the site that can answer it. The result is a list of leads about a name, which is where a name-based investigation begins and never where it ends: two people share most names.'

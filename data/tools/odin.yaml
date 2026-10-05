@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: true
+manual: post-form
 tags: [internet-scan]

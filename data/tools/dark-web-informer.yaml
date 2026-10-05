@@ -7,5 +7,6 @@ type: web
 cost: free
 passive: true
 account_required: false
+manual: post-form
 tags: [leak-data]
 notes: It indexes extortion and leak-site chatter, so it is a place to confirm whether a claim about a company is real or a re-post of someone else's. Treat its entries as claims made by the actors, not as verified breaches.

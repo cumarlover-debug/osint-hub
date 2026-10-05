@@ -7,4 +7,5 @@ type: web
 cost: paid
 passive: true
 account_required: true
+manual: post-form
 tags: [news, threat-intel]

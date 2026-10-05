@@ -8,4 +8,5 @@ type: web
 cost: free
 passive: false
 account_required: false
+manual: post-form
 notes: Fetches the target's favicon.

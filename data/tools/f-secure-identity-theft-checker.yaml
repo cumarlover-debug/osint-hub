@@ -8,5 +8,6 @@ type: web
 cost: free
 passive: true
 account_required: false
+manual: post-form
 tags: [breaches]
 notes: The results go to the address you check, so it only works for addresses you can read.

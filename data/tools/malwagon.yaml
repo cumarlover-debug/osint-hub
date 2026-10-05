@@ -8,4 +8,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: Reports are public.

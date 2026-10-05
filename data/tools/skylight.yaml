@@ -9,6 +9,7 @@ type: web
 cost: free
 passive: true
 account_required: true
+manual: post-form
 tags:
   - ais
 notes: Free for approved partner organisations.

@@ -10,6 +10,7 @@ type: web
 cost: free
 passive: true
 account_required: false
+manual: post-form
 repo: Institute-for-Strategic-Dialogue/information-laundromat
 tags:
   - disinformation

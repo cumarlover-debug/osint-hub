@@ -8,5 +8,6 @@ type: web
 cost: free
 passive: true
 account_required: false
+manual: post-form
 tags: [personal-data]
 notes: Reveals an event date and often a town, which is why it is treated as personal data here.
