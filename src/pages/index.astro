@@ -150,6 +150,7 @@ const pct = (n: number) => (n / total) * 100;
       <label class="check"><input type="checkbox" id="noaccount" /> No account needed</label>
       <label class="check"><input type="checkbox" id="opensource" /> Open source</label>
       <label class="check"><input type="checkbox" id="linux" /> Runs on Linux</label>
+      <label class="check"><input type="checkbox" id="popular" title="At least 500 stars on GitHub" /> Well known (500+★)</label>
       <label class="check"><input type="checkbox" id="byhand" /> Listed for by-hand use</label>
       <label class="check"><input type="checkbox" id="working" /> Working tools only</label>
       <label class="check"><input type="checkbox" id="mine" /> ★ My toolkit only</label>
@@ -176,6 +177,7 @@ const pct = (n: number) => (n / total) * 100;
   const noaccount = $<HTMLInputElement>('noaccount');
   const opensource = $<HTMLInputElement>('opensource');
   const linux = $<HTMLInputElement>('linux');
+  const popular = $<HTMLInputElement>('popular');
   const byhand = $<HTMLInputElement>('byhand');
   const working = $<HTMLInputElement>('working');
   const chips = [...document.querySelectorAll<HTMLButtonElement>('.chip')];
@@ -193,6 +195,7 @@ const pct = (n: number) => (n / total) * 100;
   noaccount.checked = params.has('noaccount');
   opensource.checked = params.has('opensource');
   linux.checked = params.has('linux');
+  popular.checked = params.has('popular');
   byhand.checked = params.has('byhand');
   working.checked = params.has('working');
   mine.checked = params.has('mine');
@@ -212,6 +215,7 @@ const pct = (n: number) => (n / total) * 100;
         (!noaccount.checked || d.account === 'false') &&
         (!opensource.checked || d.openSource === 'true') &&
         (!linux.checked || d.linux === 'true') &&
+        (!popular.checked || Number(d.stars ?? 0) >= 500) &&
         (!byhand.checked || d.byhand === 'true') &&
         (!working.checked || d.broken === 'false') &&
         (!mine.checked || favs.has(d.slug!)) &&
@@ -233,6 +237,7 @@ const pct = (n: number) => (n / total) * 100;
     if (noaccount.checked) next.set('noaccount', '');
     if (opensource.checked) next.set('opensource', '');
     if (linux.checked) next.set('linux', '');
+    if (popular.checked) next.set('popular', '');
     if (byhand.checked) next.set('byhand', '');
     if (working.checked) next.set('working', '');
     if (mine.checked) next.set('mine', '');
@@ -265,7 +270,7 @@ const pct = (n: number) => (n / total) * 100;
       jump();
     });
   }
-  for (const el of [q, type, category, cost, passive, noaccount, opensource, linux, byhand, working, mine]) el.addEventListener('input', apply);
+  for (const el of [q, type, category, cost, passive, noaccount, opensource, linux, popular, byhand, working, mine]) el.addEventListener('input', apply);
   // Un-starring a tool while filtering by toolkit hides it straight away.
   window.addEventListener(CHANGED, () => mine.checked && apply());
   apply();
