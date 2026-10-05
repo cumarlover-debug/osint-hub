@@ -1,0 +1,12 @@
+name: OsintCat
+url: https://www.osintcat.net/
+description: A breach-lookup API and dashboard covering email, username, phone, IP and domain, including Discord and Roblox lookups and IP records filed alongside associated stealer logs.
+category: breach
+inputs: [email, username, phone, ip, domain]
+type: api
+cost: freemium
+passive: true
+account_required: true
+manual: api-key
+tags: [leak-data]
+notes: 'Every call needs your own X-API-KEY header, and its breach lookup is a documented GET (https://www.osintcat.net/api/breach?query=...), which the CLI cannot attach headers to, so it is listed to call by hand or from your own script. Free, Premium and Enterprise tiers, with some modules drawn from a balance. As with any breach source: record that a record exists, not the credentials in it.'

@@ -545,3 +545,5 @@ https://discordlookup.com/  # Discord Lookup (domain now redirects to an unrelat
 https://map.snapchat.com  # Snap Map (public web map discontinued; redirects to the Snapchat home page), 2026-09-27
 http://www.worldlicenseplates.com/  # World License Plates (HTTP only, no HTTPS), 2026-09-27
 https://www.vigilante.pw/  # Vigilante.pw (domain now redirects to Dehashed, which is already listed, so it would be a second name for one destination), 2026-10-05
+https://credenshow.com/  # CredenShow (domain mismatch: credenshow.com redirects to nextsecurity.hk, an unrelated Hong Kong pentest firm with no search tool), 2026-10-05
+https://iknowyour.dad/  # IKnowYour.Dad (unverifiable and high risk: crypto-only "no KYC" payments, claims of 93 billion records it cannot evidence, referral payouts, hosted on Replit), 2026-10-05

@@ -1,0 +1,17 @@
+name: Leaker
+url: https://github.com/vflame6/leaker
+description: 'Passive leak enumeration in one command: it queries thirteen breach and leak databases for an email, username, domain, keyword or phone number, de-duplicates what comes back, and prints it.'
+category: breach
+inputs: [email, username, domain, phone, keyword]
+type: cli
+cost: free
+passive: true
+account_required: false
+command_template: {email: 'leaker email {query}', username: 'leaker username {query}', domain: 'leaker domain {query}', phone: 'leaker phone {query}', keyword: 'leaker keyword {query}'}
+repo: vflame6/leaker
+install: go install -v github.com/vflame6/leaker@latest
+language: Go
+license: MIT
+platforms: [linux, macos, windows]
+tags: [leak-data]
+notes: 'Two of the thirteen sources need no key at all (ProxyNova and Hudson Rock); the other eleven want your own keys for BreachDirectory, Dehashed, Intelligence X, LeakCheck, LeakRadar and the rest, so configure the ones you hold. Written in Go. Everything it returns is other people''s breached data: record that a record exists and what it corroborates, never the password itself.'

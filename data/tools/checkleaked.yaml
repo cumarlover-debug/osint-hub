@@ -1,0 +1,12 @@
+name: CheckLeaked
+url: https://checkleaked.cc/
+description: A breach search engine covering email, username, domain and keyword, with a free tier of two searches a day and paid plans beyond that.
+category: breach
+inputs: [email, username, domain, keyword]
+type: web
+cost: freemium
+passive: true
+account_required: true
+manual: login
+tags: [leak-data]
+notes: Its own page says it is powered by LeakCheck's API and that it is unrelated to leakcheck.io beyond using it, so what you are really querying is LeakCheck's data resold. An account is needed (two searches a day free) and the API wants a key of its own. Its 15 billion account claim cannot be checked from outside.

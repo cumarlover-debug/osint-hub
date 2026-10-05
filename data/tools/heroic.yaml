@@ -1,0 +1,12 @@
+name: HEROIC
+url: https://heroic.com/
+description: A commercial dark-web and credential-monitoring service whose free scan checks an email address against breach and stealer-log data and reports what it finds.
+category: breach
+inputs: [email]
+type: web
+cost: freemium
+passive: true
+account_required: false
+manual: post-form
+tags: [leak-data]
+notes: 'The free scan is a form behind a bot check, so it is a by-hand entry; the monitoring product itself is sold to companies. The name in the source lists was HEROIC.NOW, and that domain is not this company: heroic.now is parked and for sale, so this entry carries the vendor''s real name and site.'

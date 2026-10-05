@@ -1,0 +1,17 @@
+name: ROADtools
+url: https://github.com/dirkjanm/roadtools
+description: 'Explores an Azure AD / Entra ID tenant: authenticates as a user, gathers the directory into a local database, and lays out users, groups, applications and roles for review or BloodHound import.'
+category: business
+inputs: [domain]
+type: cli
+cost: free
+passive: false
+account_required: true
+manual: login
+repo: dirkjanm/roadtools
+install: pip install roadrecon roadtx
+language: Python
+license: MIT
+platforms: [linux, macos, windows]
+tags: [open-source]
+notes: 'Three steps by hand, with credentials you are authorised to use: roadrecon auth (password, device code or a primary refresh token), then roadrecon gather, then roadrecon gui to browse the result. Reading MFA state needs a privileged role such as Global Reader. This is directory reconnaissance against a tenant, so it needs written authorisation, not just a domain name.'
