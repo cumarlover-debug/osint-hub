@@ -725,24 +725,47 @@ async function driveForm(cdp, row, toolUrl, value, outDir, index, timeout, settl
         sessionId,
       );
       const parsed = JSON.parse(result.value);
-      return { title: String(parsed.title).replace(/\s+/g, ' ').trim(), text: String(parsed.text).replace(/\s+/g, ' ').trim(), html: String(parsed.html ?? '') };
+      return {
+        title: String(parsed.title).replace(/\s+/g, ' ').trim(),
+        // Horizontal whitespace is tidied but newlines are kept: the finding extractor reads line by line, and
+        // collapsing the page into one long line meant a certificate search's hostnames were never picked up.
+        text: String(parsed.text)
+          .replace(/[^\S\n]+/g, ' ')
+          .replace(/\n{2,}/g, '\n')
+          .trim(),
+        html: String(parsed.html ?? ''),
+      };
     };
 
     const before = await read();
     const fill = await cdp.send('Runtime.evaluate', { expression: formFillScript(value.value), returnByValue: true }, sessionId);
     const attempt = fill.result?.value ?? {};
 
-    // Wait for the answer. A submitted form usually navigates or repaints; a page that never changes was probably
-    // refused, so the ceiling is the same `settle` the renderer uses.
-    const deadline = Date.now() + Math.max(settle, 3000);
+    // Wait for the answer, not for any change. A cookie banner, a spinner or a "Loading…" label all change the page
+    // and none of them is the result, which is how a search that did work came back looking empty. Growth in the
+    // text or in the links is what a rendered answer looks like, so the loop waits for that and then for it to stop
+    // growing, rather than leaving the moment something moves.
+    const deadline = Date.now() + Math.max(settle, 4000);
+    const beforeLinks = (before.html.match(/href="https?:/g) ?? []).length;
     let best = before;
+    let stable = 0;
+    let grew = false;
+    await sleep(1200); // a floor, so the first read is not taken mid-submit
     while (Date.now() < deadline) {
-      await sleep(500);
       const now = await read();
-      if (now.text.length > best.text.length) best = now;
-      const challenged = CHALLENGE.test(now.title) || CHALLENGE.test(now.text.slice(0, 400));
-      if (!challenged && now.text !== before.text && now.text.length > 200) break;
-      if (Date.now() > deadline - 500) best = now.text.length > best.text.length ? now : best;
+      const links = (now.html.match(/href="https?:/g) ?? []).length;
+      if (now.text.length > before.text.length + 300 || links > beforeLinks + 3) grew = true;
+      if (now.text.length > best.text.length) {
+        best = now;
+        stable = 0;
+      } else {
+        stable += 1;
+      }
+      if (CHALLENGE.test(now.title) || CHALLENGE.test(now.text.slice(0, 400))) break;
+      // Two quiet reads after real growth means the page has finished; without growth there is nothing to wait for.
+      if (grew && stable >= 2) break;
+      if (!grew && Date.now() > deadline - 800) break;
+      await sleep(600);
     }
 
     const image = await cdp.send('Page.captureScreenshot', { format: 'png' }, sessionId);

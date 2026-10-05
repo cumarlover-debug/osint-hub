@@ -49,6 +49,10 @@ const HANDLE = /(?:^|[\s(])@([a-z0-9][a-z0-9._-]{2,30})\b/gi;
 // profile fills up with noise.
 const PHONE = /(?<!\w)(?:\+\d[\d ().-]{7,18}\d|\(?\d{2,4}\)?[ .-]\d[\d ().-]{5,14}\d)(?!\w)/g;
 const CRYPTO = /\b(?:0x[a-f0-9]{40}|bc1[a-z0-9]{25,62}|[13][a-km-zA-HJ-NP-Z1-9]{25,34})\b/g;
+/** A hostname, including the wildcard form a certificate log reports. The lookbehind replaces a word boundary,
+ *  which cannot match in front of "*", so "*.example.com" was being read as its bare parent and then dropped as the
+ *  target itself. */
+const HOST = /(?<![\w.-])(?:\*\.)?(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,24}\b/gi;
 
 /** Terminal colour and cursor codes. Tools print them, and left in place they end up inside extracted values:
  *  h8mail's output turned "someone@example.com" into "0msomeone@example.com". */
@@ -61,6 +65,9 @@ const FAMILIES = [
   { name: 'phone', re: /phoneinfoga|phonerator|phone-validator|truecaller|sync-?me|shouldianswer/i },
   { name: 'email', re: /holehe|mailcat|emailrep|epieos|hibp|haveibeenpwned|firefox-breach|mozilla-monitor|email-hippo|mailaccess/i },
   { name: 'metadata', re: /exiftool|exif|metadata|jpegsnoop|fotoforensics|invid/i },
+  // Certificate, DNS and scanning tools answer with hostnames and addresses, which are the findings: a subdomain
+  // found here is what the next stage of the investigation searches for.
+  { name: 'infrastructure', re: /crt\.?sh|certkit|subfinder|amass|assetfinder|dnsdumpster|securitytrails|findomain|dnsrecon|dnsx|httpx|nmap|masscan|urlscan|urlhaus|censys|shodan|virustotal|robtex|viewdns|hosthunter|chaos|dnstwist|urlcrazy|typosquat/i },
 ];
 
 /** Mask a password hash: the reader learns one exists, and nobody learns the value. */
@@ -132,6 +139,15 @@ export function extractFindings({ slug, name, text, value, at, source }) {
       if (!addresses.length) add('account', trim(l, 160), l);
       continue;
     }
+    if (family === 'infrastructure') {
+      // Hosts, not pages: the answer to "what is under this domain" is the list of names themselves.
+      for (const host of l.match(HOST) ?? []) {
+        const name = host.toLowerCase();
+        if (name.includes('@') || /\.(png|jpe?g|gif|css|js|svg|woff2?|ico)$/.test(name)) continue;
+        add('domain', name, l);
+      }
+      continue;
+    }
     if (family === 'metadata' && /^[A-Za-z][A-Za-z0-9 _/-]{2,30}\s*[:=]/.test(l)) {
       add('document', trim(l, 160), l);
       continue;
@@ -144,13 +160,19 @@ export function extractFindings({ slug, name, text, value, at, source }) {
   for (const m of safe.match(URL) ?? []) add('url', m.replace(/[.,)]+$/, ''), m);  for (const m of safe.match(CRYPTO) ?? []) add('crypto_address', m, m);
   for (const m of safe.match(IPV4) ?? []) if (!/^0\./.test(m)) add('ip', m, m);
   for (const m of safe.match(HANDLE) ?? []) add('username', m.replace(/^@/, ''), m);
-  for (const m of safe.match(PHONE) ?? []) {
-    const digits = m.replace(/[^\d+]/g, '');
-    const bare = m.replace(/[\s().-]/g, '');
-    // A phone number needs a country code or separators, and a plausible number of digits: anything else is an
-    // identifier that happens to be numeric.
-    const shaped = m.includes('+') || /[\s().-]/.test(m.trim());
-    if (shaped && /^\+?\d{9,15}$/.test(bare) && !/^(\+?\d{10}|\+?\d{13})$/.test(digits)) add('phone', bare, m);
+  // Phone-shaped strings, but only from tools whose output could plausibly contain one. A DNS or certificate tool
+  // answers with hostnames and identifiers, and reading its numeric columns as telephone numbers fills a profile
+  // with noise - which is exactly what dnstwist's output did.
+  if (family !== 'infrastructure' && family !== 'metadata') {
+    for (const m of safe.match(PHONE) ?? []) {
+      const digits = m.replace(/[^\d+]/g, '');
+      const bare = m.replace(/[\s().-]/g, '');
+      const shaped = m.includes('+') || /[\s().-]/.test(m.trim());
+      const count = bare.replace(/\D/g, '').length;
+      // A number needs a country code or separators, a plausible length, and - without a country code - no more
+      // digits than a national number has.
+      if (shaped && /^\+?\d{9,15}$/.test(bare) && !(count > 11 && !bare.startsWith('+'))) add('phone', bare, m);
+    }
   }
 
   // The target itself is not a finding; it is the thing being investigated.
