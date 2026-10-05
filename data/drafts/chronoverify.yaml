@@ -1,0 +1,34 @@
+# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
+# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
+name: ChronoVerify
+url: https://chronoverify.com
+description: ''
+category: image-video
+inputs: [image]
+type: web
+cost: freemium
+passive: true
+account_required: false
+
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: high
+  score: 6
+  source_url: https://chronoverify.com
+  flags:
+    - 'policy-leak: breach, leak or tracking data — needs the responsible-use notice'
+    - 'cost: unknown, guessed freemium'
+    - 'account_required: unknown, guessed no'
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Image Analysis
+        said: >-
+          API and free web tool that reads EXIF and XMP, validates C2PA Content Credentials against official
+          trust lists, and runs classical pixel forensics, returning one typed verdict for any image.
+    page_title: When was this photo taken? Provenance check | ChronoVerify
+    page_description: >-
+      Check when a photo was taken and whether it shows signs of editing. Works on any photo, signed or not.
+      One plain-language verdict in seconds.

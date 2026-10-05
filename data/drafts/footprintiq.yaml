@@ -1,0 +1,36 @@
+# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
+# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
+name: FootprintIQ
+url: https://footprintiq.app
+description: ''
+category: social-media
+inputs: [username, email, phone]
+type: web
+cost: freemium
+passive: true
+account_required: false
+
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: high
+  score: 7
+  source_url: https://footprintiq.app
+  flags:
+    - 'policy-leak: breach, leak or tracking data — needs the responsible-use notice'
+    - 'passive: source says active (queries third-party sites); kept passive per our definition'
+  notes:
+    sources:
+      - list: osint-framework
+        section: Username > Username Search Engines
+        said: >-
+          Ethical digital footprint scanner that searches usernames, emails, and phone numbers across 500+
+          platforms. Includes breach detection, data broker scanning, and confidence scoring to reduce false
+          positives.
+    framework_input: Username, email address, or phone number
+    framework_output: Matched profiles across 500+ platforms, breach exposure, data broker listings
+    page_title: 'Free Digital Footprint Scan: 400+ Sites (2026) | FootprintIQ'
+    page_description: >-
+      Free digital footprint scan — see what anyone can find about you across 400+ sites in 60 seconds. Get a
+      step-by-step cleanup plan. No signup.

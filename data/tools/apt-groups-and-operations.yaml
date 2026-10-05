@@ -1,0 +1,10 @@
+name: APT Groups and Operations
+url: https://docs.google.com/spreadsheets/u/0/d/1H9_xaxQHpWaa4O_Son4Gx0YOIzlcBWMsdvePFX68EKU/pubhtml?pli=1#
+description: 'The long-running tracking spreadsheet of APT groups: aliases, suspected sponsors, target sectors, and the intrusion tools and malware attributed to each one.'
+category: threat-intel
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: A published spreadsheet rather than a query engine, so read it in a browser and use Ctrl-F. It is one of the fastest ways to turn a group name into its aliases, because the same actor carries a different name in every vendor's reports.

@@ -544,3 +544,4 @@ https://zanran.com  # Zanran (no longer working), 2026-09-26
 https://discordlookup.com/  # Discord Lookup (domain now redirects to an unrelated poll app), 2026-09-27
 https://map.snapchat.com  # Snap Map (public web map discontinued; redirects to the Snapchat home page), 2026-09-27
 http://www.worldlicenseplates.com/  # World License Plates (HTTP only, no HTTPS), 2026-09-27
+https://www.vigilante.pw/  # Vigilante.pw (domain now redirects to Dehashed, which is already listed, so it would be a second name for one destination), 2026-10-05

@@ -1,0 +1,32 @@
+# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
+# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
+name: LeakRadar
+url: https://leakradar.io/
+description: ''
+category: email
+inputs: [email]
+type: web
+cost: freemium
+passive: true
+account_required: false
+
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: high
+  score: 6
+  source_url: https://leakradar.io/
+  flags:
+    - 'policy-leak: breach, leak or tracking data — needs the responsible-use notice'
+    - 'cost: unknown, guessed freemium'
+    - 'account_required: unknown, guessed no'
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Email Search / Email Check
+        said: >-
+          Scans for compromised emails and domains in stealer logs, offering proactive breach prevention and
+          real-time alerts.
+    page_title: Credential leak search and domain monitoring | LeakRadar
+    page_description: Search exposed credentials, investigate stealer logs and monitor your domains with LeakRadar.

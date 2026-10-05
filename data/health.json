@@ -381,6 +381,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "apt-groups-and-operations": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "arcgis-living-atlas": {
     "status": "up",
     "failures": 0,
@@ -2594,6 +2601,18 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "gods-eye": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05",
+    "repo": {
+      "stars": 48,
+      "archived": false,
+      "pushed_at": "2024-10-12"
+    }
+  },
   "google-ads-transparency-center": {
     "status": "up",
     "failures": 0,
@@ -2862,6 +2881,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "have-i-been-zuckered": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "here-wego": {
     "status": "up",
@@ -4705,6 +4731,18 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "osint-gods-eye": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05",
+    "repo": {
+      "stars": 9,
+      "archived": false,
+      "pushed_at": "2026-09-30"
+    }
   },
   "osint-industries": {
     "status": "up",
