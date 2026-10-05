@@ -47,3 +47,4 @@ https://start.me/p/L1rEYQ/osint4all  # now https://developers.google.com/earth-e
 https://start.me/p/L1rEYQ/osint4all  # now https://www.geoseer.net/ (geoseer)
 https://start.me/p/L1rEYQ/osint4all  # now https://gpx.studio/ (gpx-studio)
 https://start.me/p/L1rEYQ/osint4all  # now https://data.isric.org/geonetwork/srv/eng/catalog.search#/home (isric-data-hub)
+https://start.me/p/L1rEYQ/osint4all  # now https://www.inspire-geoportal.eu/ (inspire-geoportal)
