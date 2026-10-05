@@ -31,6 +31,7 @@ Usage
   osint-hub agent profile <case.json>  Read everything the case collected into a target profile, and write the dossier
   osint-hub agent next <case.json>     The same, plus what is left to run, what needs installing and what needs a person
   osint-hub agent run <case.json>      Do that work: run and fetch the unattended jobs, and fold each result into the profile
+  osint-hub agent hands <case.json>    Try the services that answer only a form: fill the box, submit, read the answer
   osint-hub update                     Refresh the cached data now
 
 Filters for "tools":  --input <type>  --category <c>  --type <web|cli|...>  --passive  --free  --no-account
