@@ -1,0 +1,10 @@
+name: Open Hunting Threat Library
+url: https://openhunting.io/threat-library
+description: 'A catalogue of intrusion tools and malware families: each entry carries its aliases, its category and type, the indicators published with it, and when the entry was last touched.'
+category: threat-intel
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: 'Useful in the direction most threat feeds are not: given a tool name you met in a log, a report or a leak-site post, it tells you what that name means, what else it is called, and who has published indicators for it.'

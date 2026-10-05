@@ -1,0 +1,18 @@
+name: packet.guru
+url: https://packet.guru/
+description: >-
+  Reports what a connection gives away — the public address, its location and ISP, DNS and WebRTC behaviour, and
+  whether a VPN, proxy or Tor relay is visible — with a privacy and trust score, alongside DNS, whois, TLS and
+  subdomain tools.
+category: opsec
+inputs: [ip, domain]
+type: web
+cost: free
+passive: true
+account_required: false
+manual: post-form
+notes: >-
+  The trust index answers a question about you rather than about a target: it scores the browser and connection you
+  are using, which is why it sits with ipleak and browserleaks. Point it at a proxy, a VPN or a Tor circuit and it
+  says whether that is really what the outside world sees, which is worth knowing before a lookup rather than after
+  one. Its utility pages take a domain, address or hash, but by form only: the URL parameters do not drive a lookup.

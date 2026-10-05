@@ -1,17 +1,27 @@
 name: MailAccess
 url: https://github.com/KatrielMoses/MailAccess
-description: 'Investigates an email address across thousands of platforms in one command: which services recognise it, which accounts cluster together as one identity, and whether the address appears in breach data.'
+description: >-
+  Investigates an email address in one command: which services recognise it, which accounts cluster together as one
+  identity, its DNS records and whether the address appears in breach data, ending in an exposure score.
 category: email
 inputs: [email, domain]
 type: cli
-cost: free
+cost: freemium
 passive: true
 account_required: false
-command_template: {email: 'mailaccess investigate {query}', domain: 'mailaccess harvest-emails --domain {query}'}
+command_template:
+  email: 'mailaccess investigate {query}'
+  domain: 'mailaccess harvest-emails --domain {query}'
 repo: KatrielMoses/MailAccess
 install: pip install mailaccess
 language: Python
 license: MIT
 platforms: [linux, macos, windows]
 tags: [open-source, personal-data]
-notes: 'No API keys are needed for the free sources; a HIBP key can be added with mailaccess keys set HIBP_API_KEY. The investigate command writes a report you can export with -o report.pdf, and harvest-emails takes a domain rather than an address. It clusters accounts into an identity, which is the part to treat carefully: a cluster is a hypothesis about who is who, and it belongs in the case as one until something independent confirms it.'
+notes: >-
+  No API keys are needed for the free sources; a HIBP key can be added with mailaccess keys set HIBP_API_KEY, and
+  exports cover JSON, CSV, PDF, Markdown, STIX and Maltego. It self-hosts as well as running from the command line,
+  and there is a paid tier. Two caveats: the coverage figures are the project's own claim rather than something you
+  can check from outside, and although the README and PyPI both say MIT there is no LICENSE file at the repository
+  root. It clusters accounts into an identity, which is the part to treat carefully: a cluster is a hypothesis about
+  who is who until something independent confirms it.

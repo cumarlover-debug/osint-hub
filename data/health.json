@@ -1699,12 +1699,17 @@
     "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-27"
   },
-  "dropbase": {
+  "dread-scraper": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-10-05",
     "http": 200,
-    "last_ok": "2026-10-05"
+    "last_ok": "2026-10-05",
+    "repo": {
+      "stars": 2,
+      "archived": false,
+      "pushed_at": "2026-10-04"
+    }
   },
   "dualmaps": {
     "status": "unverified",
@@ -2378,13 +2383,6 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
-  },
-  "footprintiq": {
-    "status": "up",
-    "failures": 0,
-    "last_checked": "2026-10-05",
-    "http": 200,
-    "last_ok": "2026-10-05"
   },
   "forensic-osint": {
     "status": "up",
@@ -4771,6 +4769,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "open-hunting-threat-library": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "open-infrastructure-map": {
     "status": "up",
     "failures": 0,
@@ -5000,6 +5005,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "packet-guru": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "pagesjaunes": {
     "status": "unverified",
@@ -6066,6 +6078,13 @@
       "pushed_at": "2026-09-13"
     }
   },
+  "socradar-labs": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
+  },
   "sogou": {
     "status": "up",
     "failures": 0,
@@ -6582,13 +6601,6 @@
     "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-26"
   },
-  "tinfoleak": {
-    "status": "up",
-    "failures": 0,
-    "last_checked": "2026-10-05",
-    "http": 200,
-    "last_ok": "2026-10-05"
-  },
   "tokyo-mou-apcis": {
     "status": "up",
     "failures": 0,
@@ -6669,6 +6681,13 @@
       "archived": false,
       "pushed_at": "2026-09-18"
     }
+  },
+  "tracefind": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "tracepoint": {
     "status": "up",

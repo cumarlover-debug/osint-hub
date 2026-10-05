@@ -1,0 +1,10 @@
+name: SOCRadar Labs
+url: https://socradar.io/labs/threat-actor/
+description: SOCRadar's research section, where the vendor profiles the threat actors and campaigns it tracks, with the activity it attributes to each.
+category: threat-intel
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: 'Vendor-published research, which is worth reading beside the other vendor indexes for the same reason: each one names groups its own way. The page answers a bot check rather than an automated request, so open it in a browser.'

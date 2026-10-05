@@ -1,6 +1,8 @@
 name: ChronoVerify
 url: https://chronoverify.com
-description: Checks when a photo was taken and whether it carries signs of editing, working on an image whether or not its metadata survived.
+description: >-
+  Checks when a photo was taken and whether it carries signs of editing, working on an image whether or not its
+  metadata survived, and returns a verdict with a confidence score.
 category: image-video
 inputs: [image]
 type: web
@@ -8,4 +10,8 @@ cost: freemium
 passive: true
 account_required: false
 manual: post-form
-notes: 'Photo provenance is the question a picture cannot answer about itself, so a second opinion is worth having: this reads the metadata when it is present and the pixels when it is not. It answers a form, so it stays a by-hand entry, and its pricing is not stated on the page.'
+notes: >-
+  Photo provenance is the question a picture cannot answer about itself, so a second opinion is worth having: this
+  reads the metadata when it is present, including any C2PA provenance record, and the pixels when it is not, and it
+  is free to use without an account. Underneath the form there is also a POST endpoint at /v1/verify taking an image
+  URL, with a free monthly allowance, which is what to use if a set of images needs checking rather than one.
