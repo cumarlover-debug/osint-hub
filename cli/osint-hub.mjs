@@ -552,6 +552,44 @@ async function renderPage(cdp, row, value, outDir, index, timeout, settle) {
       if (!held && now.text === best.text && now.text.length > 0) break;
     }
 
+    // A page can also hold its content behind a consent gate or below the fold, and then a passive browser sees the
+    // application shell rather than the application. start.me is both: its widgets are painted by a client-side app
+    // that waits on a cookie-consent banner. So when a page has settled on almost nothing, answer the obvious gate
+    // and walk to the bottom once, which is what a person would do.
+    if (!CHALLENGE.test(best.title) && best.text.length < 600) {
+      const clicked = await cdp.send(
+        'Runtime.evaluate',
+        {
+          expression: `(() => {
+            const words = /^(accept|accept all|agree|i agree|allow all|allow|consent|ok|okay|got it|continue)$/i;
+            const nodes = [...document.querySelectorAll('button, [role="button"], a, input[type="button"], input[type="submit"]')];
+            const hit = nodes.find((n) => words.test((n.innerText || n.textContent || n.value || '').trim()));
+            if (!hit) return '';
+            hit.click();
+            return (hit.innerText || hit.textContent || hit.value || '').trim();
+          })()`,
+          returnByValue: true,
+        },
+        sessionId,
+      );
+      await sleep(1500);
+      for (let step = 1; step <= 10; step++) {
+        await cdp.send('Runtime.evaluate', { expression: `window.scrollTo(0, document.body.scrollHeight * ${step / 10})`, returnByValue: true }, sessionId);
+        await sleep(350);
+        const now = await read();
+        if (now.text.length > best.text.length) best = now;
+      }
+      // Late widgets arrive after the scroll that triggered them, so give them one more window to land.
+      const extra = Date.now() + Math.min(Math.max(settle, 4000), 15000);
+      while (Date.now() < extra) {
+        await sleep(500);
+        const now = await read();
+        if (now.text.length > best.text.length) best = now;
+      }
+      const answered = String(clicked.result?.value ?? '').trim();
+      if (answered && !flags.json) out(dim(`  answered a consent gate ("${answered}") and scrolled the page`));
+    }
+
     const image = await cdp.send('Page.captureScreenshot', { format: 'png' }, sessionId);
     writeFileSync(shot, Buffer.from(image.data, 'base64'));
     // The DOM is written next to the screenshot only when it holds something the text does not: links to other
