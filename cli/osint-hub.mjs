@@ -7,7 +7,7 @@ import { homedir, tmpdir } from 'node:os';
 import { spawn } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import { detect, launchable, templatesFor, applies, buildLink, commandsFor, SHELLS, MATCH_LABELS } from '../shared/launcher.mjs';
-import { sanitiseCaseState, activeCase, capabilityRows, resultsAnnex, reportHTML, splitByHand } from '../shared/case.mjs';
+import { sanitiseCaseState, activeCase, capabilityRows, resultsAnnex, reportHTML, splitByHand, emptyCaseState, uid } from '../shared/case.mjs';
 import { extractFindings } from '../shared/extract.mjs';
 import { matchIntents, resolveTask, taskProgress } from '../shared/tasks.mjs';
 import { emptyProfile, addFindings, profileCounts, profileByKind, toolsRunFor, pivotCandidates, dossierMarkdown, PROFILE_VERSION } from '../shared/profile.mjs';
@@ -24,7 +24,8 @@ Usage
   osint-hub commands <value> [options] Ready-to-run commands for command-line tools that take it
   osint-hub playbooks                  List investigation playbooks
   osint-hub playbook <slug> [--value V] Print a playbook; --value adds search links
-  osint-hub case plan <case.json>      Plan a case exported from the workbench (/case)
+  osint-hub case plan <case.json>      Plan a case exported from the workbench (/case), or made with "case new"
+  osint-hub case new "<title>"         Start a case without the workbench: --value <id>[,<id>] [--basis "<authority>"]
   osint-hub case run <case.json>       Run its command-line tools here, and capture what they return
   osint-hub case fetch <case.json>     Fetch its search-link tools here, and keep the pages that came back
   osint-hub case agent <case.json>     Render them in your installed browser, so JavaScript-only tools answer too
@@ -1454,9 +1455,49 @@ async function main() {
 
   if (command === 'case') {
     const [action, file] = rest;
-    if (!['plan', 'run', 'fetch', 'agent', 'report'].includes(action)) {
-      fail('usage: osint-hub case plan|run|fetch|agent|report <case.json> [--yes --safe --only a,b --input email --out DIR]');
+    if (!['plan', 'run', 'fetch', 'agent', 'report', 'new'].includes(action)) {
+      fail('usage: osint-hub case plan|run|fetch|agent|report <case.json> [--yes --safe --only a,b --input email --out DIR]\n       osint-hub case new "<title>" --value <identifier>[,<identifier>...] [--type <type>] [--basis "<authority>"]');
     }
+
+    // Starting a case without the workbench. The browser is one way to make a case; a chat harness has no page to
+    // export a backup from, and the agent is unusable without a case file to point at.
+    if (action === 'new') {
+      const title = file;
+      if (!title) fail('name the case: osint-hub case new "Ada Lovelace" --value ada@example.org');
+      const { taxonomy } = await loadTools();
+      const raw = String(typeof flags.value === 'string' ? flags.value : '')
+        .split(',')
+        .map((s) => s.trim())
+        .filter(Boolean);
+      if (!raw.length) fail('give it at least one thing to look into: --value ada@example.org,shiineslife,example.org');
+      const forced = typeof flags.type === 'string' ? flags.type : undefined;
+      if (forced && !taxonomy.inputs[forced]) fail(`unknown input type "${forced}"; one of: ${Object.keys(taxonomy.inputs).join(', ')}`);
+      const values = raw.map((v) => ({ id: uid(), value: v, type: forced ?? detect(v)[0] ?? 'keyword' }));
+      const state = emptyCaseState();
+      const opened = state.cases[0];
+      opened.title = title;
+      opened.updated = new Date().toISOString();
+      opened.values = values;
+      // The basis is what makes the difference between an investigation and a fishing trip, so it is asked for here
+      // and carried into every report the agent writes.
+      if (typeof flags.basis === 'string') opened.notes = flags.basis;
+      if (flags.safe === true) opened.safe = true;
+      const path = typeof flags.out === 'string' ? flags.out : `osint-hub-${slugifyName(title)}.json`;
+      writeFileSync(path, `${JSON.stringify(state, null, 2)}\n`);
+
+      if (flags.json) return json({ case: path, title, values });
+      out(`${bold(title)} ${dim('· new case')}`);
+      for (const v of values) out(`  ${v.value.padEnd(34)} ${dim(taxonomy.inputs[v.type] ?? v.type)}`);
+      out(dim(`\n  saved to ${path}`));
+      if (opened.notes) out(dim(`  basis: ${opened.notes}`));
+      else out(yellow('  no basis recorded — the dossier carries this line, and it should say who asked and on what authority'));
+      out(`\n${bold('Next')}`);
+      out(`  osint-hub agent task add "find accounts for this username" ${path}`);
+      out(`  osint-hub agent run ${path} --yes --max 6`);
+      out(`  osint-hub agent hands ${path} --yes --max 3`);
+      return;
+    }
+
     if (!file) fail('point at the JSON backup exported from the workbench: /case → Back up (JSON).');
     if (!existsSync(file)) fail(`no such file: ${file}`);
 
