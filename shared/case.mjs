@@ -459,7 +459,7 @@ function rendersTable(renders) {
         `<tr><td>${r.link ? `<a href="${esc(r.link)}" rel="noopener noreferrer">${esc(r.name)}</a>` : esc(r.name)}</td>` +
         `<td>${esc(RESULT_LABEL[r.status] ?? r.status)}${r.note ? ` <span class="why">${esc(r.note)}</span>` : ''}</td>` +
         `<td>${esc(oneLine(r.title) || '—')}</td><td>${raw(r.excerpt, 'text rendered on the page', true)}</td>` +
-        `<td>${r.screenshot ? `<a href="${esc(r.screenshot)}">image</a>` : '—'}</td></tr>`,
+        `<td>${r.screenshot ? `<a href="${esc(r.screenshot)}">image</a>` : '—'}${r.dom ? ` · <a href="${esc(r.dom)}">markup</a>` : ''}</td></tr>`,
     )
     .join('')}</tbody></table>`;
 }

@@ -1,0 +1,10 @@
+name: Cryptome
+url: https://cryptome.org/
+description: A long-running independent archive of documents about surveillance, intelligence, censorship and the people who run them, published continuously since 1996.
+category: archives
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: 'Plain HTML files in a flat directory, so there is no search box: use the browser''s find on the index pages, or search the site from a search engine. Its value is the documents that were published nowhere else.'

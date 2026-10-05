@@ -1,0 +1,11 @@
+name: Dark Web Informer
+url: https://darkwebinformer.com/threat-actor-database/
+description: A database of threat actors and their aliases, with the dark-web posts and leak-site claims attributed to each of them.
+category: threat-intel
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [leak-data]
+notes: It indexes extortion and leak-site chatter, so it is a place to confirm whether a claim about a company is real or a re-post of someone else's. Treat its entries as claims made by the actors, not as verified breaches.

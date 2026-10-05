@@ -1,0 +1,10 @@
+name: FortiGuard Labs Threat Actor Encyclopedia
+url: https://www.fortiguard.com/threat-actor
+description: Fortinet's encyclopedia of threat actor groups, listing each one's aliases, its suspected motivation and the malware families attributed to it.
+category: threat-intel
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: 'A reference index rather than a query engine: search it in the browser with the group name. Useful for the alias problem, since the same actor is named differently by every vendor.'

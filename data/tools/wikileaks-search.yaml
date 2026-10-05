@@ -1,0 +1,11 @@
+name: WikiLeaks Search
+url: https://search.wikileaks.org/advanced
+description: Full-text search across WikiLeaks' published cables, documents and releases, with filters for collection, date and country.
+category: archives
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+manual: post-form
+notes: The advanced search page is a form rather than a URL you can build, so it stays a by-hand entry. Searching it is reading a public archive; it is worth remembering that the archive is a snapshot in time and that later corrections do not appear in it.
