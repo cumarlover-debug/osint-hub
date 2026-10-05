@@ -8,6 +8,8 @@ import { spawn } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import { detect, launchable, templatesFor, applies, buildLink, commandsFor, SHELLS, MATCH_LABELS } from '../shared/launcher.mjs';
 import { sanitiseCaseState, activeCase, capabilityRows, resultsAnnex, reportHTML } from '../shared/case.mjs';
+import { extractFindings } from '../shared/extract.mjs';
+import { emptyProfile, addFindings, profileCounts, profileByKind, toolsRunFor, pivotCandidates, dossierMarkdown, PROFILE_VERSION } from '../shared/profile.mjs';
 
 const VERSION = '1.0.0';
 const HELP = `osint-hub ${VERSION}: OSINT tools by what you are investigating
@@ -26,6 +28,8 @@ Usage
   osint-hub case fetch <case.json>     Fetch its search-link tools here, and keep the pages that came back
   osint-hub case agent <case.json>     Render them in your installed browser, so JavaScript-only tools answer too
   osint-hub case report <case.json>    Rebuild the single-file report from what is in the output folder
+  osint-hub agent profile <case.json>  Read everything the case collected into a target profile, and write the dossier
+  osint-hub agent next <case.json>     The same, plus what is left to run, what needs installing and what needs a person
   osint-hub update                     Refresh the cached data now
 
 Filters for "tools":  --input <type>  --category <c>  --type <web|cli|...>  --passive  --free  --no-account
@@ -45,8 +49,7 @@ Options for "case fetch": --yes  --dry-run (list the pages)  --limit <n>  --dela
 Options for "case agent": --yes  --show (run the browser visibly, which passes more bot checks)  --dry-run
                       --limit <n>  --delay <ms between pages>  --settle <ms to wait after load, default 2500>
                       --only a,b  --input <type>  --timeout <seconds per page>  --port <devtools port>  --out <dir>
-Options for any command: --data <tools.json>  use a local copy of the API instead of downloading it
-Global options:       --json  --no-color  --api <base-url>
+Options for any command: --data <tools.json>  use a local copy of the API instead of downloading itGlobal options:       --json  --no-color  --api <base-url>
 
 Every "case" run writes one file — <case>/report.html — holding the plan, every capable tool, what ran, what was
 fetched and what you recorded. Your values never leave your machine except to the tools you run or fetch.
@@ -825,6 +828,132 @@ async function main() {
         out(`   → ${t.name.padEnd(28)} ${dim(link)} ${badges(t)}`);
       }
     });
+    return;
+  }
+
+  // ---- agent: read what the case already collected, build the profile, and say what to do next ----
+  if (command === 'agent') {
+    const [action, file] = rest;
+    if (!['next', 'profile'].includes(action)) {
+      fail('usage: osint-hub agent next|profile <case.json> [--out DIR] [--safe --no-safe] [--json]');
+    }
+    if (!file) fail('point at the JSON backup exported from the workbench: /case → Back up (JSON).');
+    if (!existsSync(file)) fail(`no such file: ${file}`);
+
+    let state;
+    try {
+      state = sanitiseCaseState(JSON.parse(readFileSync(file, 'utf8')));
+    } catch (e) {
+      return fail(`${file} is not valid JSON (${e.message}).`);
+    }
+    const theCase = activeCase(state);
+    const { tools, taxonomy } = await loadTools();
+    const order = Object.keys(taxonomy.categories);
+    const shell = flags.shell ?? (process.platform === 'win32' ? 'powershell' : 'posix');
+    if (!(shell in SHELLS)) fail(`unknown shell "${shell}"; use ${Object.keys(SHELLS).join(' or ')}`);
+    const safe = flags['no-safe'] ? false : flags.safe === true || theCase.safe === true;
+    const outDir = flags.out ?? `osint-hub-${slugifyName(theCase.title)}`;
+    mkdirSync(outDir, { recursive: true });
+    const flat = (s) => String(s ?? '').replace(/\s+/g, ' ').trim();
+
+    // Read whatever the case folder already holds. Run files carry a four-line header; the rest is the tool's own
+    // output, which is what the extractor wants.
+    const readJson = (name) => {
+      try {
+        return JSON.parse(readFileSync(join(outDir, name), 'utf8'));
+      } catch {
+        return null;
+      }
+    };
+    const runText = (file) => {
+      try {
+        const text = readFileSync(file, 'utf8');
+        return text.startsWith('# ') ? text.split('\n').slice(4).join('\n') : text;
+      } catch {
+        return '';
+      }
+    };
+
+    const profilePath = join(outDir, 'profile.json');
+    let profile = readJson('profile.json');
+    if (!profile || profile.version !== PROFILE_VERSION) profile = emptyProfile(theCase.title, theCase.notes);
+
+    let ingested = 0;
+    let findings = 0;
+    const ingest = (results, source) => {
+      for (const r of results ?? []) {
+        const text = source === 'command' ? runText(r.file ?? '') : (r.output ?? r.excerpt ?? '');
+        if (!text) continue;
+        const found = extractFindings({ slug: r.slug, name: r.name, text, value: r.value, at: r.at, source });
+        addFindings(profile, {
+          value: r.value,
+          valueType: r.type,
+          tool: r.name ?? r.slug,
+          slug: r.slug,
+          status: r.status,
+          findings: found,
+          at: r.at,
+          source,
+        });
+        ingested += 1;
+        findings += found.length;
+      }
+    };
+    ingest(readJson('manifest.json')?.results, 'command');
+    ingest(readJson('fetch.json')?.results, 'page');
+    ingest(readJson('agent.json')?.results, 'render');
+    profile.updated = new Date().toISOString().slice(0, 10);
+    writeFileSync(profilePath, `${JSON.stringify(profile, null, 2)}\n`);
+
+    // ---- what is left to do, per identifier ----
+    const plan = theCase.values.map((v) => {
+      const rows = capabilityRows(tools, v.type, v.value, { safe, shell, order });
+      const done = toolsRunFor(profile, v.value);
+      const fresh = rows.filter((r) => !done.has(r.slug));
+      return {
+        v,
+        done: rows.filter((r) => done.has(r.slug)).length,
+        canRun: fresh.filter((r) => r.kind === 'command' && r.command && !r.manual).map((r) => ({ ...r, readiness: readiness(r.command) })),
+        canFetch: fresh.filter((r) => r.kind === 'link' && r.link && !r.manual),
+        byHand: fresh.filter((r) => r.manual),
+        links: fresh.filter((r) => r.kind === 'link' && r.link && !r.manual).length,
+      };
+    });
+
+    const gaps = [];
+    for (const p of plan) {
+      for (const r of p.canRun) if (r.readiness.state !== 'ready') gaps.push(`${r.name} (${p.v.value}) — ${r.readiness.state === 'needs-package' ? 'install its package' : r.readiness.state === 'needs-files' ? 'needs its own files' : 'not installed'}${r.install ? `: ${r.install}` : ''}`);
+    }
+    const manual = plan.flatMap((p) => p.byHand.slice(0, 6).map((r) => ({ name: r.name, link: r.link, why: r.manual === 'captcha' ? 'answers only after a captcha' : r.manual === 'post-form' ? 'answers only a submitted form' : r.manual === 'api-key' ? 'needs an API key' : r.manual === 'login' ? 'needs a logged-in session' : 'is an interactive console' })));
+    const dossier = dossierMarkdown(profile, { gaps, manual });
+    writeFileSync(join(outDir, 'dossier.md'), dossier);
+
+    const counts = profileCounts(profile);
+    if (flags.json) return json({ case: theCase.title, outDir, profile: profilePath, dossier: join(outDir, 'dossier.md'), counts, plan: plan.map((p) => ({ value: p.v.value, type: p.v.type, done: p.done, canRun: p.canRun.length, canFetch: p.canFetch.length, byHand: p.byHand.length })) });
+
+    out(`${bold(theCase.title)} ${dim(`· ${counts.leads} leads from ${counts.toolsRun} tool runs`)}`);
+    out(dim(`read ${ingested} results · ${findings} findings extracted${ingested ? '' : ' — nothing collected yet, run the case runners first'}`));
+    out('');
+    for (const [kind, list] of Object.entries(profileByKind(profile))) {
+      out(`  ${String(list.length).padStart(4)}  ${kind}${list.length ? dim(`  (${list.slice(0, 3).map((e) => flat(e.value)).join(', ')}${list.length > 3 ? ', …' : ''})`) : ''}`);
+    }
+    if (!counts.leads) out(dim('  no leads yet'));
+    out('');
+    for (const p of plan) {
+      const ready = p.canRun.filter((r) => r.readiness.state === 'ready').length;
+      out(`${bold(p.v.value)} ${dim(`(${taxonomy.inputs[p.v.type] ?? p.v.type})`)}`);
+      out(dim(`  ${p.canRun.length} runnable (${ready} installed) · ${p.canFetch.length} fetchable · ${p.byHand.length} by hand · ${p.done} already done`));
+      for (const r of p.canRun.slice(0, 6)) out(`    ${r.name.padEnd(26)} ${r.readiness.state === 'ready' ? green('ready') : dim(r.readiness.state)}`);
+      if (p.canRun.length > 6) out(dim(`    …and ${p.canRun.length - 6} more`));
+    }
+    const pivots = pivotCandidates(profile).slice(0, 8);
+    if (pivots.length) {
+      out(`\n${bold('Worth pivoting on')} ${dim('— found in the results, not yet treated as inputs')}`);
+      for (const p of pivots) out(`  ${p.kind.padEnd(10)} ${p.value.slice(0, 60)} ${dim(`(${p.sources} source${p.sources === 1 ? '' : 's'})`)}`);
+    }
+    if (gaps.length) out(`\n${yellow(`${gaps.length} tools need installing before the agent can run them`)}`);
+    if (manual.length) out(yellow(`${manual.length} have to be done by hand`));
+    out(`\n${green('Profile:')} ${profilePath}\n${green('Dossier:')} ${join(outDir, 'dossier.md')}`);
     return;
   }
 
