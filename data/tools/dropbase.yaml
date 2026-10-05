@@ -1,0 +1,12 @@
+name: Dropbase
+url: https://dropbase.fun
+description: Searches indexed breach and stealer-log records and other public sources from one workspace, with an API for running the same queries from your own scripts.
+category: breach
+inputs: [email, username, domain]
+type: web
+cost: freemium
+passive: true
+account_required: true
+manual: login
+tags: [leak-data]
+notes: 'Its own page describes search across indexed breach and stealer-log records plus investigation of public sources, and it is account-gated, so it stays a by-hand entry. The page states no operator and no source for its records, which is the same caution as the other aggregators here: you are handing a target''s address to an unverified third party and taking back material that carries legal weight. Note that a log exists, never what was in it.'
