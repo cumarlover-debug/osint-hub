@@ -565,3 +565,8 @@ https://elfqrin.com/usssndriverlicenseidgen.php  # US SSN / Driver License Gener
 https://ipfs-search.com/#/search  # ipfs-search.com (the domain is now for sale ("ipfs-search.com is for sale!"), so the service no longer exists), 2026-10-05
 https://chris927.github.io/generate-sa-idnumbers  # Generate SA ID Numbers (generates valid-looking South African identity numbers, which is forgery tooling rather than investigation tooling), 2026-10-05
 https://datacore-gn.unepgrid.ch/  # Datacore (UNEP/GRID-Geneva) (answers 404 Not Found; the service is gone from that address), 2026-10-05
+https://www.dating-profile-generator.org.uk/  # Dating Profile Generator (builds a false dating profile, which exists to deceive people on dating platforms: refused as a deception tool, and the same reason the dating-site lookups were refused), 2026-10-05
+https://dyrk.org/tools/imei/  # IMEI Number Generator (generates device identifiers: forgery tooling rather than investigation tooling, refused on the same grounds as the identity-document generators), 2026-10-05
+https://metager3.de/en/  # MetaGer (answers 404; the service has moved off that address), 2026-10-05
+https://inteltechniques.com/voip.twilio.cli.html  # IntelTechniques Twilio CLI Guide (answers 404; the guide no longer exists at the address the source list carries), 2026-10-05
+https://inteltechniques.com/voip.suite.html  # IntelTechniques VoIP Suite Guide (answers 404; the guide no longer exists at the address the source list carries), 2026-10-05

@@ -1,0 +1,10 @@
+name: FaxZero
+url: https://faxzero.com/
+description: Sends a fax from a browser, free for short documents with a cover page.
+category: opsec
+inputs: [document]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Still the only way to reach plenty of registries, clinics and authorities, and it asks for less identity than an account would. The cover page is theirs, not yours.

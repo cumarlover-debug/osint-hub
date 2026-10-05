@@ -1,0 +1,10 @@
+name: addy.io
+url: https://anonaddy.com/
+description: 'Anonymous email forwarding: it gives you an address that forwards to your real inbox and can be switched off when it starts attracting spam.'
+category: opsec
+inputs: [email]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: 'This is the practical version of a burner address for work that needs a reply: the reply arrives, the identity that sent it does not have to be yours, and burning it is one click. Open source and free for the personal tier.'

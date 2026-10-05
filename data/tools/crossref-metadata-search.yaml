@@ -1,0 +1,10 @@
+name: Crossref Metadata Search
+url: https://search.crossref.org/
+description: 'Searches the registry behind DOIs: papers, authors, affiliations, funders and the links between them.'
+category: research
+inputs: [name, keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: The authoritative way to check whether a publication is real, who the co-authors were, and which institution an author claimed — which is how you test a claimed academic background.

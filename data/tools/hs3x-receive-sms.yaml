@@ -1,0 +1,10 @@
+name: hs3x Receive SMS
+url: https://hs3x.com/
+description: Public numbers in several countries whose incoming messages are readable by anyone, for the SMS step of a service that insists on a number.
+category: opsec
+inputs: [phone]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Shared by design, so treat every message on it as public and never use one for anything that matters to you. Its value is precisely that it is not yours.

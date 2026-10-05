@@ -1,0 +1,10 @@
+name: GrayhatWarfare Shortener Index
+url: https://shorteners.grayhatwarfare.com/
+description: An index of URL shorteners, so a shortened link can be attributed to the service that produced it.
+category: domain
+inputs: [url, domain]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: A short link hides its destination and often its owner, and knowing which service issued it is the first step to expanding it. Same operators as the exposed-bucket search.

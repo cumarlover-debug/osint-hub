@@ -1,0 +1,10 @@
+name: Search Engines Index
+url: https://www.searchenginesindex.com/
+description: A country-by-country index of search engines, for the countries where the familiar ones are not what people actually use.
+category: search
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: When a subject is outside the English-speaking web, the first problem is knowing which engine indexes them at all. This is the reference for that, and it saves guessing at names.

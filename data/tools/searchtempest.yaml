@@ -1,0 +1,10 @@
+name: SearchTempest
+url: https://www.searchtempest.com/
+description: Searches Craigslist and Facebook Marketplace across a chosen radius, city, state or the whole country.
+category: search
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: 'The radius control is the useful part: it answers "is anything like this advertised near there", which is often the question behind a location.'

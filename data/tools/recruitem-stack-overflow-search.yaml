@@ -1,0 +1,10 @@
+name: RecruitEm Stack Overflow Search
+url: https://recruitin.net/stackoverflow.php
+description: Builds a search for Stack Overflow users who answered questions on a given topic, filtered by location and reputation.
+category: code-security
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: 'Recruiters use it to find developers, which is exactly why it works for the opposite purpose: finding the technical footprint of a person or a team from what they answered in public.'
