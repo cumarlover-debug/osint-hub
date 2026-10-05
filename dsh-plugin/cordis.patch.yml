@@ -1,0 +1,5 @@
+# dsh-osint-hub bundle layer: one row mounts the tool plugin's node half, which registers the
+# `osint_agent` tool on the harness's tool registry.
+- insert:
+    - id: osint-hub
+      name: 'dsh-osint-hub'
