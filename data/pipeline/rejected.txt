@@ -548,3 +548,6 @@ https://www.vigilante.pw/  # Vigilante.pw (domain now redirects to Dehashed, whi
 https://credenshow.com/  # CredenShow (domain mismatch: credenshow.com redirects to nextsecurity.hk, an unrelated Hong Kong pentest firm with no search tool), 2026-10-05
 https://iknowyour.dad/  # IKnowYour.Dad (unverifiable and high risk: crypto-only "no KYC" payments, claims of 93 billion records it cannot evidence, referral payouts, hosted on Replit), 2026-10-05
 https://github.com/ppwwyyxx/wechat-dump  # wechat-dump (not a lookup tool: it analyses a WeChat database off a device you already hold, so there is no value to pass it and it answers nothing about a username), 2026-10-05
+https://telegram.me/datxpertbot  # datXpert Telegram bot (no verifiable operator and nothing to read: a chat bot answering with leaked personal data, reached through an anonymous Telegram account), 2026-10-05
+https://telegram.me/Leak_SSINTbot  # Leak OSINT Telegram bot (no verifiable operator and nothing to read: a chat bot answering with leaked personal data, reached through an anonymous Telegram account), 2026-10-05
+https://telegram.me/PasswordSearchBot  # PasswordSearch Telegram bot (no verifiable operator and nothing to read: a chat bot answering with leaked credentials, reached through an anonymous Telegram account), 2026-10-05

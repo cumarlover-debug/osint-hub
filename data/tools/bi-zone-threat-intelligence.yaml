@@ -1,0 +1,10 @@
+name: BI.ZONE Threat Intelligence
+url: https://gti.bi.zone/
+description: BI.ZONE's threat-intelligence portal, with profiles of the cyber groups it tracks and the campaigns attributed to them.
+category: threat-intel
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: 'Operated by BI.ZONE, a Russian vendor, and the portal is in Russian: its own words offer free access to key information about the groups it follows, with more behind registration. Read it as a vendor''s view of the groups it has chosen to track, which is useful precisely because it does not carry the same naming habits as the English-language vendors.'
