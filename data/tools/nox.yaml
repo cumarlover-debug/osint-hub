@@ -1,0 +1,17 @@
+name: NOX
+url: https://github.com/nox-project/nox-framework
+description: A cyber-threat-intelligence engine that pivots an identifier across more than a hundred configured sources, with each source defined as a JSON plugin and its API keys rotated between calls.
+category: frameworks
+inputs: [email, username, domain, ip]
+type: cli
+cost: free
+passive: true
+account_required: true
+manual: interactive
+repo: nox-project/nox-framework
+install: git clone, then pip install -r requirements.txt and python build_sources.py
+language: Python
+license: Apache-2.0
+platforms: [linux, macos, windows]
+tags: [open-source]
+notes: 'This is a framework rather than a command: nox.py is the execution engine and everything it knows lives in JSON plugins under sources/, so it needs build_sources.py run first, API keys placed in api_key_slots, and optionally a proxies.txt in the working directory for rotation. It is listed as a framework you set up and drive yourself, which is why there is no command here. Kali-ready and Apache-2.0, last pushed May 2026.'
