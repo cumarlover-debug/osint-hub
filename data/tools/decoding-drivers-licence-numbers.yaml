@@ -1,0 +1,10 @@
+name: Decoding Driver's Licence Numbers
+url: https://stevemorse.org/dl/dl.html
+description: Decodes what a United States driver licence number encodes — the state scheme, the name and date it is derived from — and encodes one the same way.
+category: people
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: The numbering schemes differ by state and several are derived from the holder's name and birth date, so a licence number can confirm a name rather than needing one. It explains the schemes; it does not look anyone up.

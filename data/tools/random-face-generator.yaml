@@ -1,0 +1,10 @@
+name: Random Face Generator
+url: https://fakeinfo.net/random-face-generator
+description: Generates synthetic faces for a profile picture, with no real person behind them.
+category: opsec
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: 'Two uses, and the second matters more here: building a persona that is not a borrowed photograph, and recognising the faces made this way when one appears in a profile you are checking.'

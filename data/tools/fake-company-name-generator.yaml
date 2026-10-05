@@ -1,0 +1,10 @@
+name: Fake Company Name Generator
+url: https://fakeinfo.net/company-name-generator
+description: Generates plausible company names for a cover identity or a test record, checking the name is not already registered.
+category: opsec
+inputs: [company]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: 'Useful for reading as well as writing: knowing how invented company names are built helps recognise a shell or a fabricated reference when one turns up in records.'

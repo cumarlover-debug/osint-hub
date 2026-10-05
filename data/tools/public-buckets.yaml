@@ -1,0 +1,10 @@
+name: Public Buckets
+url: https://osint.sh/buckets/
+description: Finds publicly readable AWS S3 and Azure Blob buckets by keyword, which is how files a company never meant to publish end up indexed.
+category: network
+inputs: [keyword, company, domain]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: 'The exposed-bucket family, by the people behind osint.sh. Searching a company name or a project keyword finds storage that was left open, and looking is passive: nothing is downloaded unless you ask for it.'

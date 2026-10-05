@@ -1,0 +1,10 @@
+name: Vulmon
+url: https://vulmon.com/
+description: A vulnerability search engine with the affected products, the exploit references and the trend behind each entry.
+category: threat-intel
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Good for the question "is this product or version known to be broken", and for tracking what a vendor has not fixed yet.

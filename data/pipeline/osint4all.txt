@@ -180,3 +180,11 @@ http://zorexeye.com/  # ZorexEye
 #            forgery), metager3.de (404), inteltechniques voip.suite.html and voip.twilio.cli.html (404)
 # note:      argumentsearch.com and searchcraigslist.org were first skipped for serving http only; both answer over
 #            https and were published. Test the scheme before believing the source list - twice now.
+
+# --- final batch (live maps, vulnerability databases, personas), 2026-10-05 ---
+# published: osint.sh/buckets, rapid7.com/db, sploitus.com, vulmon.com, waze.com/live-map,
+#            windy.com webcams, stevemorse.org dl.html and ssn.html, fakeinfo.net random-face and
+#            company-name-generator, pypi.org/project/osrframework
+# refused:   wpimeigenerator, mmarvick wa-drivers-license, fakeinfo fake tiktok/twitter/youtube profile
+#            generators (forged platform pages), fauxid.com/tools, elfqrin fakeid, coronavirus.jhu.edu (retired)
+# duplicate: metadefender.opswat.com was a second entry for the already-listed MetaDefender Cloud

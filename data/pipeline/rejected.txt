@@ -570,3 +570,11 @@ https://dyrk.org/tools/imei/  # IMEI Number Generator (generates device identifi
 https://metager3.de/en/  # MetaGer (answers 404; the service has moved off that address), 2026-10-05
 https://inteltechniques.com/voip.twilio.cli.html  # IntelTechniques Twilio CLI Guide (answers 404; the guide no longer exists at the address the source list carries), 2026-10-05
 https://inteltechniques.com/voip.suite.html  # IntelTechniques VoIP Suite Guide (answers 404; the guide no longer exists at the address the source list carries), 2026-10-05
+https://www.elfqrin.com/fakeid.php  # Fake Identity ID Generator (generates a complete false identity, which is fraud tooling), 2026-10-05
+https://fakeinfo.net/fake-tiktok-profile-gererator  # Fake TikTok Profile Generator (builds a forged copy of a platform profile page, which is fabricated evidence rather than an investigation tool), 2026-10-05
+https://fakeinfo.net/fake-twitter-profile-generator  # Fake Twitter Profile Generator (builds a forged copy of a platform profile page, which is fabricated evidence rather than an investigation tool), 2026-10-05
+https://fauxid.com/tools  # FauxID Tools (a collection of identity-document generators: fraud tooling), 2026-10-05
+https://fakeinfo.net/fake-youtube-channel-generator  # Fake YouTube Channel Generator (builds a forged copy of a platform channel page, which is fabricated evidence rather than an investigation tool), 2026-10-05
+https://coronavirus.jhu.edu/map.html  # Johns Hopkins COVID-19 Map (answers 403 and the dashboard has been retired since the pandemic ended), 2026-10-05
+https://mmarvick.github.io/wa-drivers-license/  # Washington State Driver's Licence Generator (generates a forged state driving licence: fraud tooling), 2026-10-05
+https://wpimeigenerator.github.io/  # Windows Phone IMEI Generator (fabricates device identifiers: forgery tooling, refused on the same grounds as the other identifier generators), 2026-10-05

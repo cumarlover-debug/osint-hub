@@ -1,0 +1,10 @@
+name: OSRFramework
+url: https://pypi.org/project/osrframework/
+description: A set of command-line tools from i3visio for username, email and phone enumeration, packaged as one framework.
+category: frameworks
+inputs: [username, email, phone, name]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: 'One of the older OSINT toolkits and still maintained: it installs from PyPI and covers the same ground as several single-purpose tools, with a common output format for piping into other work.'

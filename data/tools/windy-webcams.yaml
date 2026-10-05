@@ -1,0 +1,10 @@
+name: Windy Webcams
+url: https://www.windy.com/-Webcams/webcams
+description: Webcams and live weather around a place, shown on a map with wind, radar and forecast layers alongside.
+category: geolocation
+inputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: 'A camera where you need one is worth more than a satellite pass: it shows the state of a location now, and the weather layer explains what the picture should look like.'
