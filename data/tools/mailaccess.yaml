@@ -1,0 +1,17 @@
+name: MailAccess
+url: https://github.com/KatrielMoses/MailAccess
+description: 'Investigates an email address across thousands of platforms in one command: which services recognise it, which accounts cluster together as one identity, and whether the address appears in breach data.'
+category: email
+inputs: [email, domain]
+type: cli
+cost: free
+passive: true
+account_required: false
+command_template: {email: 'mailaccess investigate {query}', domain: 'mailaccess harvest-emails --domain {query}'}
+repo: KatrielMoses/MailAccess
+install: pip install mailaccess
+language: Python
+license: MIT
+platforms: [linux, macos, windows]
+tags: [open-source, personal-data]
+notes: 'No API keys are needed for the free sources; a HIBP key can be added with mailaccess keys set HIBP_API_KEY. The investigate command writes a report you can export with -o report.pdf, and harvest-emails takes a domain rather than an address. It clusters accounts into an identity, which is the part to treat carefully: a cluster is a hypothesis about who is who, and it belongs in the case as one until something independent confirms it.'

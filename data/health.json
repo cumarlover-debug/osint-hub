@@ -3957,6 +3957,18 @@
       "pushed_at": "2026-09-28"
     }
   },
+  "mailaccess": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05",
+    "repo": {
+      "stars": 1537,
+      "archived": false,
+      "pushed_at": "2026-10-01"
+    }
+  },
   "mailcat": {
     "status": "up",
     "failures": 0,
@@ -4584,6 +4596,18 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "nox": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05",
+    "repo": {
+      "stars": 333,
+      "archived": false,
+      "pushed_at": "2026-05-06"
+    }
   },
   "nsopw": {
     "status": "up",
