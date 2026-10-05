@@ -1,0 +1,10 @@
+name: lazarus.day
+url: https://lazarus.day/actors/
+description: 'Tracks North Korea''s cyber operations: the threat actors behind them, the incidents reported against each, and the indicators published with them.'
+category: threat-intel
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: 'Focused on DPRK-linked activity, which is where the alias problem is worst: it collects the group names that vendors, governments and the press each use for the same operation.'

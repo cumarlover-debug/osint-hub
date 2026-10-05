@@ -1,0 +1,10 @@
+name: BreachHQ
+url: https://breach-hq.com/threat-actors
+description: Beyond Identity's index of threat actors, APTs and known groups, gathered from the ransomware and extortion activity attributed to each one.
+category: threat-intel
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: 'A directory you read rather than query: find the group by name and work from the activity listed against it. Its page title names Beyond Identity as the operator, which is the sort of provenance worth having on a threat feed.'

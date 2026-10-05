@@ -520,14 +520,24 @@ async function renderPage(cdp, row, value, outDir, index, timeout, settle) {
 
     // A bot check clears after load, then the real page paints. Reading the text once, straight after load, caught
     // the challenge instead of the results, so poll until the page stops changing — with `settle` as the ceiling.
+    // The rendered markup comes back too: a page that only a browser can build is exactly the page whose links you
+    // cannot get any other way, and saving the DOM lets them be read or grepped afterwards.
     const read = async () => {
       const { result } = await cdp.send(
         'Runtime.evaluate',
-        { expression: 'JSON.stringify({title: document.title || "", text: (document.body ? document.body.innerText : "") || ""})', returnByValue: true },
+        {
+          expression:
+            'JSON.stringify({title: document.title || "", text: (document.body ? document.body.innerText : "") || "", html: document.documentElement ? document.documentElement.outerHTML : ""})',
+          returnByValue: true,
+        },
         sessionId,
       );
       const parsed = JSON.parse(result.value);
-      return { title: String(parsed.title).replace(/\s+/g, ' ').trim(), text: String(parsed.text).replace(/\s+/g, ' ').trim() };
+      return {
+        title: String(parsed.title).replace(/\s+/g, ' ').trim(),
+        text: String(parsed.text).replace(/\s+/g, ' ').trim(),
+        html: String(parsed.html ?? ''),
+      };
     };
 
     const deadline = Date.now() + Math.max(settle, 1000);
@@ -544,12 +554,20 @@ async function renderPage(cdp, row, value, outDir, index, timeout, settle) {
 
     const image = await cdp.send('Page.captureScreenshot', { format: 'png' }, sessionId);
     writeFileSync(shot, Buffer.from(image.data, 'base64'));
+    // The DOM is written next to the screenshot only when it holds something the text does not: links to other
+    // sites. A page of prose is already in the report; a page of links is not.
+    let dom;
+    if (best.html && (best.html.match(/href="https?:\/\//g) ?? []).length > 5) {
+      dom = join('browser', `${String(index).padStart(2, '0')}-${row.slug}.html`);
+      writeFileSync(join(outDir, dom), best.html);
+    }
     return {
       ...base,
       status: classify({ text: best.text, title: best.title }),
       title: best.title,
       excerpt: best.text.slice(0, 2000),
       screenshot: join('browser', `${String(index).padStart(2, '0')}-${row.slug}.png`),
+      ...(dom && { dom }),
     };
   } catch (e) {
     return { ...base, status: 'failed', note: e.name === 'TimeoutError' ? 'timeout' : e.message };

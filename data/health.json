@@ -824,6 +824,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "breachhq": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "breadcrumbs": {
     "status": "unverified",
     "failures": 0,
@@ -1333,6 +1340,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "cryptome": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "csi-linux": {
     "status": "up",
     "failures": 0,
@@ -1372,6 +1386,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "dark-web-informer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "dart-korea": {
     "status": "up",
@@ -2333,6 +2354,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "fortiguard-labs-threat-actor-encyclopedi": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "fotoforensics": {
     "status": "unverified",
@@ -3671,6 +3699,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "lazarus-day": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "lazy-scholar": {
     "status": "up",
@@ -7256,6 +7291,13 @@
     "last_checked": "2026-09-30",
     "http": 200,
     "last_ok": "2026-09-30"
+  },
+  "wikileaks-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "wikimapia": {
     "status": "up",
