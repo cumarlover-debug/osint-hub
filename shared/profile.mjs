@@ -137,7 +137,7 @@ const esc = (s) =>
  * The dossier: a readable account of the profile, written to be read by a person who has to act on it. It states
  * what each thing is, how it was found and when, and keeps leads and absences apart.
  */
-export function dossierMarkdown(profile, { gaps = [], manual = [] } = {}) {
+export function dossierMarkdown(profile, { gaps = [], manual = [], tasks = [] } = {}) {
   const counts = profileCounts(profile);
   const groups = profileByKind(profile);
   const lines = [];
@@ -152,6 +152,21 @@ export function dossierMarkdown(profile, { gaps = [], manual = [] } = {}) {
   lines.push('Everything below is a **candidate**. A finding records what a tool returned about a value, with the line');
   lines.push('it came from; none of it is a conclusion until a person confirms it against a second, independent source.');
   lines.push('');
+
+  if (tasks.length) {
+    lines.push('## Assigned tasks');
+    lines.push('');
+    lines.push('What was asked for, in the investigator\'s words, and how much of the work that implies has been tried. The');
+    lines.push('mapping is visible here so the reading can be checked as well as the result.');
+    lines.push('');
+    for (const t of tasks) {
+      const p = t.progress ?? { done: 0, total: (t.slugs ?? []).length, left: (t.slugs ?? []).length };
+      const status = t.status === 'done' ? 'done' : p.done ? 'in progress' : 'open';
+      lines.push(`- **${esc(t.text)}** — ${status}; read as ${esc((t.intentsLabel ?? []).join(' + ') || 'unmapped')}, about ${esc((t.values ?? []).join(', ') || 'the case')}`);
+      lines.push(`  - ${p.done} of ${p.total} tools tried${p.left ? `, ${p.left} left` : ''}${t.unplaced ? `; could not place: "${esc(t.unplaced)}"` : ''}`);
+    }
+    lines.push('');
+  }
 
   const order = ['account', 'email', 'username', 'phone', 'name', 'org', 'domain', 'ip', 'location', 'url', 'breach', 'document', 'hash', 'crypto_address', 'vehicle', 'vessel', 'aircraft'];
   const titles = {
