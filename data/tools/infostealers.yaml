@@ -1,0 +1,12 @@
+name: InfoStealers
+url: https://infostealers.info/en/info
+description: Searches indexed infostealer logs — the credentials malware lifted from infected machines — for an address or account, and shows the captured log entries behind it.
+category: breach
+inputs: [email, username]
+type: web
+cost: freemium
+passive: true
+account_required: true
+manual: login
+tags: [leak-data]
+notes: 'Sign-in is a passwordless email code, and every search page sits behind it, so it is a by-hand entry. The API is restricted to KYC-verified paying users. Its pricing is not published anywhere I could read, so whether the web search itself is free is unknown. This is stolen credential material: note the existence of a log, never its contents.'

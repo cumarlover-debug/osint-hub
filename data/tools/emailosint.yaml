@@ -1,0 +1,12 @@
+name: EmailOSINT
+url: https://emailosint.org/
+description: 'A commercial reverse-email lookup: it streams back the accounts an address is registered to, breach and infostealer-log hits, then writes an AI summary of who it thinks is behind the address.'
+category: email
+inputs: [email]
+type: web
+cost: freemium
+passive: true
+account_required: false
+manual: post-form
+tags: [personal-data, leak-data]
+notes: 'Three lookups a day free, no signup, and everything runs in the page, so it is a form rather than a URL you can build. Read before you use it: the page states no operator, no privacy policy and no source for its claimed 40 billion breach records, and it answers with infostealer-log captures, which are other people''s stolen data. You are handing a target''s address to an unverified third party and taking back material that carries legal weight in most countries. That is a deliberate decision, not a default one.'

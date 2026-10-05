@@ -1,0 +1,12 @@
+name: LeakRadar
+url: https://leakradar.io/
+description: Credential leak search and domain monitoring across stealer logs, combolists, raw leak files and dark-web forums, with a public per-domain report that needs no account.
+category: breach
+inputs: [domain, email, username]
+type: web
+cost: freemium
+passive: true
+account_required: false
+query_template: {domain: 'https://leakradar.io/en/domain-reports?domain={query}'}
+tags: [leak-data]
+notes: 'The public domain report is the plain link used here: no account, and it never shows passwords. Investigating an address or username in detail needs a free account, and revealing plaintext needs a paid plan (from about 25 EUR a month). It aggregates indexed leak data, so read a hit as exposure that already happened.'

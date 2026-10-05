@@ -1,0 +1,12 @@
+name: Have I Been Ransomed?
+url: https://haveibeenransom.com/
+description: Searches ransomware leak sites, infostealer logs, Telegram dumps and breach sets for an email address, phone number or crypto wallet, and reports which of its twenty thousand indexed sources carry it.
+category: breach
+inputs: [email, phone, crypto_address]
+type: web
+cost: free
+passive: true
+account_required: false
+manual: post-form
+tags: [leak-data]
+notes: Free and anonymous with no signup, but the search is a form behind a Cloudflare check rather than a URL you can build, so it stays a by-hand entry. Its API is a separate paid thing with a bearer token; only its breach counters answer without one.

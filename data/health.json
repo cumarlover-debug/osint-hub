@@ -1045,6 +1045,13 @@
       "pushed_at": "2026-09-21"
     }
   },
+  "checkleaked": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "checkphish": {
     "status": "unverified",
     "failures": 0,
@@ -1734,6 +1741,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "emailosint": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "emailrep": {
     "status": "up",
@@ -2882,6 +2896,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "have-i-been-ransomed": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "have-i-been-zuckered": {
     "status": "up",
     "failures": 0,
@@ -2895,6 +2916,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "heroic": {
+    "status": "unverified",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 403,
+    "reason": "HTTP 403 (bot protection)"
   },
   "historic-aerials": {
     "status": "up",
@@ -3216,6 +3244,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-26"
+  },
+  "infostealers": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "infotracer": {
     "status": "up",
@@ -3651,12 +3686,31 @@
     "http": 200,
     "last_ok": "2026-09-30"
   },
+  "leaker": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05",
+    "repo": {
+      "stars": 598,
+      "archived": false,
+      "pushed_at": "2026-10-02"
+    }
+  },
   "leakix": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-09-30",
     "http": 200,
     "last_ok": "2026-09-30"
+  },
+  "leakradar": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "legacy-com": {
     "status": "up",
@@ -3708,6 +3762,18 @@
       "stars": 1858,
       "archived": false,
       "pushed_at": "2026-05-20"
+    }
+  },
+  "linkedindumper": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05",
+    "repo": {
+      "stars": 617,
+      "archived": false,
+      "pushed_at": "2026-08-21"
     }
   },
   "littlesis": {
@@ -4751,6 +4817,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "osintcat": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "osintgram": {
     "status": "up",
     "failures": 0,
@@ -5372,6 +5445,18 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "roadtools": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05",
+    "repo": {
+      "stars": 2732,
+      "archived": false,
+      "pushed_at": "2026-08-05"
+    }
   },
   "robin": {
     "status": "up",

@@ -1,0 +1,17 @@
+name: LinkedInDumper
+url: https://github.com/l4rm4nd/LinkedInDumper
+description: Dumps the employees of a company from LinkedIn's internal API into first name, last name, position, location and profile link, and can guess their email addresses from a pattern you supply.
+category: business
+inputs: [company]
+type: cli
+cost: free
+passive: false
+account_required: true
+manual: login
+repo: l4rm4nd/LinkedInDumper
+install: git clone, or docker pull l4rm4nd/linkedindumper
+language: Python
+license: GPL-3.0
+platforms: [linux, macos, windows]
+tags: [open-source]
+notes: 'It takes a LinkedIn company URL plus your own li_at session cookie, so it needs your account and cannot be a command the runner drives: python3 linkedindumper.py --url ''https://www.linkedin.com/company/acme'' --cookie ''<cookie>'' --email-format ''{0}.{1}@acme.com''. It talks to an undocumented private API, which is what LinkedIn''s terms are about: expect the account to be watched or restricted, and results cap at a thousand people.'
