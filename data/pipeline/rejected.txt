@@ -578,3 +578,9 @@ https://fakeinfo.net/fake-youtube-channel-generator  # Fake YouTube Channel Gene
 https://coronavirus.jhu.edu/map.html  # Johns Hopkins COVID-19 Map (answers 403 and the dashboard has been retired since the pandemic ended), 2026-10-05
 https://mmarvick.github.io/wa-drivers-license/  # Washington State Driver's Licence Generator (generates a forged state driving licence: fraud tooling), 2026-10-05
 https://wpimeigenerator.github.io/  # Windows Phone IMEI Generator (fabricates device identifiers: forgery tooling, refused on the same grounds as the other identifier generators), 2026-10-05
+https://btdig.com/  # btdig (the site does not answer: a real browser reports "took too long to respond"), 2026-10-05
+https://www.geocreepy.com/  # geocreepy (redirects into Flashpoint, an unrelated commercial vendor; the tool itself is gone), 2026-10-05
+https://www.gopit.com/socialsearch/index.php?type=Social  # gopit (the server refuses connections ("refused to connect"), so the search no longer runs), 2026-10-05
+https://libgen.is/  # libgen (unreachable, and it exists to distribute copyrighted books without permission), 2026-10-05
+https://www.meganzsearch.com/  # meganzsearch (the domain now serves a placeholder ("Find information, resources and relevant links for meganzsearch.com")), 2026-10-05
+https://searchatlas.org/  # searchatlas (an SEO marketing product rather than an investigation tool, and it would not render to say what it does), 2026-10-05

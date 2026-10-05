@@ -5041,6 +5041,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "openpgp-keyserver": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "openrailwaymap": {
     "status": "up",
     "failures": 0,
