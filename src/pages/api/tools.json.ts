@@ -33,6 +33,9 @@ export function GET() {
       ...(t.platforms && { platforms: t.platforms }),
       ...(t.language && { language: t.language }),
       ...(t.license && { license: t.license }),
+      // From the weekly health check rather than the entry, so absent for a tool with no repository to read.
+      ...(t.health?.repo?.stars != null && { stars: t.health.repo.stars }),
+      ...(t.health?.repo?.archived && { archived: true }),
       status: t.health?.status ?? 'unverified',
     })),
   };

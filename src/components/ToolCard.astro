@@ -15,6 +15,9 @@ const host = new URL(tool.url).hostname.replace(/^www\./, '');
 // claims more than the data does.
 const openSource = Boolean(tool.repo && tool.license);
 const platforms = tool.platforms ?? [];
+// Star counts come from the weekly health check, which reads each repository. Absent for anything without one, which
+// is why the filter matches only tools that actually carry a number.
+const stars = tool.health?.repo?.stars;
 const searchText = [tool.name, tool.name.replace(/[^a-z0-9]/gi, ''), host, tool.description, tool.category, ...(tool.tags ?? []), ...tool.inputs]
   .join(' ')
   .toLowerCase();
@@ -32,6 +35,7 @@ const searchText = [tool.name, tool.name.replace(/[^a-z0-9]/gi, ''), host, tool.
   data-open-source={String(openSource)}
   data-linux={String(platforms.includes('linux'))}
   data-byhand={String(Boolean(tool.manual))}
+  data-stars={stars != null ? String(stars) : ''}
   data-search={searchText}
   data-slug={tool.slug}
 >
@@ -50,6 +54,12 @@ const searchText = [tool.name, tool.name.replace(/[^a-z0-9]/gi, ''), host, tool.
     <li class={`badge cost-${tool.cost}`}>{taxonomy.costs[tool.cost]}</li>
     {!tool.passive && <li class="badge warn" title="Can interact with the target or its infrastructure">Active</li>}
     {tool.account_required && <li class="badge">Account</li>}
+    {stars != null && (
+      <li class="badge" title={`${stars.toLocaleString('en-GB')} stars on GitHub`}>
+        {stars >= 1000 ? `${Math.round(stars / 1000)}k★` : `${stars}★`}
+      </li>
+    )}
+    {tool.manual && <li class="badge warn" title="Has to be queried by hand">By hand</li>}
   </ul>
   <p class="takes">
     <span>Takes</span>
