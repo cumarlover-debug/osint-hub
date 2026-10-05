@@ -1,0 +1,10 @@
+name: INSPIRE Geoportal
+url: https://www.inspire-geoportal.eu/
+description: The European Union's spatial data portal, gathering the member states' environmental, transport, boundary and infrastructure datasets into one search.
+category: geolocation
+inputs: [location, keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: The official index behind the national portals, so it is the place to find which authority publishes a layer for a European area before hunting through a country's own sites.

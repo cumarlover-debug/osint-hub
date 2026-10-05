@@ -168,3 +168,6 @@ http://zorexeye.com/  # ZorexEye
 # skipped:   inspire-geoportal.eu - serves http only, and every tool URL must be https
 # left for a person, not for automation: the ArcGIS dashboards (two render empty even in a browser, one asks for an
 #            ArcGIS Online sign-in) and inciweb.nwcg.gov (403 to both a plain request and the browser)
+
+# corrected: inspire-geoportal.eu serves https as well as http, so it was published over https - the skip above was
+# my mistake in taking the source's http URL at face value
