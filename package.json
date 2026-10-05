@@ -17,7 +17,8 @@
     "extension:sync": "node -e \"require('fs').copyFileSync('shared/launcher.mjs','extension/lib/launcher.mjs')\" && node scripts/extension-icons.mjs",
     "templates": "node scripts/template-check.mjs",
     "forms:mark": "node scripts/mark-forms.mjs",
-    "skill:install": "node scripts/install-skill.mjs"
+    "skill:install": "node scripts/install-skill.mjs",
+    "dsh:selftest": "node dsh-plugin/selftest.mjs"
   },
   "license": "UNLICENSED",
   "type": "module",
