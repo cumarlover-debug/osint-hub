@@ -148,6 +148,9 @@ const pct = (n: number) => (n / total) * 100;
       </label>
       <label class="check"><input type="checkbox" id="passive" /> Passive only</label>
       <label class="check"><input type="checkbox" id="noaccount" /> No account needed</label>
+      <label class="check"><input type="checkbox" id="opensource" /> Open source</label>
+      <label class="check"><input type="checkbox" id="linux" /> Runs on Linux</label>
+      <label class="check"><input type="checkbox" id="byhand" /> Listed for by-hand use</label>
       <label class="check"><input type="checkbox" id="working" /> Working tools only</label>
       <label class="check"><input type="checkbox" id="mine" /> ★ My toolkit only</label>
     </div>
@@ -171,6 +174,9 @@ const pct = (n: number) => (n / total) * 100;
   const category = $<HTMLSelectElement>('category');
   const passive = $<HTMLInputElement>('passive');
   const noaccount = $<HTMLInputElement>('noaccount');
+  const opensource = $<HTMLInputElement>('opensource');
+  const linux = $<HTMLInputElement>('linux');
+  const byhand = $<HTMLInputElement>('byhand');
   const working = $<HTMLInputElement>('working');
   const chips = [...document.querySelectorAll<HTMLButtonElement>('.chip')];
   const cards = [...document.querySelectorAll<HTMLElement>('.card')];
@@ -185,6 +191,9 @@ const pct = (n: number) => (n / total) * 100;
   category.value = params.get('category') ?? '';
   passive.checked = params.has('passive');
   noaccount.checked = params.has('noaccount');
+  opensource.checked = params.has('opensource');
+  linux.checked = params.has('linux');
+  byhand.checked = params.has('byhand');
   working.checked = params.has('working');
   mine.checked = params.has('mine');
 
@@ -201,6 +210,9 @@ const pct = (n: number) => (n / total) * 100;
         (!category.value || d.category === category.value) &&
         (!passive.checked || d.passive === 'true') &&
         (!noaccount.checked || d.account === 'false') &&
+        (!opensource.checked || d.openSource === 'true') &&
+        (!linux.checked || d.linux === 'true') &&
+        (!byhand.checked || d.byhand === 'true') &&
         (!working.checked || d.broken === 'false') &&
         (!mine.checked || favs.has(d.slug!)) &&
         terms.every((t) => d.search!.includes(t));
@@ -219,6 +231,9 @@ const pct = (n: number) => (n / total) * 100;
     if (category.value) next.set('category', category.value);
     if (passive.checked) next.set('passive', '');
     if (noaccount.checked) next.set('noaccount', '');
+    if (opensource.checked) next.set('opensource', '');
+    if (linux.checked) next.set('linux', '');
+    if (byhand.checked) next.set('byhand', '');
     if (working.checked) next.set('working', '');
     if (mine.checked) next.set('mine', '');
     const qs = next.toString().replace(/=(&|$)/g, '$1');
@@ -250,7 +265,7 @@ const pct = (n: number) => (n / total) * 100;
       jump();
     });
   }
-  for (const el of [q, type, category, cost, passive, noaccount, working, mine]) el.addEventListener('input', apply);
+  for (const el of [q, type, category, cost, passive, noaccount, opensource, linux, byhand, working, mine]) el.addEventListener('input', apply);
   // Un-starring a tool while filtering by toolkit hides it straight away.
   window.addEventListener(CHANGED, () => mine.checked && apply());
   apply();

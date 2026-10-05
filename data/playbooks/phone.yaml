@@ -1,0 +1,67 @@
+title: Investigate a phone number
+summary: Work out which country and carrier a number belongs to, look for it in breach and contact-book data, then say honestly what the match proves.
+starts_with: phone
+for: Harassment and scam calls, tracing a number from a marketplace ad, checking a number that claims to belong to a company or a person.
+time: 30â€“90 minutes
+steps:
+  - title: Validate the number before you search it
+    why: A search on a wrongly formatted number returns someone else's. Country code, national prefix and digit count decide which records can be checked at all.
+    do: Write the number in full international form with a leading plus, then check it. Record the country, the region within it and the line type the check reports.
+    look_for:
+      - A country that matches where you expected the number to be
+      - Line type of mobile, fixed line or VoIP, which changes what you can do with it
+      - Numbers that fail validation, which are usually mistyped or invented
+    tools: [phone-validator, free-carrier-lookup, numbering-plans, numlookup, twilio-lookup]
+
+  - title: Identify the carrier and the numbering range
+    why: The carrier and range say whether the number is a real subscriber line, a resold VoIP block or a range handed out in bulk to call centres.
+    do: Look the number up in carrier and HLR tools. Where a range is shared by thousands of numbers, treat "same carrier" as weak evidence about a person.
+    look_for:
+      - Carriers known for disposable or bulk-issued numbers
+      - Blocks reassigned between operators, which date a record
+    tools: [hlr-lookups, twilio-lookup, ipqualityscore, phonerator, free-carrier-lookup]
+
+  - title: Run automated enumeration
+    why: PhoneInfoga runs the standard footprinting checks in one pass and shows which of them returned anything at all, including the ones that returned nothing.
+    do: Run it with the international number and read the output section by section rather than only the hits.
+    look_for:
+      - Reputation flags from number-reporting sites
+      - Footprint links it builds for you to open by hand
+    opsec: The tool's own lookups are passive, but the sites it opens may log your IP or require a login, so run it from a sock-puppet environment.
+    tools: [phoneinfoga, mr-holmes, osrframework]
+
+  - title: Check how the number is tagged in contact books
+    why: Apps that upload their users' address books show the name a number is saved under. That name is a claim made by whoever saved it, not a record of ownership.
+    do: Search the number in the caller-ID and messaging apps, and record the tags you see with the date you saw them.
+    look_for:
+      - A business name that corroborates the number's use in ads or invoices
+      - Joke names, initials and spam tags, which say nothing about who holds the line
+      - Names that differ between services, which often means the handset changed owner
+    tools: [truecaller, getcontact, sync-me, telegram-phone-number-checker, telegram-finder, have-i-been-zuckered]
+
+  - title: Look for the number in breach and paste data
+    why: A hit shows the number was part of a dataset that leaked, which may date it, tie it to an email or an account, or place it at an address.
+    do: Query the breach and paste indexes for the number and note which collection the record came from, when that collection surfaced and which other fields sit beside it.
+    look_for:
+      - Other identifiers in the same record, such as an email or a username
+      - The breach name and date, which bound when the number was in use
+    opsec: Breached records are personal data, so in most countries you need a lawful basis to search them, the vendor logs every query against your account, and these sets are often stale, merged between people or planted. Record that a record exists, never the credentials in it.
+    tools: [leaker, leakcheck, dehashed, breachdirectory, zehef, krak, have-i-been-ransomed, gods-eye, clerkbot]
+
+  - title: Pivot to people-search and social results
+    why: Broker and people-search sites link a number to names and addresses, and those names are what let you search elsewhere.
+    do: Search each site by the number first, then by the name that appears beside it, so a hit can be checked against the number rather than trusted on its own. Then look for the number in public profiles and on messaging platforms.
+    look_for:
+      - Several records agreeing on one name and one town
+      - The same number in a company listing, a marketplace ad or a forum post
+      - Numbers that belong to a business line, where the person is an employee rather than the owner
+    opsec: Broker results are commercial data that is often outdated or mixed up between people with similar names, so they are leads to check elsewhere, not findings.
+    tools: [spokeo, fastpeoplesearch, truepeoplesearch, searchbug, thatsthem, usphonebook, radaris, social-catfish]
+
+  - title: Record the match or say nothing
+    why: A phone number is a shared resource and the honest write-up depends on saying what it does and does not show.
+    do: Write down each lookup, the date and the result in one line, then state separately what the number is used for and who the number belongs to. A number shared by many people is not an identification, and a crowd-sourced tag is one person's opinion. Close with what would confirm the link, such as a document or a call the subject acknowledges.
+    look_for:
+      - Whether the evidence names one person or only a line and a business
+      - Which findings rest on a single source and would not survive losing it
+    tools: []

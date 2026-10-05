@@ -1,0 +1,65 @@
+title: Investigate a social media post
+summary: Preserve a post before it is deleted, identify the account behind it, check what it carries and test its claims.
+starts_with: social_post
+for: Posts that make a claim, carry an image or video, or come from an account worth identifying.
+time: 30–90 minutes
+steps:
+  - title: Archive it before it disappears
+    input: url
+    why: The posts that matter most are the ones most likely to be deleted, and a screenshot proves nothing about when it existed.
+    do: Archive the post page and its media immediately, capturing the URL, the capture time and a hash of the saved files.
+    look_for:
+      - A capture timestamp and content hash you can cite later
+      - Media files saved at full resolution, not a screenshot
+    tools: [auto-archiver, wayback-machine, archive-today, ghostarchive]
+
+  - title: Record what the post is
+    input: social_post
+    why: Platform, author handle, exact posting time and engagement numbers are the spine of the case, and the interface changes what you can see.
+    do: Write down the platform, the handle and display name, the post ID or URL, the exact posting time and the visible engagement counts. An ID often encodes the time, so decode it rather than trusting a vague "3 hours ago".
+    look_for:
+      - The exact creation time hidden in the post or video ID
+      - Edits, community notes or replies that change the story
+      - The same post mirrored on other platforms
+    tools: [unfurl, linkdtime, 4cat]
+    opsec: Quote the post exactly and keep the raw capture. A post is evidence of what an account published, not of who was behind the account.
+
+  - title: Identify the account and its history
+    input: username
+    why: Is the account new, renamed, or one of several pushing the same line? That history usually matters more than the single post.
+    do: Run the handle through account enumeration and platform-specific history tools. Compare the profile photo, bio, links and posting times with any other accounts you find.
+    look_for:
+      - A creation date shortly before the post
+      - Previous handles and display names
+      - Deleted posts and comments the profile no longer shows
+      - An identical profile photo on accounts under other names
+    tools: [4cat, pullpush, teleteg, tgstat, teletracker, telepathy-community, social-searcher]
+
+  - title: Check the image or video it carries
+    input: image
+    why: The media is often a real photo or clip from another place, date or event, reused under a new caption.
+    do: Split any video into keyframes and reverse-search the clearest ones, then read the file's metadata if you hold the original.
+    look_for:
+      - Copies older than the post, which point to the original
+      - The same footage captioned with a different place or date
+      - Capture time or GPS coordinates left in the original file
+    tools: [invid-weverify, google-lens, yandex-images, tineye, exiftool]
+
+  - title: Cross-reference the claims
+    input: url
+    why: A post rarely stands alone. What it links to, and who else has covered the same thing, usually decides whether it holds up.
+    do: Pull any linked article from an archive and compare it with the live page, then search the central figures, numbers and quotes for independent coverage.
+    look_for:
+      - An archived version whose wording differs from the live page
+      - Statistics or quotes quoted out of context
+      - Earlier or later reporting that confirms or contradicts the post
+    tools: [wayback-machine, archive-today, social-searcher, 4cat]
+
+  - title: Pivot on what you found
+    input: username
+    why: Handles, emails, domains and phone numbers in the profile open a new line of enquiry.
+    do: Collect every identifier the post and profile exposed and run the matching playbook for that input.
+    look_for:
+      - Contact addresses in bios or post text
+      - Personal domains or businesses the account promotes
+    tools: [social-searcher, 4cat]

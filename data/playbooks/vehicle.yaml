@@ -1,0 +1,77 @@
+title: Identify a vehicle from a plate or VIN
+summary: Work out what a vehicle is and what it has been through, using only the registers and lookups you are lawfully allowed to use.
+starts_with: vehicle
+for: Checking a vehicle before you buy it, tracing one seen in a photo or video, insurance and fleet checks, and verifying a plate quoted in a document.
+time: 30–90 minutes
+steps:
+  - title: Record the identifier and the lawful basis
+    why: One misread character sends every later lookup to a different person's vehicle, and most countries restrict vehicle lookups to a lawful basis, so the reason for the check is written down first.
+    do: Write the plate or the 17-character VIN exactly as observed, note whether it came from a photo, a document or memory, and record who authorised the check and on what grounds.
+    look_for:
+      - VIN characters that cannot appear — I, O and Q are never used
+      - The plate's issuing country or state, which decides which register applies
+      - What you will do if the plate resolves to a private individual
+    opsec: A registration links to a keeper, and in most countries that link is restricted to the police, insurers, courts and the keeper themselves. Commercial plate sites work around this with scraped and bought data that is often wrong and may be unlawful to use.
+    tools: []
+
+  - title: Decode the VIN before anything else
+    input: vehicle
+    why: The VIN fixes the make, model, model year, engine and assembly plant, and every history record is keyed to it, so decoding it first shows whether the plate even belongs to the vehicle you saw.
+    do: Run all 17 characters through the free manufacturer decoders, then compare the specification they return with the vehicle in the photo or in front of you.
+    look_for:
+      - Model year, body style and engine that match, or do not match, what you observed
+      - A plant or market code that puts the vehicle somewhere other than where it is now
+      - A VIN that fails the check digit or the character rules, which usually means a misread or a re-stamped plate
+    tools: [nhtsa-vpic-vin-decoder, carvertical, epicvin]
+
+  - title: Use the official plate register for the issuing country
+    input: vehicle
+    why: Government registers return a small and reliable set of facts, and what they refuse to return is informative in itself.
+    do: Look the plate up in the national register for the country that issued it, and note which fields the register will not give you.
+    look_for:
+      - Make and colour that match the vehicle, since a mismatch suggests a cloned or misread plate
+      - Tax, insurance and inspection status with dates
+      - A registration date or an export marker that does not fit the story you were told
+    tools: [dvla-vehicle-enquiry, rdw-kentekencheck, finnik]
+
+  - title: Pull the inspection and mileage history
+    input: vehicle
+    why: An odometer that goes backwards between tests, or a test recorded days before a sale, is the clearest evidence of clocking, and the records also prove the vehicle was on the road on a given date.
+    do: Run the plate through the national test-history service and any history service covering the vehicle's market, then list every recorded mileage reading with its date.
+    look_for:
+      - Mileage readings that fall rather than rise
+      - Long gaps between tests, or a first test years after first registration
+      - Advisories and failures that point to structural or flood damage
+    tools: [mot-history, finnik, dvla-vehicle-enquiry]
+
+  - title: Check theft, write-off, recall and auction records
+    input: vehicle
+    why: A stolen or salvage-repaired vehicle explains a false plate or a missing VIN plate, and an open recall is a safety fact a seller may not mention.
+    do: Search the VIN against the theft and salvage registers and the salvage-auction archives, then check the manufacturer's own recall lookup for the make and model year.
+    look_for:
+      - Salvage auction photos taken before a repair, and damage that still shows
+      - A theft or write-off marker recorded in another country, which a national check alone will miss
+      - Odometer readings and dates from auction listings, to set against the inspection history
+    tools: [nicb-vincheck, bidfax, poctra, faxvin]
+
+  - title: Buy history reports only where they cover the market
+    input: vehicle
+    why: Commercial history reports are uneven. Each one is strong on the countries it buys data from and thin elsewhere, and the free decode is usually the only part you can verify.
+    do: Pick the service that covers where the vehicle was registered, and treat any field it cannot source as unknown rather than as clean.
+    look_for:
+      - Import and export records, which show the vehicle changing country
+      - Previous owners or keepers, and how many there are against the vehicle's age
+      - The same event reported differently by two services, which tells you neither is authoritative
+    opsec: These reports are personal data when they name a keeper. Buy and keep them only where the mandate and the lawful basis cover it.
+    tools: [carvertical, epicvin, autodna-vin-lookup, autoref, avtocod-bot]
+
+  - title: Try to see the vehicle, then judge what the records support
+    input: vehicle
+    why: Plate data is mostly commercial and often wrong, and plates are easy to clone, so the physical vehicle is the only thing that settles identity.
+    do: Search photo and plate archives for the same plate or VIN, compare what you find with the VIN plate, glass etchings, paint and plate format, and mark every claim confirmed, probable or unverified.
+    look_for:
+      - The same plate photographed in another country or on another vehicle
+      - A VIN plate that is missing, re-riveted or inconsistent with the paperwork
+      - A plate whose format does not match the region it claims to come from
+    opsec: A registered keeper is not necessarily the driver, and a record can be months out of date. Report the vehicle and the record date, not a person, unless the mandate covers naming them.
+    tools: [platesmania, avtonomer-bot]

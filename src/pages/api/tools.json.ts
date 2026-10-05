@@ -26,6 +26,13 @@ export function GET() {
       ...(t.repo && { repo: t.repo }),
       ...(t.install && { install: t.install }),
       ...(t.notes && { notes: t.notes }),
+      // Facets, derived the same way the site derives them, so filtering here matches filtering there. A tool is
+      // open source when it names both a repository and a licence, and its platforms are only ever what the entry
+      // states rather than what the language implies.
+      open_source: Boolean(t.repo && t.license),
+      ...(t.platforms && { platforms: t.platforms }),
+      ...(t.language && { language: t.language }),
+      ...(t.license && { license: t.license }),
       status: t.health?.status ?? 'unverified',
     })),
   };

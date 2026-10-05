@@ -1,0 +1,71 @@
+title: Investigate a keyword
+summary: Search leak and paste indexes, document and file indexes, onion sites and non-English engines, and record hits without copying leaked credentials.
+starts_with: keyword
+for: A company, project or campaign name; a term from a leak-site post; checking what has already been published about a subject before you ask anyone.
+time: 45â€“120 minutes
+steps:
+  - title: Fix the term before you search it
+    why: A keyword is only as good as its spelling. A quote from a ransom note may be translated, transliterated or misspelt, and each variant lands on different pages.
+    do: Write down the term as you met it, then list its variants, including translated, transliterated, abbreviated and misspelt forms, and the product name against the company name. Note which spelling is the source's and which is yours.
+    look_for:
+      - The spelling the subjects use about themselves, which is usually the most productive
+      - Acronyms that mean something unrelated in another country
+      - Terms that are too generic to search, which need a second word to narrow them
+    tools: [cyberchef, inteltechniques-search-tool, dcode]
+
+  - title: Start with the general engines
+    why: Published reporting about a leak, a scam or a company is the cheapest check available, and it often names the source of a claim you were about to treat as new.
+    do: Run the term and its variants through two or three engines that index differently, and search for the term alongside words like leak, breach, stolen or the year.
+    look_for:
+      - Reporting that already confirms or contradicts the claim in front of you
+      - A named victim list, which tells you whether the term really appears in the dataset
+      - Pages in a different language, which your usual engine may rank below English ones
+    tools: [google-search, bing, duckduckgo, mojeek, brave-search, searxng, startpage, qwant, yandex-search, google-news]
+
+  - title: Search the leak and paste indexes
+    why: These indexes answer whether a name appears in a dataset at all, which is usually enough to judge whether a leak claim is real.
+    do: Query the indexes with the term and record the collection name, the date it surfaced and the count of records. Then stop, because you have the answer you came for.
+    look_for:
+      - A collection name that ties the term to a dated incident
+      - Records that mention the term but belong to a different organisation with a similar name
+      - Claims that turn out to be re-posts of an older, already-known breach
+    opsec: Breached records are personal data, so in most countries you need a lawful basis to search them, the vendor logs every query against your account, and these sets are often stale, merged between people or planted. Record that a record exists and which fields it holds; never copy the credentials, card numbers or other secret values into your notes, your report or a chat window.
+    tools: [leaker, checkleaked, breachhq, dark-web-informer, distributed-denial-of-secrets, intelligence-x, ransomlook, ransomware-live]
+
+  - title: Search document and file indexes
+    why: Organisations publish far more than they intend, and a document that mentions the term can name people, contracts or systems that no search engine indexes.
+    do: Search the term in the indexes that cover published documents, source code, open directories and exposed storage, and check the file names and titles before opening anything.
+    look_for:
+      - Documents with dates and version numbers, which are easier to authenticate
+      - Source code or configuration files naming internal hosts and accounts
+      - Storage or directories that were never meant to be public
+    opsec: Much of what these indexes surface was never published on purpose, and finding a file is not permission to download or republish it. Read what you need to answer the question, and say in your notes what you did not open.
+    tools: [publicwww, searchcode, base, grep-app, open-library, documentcloud, occrp-aleph, searchfiles-de, odcrawler, mamont, napalm-ftp-indexer, de-digger, eyedex, public-buckets, filesec-io, wikileaks-search]
+
+  - title: Search the onion indexes
+    why: Markets, forums and leak sites live on onion services, and the ones that are indexed can be searched without you browsing them yourself.
+    do: Query the onion search engines for the term, then read from the indexed copies where the index holds text. Open an onion address only when the question justifies it.
+    look_for:
+      - Forum threads that discuss the subject under a different name
+      - Leak-site posts, which are claims by the actors rather than verified breaches
+      - Listings that appear on more than one market, which usually means a reseller or a scam
+    opsec: Treat onion sites as hostile. Use Tor Browser in its safest setting, on a machine that holds nothing about the case, and never log in to a source with an identity you care about.
+    tools: [ahmia, onionsearch, dark-web-informer, dread-scraper, ransomware-live, ransomlook, cryptome, wikileaks]
+
+  - title: Search outside the English-speaking web
+    why: Local reporting, court records and company registers are published in the local language, and they often carry facts that never reach an English-language page.
+    do: Translate the key terms rather than the whole query, then run them on the engines for the countries you care about and on the ones that search several engines at once.
+    look_for:
+      - Local news naming the people or companies involved
+      - Registers and legal notices that fix a company's real name and address
+      - Engines that index the region at all, which is the first problem to solve
+    tools: [baidu, sogou, naver, seznam, yandex-search, gerdoo, najdi-si, search-ch, presearch, 2lingual, soovle, carrot2, million-short, search-engines-index, search-engine-colossus]
+
+  - title: Record what the search showed
+    why: A keyword search produces a pile of pages, and the report has to separate what exists from what it means.
+    do: For each hit write the URL, the date you saw it, the collection or register it came from, and one line on what it proves. State which hits are the same source repeated, mark anything from an onion index as a claim, and leave out any secret value you saw along the way. Where the material is personal, note the lawful basis for holding it.
+    look_for:
+      - Two independent sources agreeing, rather than one claim quoted twice
+      - Hits that only repeat the term you searched, which prove existence rather than involvement
+      - Files or credentials you decided not to open, which belong in the notes as a decision
+    tools: []

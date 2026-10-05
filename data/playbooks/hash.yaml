@@ -1,0 +1,60 @@
+title: Investigate a file hash
+summary: Work out which algorithm produced a hash, check it against multi-scanners and malware databases, and read a no-results answer for what it is.
+starts_with: hash
+for: A hash found in a phishing email, a log, an incident report or a forum post, when you cannot or should not handle the file itself.
+time: 15â€“45 minutes
+steps:
+  - title: Identify the hash before you look it up
+    why: A hash is an answer, not a name. Thirty-two characters is normally MD5, forty is SHA-1, sixty-four is SHA-256, and services match on the exact algorithm and case.
+    do: Check the length and character set, convert it between uppercase and lowercase versions if a service is fussy, and decode it only if the source described it as encoded rather than hashed.
+    look_for:
+      - A length that fits one algorithm exactly, rather than a truncated or doubled value
+      - A prefix such as sha256:, md5= or a leading 0x that names the algorithm for you
+      - Suspicious characters that mean the value is Base64 or hex of something else
+    tools: [cyberchef, hashes-com]
+
+  - title: Check the multi-scanners
+    why: A multi-scanner tells you how many engines know the file and what they call it. Searching by hash means the file itself never leaves your machine.
+    do: Search the hash, not the file, on each scanner and record the detection ratio, the family names and the first-seen date with each result.
+    look_for:
+      - A high detection count, which is a strong signal the file is known malware
+      - Engines that agree on one family name rather than a scatter of generic labels
+      - A first-seen date that matches when the campaign in front of you started
+    opsec: Never upload a file from live work. VirusTotal shares uploads with security vendors and paying customers, so a file you did not mean to publish can become public.
+    tools: [virustotal, metadefender-cloud, hybrid-analysis, triage, jottis-malware-scan, kaspersky-opentip, any-run, filescan-io, intezer-analyze]
+
+  - title: Look it up in the malware databases
+    why: The databases are curated by researchers, so they carry family names, tags, delivery URLs and the infrastructure the sample talked to.
+    do: Search the hash in the malware sample and indicator databases, then read the tags and the network indicators rather than only the family name.
+    look_for:
+      - The malware family and the aliases other vendors use for it
+      - Command-and-control domains or IPs seen with this sample
+      - Related hashes from the same campaign, which give you other files to trace
+    tools: [malwarebazaar, malshare, urlhaus, threatfox, alienvault-otx, maltiverse, ibm-x-force-exchange, mwdb, abuse-ch-hunting, yaraify, koodous, tweetfeed]
+
+  - title: Read the sandbox reports
+    why: A sandbox report shows what the file did rather than what a signature calls it, which is often the useful part when the detection names disagree.
+    do: Open the existing reports for the hash and read the behaviour, the dropped files and the network section.
+    look_for:
+      - A run that talks to the same domains you found elsewhere in the case
+      - Behaviour that fits a dropper, a stealer or a loader, which changes what to look for next
+      - Reports dated after the campaign, which is where the hash is already publicly attributed
+    opsec: Submissions on the free plans of these services are public, so let any file from live work go to a scanner only once you have decided that publishing it is acceptable.
+    tools: [cape-sandbox, joe-sandbox, filescan-io, hybrid-analysis, triage, any-run, unpacme, intelowl]
+
+  - title: Check whether the file is a known good one
+    why: A hit on a legitimate file changes the whole case, because an installer, a library or a standard document in your dataset is not malware, and the hash just identifies which version it is.
+    do: Look the hash up in the known-file and software identity services and in the vulnerability databases when the hash belongs to an application.
+    look_for:
+      - A named product, version and publisher, which tells you what the file is
+      - A published vulnerability for that exact version
+    tools: [circl-hashlookup, rapid7-vulnerability-exploit-database]
+
+  - title: Say what a no-results answer means
+    why: An empty result is the most misread one in this work, and the record has to survive someone re-running your search.
+    do: Write down each service you queried, the date, and whether it returned nothing, returned a detection or held no report at all. Then state plainly that a hash nobody has submitted is unknown and not clean, because a new or privately targeted sample is exactly the one no scanner has seen. Finish with the indicator you do have, such as where the hash came from and who sent it.
+    look_for:
+      - Services that hold no report, which is not the same as reporting the file as safe
+      - A detection ratio that moved between your two checks, which dates the coverage
+      - Anything that lets a reader repeat the search without asking you
+    tools: []

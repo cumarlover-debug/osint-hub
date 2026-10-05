@@ -1,0 +1,51 @@
+name: Template check
+
+# Re-tests the search links the directory publishes. A query_template is verified when it is added and then nothing
+# watches it, so a site can rename its parameters or start answering bot checks and the link rots quietly. This runs
+# weekly and commits the result, the same way the health check commits liveness, so a broken link appears as a diff.
+on:
+  schedule:
+    - cron: '30 6 * * 1' # Mondays 06:30 UTC, half an hour after the health check
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: template-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Re-test the published search links
+        run: node scripts/template-check.mjs
+      # The report is written either way, so the commit step is what carries the finding; a dead link fails the run
+      # as well, which is what makes the job show up red rather than only in a diff nobody reads.
+      - name: Commit results
+        if: always()
+        run: |
+          if git diff --quiet -- data/templates.json; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/templates.json
+          git commit -m "chore: weekly template check"
+          git push
+      - name: Fail when a link has failed twice
+        run: |
+          failing=$(node -e "const d=require('./data/templates.json'); console.log(d.failing ?? 0)")
+          if [ "$failing" != "0" ]; then
+            echo "::error::$failing published search link(s) have failed two runs in a row - see data/templates.json"
+            exit 1
+          fi

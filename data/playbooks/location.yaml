@@ -1,0 +1,76 @@
+title: Pin down what a place is
+summary: Fix an exact point on the ground, see what is actually there now and read the surroundings — without mistaking a place for a person.
+starts_with: location
+for: Geolocating a photo or a video, checking where an incident happened, and verifying a place named in a document or a claim.
+time: 30–90 minutes
+steps:
+  - title: Write down the point and how precise it is
+    input: location
+    why: The same place can be a country, a postcode, a building or the wrong end of a street, and every later step inherits that error.
+    do: Convert the name or coordinates into decimal degrees with a sign, note whether the source gave a country, a settlement or one building, and record where the coordinates came from.
+    look_for:
+      - Latitude and longitude to at least four decimals, which is about 11 metres
+      - The geocode level the source used, so you do not treat a suburb as an address
+      - Two sources that disagree, which usually means one of them matched a name rather than a place
+    tools: [geonames, google-maps, openstreetmap]
+
+  - title: Fix the point on two independent maps
+    input: location
+    why: No single map is authoritative. Providers disagree on names and boundaries, and a second map is what turns a guess into a point you can defend.
+    do: Open the coordinates in two providers, switch to satellite and then to street-level imagery where it exists, and note the imagery date each provider gives.
+    look_for:
+      - The same building corner, junction or bridge in both providers
+      - Street-level imagery in one and not the other, which is common outside Europe and North America
+      - A named site, business or institution that matches the description you started from
+    tools: [google-maps, bing-maps, yandex-maps, kakao-map]
+
+  - title: Date the imagery before you trust it
+    input: location
+    why: Satellite and street imagery can be years old, and a place that has been rebuilt, cleared or flooded since will not match what you were told.
+    do: Compare each provider's past imagery layers with historical maps, and write the capture date next to everything you note down.
+    look_for:
+      - Buildings that appear in one imagery layer and not another
+      - A road, fence or track that has moved between captures
+      - Features from before a war, fire or redevelopment, which dates the source you are working from
+    tools: [esri-world-imagery-wayback, openhistoricalmap, bing-maps]
+
+  - title: Look at what is there now
+    input: location
+    why: Business listings and imagery go stale, so a live camera or a photo taken this month is the only direct evidence of what is happening at the place today.
+    do: Check public webcams covering the area and recent geotagged photos, and note the date on every image you use.
+    look_for:
+      - Whether the site is in use, abandoned or guarded
+      - Vehicles, uniforms, signage or construction that the older imagery does not show
+      - A camera angle that confirms the features you already identified
+    opsec: Public cameras show people going about their day. Record the site, not the individuals in it.
+    tools: [earthcam, flickr-search]
+
+  - title: Read the surroundings
+    input: location
+    why: The amenities around a point are what let you match it to a photo or a description, and they are the corroboration you will quote in the report.
+    do: Query the map data within a few hundred metres for what exists — shops, schools, places of worship, bus stops, rail lines — then widen out to the nearest airfield.
+    look_for:
+      - A distinctive pair of features close together, such as a pharmacy opposite a level crossing
+      - The nearest station or airfield, which fixes how people reach the place
+      - Radio and emergency-service coverage for the area, if the claim involves communications
+    tools: [overpass-turbo, openstreetmap, ourairports, radioreference]
+
+  - title: Check terrain, light and weather
+    input: location
+    why: A horizon, a shadow or a weather record can confirm a location or rule it out, and it is often the only way to test a claim about one specific day.
+    do: Match the skyline against the terrain, put the date and time into a sun-position tool, and pull weather records for the nearest station.
+    look_for:
+      - A peak, ridge or coastline that lines up with the photo or the account
+      - Shadow direction and length consistent with the stated hour
+      - Rain, snow or cloud that contradicts a description of the day
+    tools: [peakvisor, suncalc, meteostat]
+
+  - title: Separate the place from the people in it
+    why: A place is not a person. Homes, offices, schools and stations are shared or public, and a location on its own identifies nobody.
+    do: State what kind of place it is, how many people plausibly use it, and whether the finding attaches to a place, an organisation or an individual, then write down what the location alone cannot show.
+    look_for:
+      - Whether the address is residential, commercial, public or vacant
+      - Whether the coordinates came from a person's own post or from someone else's
+      - What a place-based finding would still need before it names anyone
+    opsec: If the location is a home or a workplace, treat it as personal data, collect it only under a lawful basis, keep it out of any published report and delete it when the question is answered.
+    tools: []

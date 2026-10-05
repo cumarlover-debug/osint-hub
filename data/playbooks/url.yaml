@@ -1,0 +1,68 @@
+title: Investigate a URL
+summary: Expand a shortened link, follow the redirect chain, read what the page used to say, check the infrastructure behind it, and keep a screenshot as a record.
+starts_with: url
+for: Phishing and scam links, a page that changed after you read it, working out who runs a site that has no about page.
+time: 20â€“60 minutes
+steps:
+  - title: Expand shorteners and see the real destination
+    why: Short links exist to hide where they lead. A shortener also tells you who created the link and when, which is sometimes the most useful part.
+    do: Paste the link into an expander and record the long form before you open anything.
+    look_for:
+      - The destination domain, and how far it sits from the brand the message named
+      - A link that resolves to another shortener, which usually means tracking or deliberate evasion
+    opsec: Opening the short link in your own browser signals interest to whoever watches the shortener's statistics.
+    tools: [checkshorturl, unfurl, wheregoes, grabify]
+
+  - title: Read the redirect chain
+    why: Each hop is a decision by the site owner. The last domain is what you are really dealing with, and the intermediate ones often reveal the platform or affiliate network in use.
+    do: Fetch the URL and follow the chain without rendering the page, writing down each status code and location header in order.
+    look_for:
+      - A final destination on a different domain to the one printed in the message
+      - A redirect to a download, or to a login page that copies a brand
+      - Country or user-agent conditions that send crawlers somewhere harmless
+    opsec: Fetching a live malicious URL from your own address links the investigation to you, so use a separate host or an online fetcher for links you do not trust.
+    tools: [httpx, web-check, urlquery, checkphish, urlscan, virustotal, google-safe-browsing-site-status]
+
+  - title: Read the archive and the cache
+    why: Pages get edited, sold or wiped once someone is looking. What the page said before is often the finding.
+    do: Ask each archive for its snapshots of the URL and of the whole domain, then compare the wording, prices and contact details across dates.
+    look_for:
+      - Snapshot dates that bracket a change in the page's claims or owner
+      - Previous content on the same domain, such as a different shop or a different political line
+      - Pages the archive holds but the live site has deleted
+    tools: [wayback-machine, waybackpack, waybackpy, waytrace, archive-today, ghostarchive, cachedviews, common-crawl-index]
+
+  - title: Check the infrastructure behind the page
+    why: A page is a thin front. Registration date, host, certificate and platform say whether it is a long-standing business or a domain registered last week.
+    do: Look up the domain's registration and hosting, the certificate history for its subdomains, and the technologies the page serves, then compare those with what the page claims to be.
+    look_for:
+      - A registration date days or weeks before the campaign started
+      - Privacy-shielded registration on a domain that claims to be a registered company
+      - Certificates for other domains issued to the same organisation
+    tools: [web-check, netcraft-site-report, urlvoid, whatcms, wappalyzer, favicon-hash-generator, sucuri-sitecheck, urlscan, threatfox, phishtank, phishstats, brightcloud-url-ip-lookup, zscaler-zulu, trend-micro-site-safety-center]
+
+  - title: Capture what the page looks like now
+    why: Live pages change or disappear, and a written note of a page nobody can reopen is worth little.
+    do: Take a full-page screenshot and save the page source beside it, with the date and time in the file name. Keep both with the case notes.
+    look_for:
+      - Sections hidden behind a scroll or a click, which a short screenshot misses
+      - Content that loads in only after a delay, which the first capture may miss
+    opsec: A live capture loads the page's scripts on your machine and can reveal your address to the operator, so capture from an isolated browser.
+    tools: [singlefile, gowitness, eyewitness, hunchly, vortimo, urlscan]
+
+  - title: Pivot on what the page exposes
+    why: Profile and post URLs carry stable account identifiers, and a page may name its owner in a footer or a feed.
+    do: Pull the identifiers a URL carries, then check the same page's archived copies for links that have since been removed.
+    look_for:
+      - Numeric account IDs that survive a username change
+      - Contact emails, phone numbers and other domains in the footer
+      - Feeds or scripts that name an operator or a parent company
+    tools: [socid-extractor, urlscan, gallery-dl, yt-dlp, youtube-metadata, profile-image-intel, reveddit, steamid-io]
+
+  - title: Record the finding
+    why: A URL finding is only defensible if someone else can reproduce each hop and each claim.
+    do: Write the URL in full, the date and time you fetched it, the chain of redirects, the snapshot dates you relied on, and the exact wording of everything you quote. Say which parts you observed and which parts you are inferring.
+    look_for:
+      - Quotes that would still mean the same thing if the page changed tomorrow
+      - Any conclusion that rests on one archive snapshot rather than the live page
+    tools: []
