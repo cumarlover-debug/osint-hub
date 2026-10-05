@@ -56,6 +56,21 @@ test('deduplicates and caps what it returns', () => {
   assert.equal(summariseFindings(found).total, found.length);
 });
 
+test('strips terminal colour codes so they cannot end up inside a value', () => {
+  // Real tool output: h8mail prints addresses in colour, and the escape code used to be captured as part of the
+  // address ("0msomeone@example.com").
+  const coloured = '\u001b[96m  someone@example.com \u001b[0m found in breach data';
+  const found = extractFindings({ slug: 'h8mail', text: coloured, value: 'other@example.org' });
+  assert.deepEqual(found.filter((f) => f.kind === 'email').map((f) => f.value), ['someone@example.com']);
+});
+
+test('does not mistake an identifier for a phone number', () => {
+  const found = extractFindings({ slug: 'some-tool', text: 'id 1360774040222168 and epoch 1759650000000', value: 'x' });
+  assert.equal(found.filter((f) => f.kind === 'phone').length, 0, 'a bare run of digits is an identifier, not a number');
+  const formatted = extractFindings({ slug: 'some-tool', text: 'call +60 11-2883 9650 or 020 7946 0958', value: 'x' });
+  assert.ok(formatted.some((f) => f.kind === 'phone'), 'a formatted number still reads as one');
+});
+
 test('folds findings into a profile, keeping every source', () => {
   const profile = emptyProfile('Test target', 'Written consent, 2026-10-05');
   addFindings(profile, { value: 'ada@example.org', valueType: 'email', slug: 'holehe', tool: 'Holehe', status: 'ok', findings: [{ kind: 'account', value: 'https://github.com/ada', evidence: '[+] github', tool: 'holehe' }] });
