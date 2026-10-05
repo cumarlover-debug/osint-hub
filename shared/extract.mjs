@@ -44,8 +44,15 @@ const EMAIL = /\b[\w.+-]+@[\w-]+(?:\.[\w-]+)+\b/g;
 const URL = /\bhttps?:\/\/[^\s"'<>()\][]+/g;
 const IPV4 = /\b(?:\d{1,3}\.){3}\d{1,3}\b/g;
 const HANDLE = /(?:^|[\s(])@([a-z0-9][a-z0-9._-]{2,30})\b/gi;
-const PHONE = /(?:^|[\s(])(\+?\d{1,3}[\s.-]?)?(?:\(?\d{2,4}\)?[\s.-]?){2,4}\d{2,4}(?=\s|$)/g;
+// Phone numbers, conservatively: either an international prefix, or separators between groups. A bare run of digits
+// is almost always an identifier, a timestamp or a hash fragment, and calling one of those a phone number is how a
+// profile fills up with noise.
+const PHONE = /(?<!\w)(?:\+\d[\d ().-]{7,18}\d|\(?\d{2,4}\)?[ .-]\d[\d ().-]{5,14}\d)(?!\w)/g;
 const CRYPTO = /\b(?:0x[a-f0-9]{40}|bc1[a-z0-9]{25,62}|[13][a-km-zA-HJ-NP-Z1-9]{25,34})\b/g;
+
+/** Terminal colour and cursor codes. Tools print them, and left in place they end up inside extracted values:
+ *  h8mail's output turned "someone@example.com" into "0msomeone@example.com". */
+export const stripAnsi = (text) => String(text ?? '').replace(/\x1b\[[0-9;?]*[ -/]*[@-~]/g, '').replace(/\x1b\][^\x07]*\x07/g, '');
 
 /** Tool families whose output needs a pattern more specific than "a URL is present". */
 const FAMILIES = [
@@ -61,7 +68,7 @@ export const maskHash = (h) => `${h.slice(0, 8)}…(${h.length} hex chars)`;
 
 /** Remove anything that would be a credential if the case file were read by someone else. */
 export function redactSecrets(text) {
-  return String(text ?? '')
+  return stripAnsi(text)
     .replace(SECRET_FIELD, (_m, field) => `${field}: [redacted]`)
     .replace(COMBO_LINE, (_m, address) => `${address}:[redacted]`)
     .replace(HASH, (m) => maskHash(m));
@@ -81,7 +88,7 @@ const trim = (s, n = 200) => String(s ?? '').replace(/\s+/g, ' ').trim().slice(0
  */
 export function extractFindings({ slug, name, text, value, at, source }) {
   const tool = slug ?? name ?? 'unknown';
-  const raw = String(text ?? '');
+  const raw = stripAnsi(String(text ?? ''));
   const safe = redactSecrets(raw);
   const family = FAMILIES.find((f) => f.re.test(tool))?.name;
   const out = [];
@@ -139,7 +146,11 @@ export function extractFindings({ slug, name, text, value, at, source }) {
   for (const m of safe.match(HANDLE) ?? []) add('username', m.replace(/^@/, ''), m);
   for (const m of safe.match(PHONE) ?? []) {
     const digits = m.replace(/[^\d+]/g, '');
-    if (digits.length >= 9 && digits.length <= 16) add('phone', digits, m);
+    const bare = m.replace(/[\s().-]/g, '');
+    // A phone number needs a country code or separators, and a plausible number of digits: anything else is an
+    // identifier that happens to be numeric.
+    const shaped = m.includes('+') || /[\s().-]/.test(m.trim());
+    if (shaped && /^\+?\d{9,15}$/.test(bare) && !/^(\+?\d{10}|\+?\d{13})$/.test(digits)) add('phone', bare, m);
   }
 
   // The target itself is not a finding; it is the thing being investigated.

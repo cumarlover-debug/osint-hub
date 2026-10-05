@@ -834,8 +834,8 @@ async function main() {
   // ---- agent: read what the case already collected, build the profile, and say what to do next ----
   if (command === 'agent') {
     const [action, file] = rest;
-    if (!['next', 'profile'].includes(action)) {
-      fail('usage: osint-hub agent next|profile <case.json> [--out DIR] [--safe --no-safe] [--json]');
+    if (!['next', 'profile', 'run'].includes(action)) {
+      fail('usage: osint-hub agent next|profile|run <case.json> [--yes --max N --seconds S --only a,b --out DIR]');
     }
     if (!file) fail('point at the JSON backup exported from the workbench: /case → Back up (JSON).');
     if (!existsSync(file)) fail(`no such file: ${file}`);
@@ -912,6 +912,7 @@ async function main() {
       const fresh = rows.filter((r) => !done.has(r.slug));
       return {
         v,
+        rows,
         done: rows.filter((r) => done.has(r.slug)).length,
         canRun: fresh.filter((r) => r.kind === 'command' && r.command && !r.manual).map((r) => ({ ...r, readiness: readiness(r.command) })),
         canFetch: fresh.filter((r) => r.kind === 'link' && r.link && !r.manual),
@@ -919,6 +920,103 @@ async function main() {
         links: fresh.filter((r) => r.kind === 'link' && r.link && !r.manual).length,
       };
     });
+
+    // ---- run: do the unattended work, one job at a time, folding each result into the profile as it lands ----
+    // This is the loop the rest of the agent exists for: plan, execute, read the result, update the profile, and
+    // stop on a budget. A command that is not installed, or a service that needs a person, is not attempted here -
+    // those are reported instead, because a run that wastes its budget on walls is worse than no run.
+    const runSummary = { attempted: 0, ok: 0, other: 0, fetched: 0, findings: 0, stopped: '' };
+    if (action === 'run') {
+      const budget = Number(flags.max ?? 12);
+      const seconds = Number(flags.seconds ?? 600);
+      const deadline = Date.now() + seconds * 1000;
+      const only = flags.only ? String(flags.only).split(',').map((s) => s.trim()).filter(Boolean) : [];
+      const queue = [];
+      for (const p of plan) {
+        for (const r of p.canRun) {
+          if (r.readiness.state !== 'ready') continue;
+          if (only.length && !only.includes(r.slug)) continue;
+          queue.push({ value: p.v, row: r, how: 'run' });
+        }
+        for (const r of p.canFetch) {
+          if (only.length && !only.includes(r.slug)) continue;
+          queue.push({ value: p.v, row: r, how: 'fetch' });
+        }
+      }
+
+      if (!queue.length) {
+        if (!flags.json) out(dim('Nothing unattended left to do: install a tool, turn safe mode off, or work the by-hand list.'));
+      } else {
+        if (!flags.json) {
+          out(`${bold(theCase.title)} ${dim(`· ${queue.length} unattended job${queue.length === 1 ? '' : 's'} queued (budget ${budget} tools, ${seconds}s)`)}`);
+          out(dim('every job is a request from your connection to that site; add --yes to run them without asking'));
+        }
+        if (!flags.yes && !process.stdin.isTTY) fail('there is no terminal to confirm on: add --yes to run these unattended, or --max 0 to only plan.');
+        // The runners write into these, so they have to exist before the first job starts.
+        mkdirSync(join(outDir, 'runs'), { recursive: true });
+        mkdirSync(join(outDir, 'url-results'), { recursive: true });
+        let runAll = !!flags.yes;
+        // Numbering continues from what is already there, so a resumed run does not overwrite earlier output.
+        let index = (readJson('manifest.json')?.results?.length ?? 0) + 1;
+        for (const job of queue) {
+          if (runSummary.attempted >= budget) {
+            runSummary.stopped = `budget of ${budget} tools reached`;
+            break;
+          }
+          if (Date.now() > deadline) {
+            runSummary.stopped = `time budget of ${seconds}s reached`;
+            break;
+          }
+          if (!runAll) {
+            const answer = (await ask(`  ${job.how === 'run' ? 'run' : 'fetch'} ${bold(job.row.name)} for ${job.value.value}? [y]es / [n]o / [a]ll / [q]uit `)).trim().toLowerCase();
+            if (answer === 'q') {
+              runSummary.stopped = 'you stopped it';
+              break;
+            }
+            if (answer === 'a') runAll = true;
+            else if (answer !== 'y' && answer !== 'yes') continue;
+          }
+
+          const result =
+            job.how === 'run'
+              ? await runCommand(job.row, job.value, outDir, index, Number(flags.timeout ?? 300) * 1000, shell, !flags.json)
+              : await fetchPage(job.row, job.value, outDir, index, Number(flags.timeout ?? 60) * 1000);
+          index += 1;
+          runSummary.attempted += 1;
+          if (result.status === 'ok') runSummary.ok += 1;
+          else runSummary.other += 1;
+          if (job.how === 'fetch') runSummary.fetched += 1;
+
+          // Saved straight away, so an interrupted run keeps everything it had already collected.
+          const target = join(outDir, job.how === 'run' ? 'manifest.json' : 'fetch.json');
+          mergeResults(target, [result], {
+            case: theCase.title,
+            ...(job.how === 'run' ? { ran: new Date().toISOString(), shell } : { fetched: new Date().toISOString() }),
+            safe,
+            outDir,
+          });
+
+          const text = job.how === 'run' ? runText(result.file ?? '') : (result.excerpt ?? '');
+          const found = extractFindings({ slug: result.slug, name: result.name, text, value: result.value, at: result.at, source: job.how === 'run' ? 'command' : 'page' });
+          addFindings(profile, {
+            value: result.value,
+            valueType: job.value.type,
+            tool: result.name ?? result.slug,
+            slug: result.slug,
+            status: result.status,
+            findings: found,
+            at: new Date().toISOString(),
+            source: job.how === 'run' ? 'command' : 'page',
+          });
+          runSummary.findings += found.length;
+          writeFileSync(profilePath, `${JSON.stringify(profile, null, 2)}\n`);
+
+          if (!flags.json) {
+            out(`  ${result.status === 'ok' ? green('ok') : yellow(result.status)} ${job.row.name} ${dim(`→ ${found.length} finding${found.length === 1 ? '' : 's'}`)}`);
+          }
+        }
+      }
+    }
 
     const gaps = [];
     for (const p of plan) {
@@ -928,8 +1026,30 @@ async function main() {
     const dossier = dossierMarkdown(profile, { gaps, manual });
     writeFileSync(join(outDir, 'dossier.md'), dossier);
 
+    // After a run the single-file report is rebuilt too, so the evidence and the profile stay in step. The report
+    // expects plan entries shaped around a value, which is what the agent's plan already carries.
+    const report = action === 'run' ? writeReport({ theCase, plan: plan.map((p) => ({ value: p.v, rows: p.rows })), tools, outDir, safe, taxonomy }) : undefined;
+
     const counts = profileCounts(profile);
-    if (flags.json) return json({ case: theCase.title, outDir, profile: profilePath, dossier: join(outDir, 'dossier.md'), counts, plan: plan.map((p) => ({ value: p.v.value, type: p.v.type, done: p.done, canRun: p.canRun.length, canFetch: p.canFetch.length, byHand: p.byHand.length })) });
+    if (flags.json) {
+      return json({
+        case: theCase.title,
+        outDir,
+        profile: profilePath,
+        dossier: join(outDir, 'dossier.md'),
+        ...(report && { report }),
+        counts,
+        ...(action === 'run' && { run: runSummary }),
+        plan: plan.map((p) => ({ value: p.v.value, type: p.v.type, done: p.done, canRun: p.canRun.length, canFetch: p.canFetch.length, byHand: p.byHand.length })),
+      });
+    }
+
+    if (action === 'run' && runSummary.attempted) {
+      out(`\n${bold(`${runSummary.ok}/${runSummary.attempted} finished cleanly`)} ${dim(`· ${runSummary.findings} findings folded into the profile${runSummary.stopped ? ` · stopped: ${runSummary.stopped}` : ''}`)}`);
+      if (runSummary.other) out(yellow(`  ${runSummary.other} returned nothing readable — a wall, a login or an empty result, all recorded in the report`));
+    } else if (action === 'run') {
+      out(`\n${dim(runSummary.stopped ? `nothing run: ${runSummary.stopped}` : 'nothing run')}`);
+    }
 
     out(`${bold(theCase.title)} ${dim(`· ${counts.leads} leads from ${counts.toolsRun} tool runs`)}`);
     out(dim(`read ${ingested} results · ${findings} findings extracted${ingested ? '' : ' — nothing collected yet, run the case runners first'}`));
@@ -939,12 +1059,17 @@ async function main() {
     }
     if (!counts.leads) out(dim('  no leads yet'));
     out('');
-    for (const p of plan) {
-      const ready = p.canRun.filter((r) => r.readiness.state === 'ready').length;
-      out(`${bold(p.v.value)} ${dim(`(${taxonomy.inputs[p.v.type] ?? p.v.type})`)}`);
-      out(dim(`  ${p.canRun.length} runnable (${ready} installed) · ${p.canFetch.length} fetchable · ${p.byHand.length} by hand · ${p.done} already done`));
-      for (const r of p.canRun.slice(0, 6)) out(`    ${r.name.padEnd(26)} ${r.readiness.state === 'ready' ? green('ready') : dim(r.readiness.state)}`);
-      if (p.canRun.length > 6) out(dim(`    …and ${p.canRun.length - 6} more`));
+    if (action === 'next') {
+      for (const p of plan) {
+        const ready = p.canRun.filter((r) => r.readiness.state === 'ready').length;
+        out(`${bold(p.v.value)} ${dim(`(${taxonomy.inputs[p.v.type] ?? p.v.type})`)}`);
+        out(dim(`  ${p.canRun.length} runnable (${ready} installed) · ${p.canFetch.length} fetchable · ${p.byHand.length} by hand · ${p.done} already done`));
+        for (const r of p.canRun.slice(0, 6)) out(`    ${r.name.padEnd(26)} ${r.readiness.state === 'ready' ? green('ready') : dim(r.readiness.state)}`);
+        if (p.canRun.length > 6) out(dim(`    …and ${p.canRun.length - 6} more`));
+      }
+    } else {
+      const totals = plan.reduce((n, p) => ({ canRun: n.canRun + p.canRun.filter((r) => r.readiness.state === 'ready').length, canFetch: n.canFetch + p.canFetch.length, byHand: n.byHand + p.byHand.length }), { canRun: 0, canFetch: 0, byHand: 0 });
+      out(dim(`${totals.canRun} runnable now · ${totals.canFetch} fetchable · ${totals.byHand} by hand  (agent next for the list)`));
     }
     const pivots = pivotCandidates(profile).slice(0, 8);
     if (pivots.length) {
@@ -953,7 +1078,7 @@ async function main() {
     }
     if (gaps.length) out(`\n${yellow(`${gaps.length} tools need installing before the agent can run them`)}`);
     if (manual.length) out(yellow(`${manual.length} have to be done by hand`));
-    out(`\n${green('Profile:')} ${profilePath}\n${green('Dossier:')} ${join(outDir, 'dossier.md')}`);
+    out(`\n${green('Profile:')} ${profilePath}\n${green('Dossier:')} ${join(outDir, 'dossier.md')}${report ? `\n${green('Report:')} ${report}` : ''}`);
     return;
   }
 

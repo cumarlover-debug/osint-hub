@@ -190,6 +190,23 @@ export function dossierMarkdown(profile, { gaps = [], manual = [] } = {}) {
     lines.push('');
   }
 
+  lines.push('## What has been run');
+  lines.push('');
+  lines.push('Every tool tried against every value, including the attempts that found nothing. This is the record that keeps');
+  lines.push('the work from covering the same ground twice, and it is as much a part of the case as the findings are.');
+  lines.push('');
+  const runValues = Object.entries(profile.runs);
+  if (!runValues.length) {
+    lines.push('_Nothing yet._');
+    lines.push('');
+  } else {
+    for (const [value, tools] of runValues) {
+      const parts = Object.entries(tools).map(([tool, r]) => `${tool} (${r.status}${r.found ? `, ${r.found}` : ', nothing'})`);
+      lines.push(`- **${esc(value)}** — ${esc(parts.join(' · '))}`);
+    }
+    lines.push('');
+  }
+
   if (gaps.length) {
     lines.push('## Not yet checked');
     lines.push('');
