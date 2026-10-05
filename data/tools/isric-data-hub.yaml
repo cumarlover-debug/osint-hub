@@ -1,0 +1,10 @@
+name: ISRIC Data Hub
+url: https://data.isric.org/geonetwork/srv/eng/catalog.search#/home
+description: 'The global soil data portal: soil properties and maps, searchable by area and by attribute.'
+category: geolocation
+inputs: [location, keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: 'Land rather than people, which is what makes it useful: soil, land cover and terrain context for a site, for agriculture, environmental or due-diligence questions where the ground itself is the subject.'

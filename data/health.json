@@ -1761,6 +1761,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "earth-engine-data-catalog": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "earth-engine-timelapse": {
     "status": "up",
     "failures": 0,
@@ -2575,6 +2582,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "geoseer": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "geosetter": {
     "status": "up",
     "failures": 0,
@@ -2899,6 +2913,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "gpx-studio": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "grabify": {
     "status": "up",
@@ -3563,6 +3584,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "isric-data-hub": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "itu-mars": {
     "status": "unverified",

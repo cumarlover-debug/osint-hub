@@ -564,3 +564,4 @@ https://fakeinfo.net/drivers-license-generator  # Fake Drivers License Generator
 https://elfqrin.com/usssndriverlicenseidgen.php  # US SSN / Driver License Generator (generates United States Social Security and licence numbers: fraud tooling, and the same reason the directory refuses doxxing-for-hire), 2026-10-05
 https://ipfs-search.com/#/search  # ipfs-search.com (the domain is now for sale ("ipfs-search.com is for sale!"), so the service no longer exists), 2026-10-05
 https://chris927.github.io/generate-sa-idnumbers  # Generate SA ID Numbers (generates valid-looking South African identity numbers, which is forgery tooling rather than investigation tooling), 2026-10-05
+https://datacore-gn.unepgrid.ch/  # Datacore (UNEP/GRID-Geneva) (answers 404 Not Found; the service is gone from that address), 2026-10-05
