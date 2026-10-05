@@ -1,0 +1,43 @@
+title: Investigate a Wi-Fi network
+summary: Work out what a BSSID or network name identifies, where it has been seen, and the strict limits on using it.
+starts_with: wifi
+for: Router addresses or network names found in logs, photos, apps or a captured network.
+time: 15–40 minutes
+steps:
+  - title: Read the address itself
+    input: wifi
+    why: The first half of a MAC address is registered to a manufacturer, which tells you what kind of device you are looking at.
+    do: Look up the BSSID prefix. Record the vendor and what that vendor makes, then note where the address came from.
+    look_for:
+      - A vendor that makes home routers, phones, cameras or access points
+      - A locally administered or randomised address, which points to a phone rather than fixed hardware
+      - Any nearby networks, signal strength or channel recorded at the same time
+    tools: [mac-address-lookup]
+
+  - title: Look the network up in a public database
+    input: wifi
+    why: Crowdsourced databases map a BSSID or network name to the places it has been observed.
+    do: Search the BSSID and, separately, the network name. Check whether the result is a precise location, a street-level cluster or a whole city.
+    look_for:
+      - Several sightings close together, which is stronger than a single point
+      - A first-seen and last-seen date
+      - A network name that includes a flat number, a business name or a person's name
+    tools: [wigle, apple-bssid-locator, geomacfinder-bot]
+    opsec: A BSSID identifies an access point, not a person. A router location is not proof that anyone was there, and shared buildings or a hotspot can make it badly misleading.
+
+  - title: Be clear about how these addresses are collected
+    why: Databases like these only exist because someone recorded networks that were broadcasting, which is restricted in many countries.
+    do: "Establish how the BSSID reached you before you use it: a device's own log, a photo of a label, a saved network, or a third party. Write that provenance into the case file."
+    look_for:
+      - Whether the address arrived lawfully and in a form you can describe
+      - Whether your own lookup adds a new observation to someone else's record
+    tools: []
+    opsec: Wardriving-style collection, scanning for networks you have no authorisation to survey, and using location services to find a home router are restricted or unlawful in many countries.
+
+  - title: Decide what the address does and does not establish
+    why: The technical question has a clear answer; the human question usually does not.
+    do: Write two lines, one for what the address identifies (a piece of hardware and where it has been seen) and one for what it cannot show (who owns it, who used it, or who was present). Note the lawful basis for holding the record at all.
+    look_for:
+      - Any name attached to the network, which is a lead to check, not an owner
+      - Whether a person-level conclusion could only be reached by other means
+    tools: []

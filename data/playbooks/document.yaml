@@ -1,0 +1,55 @@
+title: Investigate a document
+summary: Read a file's metadata first, check its hash and provenance, and decide whether the document is what it claims to be.
+starts_with: document
+for: Leaked papers, contracts, invoices, scans and attachments whose origin or authenticity is in question.
+time: 20–60 minutes
+steps:
+  - title: Read the metadata before the contents
+    input: document
+    why: The file itself records who wrote it, when, on what software and how often it was revised, which is often more informative than the text.
+    do: Read the metadata without opening the file in an editor that rewrites it. Record the author and last-modified-by names, creation and modification dates, the producing application and any revision count.
+    look_for:
+      - An author or company name that contradicts the document
+      - A modification date later than the date printed on the document
+      - Producer software such as a scanner, a PDF library or a word processor
+      - Revision numbers showing the file was edited after "final"
+    tools: [exiftool, apache-tika, hachoir, metadata2go]
+    opsec: Metadata can be edited, stripped or forged, so treat every field as a lead to verify rather than proof.
+
+  - title: Hash the file and check it against known samples
+    input: hash
+    why: A file's hash identifies that exact byte-for-byte copy, so it links the document to samples others have already analysed.
+    do: Compute the SHA-256 of the file, then look the hash up. If the document is sensitive, search the hash instead of uploading the file.
+    look_for:
+      - A first-seen date and file names other than this one
+      - Other documents grouped with it, which suggests a set
+      - A malware verdict on what should be a plain office file
+    tools: [virustotal, filescan-io, hybrid-analysis, triage]
+
+  - title: Look for the document elsewhere
+    input: document
+    why: A document that is genuinely part of a set usually exists in more than one place, and its other appearances fix its provenance.
+    do: Search the title, distinctive phrases and any reference numbers in document collections, court and registry archives and web archives.
+    look_for:
+      - The same document in a published collection or an official registry
+      - An archive copy older than the version you hold
+      - Other files from the same source that you can compare against
+    tools: [occrp-aleph, wayback-machine, archive-today, datashare]
+
+  - title: Read the contents, including what was removed
+    input: document
+    why: Text extracted from the file can be searched, translated and compared, and redactions are frequently reversible.
+    do: Extract the text, OCR any scans, and check PDFs for live content under black boxes or in embedded objects.
+    look_for:
+      - Text recoverable under a redaction
+      - Embedded files, macros or links that should not be in the document
+      - A voice, template or letterhead that does not match the claimed issuer
+    tools: [apache-tika, i2ocr, x-ray, oletools, pdf-tools-didier-stevens]
+
+  - title: Judge what it proves
+    why: A file with plausible metadata is still just a file someone sent you.
+    do: "Write the finding as three separate lines: what the file claims, what the metadata supports, and what remains unchecked. Say plainly which parts rest on metadata alone."
+    look_for:
+      - Claims that rest only on editable fields
+      - Dates, names or signatures you could confirm independently
+    tools: []

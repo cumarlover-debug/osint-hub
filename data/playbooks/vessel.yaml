@@ -1,0 +1,75 @@
+title: Follow a vessel from its AIS track
+summary: Read a ship's live position and voyage history, then its registration and ownership — and treat the gaps in its AIS track as evidence.
+starts_with: vessel
+for: Tracing a ship named in a sanctions or smuggling case, checking a vessel seen in a photo, testing an ownership claim, and analysing fishing or transfer behaviour at sea.
+time: 45–120 minutes
+steps:
+  - title: Get the identifiers straight
+    input: vessel
+    why: Ship names repeat, change with every sale and get transliterated in several ways, while the IMO number stays with the hull until it is scrapped and the MMSI is what the AIS and radio records are keyed to.
+    do: Resolve the name to an IMO number and an MMSI, then confirm both against a second register before using either.
+    look_for:
+      - One name returning several different IMO numbers
+      - The first three digits of an MMSI, which are the flag state's MID and should match the flag the ship claims
+      - Call sign, tonnage and year built that agree across two independent sources
+    tools: [vesselfinder, vesseltracker, marinetraffic, myshiptracking, itu-mars]
+
+  - title: Watch the live AIS position
+    input: vessel
+    why: AIS is a broadcast that any receiver in range can hear, so the live map shows where a ship is now — but only where a shore station or a satellite is listening.
+    do: Look the vessel up by IMO or MMSI on two providers at the same time, and compare the fields each one reports.
+    look_for:
+      - Position, course and speed that agree between providers
+      - The destination field, which is typed in by hand and is wrong about as often as it is right
+      - Draught changes that indicate loading or discharge, and status such as moored, under way or not under command
+    tools: [vesselfinder, marinetraffic, myshiptracking, vesseltracker]
+
+  - title: Read the voyage history, not just the position
+    input: vessel
+    why: Where a ship has been, how long it waited and which ports it called at is usually more useful than where it happens to be when you look.
+    do: Pull the port-call history and the track replay for the period that matters, and write the calls out as a dated list.
+    look_for:
+      - Repeated calls at the same terminal, or a port the ship has no obvious reason to visit
+      - Long loitering outside a port or inside a designated area
+      - A voyage that does not match the declared destination, or a destination changed mid-voyage
+    tools: [marinetraffic, vesselfinder, myshiptracking, global-fishing-watch]
+
+  - title: Treat AIS gaps as the finding
+    why: AIS can be switched off or fail, and on a map a deliberate blackout looks exactly like a place where no receiver was listening, so the location of a gap and the behaviour of other ships around it is what distinguishes the two.
+    do: List every gap with its start and end time and the last and first known positions, then check whether other vessels went dark in the same area at the same time.
+    look_for:
+      - Gaps that begin at a boundary, a port limit or the edge of a sanctions regime
+      - Several ships disappearing together, which points to area-wide interference or coordination rather than one crew's decision
+      - Positions implying impossible speed or two places at once, which indicates spoofing rather than travel
+    tools: [global-fishing-watch, skylight, marinetraffic]
+
+  - title: Establish registration, ownership and management
+    input: vessel
+    why: Ownership is layered — registered owner, commercial operator, ISM manager, technical manager, charterer — and each layer can be a different company, so a single owner claim is usually a half-truth.
+    do: Pull the vessel's particulars and its owner and manager history from the registers, and note the effective dates of any flag or name change.
+    look_for:
+      - A registered owner listed care of a ship-management company
+      - Flag, name or manager changes clustered on one date, which often follows a sanctions listing
+      - A class society, builder or port of registry that contradicts the ship's stated history
+    opsec: Company and vessel records are business data, but where an owner, manager or master is named as an individual it is personal data, so collect it only under a lawful basis.
+    tools: [equasis, balticshipping, vesselfinder, itu-mars]
+
+  - title: Check inspections, detentions and sanctions
+    input: vessel
+    why: Port-state inspection records show how the ship is actually run, and the sanctions and war-related lists show who it is not supposed to be trading with.
+    do: Search the IMO number in the port-state inspection databases for the regions the ship trades in, and in the sanctions and war-related listings.
+    look_for:
+      - Detentions with dates and the deficiencies that caused them
+      - The same deficiencies recurring across inspections, which points to a cut-price operator
+      - The vessel, its owner or its manager on a sanctions or war-related list, and any name change that follows
+    tools: [tokyo-mou-apcis, war-and-sanctions, equasis]
+
+  - title: Write down what the track does and does not prove
+    input: vessel
+    why: A vessel is not a person, and a position, an owner and even a name can each be wrong, so the finding is the pattern across sources with the uncertainties stated.
+    do: Confirm the IMO number in every source you cite, line photos of the hull up against the register data, and mark which claims rest on AIS alone and which are backed by a register.
+    look_for:
+      - A hull photo showing a different superstructure, funnel or paint scheme than the register implies
+      - Claims resting on one AIS provider with no second source
+      - What the gaps prove, and what they only suggest
+    tools: [shipspotting]

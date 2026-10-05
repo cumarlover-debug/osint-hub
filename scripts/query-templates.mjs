@@ -20,6 +20,9 @@ import { join } from 'node:path';
 import yaml from 'js-yaml';
 import { paths, root, readYamlDir, toolErrors, readRejected, urlKey } from './lib/data.mjs';
 import { UA, TIMEOUT_MS, pool } from './lib/net.mjs';
+// The test values and the echo check live in one place, because template-check.mjs re-tests the published templates
+// with the same machinery. Two copies would drift.
+import { TEST_VALUES, SECOND_VALUES, echoed, fetchSearch } from './lib/templates.mjs';
 
 const args = process.argv.slice(2);
 const flag = (name, fallback) => {
@@ -35,47 +38,6 @@ const ONLY = (flag('only', '') || '').split(',').map((s) => s.trim()).filter(Boo
 const WRITE = has('write');
 const MAPPINGS = flag('mappings', '') ? JSON.parse(readFileSync(flag('mappings'), 'utf8')) : {};
 const OUT_DIR = join(root, '.cache/query-templates');
-
-/**
- * A harmless value to search for, per input type. Types that have no sensible GET search value (an image, a
- * password, a wallet) are left out: there is nothing to type into a search box to prove the template works.
- */
-const TEST_VALUES = {
-  keyword: 'osint',
-  username: 'osint',
-  name: 'John Smith',
-  company: 'Cloudflare',
-  domain: 'example.com',
-  ip: '8.8.8.8',
-  url: 'https://example.com',
-  email: 'test@example.com',
-  phone: '+12025550123',
-  location: 'London',
-  crypto_address: `0x${'1'.repeat(40)}`,
-  vehicle: '1HGCM82633A004352',
-  aircraft: 'N12345',
-  vessel: 'IMO 9074729',
-  hash: 'd41d8cd98f00b204e9800998ecf8427e',
-};
-
-/** A second, deliberately different value per type: a page that echoes both really is reading the query. */
-const SECOND_VALUES = {
-  keyword: 'needlefish',
-  username: 'needlefish',
-  name: 'Ada Lovelace',
-  company: 'Wikimedia',
-  domain: 'iana.org',
-  ip: '1.1.1.1',
-  url: 'https://www.iana.org',
-  email: 'ada@iana.org',
-  phone: '+442079460958',
-  location: 'Reykjavik',
-  crypto_address: `0x${'2'.repeat(40)}`,
-  vehicle: '5YJ3E1EA7HF000337',
-  aircraft: 'D-ABCD',
-  vessel: 'IMO 9321483',
-  hash: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',
-};
 
 /** Field names a search box tends to use, best first. */
 const SEARCH_FIELDS = [
@@ -139,42 +101,6 @@ function templateFor(action, field) {
   const base = action.toString().split('#')[0];
   const sep = base.endsWith('?') || base.endsWith('&') ? '' : base.includes('?') ? '&' : '?';
   return `${base}${sep}${encodeURIComponent(field)}={query}`;
-}
-
-/**
- * Did the page come back with the value we searched for? Tries the raw, %-encoded and form-encoded
- * spellings. Search boxes are stripped first: a value echoed back into the box it came from proves only that
- * the page has a form, not that the search ran.
- */
-function echoed(body, value) {
-  const hay = body.replace(/<input\b[^>]*>/gi, ' ').toLowerCase();
-  return [value, encodeURIComponent(value), value.replace(/ /g, '+')].some((v) => hay.includes(v.toLowerCase()));
-}
-
-/** Fetches a template filled in with one value. { ok: false } means the URL is not a working search URL. */
-async function fetchSearch(template, value) {
-  const url = template.replace('{query}', encodeURIComponent(value));
-  try {
-    const res = await fetch(url, {
-      redirect: 'follow',
-      signal: AbortSignal.timeout(TIMEOUT_MS),
-      headers: { 'user-agent': UA, accept: 'text/html,application/xhtml+xml,*/*;q=0.8' },
-    });
-    if (!res.ok) {
-      res.body?.cancel?.().catch(() => {});
-      return { ok: false, http: res.status };
-    }
-    const body = await res.text().catch(() => '');
-    return {
-      ok: true,
-      http: res.status,
-      finalUrl: res.url,
-      challenged: res.headers.has('cf-mitigated') || /cloudflare|ddos-guard/i.test(res.headers.get('server') ?? ''),
-      echoed: echoed(body, value),
-    };
-  } catch {
-    return { ok: false };
-  }
 }
 
 async function inspect(slug, tool) {

@@ -10,6 +10,11 @@ const { health } = tool;
 const stale = staleSince(tool);
 // The name without spaces and the site's host too, so "haveibeenpwned" finds "Have I Been Pwned".
 const host = new URL(tool.url).hostname.replace(/^www\./, '');
+// Facets, derived rather than stored: a tool is open source when it names a repository and a licence, and it runs
+// on a platform only when it says so. Missing information is left missing instead of guessed at, so a filter never
+// claims more than the data does.
+const openSource = Boolean(tool.repo && tool.license);
+const platforms = tool.platforms ?? [];
 const searchText = [tool.name, tool.name.replace(/[^a-z0-9]/gi, ''), host, tool.description, tool.category, ...(tool.tags ?? []), ...tool.inputs]
   .join(' ')
   .toLowerCase();
@@ -24,6 +29,9 @@ const searchText = [tool.name, tool.name.replace(/[^a-z0-9]/gi, ''), host, tool.
   data-passive={String(tool.passive)}
   data-account={String(tool.account_required)}
   data-broken={String(isBroken(tool))}
+  data-open-source={String(openSource)}
+  data-linux={String(platforms.includes('linux'))}
+  data-byhand={String(Boolean(tool.manual))}
   data-search={searchText}
   data-slug={tool.slug}
 >

@@ -14,7 +14,8 @@
     "pipeline:draft": "node scripts/pipeline/draft.mjs",
     "pipeline:promote": "node scripts/pipeline/promote.mjs",
     "cli": "node cli/osint-hub.mjs",
-    "extension:sync": "node -e \"require('fs').copyFileSync('shared/launcher.mjs','extension/lib/launcher.mjs')\" && node scripts/extension-icons.mjs"
+    "extension:sync": "node -e \"require('fs').copyFileSync('shared/launcher.mjs','extension/lib/launcher.mjs')\" && node scripts/extension-icons.mjs",
+    "templates": "node scripts/template-check.mjs"
   },
   "license": "UNLICENSED",
   "type": "module",

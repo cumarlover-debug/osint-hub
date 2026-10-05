@@ -1,0 +1,50 @@
+title: Investigate an audio recording
+summary: Work out what a recording contains, look for fingerprints and transcripts, and judge claims about whose voice it is.
+starts_with: audio
+for: Voice notes, leaked calls, recordings passed off as someone speaking, suspected synthetic speech.
+time: 15–45 minutes
+steps:
+  - title: Keep the file as it arrived
+    why: Re-encoding or trimming a clip destroys the detail you are about to rely on, and recordings get pulled down.
+    do: Save the original file untouched, record where it came from and when, and store a hash of it. Archive the page or chat it was published on.
+    look_for:
+      - The file format and sample rate of the original, before any conversion
+      - A published date and the account that first posted it
+    tools: [archive-today, auto-archiver]
+
+  - title: Describe what is actually in it
+    why: The content, not the technology, usually decides the case. Language, names, background noise and what is being discussed all matter.
+    do: Listen through twice and write a plain transcript with timestamps. Note the language and dialect, how many speakers there are, and any names, places, numbers or appointment details.
+    look_for:
+      - Background sound that suggests a place such as an airport, a station or a call centre
+      - A second voice, or an edit where a sentence seems spliced
+      - Terms that only an insider would use
+    tools: []
+
+  - title: Test the AI-generation claim
+    input: audio
+    why: Cloned voices are cheap now, but the detectors are probabilistic and were trained against older generators.
+    do: Run the clip through two detectors and record the score each gives rather than a yes or no. Treat disagreement between them as a reason to stop, not to pick a winner.
+    look_for:
+      - A synthetic verdict, which is a prompt to look for provenance, not proof on its own
+      - Any unsigned or stripped provenance data
+    tools: [ai-voice-detector, resemble-detect, truthscan, sensity]
+    opsec: A claimed voice match is not an identification. No public tool here identifies a speaker reliably, and a detector score is evidence about the audio, never about who spoke.
+
+  - title: Search for the same audio elsewhere and for provenance
+    input: keyword
+    why: The same clip resurfaces with different captions, and the earliest appearance is usually the one with context attached.
+    do: Search a distinctive phrase from the transcript, and any names or numbers in it, for earlier uploads or a longer original. If the recording came from a recorded call or a conference, look for an agenda, a transcript or other recordings of the same event.
+    look_for:
+      - A longer version the clip was cut from
+      - The same audio with a different claimed speaker or date
+      - A matching event listing, which places the recording without identifying anyone
+    tools: [wayback-machine, social-searcher, teleteg]
+
+  - title: Write down the limit of the finding
+    why: Audio cases are usually resolved by context, not by analysis, and the honest answer is often "unresolved".
+    do: "Separate the three questions: what is said, how the file was made, and who is speaking. State which of them you can answer and which you cannot."
+    look_for:
+      - Whether any identification rests on context alone
+      - Loose ends worth pursuing, such as an event, a number or a second recording
+    tools: []

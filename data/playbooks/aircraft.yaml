@@ -1,0 +1,66 @@
+title: Track an aircraft from its tail number
+summary: Follow one airframe's live flight, then separate today's movement from its registration history and its registered owner.
+starts_with: aircraft
+for: Identifying an aircraft in a photo or video, checking who is flying where, tracing corporate or state aircraft, and verifying a tail number quoted in a report.
+time: 30–60 minutes
+steps:
+  - title: Fix which identifier you actually hold
+    input: aircraft
+    why: A tail number identifies an airframe, a flight number identifies a scheduled route, and the ICAO 24-bit hex is what the transponder actually broadcasts. Mixing them up is the standard error in aircraft work.
+    do: Write down what you have — registration, callsign or flight number, Mode-S hex, or only a photo — then resolve a registration to its airframe before going further.
+    look_for:
+      - A registration that has belonged to more than one airframe, which happens after re-registration
+      - A callsign that is a company or military identifier rather than an airline flight number
+      - The hex code, which survives a repaint and a new tail number and is worth keeping
+    tools: [planespotters-net]
+
+  - title: Watch the live picture
+    input: aircraft
+    why: A flight's position, altitude, heading and identity are broadcast openly, and anyone with a receiver can hear them, so the live map answers what the aircraft is doing now without asking anyone.
+    do: Look the registration or hex up on an unfiltered tracker and then on a second network, and record the timestamp alongside everything you see.
+    look_for:
+      - Callsign, altitude, speed and heading, and whether the aircraft is airborne or on the ground
+      - Aircraft that appear on unfiltered feeds but are absent from the mainstream ones, which is a filtering choice rather than a missing aircraft
+      - Squawk codes, holding patterns and diversions
+    tools: [adsb-exchange, ads-b-nl, adsb-fi, adsb-lol, airplanes-live, flightradar24]
+
+  - title: Tell the current flight from a historical one
+    input: aircraft
+    why: Trackers keep playback and history, and a screenshot of a flight from three years ago looks identical to one from this morning.
+    do: Check the map timestamp and its time zone, replay the last day for that airframe, and look at the same moment on an independent receiver network.
+    look_for:
+      - A timestamp in UTC that you are reading as local time
+      - The same hex in two networks at the same moment, which is what makes a position solid
+      - Coverage gaps that are a receiver problem rather than the aircraft switching something off
+    tools: [flightradar24, flightaware, opensky-network, airnav-radar, ourairports]
+
+  - title: Establish the airframe's registration and history
+    input: aircraft
+    why: Registrations are reused after sales, so the same tail number can mean different airframes at different times, and the history is what tells you which one you are looking at.
+    do: Check the construction number behind the registration, then work through its previous registrations, its operators and its livery changes.
+    look_for:
+      - The construction number, which is the identifier that survives a re-registration
+      - Operator changes with dates that match or contradict your photo
+      - Paint, winglets, engine type or cabin configuration that date the image
+    tools: [airframes-io, rzjets, airhistory-net, jetphotos]
+
+  - title: Find the registered owner
+    input: aircraft
+    why: The registry turns a tail number into a company or a person, and it shows whether the record is still live, but registered ownership is not the same as who operates or flies the aircraft.
+    do: Query the registry of the state of registration and read the owner, operator and status fields together rather than alone.
+    look_for:
+      - A trust, holding company or bank as owner, which is common and tells you little
+      - An owner that differs from the operator in the same record
+      - An expired, reserved or pending registration, which means the tail number is not current
+    opsec: Where the registered owner is an individual this is personal data. Collect it only under a lawful basis, and do not treat ownership as evidence of who was on board.
+    tools: [faa-aircraft-registry, planespotters-net]
+
+  - title: Check the safety and message record
+    input: aircraft
+    why: An accident or an unusual pattern of movements is usually why an airframe is worth looking at, and the message archives cover aircraft the tracking sites never show.
+    do: Search the registration and construction number in the accident database, then search the same identifiers in the aircraft message archives.
+    look_for:
+      - Accidents and incidents with dates, and whether the airframe was repaired and returned to service
+      - A written-off airframe whose registration later reappears, which points to a swapped identity
+      - ACARS, VDL or HFDL messages carrying the tail number, which exist even for aircraft with tracking blocked
+    tools: [aviation-safety-network, airframes-io]
