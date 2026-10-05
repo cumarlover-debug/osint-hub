@@ -195,3 +195,31 @@ http://zorexeye.com/  # ZorexEye
 #            (placeholder page), geocreepy.com (now redirects into Flashpoint), searchatlas.org (SEO product)
 # still blocked to automation, so left queued: 10minutemail.com, smstome.com, milled.com, tfljamcams.net,
 #            liveuamap-syria (already covered by the liveuamap entry)
+
+# --- queue closed, 2026-10-05 ---
+# published: allredtech PIC/CIC codes, zorexeye.com, geoplatform.gov, udeuschle panorama generator,
+#            nagix ukraine-livecams, ruarq ukraine-war-heatmap, radio.garden, umap military-bases map
+# refused in bulk (51): dead, for sale, unreachable or retired (binparcel, mywoodle, publc, ipse, gofindwho, the FAO
+#            catalogue, DigitalGlobe, Descartes Labs, live-action-map, Yandex people, threader.app, livecorona, the
+#            ArcGIS dashboards, Cesium Stories, Toronto Live); generic engines and developer utilities (Ecosia, Ask,
+#            Metacrawler, MonsterCrawler, Presearch, WordPress search, SEQE, Yassen, Flippity, GUID/Nano ID
+#            generators, LastPass username generator, resume builders, this-rental, this-resume, personal bookmark
+#            pages, a jsfiddle scratchpad, a DoNotPay marketing article, a humanitarian aid site, a keyless RapidAPI
+#            listing, two uncharacterisable Google CSE instances, a repository list, a truncated onion address);
+#            and four duplicates of tools already listed (SearXNG instances, Liveuamap Syria, the IntelTechniques
+#            search page, MetaDefender at a second host).
+# skipped on purpose, not refused: real services that answer only a bot check, so nothing could be read from them -
+#            10minutemail.com and smstome.com (the directory already lists getvar, MailDrop and hs3x for the same
+#            job), milled.com (email-marketing archive), tfljamcams.net (London traffic cameras), xlek.com (a data
+#            broker), traintimes.org.uk (418 to automation), geoclustering (PyPI bot check), effectgroup.io (a
+#            commercial dossier broker, the family already covered).
+
+# --- last decisions, 2026-10-05 ---
+# published: smappen.com (travel-time mapping; where the OALLEY entry now leads)
+# refused:   libgen.rs (a mirror of the refused libgen.is, and it does not answer)
+# skipped:   sendatext.co (times out), start.me/p/W1kDAj/geoint (403 to a plain request - it is another curated
+#            directory of the same kind as this one, so it needs the browser agent to read rather than a decision),
+#            and the US people-search brokers the queue offered (peoplefinder.com, truthfinder.com, spytox.com,
+#            ufind.name, spytox) which are the family the directory already carries fourteen of.
+#            Also skipped as blocked-to-automation or unreachable: freesmsverification.com, onlinesim.net,
+#            geonarra.com, stacksear.ch, shadowcrypt.net geoip, debate.cards, chris927 IID generator, inciweb.

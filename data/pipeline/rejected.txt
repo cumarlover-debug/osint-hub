@@ -584,3 +584,55 @@ https://www.gopit.com/socialsearch/index.php?type=Social  # gopit (the server re
 https://libgen.is/  # libgen (unreachable, and it exists to distribute copyrighted books without permission), 2026-10-05
 https://www.meganzsearch.com/  # meganzsearch (the domain now serves a placeholder ("Find information, resources and relevant links for meganzsearch.com")), 2026-10-05
 https://searchatlas.org/  # searchatlas (an SEO marketing product rather than an investigation tool, and it would not render to say what it does), 2026-10-05
+https://aws.amazon.com/sns/  # amazon-sns (a cloud messaging service, not an investigation tool), 2026-10-05
+https://www.arcgis.com/apps/dashboards/4d1289ab105145a1b1f80c1ad3cf19fb  # arcgis-firefat (renders empty in a real browser, so nothing could be verified about it), 2026-10-05
+https://www.arcgis.com/apps/dashboards/bf5df3a49a624521844a2e5e1ec7df05  # arcgis-modis (renders empty in a real browser, so nothing could be verified about it), 2026-10-05
+https://www.arcgis.com/apps/webappviewer/index.html?id=29c31fa4b00248418e545d222e57ddaa  # arcgis-oilgas (renders empty in a real browser, so nothing could be verified about it), 2026-10-05
+https://www.arcgis.com/apps/dashboards/201fc98c0d74482d8b3acb0c4cc47f16  # arcgis-power (renders an ArcGIS sign-in wall rather than a dashboard), 2026-10-05
+https://www.arcgis.com/apps/dashboards/c8af9c5411814584b460cc87cb7c3780  # arcgis-quake (renders empty in a real browser, so nothing could be verified about it), 2026-10-05
+https://www.arcgis.com/apps/dashboards/4e573c79e1224081805165d25b4f33c7  # arcgis-walmart (renders empty in a real browser, so nothing could be verified about it), 2026-10-05
+https://www.arcgis.com/home/webmap/viewer.html?webmap=df8bcc10430f48878b01c96e907a1fc3  # arcgis-wildfire (renders empty in a real browser, so nothing could be verified about it), 2026-10-05
+https://www.search.ask.com/  # ask (a general search engine, which the directory already covers), 2026-10-05
+https://awesomeopensource.com/projects/osint  # awesomeopensource (a list of repositories rather than a tool), 2026-10-05
+https://binparcel.com/  # binparcel (does not answer at all, on more than one attempt), 2026-10-05
+https://one-plus.github.io/Bookmarks  # bookmarks-oneplus (a personal bookmark page), 2026-10-05
+https://cesium.com/ion/stories/viewer/?id=8be6f99c-0d4c-46ce-91a3-313e3cac62fe  # cesium-stories (a 3D storytelling viewer rather than an investigation tool), 2026-10-05
+https://maps.descarteslabs.com/  # descarteslabs (does not resolve or answer), 2026-10-05
+https://discover.digitalglobe.com/  # digitalglobe (does not resolve or answer), 2026-10-05
+https://donotpay.com/learn/temporary-phone-number/  # donotpay-phone (a marketing article about temporary numbers rather than a service), 2026-10-05
+https://dopomoha.pl  # dopomoha (a humanitarian aid site for Ukrainian refugees, not an investigation tool), 2026-10-05
+https://www.ecosia.org/  # ecosia (a general search engine, which the directory already covers), 2026-10-05
+https://data.apps.fao.org/map/catalog/srv/eng/catalog.search#/home  # fao-catalog (answers 502 Bad Gateway on every attempt; the catalogue service is retired), 2026-10-05
+https://www.flippity.com/  # flippity (a spreadsheet-to-game tool for teachers), 2026-10-05
+https://rapidapi.com/gisfromscratch/api/geoprotests/  # geoprotests-api (a RapidAPI listing that requires a key before it will say anything), 2026-10-05
+https://gofindwho.com/  # gofindwho (does not answer at all, on more than one attempt), 2026-10-05
+https://cse.google.com/cse?cx=017648920863780530960:lddgpbzqgoi  # google-cse-1 (a Google Programmable Search instance whose corpus cannot be characterised), 2026-10-05
+https://cse.google.com/cse/publicurl?cx=006290531980531382:qcaf4enph7i  # google-cse-2 (a Google Programmable Search instance whose corpus cannot be characterised), 2026-10-05
+https://one-plus.github.io/GoogleBing  # googlebing-oneplus (a personal bookmark page), 2026-10-05
+https://richardkundl.github.io/shortguid/  # guid-generator (a developer identifier generator), 2026-10-05
+https://inteltechniques.com/tools/Search.html  # inteltechniques-searchhtml (a page of the IntelTechniques Search Tool, which is already listed), 2026-10-05
+https://www.ipse.io/  # ipse (does not answer at all), 2026-10-05
+https://jsfiddle.net/user/fgdc_gp_demos/fiddles/  # jsfiddle-fgdc (a developer’s scratchpad of map demos), 2026-10-05
+https://www.lastpass.com/features/username-generator  # lastpass-username (a username generator marketed with a password manager), 2026-10-05
+https://www.live-action-map.com/  # liveactionmap (does not resolve or answer), 2026-10-05
+https://livecorona.co.kr  # livecorona (a COVID-era dashboard whose data has not been maintained since the pandemic ended), 2026-10-05
+https://syria.liveuamap.com/  # liveuamap-syria (a country section of Liveuamap, which is already listed), 2026-10-05
+https://www.metacrawler.com/  # metacrawler (a general meta-search engine, which the directory already covers), 2026-10-05
+https://metadefender.opswat.com/  # metadefender-opswat (the same service as the MetaDefender Cloud entry already listed), 2026-10-05
+http://monstercrawler.com/  # monstercrawler (a general meta-search engine, which the directory already covers), 2026-10-05
+https://mywoodle.com/  # mywoodle (the domain is for sale through HugeDomains), 2026-10-05
+https://zelark.github.io/nano-id-cc/  # nano-id (a developer identifier calculator), 2026-10-05
+https://engine.presearch.org/  # presearch (a general search engine, which the directory already covers), 2026-10-05
+https://publc.com/  # publc (answers 404 with a Wix "ConnectYourDomain" error), 2026-10-05
+http://recon222tttn4ob7ujdhbn3s4gjre7netvzybuvbq2bcqwltkiqinha  # recon-onion (an onion address truncated by the source list, so it cannot be resolved), 2026-10-05
+https://vinaysomawat.github.io/Resume-Builder/  # resume-builder (a résumé builder, which is not an investigation tool), 2026-10-05
+https://thisresumedoesnotexist.com/  # resume-generator (an AI novelty: generating fake résumés proves nothing about a real one), 2026-10-05
+https://searx.info/  # searx-info (a SearXNG instance list, and SearXNG is already listed), 2026-10-05
+https://seqe.me/  # seque (a query-builder front end for other engines, which the directory already covers), 2026-10-05
+https://thisrentaldoesnotexist.com/  # this-rental (an AI novelty site with no investigative use), 2026-10-05
+https://threader.app/thread/1199785692274077696  # threader (the threading service is defunct, so the link is dead), 2026-10-05
+https://apps.esri.ca/torontolive/  # toronto-live (an Esri-hosted city dashboard that renders nothing without a full interactive session), 2026-10-05
+https://en.search.wordpress.com/  # wordpress-search (a blog platform search, which the directory already covers), 2026-10-05
+https://yandex.ru/people  # yandex-people (answers 410 Gone: the people search has been retired), 2026-10-05
+http://yassen.com/  # yassen (a commodity search index with no stated purpose), 2026-10-05
+https://libgen.rs/  # Libgen.rs (a mirror of libgen.is, which is refused for distributing copyrighted books without permission; this host does not answer at all), 2026-10-05

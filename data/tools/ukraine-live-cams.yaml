@@ -1,0 +1,10 @@
+name: Ukraine Live Cams
+url: https://nagix.github.io/ukraine-livecams
+description: A 3D map of live public cameras across Ukraine, gathered so an event can be looked at rather than only read about.
+category: geolocation
+inputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: 'Live cameras are the difference between a claim and an observation, which is why they matter in a conflict: the picture at a place and time is its own evidence.'

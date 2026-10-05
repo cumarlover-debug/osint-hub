@@ -1,0 +1,10 @@
+name: Ukraine War Heatmap
+url: https://ruarq.github.io/ukraine-war-heatmap
+description: A live heatmap of reported activity across Ukraine, showing where events are concentrated over time.
+category: geolocation
+inputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: 'A spatial summary rather than a source: useful for putting a single reported event in context, and for noticing that a place has gone quiet, which is its own kind of signal.'

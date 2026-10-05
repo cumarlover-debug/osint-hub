@@ -1,0 +1,10 @@
+name: PIC/CIC Code Database
+url: https://www.allredtech.com/
+description: 'Looks up PIC and CIC carrier codes: which long-distance carrier a code belongs to, the company behind it and its other codes.'
+category: phone
+inputs: [phone, keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: 'The piece that turns a phone number into an operator: the prefix routes to a carrier, and the carrier is often the first fact that is checkable independently of the number itself.'

@@ -1,0 +1,10 @@
+name: Military Bases Worldwide
+url: https://umap.openstreetmap.fr/en/map/military-bases-around-the-world_510201
+description: A community-maintained map of military installations around the world, drawn on OpenStreetMap.
+category: geolocation
+inputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: A map someone else assembled and others can edit, so treat it as a starting point and check anything that matters against imagery and official sources. Its value is the coverage, not the authority.
