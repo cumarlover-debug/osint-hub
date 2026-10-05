@@ -1,0 +1,16 @@
+name: AWSBucketDump
+url: https://github.com/jordanpotti/AWSBucketDump
+description: Enumerates S3 buckets from a list of candidate names and reports the ones that are readable, grepping their contents for filenames that look interesting.
+category: network
+inputs: [domain]
+type: cli
+cost: free
+passive: false
+account_required: false
+repo: jordanpotti/AWSBucketDump
+install: git clone, then pip install -r requirements.txt
+language: Python
+license: MIT
+platforms: [linux, macos, windows]
+tags: [open-source]
+notes: 'It takes a wordlist of candidate bucket names rather than a domain, so the workflow is: build the name list first (a subdomain wordlist, or a permutation of the company name), then run python AWSBucketDump.py -l names.txt -g keywords.txt. That is why there is no command here: there is no single value to hand it. Adding -D downloads whatever it finds, so run it without -D first and read the report before you pull anything down.'

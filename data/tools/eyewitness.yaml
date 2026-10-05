@@ -1,0 +1,16 @@
+name: EyeWitness
+url: https://github.com/RedSiege/EyeWitness
+description: Takes screenshots of websites and captures each server's response headers and page title into one HTML report, so a long list of hosts can be reviewed by eye instead of one at a time.
+category: domain
+inputs: [url]
+type: cli
+cost: free
+passive: false
+account_required: false
+repo: RedSiege/EyeWitness
+install: git clone, then pip install -r requirements.txt
+language: Python
+license: BSD-3-Clause
+platforms: [linux, macos, windows]
+tags: [open-source]
+notes: 'The project moved: the source list pointed at ChrisTruncer/EyeWitness, which has been dormant since 2024, while the maintained repository is RedSiege/EyeWitness. It drives a browser, so it contacts every host it is given. Run it from inside the clone, where the script sits in Python/: python Python/EyeWitness.py --single https://example.com, or -f urls.txt for a list. There is no command here because the relative script path only resolves in its own folder, the same shape as Blackbird.'

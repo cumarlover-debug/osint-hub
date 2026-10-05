@@ -35,3 +35,4 @@ https://www3.wipo.int/branddb/en/  # now https://branddb.wipo.int (wipo-global-b
 https://www.yahoo.com  # now https://search.yahoo.com (yahoo-search)
 https://yaraify.abuse.ch/scan/  # now https://yaraify.abuse.ch (yaraify)
 https://pypi.org/project/gods-eye/  # now https://github.com/paveldat/Gods-eye (gods-eye)
+https://github.com/ChrisTruncer/EyeWitness  # now https://github.com/RedSiege/EyeWitness (eyewitness)

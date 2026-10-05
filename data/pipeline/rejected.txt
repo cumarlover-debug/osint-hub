@@ -547,3 +547,4 @@ http://www.worldlicenseplates.com/  # World License Plates (HTTP only, no HTTPS)
 https://www.vigilante.pw/  # Vigilante.pw (domain now redirects to Dehashed, which is already listed, so it would be a second name for one destination), 2026-10-05
 https://credenshow.com/  # CredenShow (domain mismatch: credenshow.com redirects to nextsecurity.hk, an unrelated Hong Kong pentest firm with no search tool), 2026-10-05
 https://iknowyour.dad/  # IKnowYour.Dad (unverifiable and high risk: crypto-only "no KYC" payments, claims of 93 billion records it cannot evidence, referral payouts, hosted on Replit), 2026-10-05
+https://github.com/ppwwyyxx/wechat-dump  # wechat-dump (not a lookup tool: it analyses a WeChat database off a device you already hold, so there is no value to pass it and it answers nothing about a username), 2026-10-05
