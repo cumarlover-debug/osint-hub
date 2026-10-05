@@ -1,0 +1,15 @@
+name: God's Eye
+url: https://github.com/paveldat/Gods-eye
+description: 'A Python library of API wrappers for the checks a person or company investigation keeps needing: phone number and IP information, WHOIS, DNS, HTTP headers, robots.txt, clickjacking and breached-password lookups.'
+category: frameworks
+inputs: [phone, ip, domain, password]
+type: api
+cost: free
+passive: true
+account_required: false
+repo: paveldat/Gods-eye
+install: pip install gods-eye
+language: Python
+platforms: [linux, macos, windows]
+tags: [open-source]
+notes: 'This is a library, not a command: you install it and import the module you need into your own script, which is why it is listed without a command to run. Its phone lookup expects an API key of your own. Honest state of it: 48 stars, PyPI release 1.2.0, and no repository push since October 2024, so treat it as a set of working API wrappers to borrow rather than a maintained product. The repository''s own README links a differently hyphenated clone URL (God-s-eye) — the project lives at Gods-eye.'

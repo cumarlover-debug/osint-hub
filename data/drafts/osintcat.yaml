@@ -1,0 +1,35 @@
+# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
+# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
+name: OsintCat
+url: https://www.osintcat.net/
+description: ''
+category: email
+inputs: [email]
+type: web
+cost: freemium
+passive: true
+account_required: false
+
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: medium
+  score: 4
+  source_url: https://www.osintcat.net/
+  flags:
+    - 'policy-leak: breach data, listed with a responsible-use notice'
+    - 'policy-leak: breach, leak or tracking data — needs the responsible-use notice'
+    - 'cost: unknown, guessed freemium'
+    - 'account_required: unknown, guessed no'
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Data Breach Search Engines
+        said: >-
+          Check if an email address has been exposed in known data breaches. Fast lookup across multiple
+          breach databases, with a simple API available.
+    page_title: Enterprise Intelligence Platform | OsintCat
+    page_description: >-
+      The comprehensive OSINT platform for security professionals. Integrate 1,500+ data sources via API or
+      use our advanced dashboard.

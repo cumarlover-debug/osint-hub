@@ -1,0 +1,33 @@
+# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
+# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
+name: Reverse Image Search Anywhere
+url: https://reverseimage.app/
+description: ''
+category: image-video
+inputs: [image]
+type: web
+cost: freemium
+passive: true
+account_required: false
+
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: high
+  score: 7
+  source_url: https://reverseimage.app/
+  flags:
+    - 'cost: unknown, guessed freemium'
+    - 'account_required: unknown, guessed no'
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Image Search
+        said: >-
+          Free browser extension and web tool for searching images across Google Lens, Yandex, Bing Visual
+          Search, and TinEye, including images on sites where direct image URLs fail.
+    page_title: Reverse Image Search Anywhere — Free Browser Extension
+    page_description: >-
+      Free reverse image search extension for Chrome, Edge and Firefox: search Google Lens, Yandex, Bing and
+      TinEye in one right-click, even on Instagram.

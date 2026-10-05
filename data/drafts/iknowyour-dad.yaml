@@ -1,0 +1,36 @@
+# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
+# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
+name: IKnowYour.Dad
+url: https://iknowyour.dad/
+description: ''
+category: email
+inputs: [email]
+type: web
+cost: freemium
+passive: true
+account_required: false
+
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: medium
+  score: 4
+  source_url: https://iknowyour.dad/
+  flags:
+    - 'policy-leak: breach data, listed with a responsible-use notice'
+    - 'policy-leak: breach, leak or tracking data — needs the responsible-use notice'
+    - 'cost: unknown, guessed freemium'
+    - 'account_required: unknown, guessed no'
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Data Breach Search Engines
+        said: Data Breach Search Engine.
+    page_title: >-
+      iKnowYour.Dad (iKYD) - Data Breach Search Engine | 93+ Billion Records | Pay with Monero XMR Bitcoin
+      Crypto
+    page_description: >-
+      Search 93+ billion leaked records from 5259+ breach databases. Check emails, phones, passwords,
+      usernames. Anonymous cryptocurrency payments accepted: Monero (XMR), Bitcoin (BTC), Litecoin (LTC),
+      USDT, Ethereum. Private OSINT tool - no KYC required.

@@ -1,0 +1,35 @@
+# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
+# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
+name: packet.guru
+url: https://packet.guru/
+description: ''
+category: search
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: medium
+  score: 4
+  source_url: https://packet.guru/
+  flags:
+    - 'policy-leak: breach, leak or tracking data — needs the responsible-use notice'
+    - 'cost: unknown, guessed freemium'
+    - 'account_required: unknown, guessed no'
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Speciality Search Engines
+        said: >-
+          Browser-fingerprint and connection-trust audit: WebRTC/DNS leak tests, JA4/JA3 TLS and passive
+          TCP/IP fingerprints, ECH state, and IP reputation (VPN, proxy, datacenter, Tor), returning two
+          independent 0–100 Privacy & Trust scores. No signup, runs client-side.
+    page_title: What&#x27;s My IP, Privacy & Trust Index | packet.guru
+    page_description: >-
+      Check what your browser reveals: your IP and location, a Privacy and Trust score, free DNS, WebRTC and
+      browser-fingerprint leak tests, and 25 network tools.

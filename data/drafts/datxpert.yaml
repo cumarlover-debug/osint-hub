@@ -1,0 +1,30 @@
+# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
+# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
+name: datXpert
+url: https://telegram.me/datxpertbot
+description: ''
+category: social-media
+inputs: [username, social_post]
+type: web
+cost: freemium
+passive: true
+account_required: false
+
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: low
+  score: 2
+  source_url: https://telegram.me/datxpertbot
+  flags:
+    - 'policy-leak: breach, leak or tracking data — needs the responsible-use notice'
+    - 'cost: unknown, guessed freemium'
+    - 'account_required: unknown, guessed no'
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Social Media Tools > Telegram
+        said: Leak search via IntelX.
+    page_title: 'Telegram: Launch @datxpertbot'
+    page_description: datXpert is a powerful tool to find data in public/private ULP databases.

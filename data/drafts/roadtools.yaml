@@ -1,0 +1,37 @@
+# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
+# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
+name: ROADtools
+url: https://github.com/dirkjanm/roadtools
+description: ''
+category: network
+inputs: [domain, ip]
+type: cli
+cost: free
+passive: false
+account_required: false
+repo: dirkjanm/roadtools
+language: Python
+license: MIT
+
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: low
+  score: 3
+  source_url: https://github.com/dirkjanm/roadtools
+  flags:
+    - 'policy-leak: breach, leak or tracking data — needs the responsible-use notice'
+    - 'type: GitHub repo assumed to be a CLI tool, check it is not a library or web app'
+  notes:
+    sources:
+      - list: osint-framework
+        section: Cloud Infrastructure > Azure/GCP Discovery
+        said: >-
+          Azure AD exploration framework for dumping tenant objects, principals, and permissions to support
+          attack-path and privilege analysis.
+    framework_input: Azure AD tenant context and authentication tokens/credentials
+    framework_output: Users, groups, applications, roles, and privilege mappings
+    github_description: A collection of Azure AD/Entra tools for offensive and defensive security purposes
+    github_stars: 2732
+    github_last_push: '2026-08-05'

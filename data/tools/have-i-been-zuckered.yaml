@@ -1,0 +1,12 @@
+name: Have I Been Zuckered
+url: https://haveibeenzuckered.com/
+description: Checks a phone number against the 533 million-record Facebook scrape of 2019 and shows which fields in the record belong to it.
+category: breach
+inputs: [phone]
+type: web
+cost: free
+passive: true
+account_required: false
+manual: post-form
+tags: [leak-data]
+notes: The dataset keys on phone numbers, which is what you give it. Its own page says it does not store what you enter. The scrape is public, seven years old and full of people who did not choose to be in it, so read a hit as exposure that already happened rather than as something about the person today.

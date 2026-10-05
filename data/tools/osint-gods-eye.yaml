@@ -1,0 +1,16 @@
+name: OSINT-God's Eye
+url: https://github.com/jollncoelho/OsintGodseye
+description: 'A self-hosted tactical map dashboard: live aircraft, vessels and satellites over satellite imagery, with undersea cable layers, click-to-geocode anywhere and night-vision, thermal and radar screen filters.'
+category: geolocation
+inputs: [location]
+type: web
+cost: free
+passive: true
+account_required: false
+repo: jollncoelho/OsintGodseye
+install: git clone, then npm install
+language: TypeScript
+license: MIT
+platforms: [linux, macos, windows]
+tags: [open-source]
+notes: It runs on your own machine rather than as a hosted service, so the install line is a git clone and an npm install. Every feed is a free keyless public API (OpenSky for aircraft, AIS for vessels, Nominatim for geocoding, Open-Meteo for weather), which is why nothing here needs a key or an account. It is context for a place or a vehicle movement, not a way to look up a person.

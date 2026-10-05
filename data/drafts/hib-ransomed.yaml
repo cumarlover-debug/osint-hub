@@ -1,0 +1,34 @@
+# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
+# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
+name: HIB Ransomed
+url: https://haveibeenransom.com/
+description: ''
+category: email
+inputs: [email]
+type: web
+cost: freemium
+passive: true
+account_required: false
+
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: medium
+  score: 4
+  source_url: https://haveibeenransom.com/
+  flags:
+    - 'policy-leak: breach data, listed with a responsible-use notice'
+    - 'policy-leak: breach, leak or tracking data — needs the responsible-use notice'
+    - 'cost: unknown, guessed freemium'
+    - 'account_required: unknown, guessed no'
+  notes:
+    sources:
+      - list: awesome-osint
+        section: Data Breach Search Engines
+        said: Because people have the right to know if their data has been leaked.
+    page_title: Have I Been Ransomed? — Check if Your Email, Phone or Wallet Leaked in Ransomware & Infostealers
+    page_description: >-
+      Free leak search engine. Check in seconds if your email, phone, password, crypto wallet or Telegram data
+      was exposed in ransomware leaks, infostealers or data breaches. Backed by peer-reviewed research (MDPI).
+      Anonymous, instant, no signup.

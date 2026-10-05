@@ -1,0 +1,27 @@
+# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
+# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
+name: WikiLeaks Search
+url: https://search.wikileaks.org/advanced
+description: ''
+category: metadata
+inputs: [document]
+type: web
+cost: freemium
+passive: true
+account_required: false
+
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: medium
+  score: 3
+  source_url: https://search.wikileaks.org/advanced
+  flags:
+    - 'policy-leak: breach, leak or tracking data — needs the responsible-use notice'
+    - 'cost: unknown, guessed freemium'
+  notes:
+    sources:
+      - list: osint-framework
+        section: Images / Videos / Docs > Documents > Search
+    page_title: Search WikiLeaks

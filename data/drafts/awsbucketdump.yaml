@@ -1,0 +1,37 @@
+# DRAFT: write a fresh one-sentence description, fix anything the flags mention, then set
+# review.approve: true (or review.reject: true) and run `npm run pipeline:promote`.
+name: AWSBucketDump
+url: https://github.com/jordanpotti/AWSBucketDump
+description: ''
+category: network
+inputs: [domain, ip]
+type: cli
+cost: free
+passive: false
+account_required: false
+repo: jordanpotti/AWSBucketDump
+language: Python
+license: MIT
+
+review:
+  approve: false
+  reject: false
+  reject_reason: ''
+  confidence: low
+  score: 3
+  source_url: https://github.com/jordanpotti/AWSBucketDump
+  flags:
+    - 'policy-leak: breach, leak or tracking data — needs the responsible-use notice'
+    - 'type: GitHub repo assumed to be a CLI tool, check it is not a library or web app'
+  notes:
+    sources:
+      - list: osint-framework
+        section: Cloud Infrastructure > AWS Enumeration
+        said: >-
+          Python tool that enumerates AWS S3 buckets and optionally downloads accessible objects using keyword
+          and pattern-based discovery.
+    framework_input: AWS account naming patterns, keywords, and optional wordlists
+    framework_output: Discovered bucket names and downloadable object listings/files
+    github_description: Security Tool to Look For Interesting Files in S3 Buckets
+    github_stars: 1472
+    github_last_push: '2024-04-10'

@@ -5,6 +5,8 @@
 //
 // approve: true  → validated, moved to data/tools/<slug>.yaml (review block dropped), then health-checked
 // reject: true   → URL added to data/pipeline/rejected.txt so it is never suggested again; draft deleted
+//                  unless the URL is already a listed tool: then the draft is only deleted, because a redirect or a
+//                  renamed duplicate must not mark something we do publish as forbidden.
 // Drafts that fail validation stay where they are and the problems are printed.
 import { appendFileSync, mkdirSync, rmSync, writeFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -18,6 +20,7 @@ const today = new Date().toISOString().slice(0, 10);
 
 const promoted = [];
 const rejectedNow = [];
+const duplicates = [];
 const problems = [];
 let waiting = 0;
 
@@ -31,6 +34,13 @@ for (const { slug, file, tool: draft, error } of readYamlDir(paths.drafts)) {
   const { review = {}, ...tool } = draft;
 
   if (review.reject) {
+    // A draft whose URL is already a listed tool is a duplicate, not a rejection. Adding it to the never-suggest
+    // list would mark a tool we publish as forbidden, and the project has a test that says so.
+    if (existing.has(urlKey(tool.url))) {
+      rmSync(draftPath);
+      duplicates.push(`${slug} (already data/tools/${existing.get(urlKey(tool.url))}.yaml)`);
+      continue;
+    }
     mkdirSync(dirname(paths.rejected), { recursive: true });
     const reason = review.reject_reason ? ` (${review.reject_reason})` : '';
     appendFileSync(paths.rejected, `${tool.url}  # ${tool.name}${reason}, ${today}\n`);
@@ -67,6 +77,7 @@ for (const { slug, file, tool: draft, error } of readYamlDir(paths.drafts)) {
 console.log(`Promoted ${promoted.length}, rejected ${rejectedNow.length}, ${waiting} still waiting for review.`);
 if (promoted.length) console.log(`  + ${promoted.join(', ')}`);
 if (rejectedNow.length) console.log(`  − ${rejectedNow.join(', ')} (added to data/pipeline/rejected.txt)`);
+if (duplicates.length) console.log(`  = ${duplicates.join(', ')} (dropped: already listed)`);
 if (problems.length) {
   console.log(`\nNot promoted, fix these first:\n  ${problems.join('\n  ')}`);
 }
