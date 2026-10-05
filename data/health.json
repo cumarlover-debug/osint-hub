@@ -1539,6 +1539,20 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "decoding-drivers-licence-numbers": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
+  "decoding-social-security-numbers": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "deepfake-o-meter": {
     "status": "up",
     "failures": 0,
@@ -2137,6 +2151,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "fake-company-name-generator": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "fake-name-generator": {
     "status": "up",
@@ -5140,6 +5161,13 @@
       "pushed_at": "2026-09-12"
     }
   },
+  "osrframework": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "ourairports": {
     "status": "up",
     "failures": 0,
@@ -5493,6 +5521,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "public-buckets": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "publicwww": {
     "status": "up",
     "failures": 0,
@@ -5596,6 +5631,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "random-face-generator": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "ransomlook": {
     "status": "up",
     "failures": 0,
@@ -5614,6 +5656,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "rapid7-vulnerability-exploit-database": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "rapiddns": {
     "status": "up",
@@ -6321,6 +6370,13 @@
       "archived": false,
       "pushed_at": "2026-04-13"
     }
+  },
+  "sploitus": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "spokeo": {
     "status": "up",
@@ -7290,6 +7346,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "vulmon": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "walletexplorer": {
     "status": "up",
     "failures": 0,
@@ -7400,6 +7463,13 @@
     }
   },
   "waytrace": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
+  "waze-live-map": {
     "status": "up",
     "failures": 0,
     "last_checked": "2026-10-05",
@@ -7618,6 +7688,13 @@
     "last_checked": "2026-09-28",
     "http": 202,
     "last_ok": "2026-09-28"
+  },
+  "windy-webcams": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "wipo-global-brand-database": {
     "status": "up",

@@ -1,0 +1,10 @@
+name: Waze Live Map
+url: https://www.waze.com/live-map
+description: The live traffic map from Waze, with reported incidents, closures and jams from drivers themselves.
+category: transport
+inputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Crowd-sourced and therefore fast to reflect a blocked road or an incident that official feeds have not published yet, which is often the part that explains a journey.

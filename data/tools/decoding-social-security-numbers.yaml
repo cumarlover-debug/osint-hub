@@ -1,0 +1,10 @@
+name: Decoding Social Security Numbers
+url: https://stevemorse.org/ssn/ssn.html
+description: 'Explains what a United States Social Security number can and cannot reveal: the issuing era, the historical area ranges and why the number does not encode a birthplace.'
+category: people
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Worth reading before treating an SSN as a location clue, because the common belief that it encodes where someone was born is wrong for most numbers issued since 2011.
