@@ -1,0 +1,17 @@
+name: dread-scraper
+url: https://github.com/NPCmillionaire/dread-scraper
+description: Archives selected Dread boards through Tor into a local SQLite database with full-text search, so a forum's threads can be read and searched after the fact without a browser.
+category: threat-intel
+inputs: [keyword]
+type: cli
+cost: free
+passive: true
+account_required: false
+manual: interactive
+repo: NPCmillionaire/dread-scraper
+install: git clone, then python scrape.py
+language: Python
+license: MIT
+platforms: [linux, macos]
+tags: [open-source]
+notes: 'It is a two-step tool rather than a command: scrape.py walks the boards into dread_archive.sqlite3, then search.py runs FTS5 queries over it. It expects Tor Browser already listening on 127.0.0.1:9150 with a logged-in session cookie, and it is deliberately slow — five to ten seconds between requests, exponential back-off, and it waits out Dread''s queue page instead of hammering through it. The README says it was written for research and threat-intelligence use on fraud-related boards.'

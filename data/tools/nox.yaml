@@ -1,6 +1,8 @@
 name: NOX
 url: https://github.com/nox-project/nox-framework
-description: A cyber-threat-intelligence engine that pivots an identifier across more than a hundred configured sources, with each source defined as a JSON plugin and its API keys rotated between calls.
+description: >-
+  A cyber-threat-intelligence engine that pivots an identifier across more than a hundred configured sources, with
+  each source defined as a JSON plugin and its API keys rotated between calls.
 category: frameworks
 inputs: [email, username, domain, ip]
 type: cli
@@ -9,9 +11,15 @@ passive: true
 account_required: true
 manual: interactive
 repo: nox-project/nox-framework
-install: git clone, then pip install -r requirements.txt and python build_sources.py
+install: Kali .deb from the releases, or pip install -r requirements.txt then python build_sources.py
 language: Python
 license: Apache-2.0
-platforms: [linux, macos, windows]
+platforms: [linux]
 tags: [open-source]
-notes: 'This is a framework rather than a command: nox.py is the execution engine and everything it knows lives in JSON plugins under sources/, so it needs build_sources.py run first, API keys placed in api_key_slots, and optionally a proxies.txt in the working directory for rotation. It is listed as a framework you set up and drive yourself, which is why there is no command here. Kali-ready and Apache-2.0, last pushed May 2026.'
+notes: >-
+  A framework rather than a command: nox.py is the execution engine, everything it knows lives in JSON plugins under
+  sources/, and the reported invocation is nox-cli -t target@company.com --autoscan, with keys in
+  ~/.config/nox-cli/apikeys.json. Two things to decide before running it. It auto-fetches public proxy pools by
+  default, so what carries your queries is whatever strangers are hosting unless you supply your own; and its
+  pipeline includes hash cracking and scraping of paste and Telegram sources. Its capability claims are its own, not
+  independently checked, and the project is new.

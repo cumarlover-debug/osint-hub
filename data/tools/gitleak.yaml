@@ -1,11 +1,20 @@
 name: GitLeak
 url: https://gitleak.io
-description: Reads a GitHub profile for the addresses and metadata its commits and public activity expose, including the emails that never appear on the profile page itself.
+description: >-
+  Reads a GitHub profile for the addresses and metadata its commits and public activity expose, including the
+  emails that never appear on the profile page itself.
 category: code-security
 inputs: [username]
+outputs: [email]
 type: web
 cost: freemium
 passive: true
 account_required: false
-manual: post-form
-notes: 'Commit metadata is the usual reason a public profile leaks an address, which is what makes this worth trying when a username is all you have. It answers a form, so it stays a by-hand entry, and its pricing is not stated on the page. Anything it returns is personal data: use it where you have a basis.'
+query_template:
+  username: 'https://gitleak.io/api/v1/users/{query}'
+tags: [personal-data]
+notes: >-
+  Commit metadata is the usual reason a public profile leaks an address, which is what makes this worth trying when a
+  username is all you have. The search link here is its API, which answers with JSON: /api/v1/users/<username>, with
+  optional includeNoreply and includeTimezone parameters. It is rate limited to about fifty requests an hour, so do
+  not point a loop at it. Anything it returns is personal data: use it where you have a basis.

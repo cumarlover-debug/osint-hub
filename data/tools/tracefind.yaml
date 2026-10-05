@@ -1,0 +1,12 @@
+name: TraceFind
+url: https://tracefind.info/
+description: A paid lookup service that takes an email address, username or phone number and returns what it can find for it across public sources.
+category: email
+inputs: [email, username, phone]
+type: web
+cost: paid
+passive: true
+account_required: false
+manual: post-form
+tags: [personal-data]
+notes: 'Its page advertises uncovering the truth behind any email and asks for payment, which puts it in the same family as the other commercial lookups here: it states no operator and no source for what it returns. It answers a form, so run it by hand. Decide deliberately whether a target''s address goes to a service you cannot check out first.'
