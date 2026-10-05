@@ -1,0 +1,155 @@
+# Candidates from the OSINT4ALL directory (https://start.me/p/L1rEYQ/osint4all)
+# Read with the CLI's browser agent; the page needs a consent gate answered and a scroll before its widgets paint.
+# Captured 2026-10-05. 149 destinations not in the directory, 67 already listed, 6 previously refused.
+
+https://10minutemail.com/  # 10minutemail.com
+https://www.allredtech.com/  # PIC/CIC Code Database
+https://anonaddy.com/  # AnonAddy
+https://apps.esri.ca/torontolive/  # Toronto Live
+http://arabo.com/  # Arabo.com
+https://www.arcgis.com/apps/dashboards/201fc98c0d74482d8b3acb0c4cc47f16  # Power Plants in the United States
+https://www.arcgis.com/apps/dashboards/4d1289ab105145a1b1f80c1ad3cf19fb  # Residential Fire Fatalities in Indiana
+https://www.arcgis.com/apps/dashboards/4e573c79e1224081805165d25b4f33c7  # Walmart Store Status
+https://www.arcgis.com/apps/dashboards/bf5df3a49a624521844a2e5e1ec7df05  # MODIS Wildfire
+https://www.arcgis.com/apps/dashboards/c8af9c5411814584b460cc87cb7c3780  # Earthquake Watch
+https://www.arcgis.com/apps/webappviewer/index.html?id=29c31fa4b00248418e545d222e57ddaa  # UK Onshore Oil and Gas Activity
+https://www.arcgis.com/home/webmap/viewer.html?webmap=df8bcc10430f48878b01c96e907a1fc3#!  # ArcGIS Wildfire Map
+http://argumentsearch.com/  # Argumentsearch.com
+https://www.aware-online.com/en/osint-tools/people-search-tool/  # People search Tool
+https://awesomeopensource.com/projects/osint  # Osint Open Source Projects
+https://aws.amazon.com/sns/  # Amazon SNS
+https://www.behindthename.com/random/  # International Name Generator
+https://binparcel.com/  # Binparcel.com
+https://boardreader.com/  # Boardreader - Forum Search
+https://btdig.com/  # btdig
+https://cachedviews.com/  # CachedViews.com
+https://cesium.com/ion/stories/viewer/?id=8be6f99c-0d4c-46ce-91a3-313e3cac62fe  # Cesium Stories
+https://chris927.github.io/generate-sa-idnumbers/  # Generate SA ID Numbers
+https://coronavirus.jhu.edu/map.html  # COVID-19 Map
+https://cse.google.com/cse?cx=017648920863780530960:lddgpbzqgoi  # Google Custom Search
+https://cse.google.com/cse/publicurl?cx=006290531980334157382:qcaf4enph7i  # OSINT Search Engine
+https://data.apps.fao.org/map/catalog/srv/eng/catalog.search#/home  # FAO Map Catalog
+https://data.isric.org/geonetwork/srv/eng/catalog.search#/home  # ISRIC Data Hub
+https://datacore-gn.unepgrid.ch/  # Datacore-gn.unepgrid.ch
+https://www.dating-profile-generator.org.uk/  # Dating Profile Generator
+http://debate.cards/  # Debate.cards
+https://developers.google.com/earth-engine/datasets/  # Earth Engine Dataset
+https://discover.digitalglobe.com/  # DigitalGlobe
+http://www.doc-txt.com/  # The best document search engine
+https://donotpay.com/learn/temporary-phone-number/  # DoNotPay
+Use a Temporary Phone Number To Protect Your Privacy
+https://dopomoha.pl  # Допомога
+https://dyrk.org/tools/imei/  # IMEI Number Generator
+https://www.ecosia.org/  # Ecosia
+https://effectgroup.io/  # Effect Group
+https://www.elfqrin.com/fakeid.php  # Fake Identity ID Random Name Generator
+https://www.elfqrin.com/usssndriverlicenseidgen.php  # US SSN / Driver License / State ID / Passport / Tax ID Generator
+https://en.search.wordpress.com/  # WordPress.com
+https://engine.presearch.org/  # Engine.presearch.org
+https://fakeinfo.net/company-name-generator  # Fake Company Name Generator
+https://fakeinfo.net/drivers-license-generator  # Fake Drivers License Generator
+https://fakeinfo.net/fake-tiktok-profile-gererator  # Fake Tiktok Profile Generator
+https://fakeinfo.net/fake-twitter-profile-generator  # Twitter Profile Generator
+https://fakeinfo.net/fake-youtube-channel-generator  # Fake Youtube Channel Generator
+https://fakeinfo.net/random-face-generator  # Random Face Generator
+https://fauxid.com/tools  # Fake Generator Tools
+https://faxzero.com/  # Free Fax
+https://www.flippity.com/  # Flippity
+https://fnd.io/  # App Store and iTunes search engine
+http://freesmsverification.com/  # Receive SMS Online for FREE
+http://www.geocreepy.com/  # geocreepy
+https://www.geonarra.com/  # Geonarra.com
+https://www.geoplatform.gov/  # GeoPlatform Portal
+https://georgybu.github.io/IID_Generator/  # IID Generator by Georgy Bunin
+https://www.geoseer.net/  # Geoseer.net
+https://globfone.com/send-text/  # Send text free
+https://gofindwho.com/  # Gofindwho.com
+https://www.gopit.com/socialsearch/index.php?type=Social  # GoPit Search Engine - Home
+https://gpx.studio/  # Gpx File Editor
+https://hs3x.com/  # Receive SMS Online
+https://inciweb.nwcg.gov/  # InciWeb
+http://www.inspire-geoportal.eu/  # Inspire-geoportal.eu
+https://inteltechniques.com/tools/  # IntelTechniques OSINT
+https://inteltechniques.com/tools/Search.html  # IntelTechniques Search Engine
+https://inteltechniques.com/voip.suite.html  # VoIP Guide: VoIPSuite
+https://inteltechniques.com/voip.twilio.cli.html  # Twilio CLI Guide
+https://www.io-archive.org/  # IOA
+https://ipfs-search.com/#/search  # Ipfs-search.com
+https://www.ipse.io/  # Ipse.io
+http://itools.com/search/people-search  # People Search
+https://jsfiddle.net/user/fgdc_gp_demos/fiddles/  # fgdc_gp_demos's public fiddles
+https://keys.openpgp.org/  # keys.openpgp.org
+https://www.lastpass.com/features/username-generator  # Username Generator
+http://libgen.rs/  # Libgen.rs
+https://www.live-action-map.com/  # Live-action-map.com
+https://livecorona.co.kr  # Livecorona.co.kr
+https://maclookup.app/  # MAC Address Lookup
+https://maildrop.cc/  # MailDrop
+https://www.mapquest.com/  # MapQuest
+https://maps.descarteslabs.com/  # Maps.descarteslabs.com
+https://www.meganzsearch.com/  # Meganzsearch.com
+https://www.metacrawler.com/  # Zoo Search
+https://metadefender.opswat.com/  # MetaDefender
+https://metager3.de/en/  # MetaGer: Privacy Protected Search
+https://milled.com/search  # Milled
+https://mmarvick.github.io/wa-drivers-license/  # Washington State Driver's License Generator
+http://monstercrawler.com/  # Monster Crawler Search
+https://mywoodle.com/  # Mywoodle.com
+https://nagix.github.io/ukraine-livecams  # Ukraine Live Cams
+https://www.oalley.net/app/  # OALLEY
+https://octosearch.dootech.com/  # Octosearch.dootech.com
+https://one-plus.github.io/Bookmarks  # Bookmarks
+https://one-plus.github.io/GoogleBing  # Google &amp; Bing
+https://onlinesim.net/  # Onlinesim.net
+https://osint.sh/buckets/  # Public Buckets
+https://www.peekyou.com/  # PeekYou
+https://www.peoplefinder.com/  # Free People Search
+https://publc.com/  # Publc.com
+https://pypi.org/project/geoclustering/  # geoclustering
+https://pypi.org/project/osrframework/  # osrframework
+http://radio.garden/search  # Radio Garden
+https://www.rapid7.com/db/  # Vulnerability &amp; Exploit Database
+https://rapidapi.com/gisfromscratch/api/geoprotests/  # geoprotests API
+http://recon222tttn4ob7ujdhbn3s4gjre7netvzybuvbq2bcqwltkiqinhad.onion.pet/  # Recon
+https://recruitin.net/stackoverflow.php  # Google to search profiles on Stack Overflow
+https://richardkundl.github.io/shortguid/  # GUID/UUID and short GUID generator
+https://ruarq.github.io/ukraine-war-heatmap  # Ukraine War Map/Heatmap
+https://www.search.ask.com/  # Ask
+https://search.crossref.org/  # Crossref
+https://searchatlas.org/  # Search Atlas
+http://searchcraigslist.org/  # Search craigslist
+https://www.searchenginesindex.com/  # Search Engines Index
+Search Engines in all countries in the world
+https://www.searchtempest.com/  # SearchTempest
+https://searx.info/  # Searx
+https://www.sendatext.co/  # SendaText
+https://seqe.me/  # SEQE - Search Engines Query Engine
+https://shadowcrypt.net/tools/geoip  # GeoIP Tracker tool
+https://shorteners.grayhatwarfare.com/  # URL Shorteners Search
+https://smstome.com  # Smstome.com
+https://sploitus.com/  # sploitus
+https://www.spytox.com/  # SpyTox
+https://stacksear.ch/  # Stacksearch
+https://start.me/p/W1kDAj/geoint  # GEOINT
+https://stevemorse.org/dl/dl.html  # Encoding and Decoding Driver's License Numbers
+https://stevemorse.org/ssn/ssn.html  # Decoding Social Security Numbers
+https://syria.liveuamap.com/  # Map of Syrian Civil War
+https://www.tfljamcams.net  # TfL JamCams
+https://thisrentaldoesnotexist.com/  # This Rental Does Not Exist
+https://thisresumedoesnotexist.com/  # Resume Generator
+https://threader.app/thread/1199785692274077696  # One-time Mobile by @OsintStash
+https://traintimes.org.uk/map/tube/  # Live map of London Underground trains
+https://www.truthfinder.com/  # TruthFinder
+https://www.udeuschle.de/panoramas/makepanoramas_en.htm  # Generate a panorama
+https://ufind.name/  # Ufind.name
+https://umap.openstreetmap.fr/en/map/military-bases-around-the-world_510207  # Military bases around the world. - uMap
+https://vinaysomawat.github.io/Resume-Builder/  # Resume Builder
+https://vulmon.com/  # https://vulmon.com/
+https://www.waze.com/live-map  # Waze
+https://www.windy.com/-Webcams/webcams  # Windy
+https://wpimeigenerator.github.io/  # Windows Phone IMEI Generator
+https://xlek.com/  # xlek
+https://yandex.ru/people  # Yandex People Search
+http://yassen.com/  # Yassen.com
+https://zelark.github.io/nano-id-cc/  # Nano ID CC
+http://zorexeye.com/  # ZorexEye
