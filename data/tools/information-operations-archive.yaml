@@ -1,0 +1,10 @@
+name: Information Operations Archive
+url: https://www.io-archive.org/
+description: An archive of information-operations material, kept so that influence campaigns, their outlets and the content they published can still be studied after the platforms removed them.
+category: archives
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: Primary material for influence and disinformation work, and a reminder that the interesting part of a removed campaign is usually the copy it left behind rather than the account that posted it.

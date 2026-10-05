@@ -1,0 +1,10 @@
+name: Boardreader
+url: https://boardreader.com/
+description: Searches forum and message-board posts rather than pages, which is where product complaints, niche communities and old arguments sit that a general web search buries under newer sites.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: It indexes discussion platforms specifically, so it is the tool for the question "has anyone talked about this", and for finding a username or handle discussed somewhere other than the platforms you already thought of.

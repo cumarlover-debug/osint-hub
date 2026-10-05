@@ -1,0 +1,11 @@
+name: Aware Online People Search
+url: https://www.aware-online.com/en/osint-tools/people-search-tool/
+description: 'A people-search launcher: enter a name and it runs the vetted queries across people-search sites, social networks and public records in turn.'
+category: people
+inputs: [name]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [personal-data]
+notes: 'Written by an investigation training company, so the queries are chosen rather than scraped together, and each one opens in the site that can answer it. The result is a list of leads about a name, which is where a name-based investigation begins and never where it ends: two people share most names.'

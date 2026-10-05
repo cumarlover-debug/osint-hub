@@ -1,0 +1,10 @@
+name: CachedViews
+url: https://cachedviews.com/
+description: 'Opens a cached copy of a web page, for the two cases that matter: the page has changed since it was indexed, or it is unreachable now and you need to see what it said.'
+category: archives
+inputs: [url]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: A cache is a photograph of a page at a moment, so it is evidence of what was published, not of what is published now. Worth checking against the live page before either is quoted, since the difference between them is often the finding.

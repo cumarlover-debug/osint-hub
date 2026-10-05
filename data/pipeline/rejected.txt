@@ -558,3 +558,9 @@ https://cds.thalesgroup.com/en/cyberthreat/attacks-page  # Thales Cyberthreat At
 https://dropbase.fun  # removed: criminal-marketplace-adjacent: sells breach and stealer-log search with Telegram-only support, hidden pricing, key-only access, an .exe download, and 404s for /api, /docs, /pricing and /terms, 2026-10-05
 https://tinfoleak.com/  # removed: likely dead: stock 2015 theme whose only tool emails a report, over an upstream project last pushed 2019-02-06, before Twitter API v1.1 was retired, 2026-10-05
 https://footprintiq.app  # removed: SEO farm: ~700 near-duplicate landing routes around a thin freemium scanner whose results are truncated then locked behind a paywall, 2026-10-05
+http://arabo.com/  # Arabo.com (answers every request with a captcha wall ("Verification Required"), so there is nothing to read a purpose from), 2026-10-05
+http://www.doc-txt.com/  # Doc-Txt (the domain redirects to HugeDomains and is for sale, so the document search engine is gone), 2026-10-05
+https://fakeinfo.net/drivers-license-generator  # Fake Drivers License Generator (generates forged driving licences: fraud tooling, refused on the same grounds as the other identity-document generators), 2026-10-05
+https://elfqrin.com/usssndriverlicenseidgen.php  # US SSN / Driver License Generator (generates United States Social Security and licence numbers: fraud tooling, and the same reason the directory refuses doxxing-for-hire), 2026-10-05
+https://ipfs-search.com/#/search  # ipfs-search.com (the domain is now for sale ("ipfs-search.com is for sale!"), so the service no longer exists), 2026-10-05
+https://chris927.github.io/generate-sa-idnumbers  # Generate SA ID Numbers (generates valid-looking South African identity numbers, which is forgery tooling rather than investigation tooling), 2026-10-05

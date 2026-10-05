@@ -153,3 +153,11 @@ https://yandex.ru/people  # Yandex People Search
 http://yassen.com/  # Yassen.com
 https://zelark.github.io/nano-id-cc/  # Nano ID CC
 http://zorexeye.com/  # ZorexEye
+
+# --- batch A, 2026-10-05 ---
+# published: boardreader.com, cachedviews.com, fnd.io, io-archive.org, maclookup.app,
+#            inteltechniques.com/tools, aware-online.com people-search-tool
+# refused:   ipfs-search.com and doc-txt.com (domains now for sale), arabo.com (captcha wall),
+#            chris927 generate-sa-idnumbers, elfqrin US SSN/licence generator, fakeinfo drivers-licence generator (fraud tooling)
+# skipped:   itools.com/search/people-search - serves http only, and every tool URL in the directory must be https,
+#            which is a rule worth keeping: a link over plain http can be rewritten in transit

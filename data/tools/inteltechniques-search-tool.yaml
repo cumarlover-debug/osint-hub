@@ -1,0 +1,11 @@
+name: IntelTechniques Search Tool
+url: https://inteltechniques.com/tools/
+description: 'One page that routes a single input to the right query across dozens of services, grouped by what you have: a name, address, phone, email, username, domain, IP or image.'
+category: search
+inputs: [name, email, username, phone, domain, ip, url, image, keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+tags: [personal-data]
+notes: 'A launcher rather than a search engine: it builds the query and opens the site, including the data-broker and people-search sections that most curated lists leave out. It is one of the fastest ways to go from one identifier to the queries worth running, and it makes the sensitive sections visible rather than hiding them.'
