@@ -1,6 +1,6 @@
 ---
 name: osint-agent
-description: Run an OSINT investigation against identifiers the user holds — email, username, domain, phone, name, image, crypto address, vehicle. Use when the user asks to investigate, look into, map, verify or enumerate something, or names a target and asks what can be found. Drives the osint-hub agent: case, assigned task, unattended runs, browser-driven forms, target profile and dossier.
+description: 'Run an OSINT investigation against identifiers the user holds — email, username, domain, phone, name, image, crypto address, vehicle. Use when the user asks to investigate, look into, map, verify or enumerate something, or names a target and asks what can be found. Drives the osint-hub agent: case, assigned task, unattended runs, browser-driven forms, target profile and dossier.'
 ---
 
 # The OSINT agent
