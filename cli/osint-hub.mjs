@@ -9,6 +9,7 @@ import { createInterface } from 'node:readline';
 import { detect, launchable, templatesFor, applies, buildLink, commandsFor, SHELLS, MATCH_LABELS } from '../shared/launcher.mjs';
 import { sanitiseCaseState, activeCase, capabilityRows, resultsAnnex, reportHTML, splitByHand } from '../shared/case.mjs';
 import { extractFindings } from '../shared/extract.mjs';
+import { matchIntents, resolveTask, taskProgress } from '../shared/tasks.mjs';
 import { emptyProfile, addFindings, profileCounts, profileByKind, toolsRunFor, pivotCandidates, dossierMarkdown, PROFILE_VERSION } from '../shared/profile.mjs';
 
 const VERSION = '1.0.0';
@@ -32,6 +33,10 @@ Usage
   osint-hub agent next <case.json>     The same, plus what is left to run, what needs installing and what needs a person
   osint-hub agent run <case.json>      Do that work: run and fetch the unattended jobs, and fold each result into the profile
   osint-hub agent hands <case.json>    Try the services that answer only a form: fill the box, submit, read the answer
+  osint-hub agent task add "<words>" <case.json>   Assign work in your own words, and see how it is read
+  osint-hub agent task list <case.json>            The assigned tasks and how much of each has been tried
+  osint-hub agent task done|rm <id> <case.json>    Close or drop a task
+  osint-hub agent run <case.json> --task <id>      Do one assigned task's work instead of everything
   osint-hub update                     Refresh the cached data now
 
 Filters for "tools":  --input <type>  --category <c>  --type <web|cli|...>  --passive  --free  --no-account
@@ -63,14 +68,25 @@ const argv = process.argv.slice(2);
 const flags = {};
 const positional = [];
 const repeatable = ['--extra'];
+// Switches that mean "yes" rather than "the next word is my value". Everything else that starts with -- and is
+// followed by something that is not another flag is read as taking a value, because forgetting to list an option here
+// has silently turned "--max 0" into "--max" (= true, a budget of one) three times now.
+const SWITCHES = ['--yes', '--safe', '--no-safe', '--json', '--passive', '--free', '--no-account', '--open', '--active', '--docker', '--plain', '--dry-run', '--show', '--strict', '--include-manual', '--stale', '--help', '--version', '--live'];
 for (let i = 0; i < argv.length; i++) {
   const a = argv[i];
   if (!a.startsWith('--')) positional.push(a);
   else if (repeatable.includes(a)) {
     const key = a.slice(2);
     flags[key] = [...(flags[key] ?? []), argv[++i]];
-  } else if (['--input', '--category', '--type', '--as', '--value', '--api', '--shell', '--only', '--out', '--timeout', '--data', '--limit', '--delay', '--settle', '--port', '--max', '--seconds'].includes(a)) flags[a.slice(2)] = argv[++i];
-  else flags[a.slice(2)] = true;
+  } else if (a.includes('=')) {
+    // --key=value, unambiguous whatever the key is.
+    const at = a.indexOf('=');
+    flags[a.slice(2, at)] = a.slice(at + 1);
+  } else if (SWITCHES.includes(a) || (argv[i + 1] ?? '').startsWith('--')) {
+    flags[a.slice(2)] = true;
+  } else {
+    flags[a.slice(2)] = argv[++i];
+  }
 }
 const [command, ...rest] = positional;
 const API = (flags.api ?? process.env.OSINT_HUB_API ?? 'https://osinthub.pages.dev').replace(/\/+$/, '');
@@ -978,9 +994,15 @@ async function main() {
 
   // ---- agent: read what the case already collected, build the profile, and say what to do next ----
   if (command === 'agent') {
-    const [action, file] = rest;
-    if (!['next', 'profile', 'run', 'hands'].includes(action)) {
+    const [action, ...args] = rest;
+    // Task subcommands read as sentences, so they take their own shape: agent task add "<what to find>" <case.json>.
+    const taskSub = action === 'task' ? args[0] : undefined;
+    const file = action === 'task' ? (taskSub === 'list' ? args[1] : args[2]) : args[0];
+    if (!['next', 'profile', 'run', 'hands', 'task'].includes(action)) {
       fail('usage: osint-hub agent next|profile|run|hands <case.json> [--yes --max N --seconds S --only a,b --out DIR]');
+    }
+    if (action === 'task' && !['add', 'list', 'done', 'rm'].includes(taskSub)) {
+      fail('usage: osint-hub agent task add "<what to find>" <case.json> | list <case.json> | done <id> <case.json> | rm <id> <case.json>');
     }
     if (!file) fail('point at the JSON backup exported from the workbench: /case → Back up (JSON).');
     if (!existsSync(file)) fail(`no such file: ${file}`);
@@ -1065,6 +1087,31 @@ async function main() {
         links: fresh.filter((r) => r.kind === 'link' && r.link && !r.manual).length,
       };
     });
+
+    // ---- assigned tasks: the investigator's own words, mapped to the directory ----
+    const tasksPath = join(outDir, 'tasks.json');
+    const tasksFile = readJson('tasks.json') ?? { case: theCase.title, tasks: [] };
+    const saveTasks = () => writeFileSync(tasksPath, `${JSON.stringify(tasksFile, null, 2)}\n`);
+
+    // --task narrows everything that follows - the plan, the run, the by-hand work - to one assigned piece of work.
+    let activeTask;
+    if (flags.task) {
+      activeTask = tasksFile.tasks.find((t) => t.id === flags.task);
+      if (!activeTask) fail(`no task "${flags.task}" in ${tasksPath} — agent task list ${file}`);
+      const slugs = new Set(activeTask.slugs ?? []);
+      const wanted = new Set(activeTask.values ?? []);
+      for (const p of plan) {
+        p.canRun = p.canRun.filter((r) => slugs.has(r.slug));
+        p.canFetch = p.canFetch.filter((r) => slugs.has(r.slug));
+        p.byHand = p.byHand.filter((r) => slugs.has(r.slug));
+        if (wanted.size && !wanted.has(p.v.value)) {
+          p.canRun = [];
+          p.canFetch = [];
+          p.byHand = [];
+        }
+      }
+      if (!flags.json && action !== 'profile') out(dim(`task ${activeTask.id}: ${activeTask.text}`));
+    }
 
     // ---- run: do the unattended work, one job at a time, folding each result into the profile as it lands ----
     // This is the loop the rest of the agent exists for: plan, execute, read the result, update the profile, and
@@ -1163,6 +1210,72 @@ async function main() {
       }
     }
 
+    // ---- assigned tasks: the investigator's own words, mapped to the directory ----
+    const nextTaskId = () => `t${Math.max(0, ...tasksFile.tasks.map((t) => Number(String(t.id).replace(/\D/g, '')) || 0)) + 1}`;
+    if (action === 'task') {
+      if (taskSub === 'add') {
+        const text = args[1];
+        if (!text) fail('say what the task is: osint-hub agent task add "find accounts for this username" <case.json>');
+        const resolved = resolveTask({ text, values: theCase.values, tools, taxonomy, shell, safe, order });
+        const slugs = [...new Set(resolved.perValue.flatMap((p) => p.rows).map((r) => r.slug))];
+        const task = {
+          id: nextTaskId(),
+          text,
+          at: new Date().toISOString(),
+          status: 'open',
+          intents: resolved.intents.map((i) => i.id),
+          intentsLabel: resolved.intents.map((i) => i.label),
+          values: resolved.values,
+          slugs,
+          counts: resolved.counts,
+          ...(resolved.unplaced && { unplaced: resolved.unplaced }),
+        };
+        tasksFile.tasks.push(task);
+        saveTasks();
+        if (flags.json) return json({ task, path: tasksPath });
+        out(`${bold(`Task ${task.id}`)} ${dim('·')} ${text}`);
+        if (!resolved.matched) {
+          out(yellow('  nothing in that sentence maps to a family of work'));
+          out(dim('  the agent proposes no tools rather than guessing: name what to look for (accounts, breaches,'));
+          out(dim('  infrastructure, identity, documents, places, crypto, transport, phones) or say "everything"'));
+        } else {
+          out(`  reading it as: ${bold(resolved.intents.map((i) => i.label).join(' + '))}`);
+          out(`  about: ${resolved.values.map((v) => bold(v)).join(', ') || dim('no values in the case yet')}`);
+          out(`  ${resolved.counts.tools} tools (${resolved.counts.runnable} runnable, ${resolved.counts.fetchable} fetchable, ${resolved.counts.byHand} by hand)`);
+          if (resolved.unplaced) out(dim(`  could not place: "${resolved.unplaced}"`));
+          out(dim(`  saved to ${tasksPath} — run it with: agent run ${file} --task ${task.id}`));
+        }
+        return;
+      }
+
+      const find = (id) => tasksFile.tasks.find((t) => t.id === id);
+      if (taskSub === 'list') {
+        if (flags.json) return json({ tasks: tasksFile.tasks.map((t) => ({ ...t, progress: taskProgress(t, profile) })), path: tasksPath });
+        if (!tasksFile.tasks.length) return out(dim('No tasks assigned yet: agent task add "find accounts for this username" <case.json>'));
+        out(`${bold(theCase.title)} ${dim(`· ${tasksFile.tasks.length} task${tasksFile.tasks.length === 1 ? '' : 's'}`)}`);
+        for (const t of tasksFile.tasks) {
+          const p = taskProgress(t, profile);
+          const mark = t.status === 'done' ? green('done') : p.done ? yellow('started') : dim('open');
+          out(`  ${mark.padEnd(3)} ${bold(t.id)} ${t.text}`);
+          out(dim(`      ${(t.intentsLabel ?? []).join(' + ') || 'unmapped'} · ${t.values.join(', ')} · ${p.done}/${p.total} tried${p.left ? ` · ${p.left} left` : ''}`));
+        }
+        out(dim(`\n  run one with: agent run ${file} --task <id>`));
+        return;
+      }
+      const id = args[1];
+      const task = find(id);
+      if (!task) fail(`no task "${id}" in ${tasksPath}`);
+      if (taskSub === 'done') {
+        task.status = 'done';
+        task.closed = new Date().toISOString();
+      } else if (taskSub === 'rm') {
+        tasksFile.tasks = tasksFile.tasks.filter((t) => t.id !== id);
+      }
+      saveTasks();
+      if (flags.json) return json({ task: taskSub === 'rm' ? { id } : task, path: tasksPath });
+      return out(taskSub === 'rm' ? dim(`Removed task ${id}.`) : `${green('Done:')} ${task.text}`);
+    }
+
     const gaps = [];
     // ---- hands: drive the services that answer only a form ----
     // Only the two reasons the agent can attempt: a form, and a form behind a bot check it might get past. A service
@@ -1243,7 +1356,11 @@ async function main() {
       for (const r of p.canRun) if (r.readiness.state !== 'ready') gaps.push(`${r.name} (${p.v.value}) — ${r.readiness.state === 'needs-package' ? 'install its package' : r.readiness.state === 'needs-files' ? 'needs its own files' : 'not installed'}${r.install ? `: ${r.install}` : ''}`);
     }
     const manual = plan.flatMap((p) => p.byHand.slice(0, 6).map((r) => ({ name: r.name, link: r.link, why: r.manual === 'captcha' ? 'answers only after a captcha' : r.manual === 'post-form' ? 'answers only a submitted form' : r.manual === 'api-key' ? 'needs an API key' : r.manual === 'login' ? 'needs a logged-in session' : 'is an interactive console' })));
-    const dossier = dossierMarkdown(profile, { gaps, manual });
+    const dossier = dossierMarkdown(profile, {
+      gaps,
+      manual,
+      tasks: tasksFile.tasks.map((t) => ({ ...t, progress: taskProgress(t, profile) })),
+    });
     writeFileSync(join(outDir, 'dossier.md'), dossier);
 
     // After a run the single-file report is rebuilt too, so the evidence and the profile stay in step. The report
