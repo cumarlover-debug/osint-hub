@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: The authoritative way to check whether a publication is real, who the co-authors were, and which institution an author claimed — which is how you test a claimed academic background.

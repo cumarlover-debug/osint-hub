@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: 'Two uses: building a plausible persona for research that needs one, and the reverse — reading a name you have and working out which cultures and spellings it plausibly comes from.'

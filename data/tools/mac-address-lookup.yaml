@@ -7,4 +7,5 @@ type: web
 cost: free
 passive: true
 account_required: false
+manual: post-form
 notes: The prefix identifies a vendor rather than a device, so it answers "what kind of hardware is this" — a phone, a laptop, a camera, a access point — which is often the useful part when the only thing you have is a hardware address from a log, a photo or a captured network.

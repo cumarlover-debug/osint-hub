@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: Still the only way to reach plenty of registries, clinics and authorities, and it asks for less identity than an account would. The cover page is theirs, not yours.

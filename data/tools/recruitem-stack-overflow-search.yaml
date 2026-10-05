@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: 'Recruiters use it to find developers, which is exactly why it works for the opposite purpose: finding the technical footprint of a person or a team from what they answered in public.'

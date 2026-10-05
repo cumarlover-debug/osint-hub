@@ -1,0 +1,654 @@
+# Web tools with no command and no search URL, checked for a search form on 2026-10-05
+# 203 marked as by-hand, 325 with nothing to fill in, 118 unreadable.
+
+## marked as by-hand (post-form)
+220vk  # an input named "_user"  # https://old.220vk.com/
+aa419-fake-sites-database  # an input named "search"  # https://db.aa419.org/fakebankslist.php
+acled-explorer  # an input named "_search_"  # https://acleddata.com/platform/explorer
+abuse-ch-hunting  # an input named "search-"  # https://hunting.abuse.ch
+abn-lookup  # an input named "-search-"  # https://abr.business.gov.au/
+airnav-radar  # an input named "Search"  # https://www.airnavradar.com/
+alleba  # an input named "Search"  # https://www.alleba.com
+adsb-lol  # an input named "search_"  # https://adsb.lol/
+all-io  # an input named "Url"  # https://all-io.net
+analyzeid  # an input named "search_"  # https://analyzeid.com/
+antennasearch  # an input named "address"  # https://www.antennasearch.com/
+archive-today  # an input named "url"  # https://archive.is
+arctic-shift  # an input named "text-"  # https://arctic-shift.photon-reddit.com/
+atlos  # an input named "-Name"  # https://www.atlos.org/
+astrometry-net  # an input named "query"  # https://nova.astrometry.net/
+aware-online-people-search  # an input named "text"  # https://www.aware-online.com/en/osint-tools/people-search-tool/
+behind-the-name-generator  # an input named "-search-"  # https://www.behindthename.com/random/
+bevigil  # an input named "search"  # https://bevigil.com/search
+bitinfocharts  # an input of type search (q Search Search search-text)  # https://bitinfocharts.com/
+blacklist-checker  # an input named "email"  # https://blacklistchecker.com/
+brb-public-records  # an input named "Name"  # https://www.brbpub.com/
+bop-inmate-locator  # an input named "query"  # https://www.bop.gov/inmateloc
+browserleaks  # an input named "IP"  # https://browserleaks.com/
+buzzfile  # an input named "searchTerm"  # https://www.buzzfile.com/Home/Basic
+browserling  # an input named "email"  # https://www.browserling.com
+brightcloud-url-ip-lookup  # an input named "email"  # https://support.threatintel.opentext.com/tools/url-ip-lookup.php
+breachhq  # an input named "text-"  # https://breach-hq.com/threat-actors
+carnet-ai  # an input named "URL"  # https://carnet.ai/
+cc-la  # an input named "search"  # https://cc.la
+certkit-ct-search  # an input named "search-"  # https://www.certkit.io/tools/ct-logs/
+check-host  # an input of type search (host hostip Hostname or IP address w-ful)  # https://check-host.net/
+cerast-intelligence  # an input named "q"  # https://search.cerast-intelligence.com/
+changedetection-io  # an input named "_url"  # https://changedetection.io/
+cellmapper  # an input named "text"  # https://www.cellmapper.net/
+china-judgements-online  # an input named "search-"  # https://wenshu.court.gov.cn/
+checkshorturl  # an input named "URL"  # https://checkshorturl.com/
+consolidated-screening-list  # a form with role=search  # https://www.trade.gov/data-visualization/csl-search
+combot  # an input named "Search"  # https://combot.org/telegram/top/chats
+copyscape  # an input named "q"  # https://www.copyscape.com/
+corona-atlas  # an input named "name"  # https://corona.cast.uark.edu/
+crunchbase  # a form with role=search  # https://www.crunchbase.com
+crossref-metadata-search  # an input named "q"  # https://search.crossref.org/
+cyberchef  # an input of type search (unlabelled)  # https://gchq.github.io/CyberChef/
+current-location  # an input named "Search"  # https://current-location.com/
+dark-web-informer  # an input named "-search-"  # https://darkwebinformer.com/threat-actor-database/
+daily-dns-changes  # an input named "q"  # https://dailychanges.domaintools.com/
+dcode  # an input of type search (search_input Tapez par exemple )  # https://www.dcode.fr
+dart-korea  # an input named "keyword"  # https://dart.fss.or.kr/
+default-password  # an input named "q"  # https://default-password.info/
+dilisense  # an input of type search (sanctions-pep-screening hero-search Sear)  # https://dilisense.com/en
+digital-footprint-check  # an input named "q"  # https://www.digitalfootprintcheck.com/free-checker.html
+digga  # an input named "Domain"  # https://digga.dev
+dnslytics  # an input of type search (q Search for Domain, IPv4/IPv6 or Provid)  # https://dnslytics.com/
+dnsdumpster  # an input named "target"  # https://dnsdumpster.com
+dnstwister  # an input named "Domain"  # https://www.dnstwister.com/
+docket-alarm  # an input named "username"  # https://docketalarm.com
+domainhelp  # an input named "domain"  # https://app.domainhelp.com/
+domaincrawler  # an input named "domain_"  # https://www.domaincrawler.com
+earth-engine-data-catalog  # an input named "q"  # https://developers.google.com/earth-engine/datasets/
+estonia-business-register  # an input named "name_"  # https://ariregister.rik.ee/eng
+email-permutator  # an input named "domain"  # https://www.polished.app/email-permutator/
+etools-ch  # an input of type search (query query query)  # https://www.etools.ch
+f-secure-identity-theft-checker  # an input named "address"  # https://www.f-secure.com/en/identity-theft-checker
+f4map  # an input named "Search"  # https://demo.f4map.com
+factiva  # a form with role=search  # https://www.dowjones.com/factiva
+favicon-hash-generator  # an input named "url"  # https://favicon-hash.kmsec.uk/
+fara-efile  # an input named "_SEARCH"  # https://efile.fara.gov/ords/fara/f?p=1235:10
+fagan-finder  # a form with role=search  # https://www.faganfinder.com/engines
+faxzero  # an input named "_s_"  # https://faxzero.com/
+find-youtube-video  # an input named "URL"  # https://findyoutubevideo.thetechrobo.ca/
+filmot  # an input of type search (topsearch Search Search form-control w-1)  # https://filmot.com/
+find-security-contacts  # an input named "domain"  # https://findsecuritycontacts.com
+filesec-io  # an input named "Search"  # https://filesec.io/
+firehol-ip-lists  # a form with role=search  # https://iplists.firehol.org/
+findbyplate  # an input named "search-"  # https://findbyplate.com/
+font-squirrel-matcherator  # an input named "_url"  # https://www.fontsquirrel.com/matcherator
+fullhunt  # a form with role=search  # https://fullhunt.io/
+fotoforensics  # an input named "url"  # https://www.fotoforensics.com
+fortiguard-labs-threat-actor-encyclopedi  # an input named "q"  # https://www.fortiguard.com/threat-actor
+gbizinfo  # an input named "search_"  # https://info.gbiz.go.jp/
+geoseer  # an input of type search (q I form-control search_box)  # https://www.geoseer.net/
+geohints  # an input named "q"  # https://www.geohints.com/
+gibiru  # an input named "q"  # https://gibiru.com/
+global-fishing-watch  # a form with role=search  # https://globalfishingwatch.org
+global-energy-monitor  # an input named "query"  # https://globalenergymonitor.org/
+grabify  # an input named "URL"  # https://grabify.link/
+grantnav  # a form with role=search  # https://grantnav.threesixtygiving.org/
+grayhatwarfare-shortener-index  # an input named "keywords"  # https://shorteners.grayhatwarfare.com/
+have-i-been-pwned  # an input named "Email"  # https://haveibeenpwned.com
+hackertarget-reverse-dns  # an input named "IP"  # https://hackertarget.com/reverse-dns-lookup/
+guidestar-candid  # a form with role=search  # https://www.guidestar.org
+hadzy  # an input named "URL"  # https://hadzy.com/
+google-password-checkup  # a form with role=search  # https://support.google.com/accounts/answer/9457609
+hitta-se  # an input named "search-"  # https://www.hitta.se/
+houjin-bangou  # an input named "_name"  # https://www.houjin-bangou.nta.go.jp/en/
+honeylabs  # an input named "text-"  # https://honeylabs.net
+igdetective  # an input named "username"  # https://www.igdetective.com
+idn-checker  # an input named "domain"  # https://holdintegrity.com/checker
+imgops  # an input named "url"  # https://imgops.com/
+infosniper  # a form with role=search  # https://www.infosniper.net
+information-laundromat  # an input named "url"  # https://informationlaundromat.com
+instant-street-view  # an input named "search"  # https://www.instantstreetview.com
+ipleak  # an input named "q"  # https://ipleak.net/
+islegitsite  # an input named "domain"  # https://www.islegitsite.com/
+ipqualityscore  # an input named "IP"  # https://www.ipqualityscore.com/
+ipvoid  # an input named "ip"  # https://www.ipvoid.com
+ismalicious  # an input named "query"  # https://ismalicious.com
+jimpl  # an input named "url-"  # https://jimpl.com/
+justdeleteme  # an input named "search"  # https://justdeleteme.xyz
+judyrecords  # an input named "search"  # https://www.judyrecords.com/
+leakix  # an input named "q"  # https://leakix.net/
+lookup-id-com  # an input named "_url"  # https://lookup-id.com
+lobbyfacts  # an input named "_search"  # https://www.lobbyfacts.eu/
+maildrop  # an input named "text-"  # https://maildrop.cc/
+mac-address-lookup  # an input named "_search_"  # https://maclookup.app/
+local-ch  # an input named "text-"  # https://www.local.ch/
+malwagon  # a form with role=search  # https://malwagon.com
+lyzem  # an input of type search (q   Search searchbar-input)  # https://www.lyzem.com/
+malpedia  # an input named "search"  # https://malpedia.caad.fkie.fraunhofer.de
+lookyloo  # an input named "url"  # https://lookyloo.circl.lu/
+meteostat  # an input named "search"  # https://meteostat.net/
+metasleuth  # an input named "Search"  # https://metasleuth.io/
+mever-image-verification  # an input named "_url"  # https://mever.iti.gr/forensics/
+military-bases-worldwide  # an input named "url"  # https://umap.openstreetmap.fr/en/map/military-bases-around-the-world_510201
+mit-pgp-key-server  # an input named "search"  # https://pgp.mit.edu/
+mitre-attack-groups  # an input named "search-"  # https://attack.mitre.org/groups/
+myregistry  # an input of type search (memberSearch Find a Registry, Gift List )  # https://www.myregistry.com/
+monero-blocks  # an input named "_search"  # https://moneroblocks.info/
+myshiptracking  # an input named "Search"  # https://www.myshiptracking.com/
+namescan  # an input named "name"  # https://namescan.io
+newsnow  # an input named "q"  # https://www.newsnow.co.uk
+nsopw  # an input named "Name"  # https://www.nsopw.gov/
+numlookup  # an input named "phone_"  # https://www.numlookup.com/
+odin  # an input named "Search"  # https://search.odin.io/
+nikto-online  # an input named "target"  # https://nikto.online/
+oklink  # an input named "search"  # https://www.oklink.com/
+odcrawler  # an input named "name"  # https://odcrawler.xyz/
+onyphe  # an input named "Search"  # https://www.onyphe.com/
+online-port-scanner  # an input named "target"  # https://portscanner.online/
+openpgp-keyserver  # an input named "q"  # https://keys.openpgp.org/
+osint-framework  # an input named "search-"  # https://osintframework.com/
+osrframework  # a form with role=search  # https://pypi.org/project/osrframework/
+overseas-company-registers  # a form with role=search  # https://www.gov.uk/government/publications/overseas-registries/overseas-registries
+orbtrack  # an input named "search"  # https://www.orbtrack.org
+overpass-turbo  # an input named "_name"  # https://overpass-turbo.eu
+peakvisor  # an input named "query"  # https://peakvisor.com/
+pacer  # an input of type search (query extended-search-field-small-mobile)  # https://pacer.uscourts.gov/
+picarta  # an input named "_url"  # https://picarta.ai/
+pr-newswire  # an input named "Search"  # https://www.prnewswire.com
+phone-validator  # an input named "phone-"  # https://www.phonevalidator.com/index.aspx
+pubpeer  # a form with role=search  # https://pubpeer.com/
+publicwww  # an input named "q"  # https://publicwww.com/
+pulsedive  # an input named "search"  # https://pulsedive.com
+portal-da-transparencia  # an input of type search (termoBuscaPortal termoBuscaPortal O que )  # https://portaldatransparencia.gov.br/
+ransomlook  # an input named "search"  # https://www.ransomlook.io/
+ransomware-live  # an input named "search"  # https://www.ransomware.live/
+recruitem-stack-overflow-search  # an input named "-keywords"  # https://recruitin.net/stackoverflow.php
+registry-finder  # an input named "email-"  # https://registryfinder.com/
+router-passwords  # a form with role=search  # https://www.routerpasswords.com/
+searxng  # a form with role=search  # https://docs.searxng.org
+searchbug  # an input named "NAME"  # https://www.searchbug.com
+searchcode  # an input named "-query"  # https://searchcode.com
+searchsystems-net  # a form with role=search  # https://www.searchsystems.net/
+silobreaker  # a form with role=search  # https://www.silobreaker.com
+skylight  # an input named "email"  # https://www.skylight.global/
+soovle  # a form with role=search  # https://www.seo.com/soovle/
+social-catfish  # an input named "text-"  # https://socialcatfish.com/
+social-searcher  # an input named "q"  # https://www.social-searcher.com
+smappen  # an input of type search (search 1600 Pennsylvania Ave, Washington)  # https://smappen.com/
+spydialer  # an input named "search-"  # https://www.spydialer.com:443/default.aspx
+sullygnome  # an input named "Search"  # https://sullygnome.com/
+switch-whois-ch-li  # an input named "domain"  # https://www.nic.ch/whois/
+synapsint  # an input of type search (search Search form-control me-2)  # https://synapsint.com
+telegago  # an input named "search-"  # https://tools.osintnewsletter.com/osint-tools/telegago-telegram
+tencent-maps  # an input named "keyword"  # https://map.qq.com/
+tgstat  # an input named "query"  # https://tgstat.com/
+thisnumber  # an input named "query"  # https://www.thisnumber.com/
+tonviewer  # an input named "_search"  # https://tonviewer.com/
+tor-relay-search  # a form with role=search  # https://metrics.torproject.org/rs.html
+tracxn  # an input named "Email"  # https://tracxn.com
+transparent-california  # an input named "search-"  # https://transparentcalifornia.com/
+un-security-council-sanctions-list  # an input of type search (p edit-p--2 Looking for something? block)  # https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list
+unfurl  # an input named "text_"  # https://hindsig.ht/unfurl/
+uk-phone-book  # an input named "name"  # https://www.ukphonebook.com/
+universal-scammer-list  # an input named "username"  # https://universalscammerlist.com/
+urlquery  # an input named "url"  # https://urlquery.net
+user-searcher  # an input named "url"  # https://www.user-searcher.com
+uspto-patent-search  # a form with role=search  # https://www.uspto.gov/patents/search
+wappalyzer  # an input named "email"  # https://www.wappalyzer.com/
+walletlabels  # an input named "address"  # https://walletlabels.xyz/
+weather-underground-history  # an input of type search (Search Locations...)  # https://www.wunderground.com/history
+whale-alert  # an input named "name"  # https://whale-alert.io/
+whatcms  # an input named "q"  # https://whatcms.org/
+website-informer  # an input named "query"  # https://website.informer.com
+wheregoes  # an input named "url"  # https://wheregoes.com/
+who-posted-what  # an input named "username-"  # https://whopostedwhat.com/
+wigle  # an input named "email"  # https://wigle.net/
+whoisology  # an input named "domain"  # https://whoisology.com
+world-bank-debarred-firms  # an input of type search (category)  # https://www.worldbank.org/en/projects-operations/procurement/debarred-firms
+world-newspapers  # an input named "search-"  # https://www.world-newspapers.com
+zoom-earth  # an input of type search (q Find a place, storm, or fire&hellip; S)  # https://zoom.earth/
+zarebin  # an input of type search (جستجو در وب placeholder-text-primary tex)  # https://zarebin.ir
+zscaler-zulu  # an input named "url"  # https://zulu.zscaler.com/
+
+## nothing to fill in
+4cat  # no search box found at https://4cat.nl/
+1password-watchtower  # no search box found at https://watchtower.1password.com
+ai-or-not  # no search box found at https://www.aiornot.com/
+ai-voice-detector  # no search box found at https://aivoicedetector.com/
+airframes-io  # no search box found at https://app.airframes.io/
+2gis  # no search box found at https://2gis.ru/
+addy-io  # no search box found at https://anonaddy.com/
+ads-b-nl  # no search box found at https://www.ads-b.nl/
+allyoucanread  # no search box found at https://www.allyoucanread.com
+annuaire-des-entreprises  # no search box found at https://annuaire-entreprises.data.gouv.fr/
+any-run  # no search box found at https://app.any.run/
+apollo-io  # no search box found at https://www.apollo.io/
+aperisolve  # no search box found at https://www.aperisolve.com/
+arcgis-living-atlas  # no search box found at https://livingatlas.arcgis.com/en/browse/
+apt-groups-and-operations  # no search box found at https://docs.google.com/spreadsheets/u/0/d/1H9_xaxQHpWaa4O_Son4Gx0YOIzlcBWMsdvePFX68EKU/pubhtml?pli=1#
+apple-maps-web  # no search box found at https://maps.apple.com/
+archivarix-tube-search  # no search box found at https://tube.archivarix.net/
+arin-whois  # no search box found at https://whois.arin.net/ui/advanced.jsp
+avast-hack-check  # no search box found at https://www.avast.com/hackcheck
+amap  # no search box found at https://www.amap.com/
+avtocod-bot  # no search box found at https://t.me/avtocodbot
+autoref  # no search box found at https://www.autoref.eu/en
+baidu-images  # no search box found at https://image.baidu.com
+avtonomer-bot  # no search box found at https://t.me/avtonomerbot
+bailii  # no search box found at https://www.bailii.org/
+baidu-maps  # no search box found at https://map.baidu.com/
+balticshipping  # no search box found at https://www.balticshipping.com/
+bellingcat-osm-search  # no search box found at https://osm-search.bellingcat.com/
+bbbike-map-compare  # no search box found at https://mc.bbbike.org/mc/
+bi-zone-threat-intelligence  # no search box found at https://gti.bi.zone/
+bitwarden-reports  # no search box found at https://bitwarden.com/help/reports/
+bizfile-singapore  # no search box found at https://www.bizfile.gov.sg/
+bibsonomy  # no search box found at https://www.bibsonomy.org
+arolsen-archives  # no search box found at https://collections.arolsen-archives.org/
+blockonomics  # no search box found at https://www.blockonomics.co/
+bluesky-network-analyser  # no search box found at https://bsky-follow-finder.theo.io/
+apple-look-around-viewer  # no search box found at https://lookmap.skzk.dev/
+botscout  # no search box found at https://botscout.com/
+blocksec-phalcon  # no search box found at https://blocksec.com/phalcon/explorer
+c2pa-viewer  # no search box found at https://c2paviewer.com/
+c99-subdomain-finder  # no search box found at https://subdomainfinder.c99.nl/
+caselaw-access-project  # no search box found at https://case.law/
+carrot2  # no search box found at https://search.carrot2.org
+censys  # no search box found at https://censys.com
+cert-spotter  # no search box found at https://sslmate.com/certspotter/
+charity-commission-register  # no search box found at https://register-of-charities.charitycommission.gov.uk/
+circl-bgp-ranking  # no search box found at https://bgpranking.circl.lu/
+circl-hashlookup  # no search box found at https://hashlookup.circl.lu/
+clearsky  # no search box found at https://clearsky.app/
+code-finder  # no search box found at https://codefinder.dev/
+common-crawl-index  # no search box found at https://index.commoncrawl.org/
+company-data-rex  # no search box found at https://www.cdrex.com/
+content-credentials-verify  # no search box found at https://verify.contentauthenticity.org/
+copernicus-browser  # no search box found at https://browser.dataspace.copernicus.eu/
+corporateinformation  # no search box found at https://www.corporateinformation.com
+copyseeker  # no search box found at https://copyseeker.net/
+crackstation  # no search box found at https://crackstation.net/
+cover-your-tracks  # no search box found at https://coveryourtracks.eff.org/
+creationdatebot  # no search box found at https://t.me/creationdatebot
+crawlgraph  # no search box found at https://crawlgraph.com
+cryptome  # no search box found at https://cryptome.org/
+de-digger  # no search box found at https://www.dedigger.com/
+deepstatemap  # no search box found at https://deepstatemap.live/
+deepfake-o-meter  # no search box found at https://zinc.cse.buffalo.edu/ubmdfl/deep-o-meter/
+discord-id  # no search box found at https://discord.id/
+domaintools-whois  # no search box found at https://whois.domaintools.com
+domain-dossier  # no search box found at https://centralops.net/co/DomainDossier.aspx
+dorksearch  # no search box found at https://dorksearch.com/
+earth-engine-timelapse  # no search box found at https://earthengine.google.com/timelapse/
+dualmaps  # no search box found at https://www.mapchannels.com/dualmaps7/map.htm
+egrul-bot  # no search box found at https://t.me/egrul_bot
+dvla-vehicle-enquiry  # no search box found at https://vehicleenquiry.service.gov.uk/
+eml-analyzer  # no search box found at https://github.com/ninoseki/eml_analyzer
+esri-world-imagery-wayback  # no search box found at https://livingatlas.arcgis.com/wayback/
+ecourts-india  # no search box found at https://ecourts.gov.in/
+eos-landviewer  # no search box found at https://eos.com/landviewer/
+etda-threat-group-cards  # no search box found at https://apt.etda.or.th/cgi-bin/listgroups.cgi
+equasis  # no search box found at https://www.equasis.org/
+eu-sanctions-map  # no search box found at https://www.sanctionsmap.eu/
+eu-vies-vat-check  # no search box found at https://ec.europa.eu/taxation_customs/vies/?locale=en
+exifeditor-io  # no search box found at https://exifeditor.io
+europe-media-monitor  # no search box found at https://media-monitor.europa.eu
+eu-transparency-register  # no search box found at https://transparency-register.europa.eu/
+eyeton  # no search box found at https://telegram.me/istoneyebot
+exolyt  # no search box found at https://exolyt.com/
+europages  # no search box found at https://www.europages.co.uk
+facebook-account-finder-recovery-page  # no search box found at https://www.facebook.com/login/identify
+fake-name-generator  # no search box found at https://www.fakenamegenerator.com/
+factcheck-org  # no search box found at https://www.factcheck.org
+fake-company-name-generator  # no search box found at https://fakeinfo.net/company-name-generator
+faxvin  # no search box found at https://www.faxvin.com/
+fedidb  # no search box found at https://fedidb.org/
+familysearch  # no search box found at https://familysearch.org/search/
+feodo-tracker  # no search box found at https://feodotracker.abuse.ch/
+fca-register  # no search box found at https://register.fca.org.uk/
+filescan-io  # no search box found at https://www.filescan.io
+firesky  # no search box found at https://firesky.tv/
+finnik  # no search box found at https://finnik.nl/en
+focsec  # no search box found at https://focsec.com
+fofa  # no search box found at https://en.fofa.info/
+forensically  # no search box found at https://29a.ch/photo-forensics/
+forensics-media  # no search box found at https://forensics.media/tools/
+followerwonk  # no search box found at https://followerwonk.com/
+full-fact  # no search box found at https://fullfact.org
+geoguessr  # no search box found at https://www.geoguessr.com
+geomacfinder-bot  # no search box found at https://t.me/geomacbot
+gdelt  # no search box found at https://www.gdeltproject.org/
+geosolver  # no search box found at https://reverseimagelocation.com
+geoconfirmed  # no search box found at https://geoconfirmed.org/
+findstickercreator  # no search box found at https://t.me/SPOwnerBot
+geospy  # no search box found at https://geospy.ai/
+getcontact  # no search box found at https://getcontact.com/
+gleif-lei-search  # no search box found at https://search.gleif.org/
+google-earth  # no search box found at https://earth.google.com/web/
+google-ads-transparency-center  # no search box found at https://adstransparency.google.com/
+google-alerts  # no search box found at https://www.google.com/alerts
+global-forest-watch  # no search box found at https://globalnaturewatch.org/map/
+globfone-send-text  # no search box found at https://globfone.com/send-text/
+google-groups  # no search box found at https://groups.google.com
+govmap  # no search box found at https://www.govmap.gov.il/
+gpx-studio  # no search box found at https://gpx.studio/
+gpsjam  # no search box found at https://gpsjam.org/
+google-programmable-search-engine  # no search box found at https://programmablesearchengine.google.com
+google-messageheader  # no search box found at https://toolbox.googleapps.com/apps/messageheader/
+graphsense  # no search box found at https://graphsense.org/
+here-wego  # no search box found at https://maps.here.com/
+hive-ai-detection  # no search box found at https://hivemoderation.com/ai-generated-content-detection
+historic-aerials  # no search box found at https://www.historicaerials.com/?javascript=&
+honeydb  # no search box found at https://honeydb.io/
+hashes-com  # no search box found at https://hashes.com/en/decrypt/hash
+hivemapper  # no search box found at https://hivemapper.com/
+hoaxy  # no search box found at https://hoaxy.osome.iu.edu/
+hunt-io  # no search box found at https://hunt.io/
+hs3x-receive-sms  # no search box found at https://hs3x.com/
+hunter-how  # no search box found at https://hunter.how/
+hudoc  # no search box found at https://hudoc.echr.coe.int/
+hybrid-analysis  # no search box found at https://www.hybrid-analysis.com/
+hlr-lookups  # no search box found at https://www.hlr-lookups.com/en/start
+icij-offshore-leaks  # no search box found at https://offshoreleaks.icij.org/
+i2ocr  # no search box found at https://www.i2ocr.com/
+illuminarty  # no search box found at https://illuminarty.ai/
+information-operations-archive  # no search box found at https://www.io-archive.org/
+id-ransomware  # no search box found at https://id-ransomware.malwarehunterteam.com/
+inflact-instagram-viewer  # no search box found at https://inflact.com/instagram-viewer/profile/
+hkexnews  # no search box found at https://www.hkexnews.hk/
+inteltechniques-search-tool  # no search box found at https://inteltechniques.com/tools/
+inspire-geoportal  # no search box found at https://www.inspire-geoportal.eu/
+internect  # no search box found at https://internect.info/
+ip2whois  # no search box found at https://www.ip2whois.com
+intezer-analyze  # no search box found at https://analyze.intezer.com/
+iptoasn  # no search box found at https://iptoasn.com/
+isric-data-hub  # no search box found at https://data.isric.org/geonetwork/srv/eng/catalog.search#/home
+jurn  # no search box found at https://www.jurn.org/
+jottis-malware-scan  # no search box found at https://virusscan.jotti.org/en-US/scan-file
+kartaview  # no search box found at https://kartaview.org/
+jpeg-audit  # no search box found at https://jpegaudit.com
+kagi  # no search box found at https://kagi.com/
+kasm-workspaces  # no search box found at https://kasm.com/
+kartavision  # no search box found at https://kartavision.com/
+koodous  # no search box found at https://koodous.com
+kaspersky-opentip  # no search box found at https://opentip.kaspersky.com/
+kompra-kz  # no search box found at https://kompra.kz/
+lazarus-day  # no search box found at https://lazarus.day/actors/
+landsatlook  # no search box found at https://landsatlook.usgs.gov/
+kvk-search  # no search box found at https://www.kvk.nl/zoeken/
+kohesio  # no search box found at https://kohesio.ec.europa.eu/
+lightningmaps  # no search box found at https://www.lightningmaps.org/
+lenso-ai  # no search box found at https://lenso.ai
+liveuamap  # no search box found at https://liveuamap.com/
+lumen-database  # no search box found at https://lumendatabase.org/
+malwarebazaar  # no search box found at https://bazaar.abuse.ch
+mapchecking  # no search box found at https://www.mapchecking.com/
+maxmind-geoip  # no search box found at https://www.maxmind.com/en/home
+mapillary  # no search box found at https://www.mapillary.com/app/
+metadata2go  # no search box found at https://www.metadata2go.com/
+merklemap  # no search box found at https://www.merklemap.com/
+message-header-analyzer  # no search box found at https://mha.azurewebsites.net/
+mapy-com  # no search box found at https://mapy.com/
+metadefender-cloud  # no search box found at https://metadefender.com/
+misttrack  # no search box found at https://misttrack.io/
+misp-galaxy  # no search box found at https://www.misp-galaxy.org/
+minerva  # no search box found at https://minervaosint.com
+mot-history  # no search box found at https://www.check-mot.service.gov.uk/
+mwdb  # no search box found at https://mwdb.cert.pl/
+mxtoolbox  # no search box found at https://mxtoolbox.com/
+nasa-worldview  # no search box found at https://worldview.earthdata.nasa.gov/
+nasa-firms  # no search box found at https://firms.modaps.eosdis.nasa.gov/map/
+naver-map  # no search box found at https://map.naver.com/p/
+najdi-si  # no search box found at https://www.najdi.si
+netenrich-knowledge-now  # no search box found at https://know.netenrich.com/content/track/threat-actor
+multirbl  # no search box found at https://multirbl.valli.org/dnsbl-lookup
+newspaper-map  # no search box found at https://newspapermap.com
+nerdydata  # no search box found at https://nerdydata.com
+mnemonic-passive-dns  # no search box found at https://passivedns.mnemonic.no/
+newspaperindex  # no search box found at https://www.newspaperindex.com
+nullschool-earth  # no search box found at https://earth.nullschool.net/
+occrp-investigative-dashboard  # no search box found at https://id.occrp.org/
+newswhip  # no search box found at https://www.newswhip.com
+numbering-plans  # no search box found at https://www.numberingplans.com/?page=analysis&sub=phonenr
+occrp-aleph  # no search box found at https://aleph.occrp.org/
+onion-lookup  # no search box found at https://onion.ail-project.org/
+ogimet  # no search box found at https://www.ogimet.com/
+ofac-sanctions-list-search  # no search box found at https://sanctionssearch.ofac.treas.gov/
+open-hunting-threat-library  # no search box found at https://openhunting.io/threat-library
+open-infrastructure-map  # no search box found at https://openinframap.org/
+open-measures  # no search box found at https://public.openmeasures.io
+onlinenewspapers-com  # no search box found at https://www.onlinenewspapers.com
+open-syllabus  # no search box found at https://www.opensyllabus.org/
+open-supply-hub  # no search box found at https://opensupplyhub.org/
+opencellid  # no search box found at https://opencellid.org/
+openaerialmap  # no search box found at https://openaerialmap.org/
+orbis-moodys  # no search box found at https://www.moodys.com/web/en/us/capabilities/company-reference-data/orbis.html
+openrailwaymap  # no search box found at https://www.openrailwaymap.org/
+opensky-network  # no search box found at https://opensky-network.org/
+open-contracting-data-registry  # no search box found at https://data.open-contracting.org/
+osint-industries  # no search box found at https://www.osint.industries/
+osint-gods-eye  # no search box found at https://github.com/jollncoelho/OsintGodseye
+pdsls  # no search box found at https://pdsls.dev/
+panoramax  # no search box found at https://panoramax.fr/
+peakfinder  # no search box found at https://www.peakfinder.com/
+pandora-circl  # no search box found at https://pandora.circl.lu/
+pepchecker  # no search box found at https://pepchecker.com
+phishstats  # no search box found at https://phishstats.info/
+pic2map  # no search box found at https://www.pic2map.com/
+phishtank  # no search box found at https://phishtank.org
+phishtool  # no search box found at https://www.phishtool.com/
+pinpoint  # no search box found at https://journaliststudio.google.com/pinpoint/about
+plonkit  # no search box found at https://www.plonkit.net/
+pingcastle-azure-tenant-resolution  # no search box found at https://tenantresolution.pingcastle.com
+pressreader  # no search box found at https://www.pressreader.com
+platesmania  # no search box found at https://platesmania.com/
+profile-image-intel  # no search box found at https://profileimageintel.com/
+prozorro  # no search box found at https://prozorro.gov.ua/
+predicta-search  # no search box found at https://predictasearch.com
+pwned-passwords  # no search box found at https://haveibeenpwned.com/Passwords
+quicksand  # no search box found at https://scan.tylabs.com/
+quick-geolocation-search  # no search box found at https://cybdetective.com/quickgeolocationsearch.html
+rammb-slider  # no search box found at https://slider.cira.colostate.edu/
+rdw-kentekencheck  # no search box found at https://ovi.rdw.nl/
+reacher  # no search box found at https://reacher.email
+random-face-generator  # no search box found at https://fakeinfo.net/random-face-generator
+qichacha  # no search box found at https://www.qcc.com/
+rechtspraak  # no search box found at https://uitspraken.rechtspraak.nl/
+regrid  # no search box found at https://regrid.com
+resemble-detect  # no search box found at https://www.resemble.ai/products/detect/
+regvk  # no search box found at https://regvk.com/
+phonerator  # no search box found at https://www.martinvigo.com/phonerator/
+sangmata-bot  # no search box found at https://t.me/SangMataInfo_bot
+sanctions-explorer  # no search box found at https://sanctionsexplorer.org/
+registro-imprese  # no search box found at https://www.registroimprese.it/
+scumware-org  # no search box found at https://www.scumware.org/
+search-engine-colossus  # no search box found at https://www.searchenginecolossus.com/
+search-engines-index  # no search box found at https://www.searchenginesindex.com/
+search-ch  # no search box found at https://www.search.ch
+shademap  # no search box found at https://shademap.app/
+shadowmap  # no search box found at https://app.shadowmap.org/
+sherlockeye  # no search box found at https://sherlockeye.io/
+shadowfinder-web  # no search box found at https://kluter.github.io/ShadowFinder-Web
+slideshare  # no search box found at https://www.slideshare.net
+simplelogin  # no search box found at https://simplelogin.io/
+silent-push-explore  # no search box found at https://explore.silentpush.com/
+sms-activate  # no search box found at https://sms-activate.org/
+skymem  # no search box found at https://www.skymem.info/
+springerlink  # no search box found at https://link.springer.com
+spyggbot  # no search box found at https://telegram.me/SpyGGbot
+strava-global-heatmap  # no search box found at https://www.strava.com/maps/global-heatmap
+skyfi  # no search box found at https://app.skyfi.com/explore/open
+steamreveal  # no search box found at https://steam-reveal.vercel.app/en
+sublime-eml-analyzer  # no search box found at https://analyzer.sublime.security/
+suncalc  # no search box found at https://www.suncalc.org
+submarine-cable-map  # no search box found at https://www.submarinecablemap.com/
+telegram-finder  # no search box found at https://www.telegram-finder.io/
+team-cymru-ip-to-asn  # no search box found at https://asn.cymru.com/
+ssl-labs-server-test  # no search box found at https://www.ssllabs.com/ssltest/
+thephish  # no search box found at https://github.com/emalderson/ThePhish
+the-knot-registry  # no search box found at https://www.theknot.com/registry
+this-person-does-not-exist  # no search box found at https://thispersondoesnotexist.com/
+the-national-archives-uk  # no search box found at https://www.nationalarchives.gov.uk
+tiktok-commercial-content-library  # no search box found at https://library.tiktok.com/
+tib-portal  # no search box found at https://www.tib.eu/en/search-discover/
+tracepoint  # no search box found at https://kluter.github.io/TracePoint/
+threat-actor-usernames  # no search box found at https://threatactorusernames.com/
+triage  # no search box found at https://tria.ge/
+truthscan  # no search box found at https://truthscan.com/
+tweetfeed  # no search box found at https://tweetfeed.live/
+turibot  # no search box found at https://t.me/TuriBot
+truecaller  # no search box found at https://truecaller.com
+trend-micro-site-safety-center  # no search box found at https://global.sitesafety.trendmicro.com/
+tokyo-mou-apcis  # no search box found at https://apcis.tmou.org/public/
+tweeterid  # no search box found at https://tweeterid.com/
+ukraine-live-cams  # no search box found at https://nagix.github.io/ukraine-livecams
+uk-sanctions-list  # no search box found at https://search-uk-sanctions-list.service.gov.uk/
+ukraine-war-heatmap  # no search box found at https://ruarq.github.io/ukraine-war-heatmap
+unamer-bot  # no search box found at https://telegram.me/unamer_bot
+un-comtrade  # no search box found at https://comtradeplus.un.org/
+urldna  # no search box found at https://urldna.io/
+umbra-open-data  # no search box found at https://umbra.space/open-data/
+unpacme  # no search box found at https://www.unpac.me/
+username-to-id-bot  # no search box found at https://t.me/username_to_id_bot
+usaspending  # no search box found at https://www.usaspending.gov/
+usgs-earthexplorer  # no search box found at https://earthexplorer.usgs.gov/
+validin  # no search box found at https://app.validin.com/
+vindecodr  # no search box found at https://vindecodr.com/
+vinelink  # no search box found at https://www.vinelink.com/#state-selection
+voilanorbert  # no search box found at https://www.voilanorbert.com
+waze-live-map  # no search box found at https://www.waze.com/live-map
+wayp-international-white-pages  # no search box found at https://www.wayp.com/
+webscout  # no search box found at https://webscout.io/
+weibo-search  # no search box found at https://s.weibo.com/
+whatthefont  # no search box found at https://www.myfonts.com/pages/whatthefont
+weakpass  # no search box found at https://weakpass.com/
+whoisfreaks  # no search box found at https://whoisfreaks.com/
+windy-webcams  # no search box found at https://www.windy.com/-Webcams/webcams
+wikimapia  # no search box found at https://wikimapia.org
+world-monitor  # no search box found at https://www.worldmonitor.app
+wipo-global-brand-database  # no search box found at https://branddb.wipo.int
+yaraify  # no search box found at https://yaraify.abuse.ch
+xtools  # no search box found at https://xtools.wmcloud.org/
+yougetsignal  # no search box found at https://www.yougetsignal.com
+youtube-geofind  # no search box found at https://mattw.io/youtube-geofind/
+youtube-data-tools  # no search box found at https://ytdt.digitalmethods.net/
+yandex-wordstat  # no search box found at https://wordstat.yandex.com
+zefix  # no search box found at https://www.zefix.ch/
+zoomeye  # no search box found at https://www.zoomeye.ai/
+zone-h  # no search box found at https://zone-h.org/archive
+
+## unreadable (left alone)
+4plebs  # HTTP 403
+academia-edu  # HTTP 403
+adsb-fi  # HTTP 403
+airhistory-net  # HTTP 403
+airplanes-live  # HTTP 403
+allabolag  # HTTP 403
+ancestry  # HTTP 403
+apollo-image-hunter  # HTTP 403
+austlii  # HTTP 403
+aviation-safety-network  # HTTP 403
+autodna-vin-lookup  # HTTP 403
+better-business-bureau  # HTTP 403
+bidfax  # HTTP 403
+bitquery-explorer  # HTTP 403
+black-book-online  # CERT_HAS_EXPIRED
+breadcrumbs  # HTTP 403
+cac-search-nigeria  # HTTP 403
+cape-sandbox  # HTTP 403
+casa-dos-dados  # HTTP 403
+canlii  # HTTP 403
+checkphish  # HTTP 403
+cloudflare-radar  # HTTP 403
+core-cro-ireland  # HTTP 403
+cvr-denmark  # HTTP 403
+citeseerx  # UND_ERR_CONNECT_TIMEOUT
+dnschecker  # HTTP 403
+documentcloud  # HTTP 403
+billiongraves  # HTTP 522
+dune  # HTTP 403
+email-hippo  # HTTP 403
+eu-e-justice-business-registers  # HTTP 403
+fbi-wanted  # HTTP 403
+fccid-io  # HTTP 403
+fcc-uls-license-search  # HTTP 403
+find-a-grave  # HTTP 403
+findbiz-taiwan  # HTTP 403
+contracts-finder  # timeout
+findmypast  # HTTP 403
+fold3  # HTTP 403
+free-carrier-lookup  # HTTP 403
+genealogybank  # HTTP 405
+google-news-archive  # HTTP 429
+immuniweb  # HTTP 403
+indian-kanoon  # HTTP 403
+infobel  # HTTP 403
+importyeti  # HTTP 403
+instant-username-search  # HTTP 403
+infotracer  # HTTP 403
+ip-logger  # HTTP 403
+interpol-red-notices  # HTTP 403
+itu-mars  # HTTP 403
+jetphotos  # HTTP 403
+joe-sandbox  # HTTP 403
+jusbrasil  # HTTP 403
+justia-dockets  # HTTP 403
+krak  # HTTP 403
+kompass  # HTTP 403
+legacy-com  # HTTP 403
+librebor  # HTTP 403
+marinetraffic  # HTTP 403
+meawfy  # HTTP 403
+million-short  # HTTP 403
+myaccident  # HTTP 403
+namechk  # HTTP 403
+napalm-ftp-indexer  # HTTP 403
+newspaperarchive  # HTTP 403
+newspapers-com  # HTTP 403
+nicb-vincheck  # HTTP 403
+old-maps-online  # HTTP 403
+opendatabot  # HTTP 403
+opensecrets  # HTTP 403
+opentender  # HTTP 403
+pagesjaunes  # HTTP 403
+pappers  # HTTP 403
+perplexity  # HTTP 403
+plane-finder  # HTTP 403
+poctra  # HTTP 403
+presearch  # HTTP 403
+psnprofiles  # HTTP 403
+pullpush  # HTTP 403
+redfin  # HTTP 405
+rejestr-io  # HTTP 403
+researchgate  # HTTP 403
+rupep  # HTTP 403
+rzjets  # HTTP 403
+saflii  # HTTP 403
+satellites-pro  # HTTP 403
+sciencedirect  # HTTP 403
+rusprofile  # HTTP 403
+scamdb  # EAI_AGAIN
+shipspotting  # HTTP 403
+sensity  # HTTP 403
+social-blade  # HTTP 403
+socradar-labs  # HTTP 403
+solscan  # HTTP 403
+spamhaus-reputation-checker  # HTTP 403
+streams-charts  # HTTP 403
+telemetr-io  # HTTP 403
+ted  # HTTP 405
+tellows  # HTTP 403
+the-bump-registry  # HTTP 403
+thepaperboy  # HTTP 403
+tracker-gg  # HTTP 403
+tronscan  # HTTP 403
+uncoverit  # HTTP 429
+urlebird  # HTTP 403
+unicourt  # HTTP 405
+violation-tracker  # HTTP 403
+voterrecords  # HTTP 403
+war-and-sanctions  # HTTP 403
+whocalld  # UNABLE_TO_GET_ISSUER_CERT_LOCALLY
+whatsmyname  # HTTP 464
+worldlii  # HTTP 403
+wikitree  # HTTP 403
+yasni  # ECONNRESET
+youcontrol  # HTTP 403
+zauba-corp  # HTTP 403
+usersearch  # timeout

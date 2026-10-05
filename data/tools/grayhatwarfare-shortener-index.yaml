@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: A short link hides its destination and often its owner, and knowing which service issued it is the first step to expanding it. Same operators as the exposed-bucket search.

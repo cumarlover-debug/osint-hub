@@ -8,5 +8,6 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 tags:
   - flight-tracking

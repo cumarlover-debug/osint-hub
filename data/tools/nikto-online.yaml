@@ -7,4 +7,5 @@ type: web
 cost: free
 passive: false
 account_required: false
+manual: post-form
 notes: This actively scans the target. Only scan sites you are allowed to test.

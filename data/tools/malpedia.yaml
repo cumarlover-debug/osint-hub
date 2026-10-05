@@ -7,5 +7,6 @@ type: web
 cost: free
 passive: true
 account_required: false
+manual: post-form
 tags: [threat-actors, malware]
 notes: Browsing is free. Some samples and rules need an approved account.

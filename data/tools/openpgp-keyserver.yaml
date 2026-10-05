@@ -7,4 +7,5 @@ type: web
 cost: free
 passive: true
 account_required: false
+manual: post-form
 notes: 'The verified-address model is the useful part: unlike the older keyservers, it only publishes a key once the owner has confirmed control of each address on it, so "this key belongs to this address" means something here. Worth knowing when checking a signed message, or when deciding whether a contact is who they claim.'

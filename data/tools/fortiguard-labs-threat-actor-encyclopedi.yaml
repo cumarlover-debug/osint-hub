@@ -7,4 +7,5 @@ type: web
 cost: free
 passive: true
 account_required: false
+manual: post-form
 notes: 'A reference index rather than a query engine: search it in the browser with the group name. Useful for the alias problem, since the same actor is named differently by every vendor.'

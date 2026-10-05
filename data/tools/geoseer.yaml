@@ -7,4 +7,5 @@ type: web
 cost: free
 passive: true
 account_required: false
+manual: post-form
 notes: The hard part of geospatial work is rarely the map, it is knowing which layer exists for an area and who publishes it. This searches the metadata of those layers across providers, which is the step that otherwise means guessing at portal names.

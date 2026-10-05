@@ -8,4 +8,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: The image is uploaded to their server; use an offline tool for sensitive photos.

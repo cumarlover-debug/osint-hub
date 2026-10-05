@@ -8,6 +8,7 @@ type: web
 cost: free
 passive: false
 account_required: false
+manual: post-form
 repo: Lookyloo/lookyloo
 tags:
   - url-scan

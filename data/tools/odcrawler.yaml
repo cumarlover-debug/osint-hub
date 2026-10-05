@@ -8,5 +8,6 @@ type: web
 cost: free
 passive: true
 account_required: false
+manual: post-form
 tags: [leak-data]
 notes: Open directories often contain personal or commercial data nobody meant to publish. Finding a file is not permission to use it.

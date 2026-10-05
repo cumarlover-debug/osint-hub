@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: Nothing here is private — anyone who guesses the address can read it — so it belongs in the category of "receive the code, use it, walk away" rather than anywhere a real reply will land.
