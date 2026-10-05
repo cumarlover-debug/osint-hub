@@ -1,0 +1,10 @@
+name: Globfone Send Text
+url: https://globfone.com/send-text/
+description: Sends an SMS from a web page without exposing your own number, for the one-off message that has to come from somewhere other than you.
+category: opsec
+inputs: [phone]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: The receiving end sees a service number, not yours, which is the point. Delivery is not guaranteed and the message is not private in transit.

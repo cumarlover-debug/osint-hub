@@ -1,0 +1,10 @@
+name: Behind the Name Generator
+url: https://www.behindthename.com/random/
+description: Generates personal names by language, culture and gender, with the naming conventions of each culture explained alongside.
+category: opsec
+inputs: [name]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: 'Two uses: building a plausible persona for research that needs one, and the reverse — reading a name you have and working out which cultures and spellings it plausibly comes from.'

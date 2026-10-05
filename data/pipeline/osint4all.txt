@@ -171,3 +171,12 @@ http://zorexeye.com/  # ZorexEye
 
 # corrected: inspire-geoportal.eu serves https as well as http, so it was published over https - the skip above was
 # my mistake in taking the source's http URL at face value
+
+# --- batch C/D/E (OPSEC kit, specialised indexes, personas), 2026-10-05 ---
+# published: anonaddy.com, maildrop.cc, hs3x.com, globfone.com send-text, faxzero.com, argumentsearch.com,
+#            octosearch.dootech.com, search.crossref.org, searchcraigslist.org, searchtempest.com,
+#            searchenginesindex.com, behindthename.com/random, recruitin.net stackoverflow, shorteners.grayhatwarfare.com
+# refused:   dyrk.org IMEI generator and dating-profile-generator.org.uk (device-identifier and false-persona
+#            forgery), metager3.de (404), inteltechniques voip.suite.html and voip.twilio.cli.html (404)
+# note:      argumentsearch.com and searchcraigslist.org were first skipped for serving http only; both answer over
+#            https and were published. Test the scheme before believing the source list - twice now.

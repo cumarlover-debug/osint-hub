@@ -123,6 +123,14 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "addy-io": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05",
+    "moved_to": "https://addy.io/"
+  },
   "ads-b-nl": {
     "status": "up",
     "failures": 0,
@@ -220,6 +228,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "all-of-craigslist": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "allabolag": {
     "status": "up",
@@ -417,6 +432,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "argument-search-engine": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "arin-whois": {
     "status": "up",
     "failures": 0,
@@ -605,6 +627,13 @@
       "archived": false,
       "pushed_at": "2026-09-28"
     }
+  },
+  "behind-the-name-generator": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "bellingcat-osm-search": {
     "status": "up",
@@ -1372,6 +1401,13 @@
       "archived": false,
       "pushed_at": "2024-11-26"
     }
+  },
+  "crossref-metadata-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "crt-sh": {
     "status": "unverified",
@@ -2151,6 +2187,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "faxzero": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "fbi-wanted": {
     "status": "unverified",
     "failures": 0,
@@ -2742,6 +2785,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "globfone-send-text": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "gods-eye": {
     "status": "up",
     "failures": 0,
@@ -2949,6 +2999,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "grayhatwarfare-shortener-index": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "greenshot": {
     "status": "up",
     "failures": 0,
@@ -3153,6 +3210,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "hs3x-receive-sms": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "httpx": {
     "status": "up",
@@ -4063,6 +4127,13 @@
       "pushed_at": "2026-09-05"
     }
   },
+  "maildrop": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "malpedia": {
     "status": "up",
     "failures": 0,
@@ -4739,6 +4810,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "octosearch": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "octosuite": {
     "status": "up",
@@ -5589,6 +5667,13 @@
       "pushed_at": "2026-09-26"
     }
   },
+  "recruitem-stack-overflow-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "redditmetis": {
     "status": "up",
     "failures": 0,
@@ -5829,6 +5914,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "search-engines-index": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "search4faces": {
     "status": "up",
     "failures": 0,
@@ -5870,6 +5962,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "searchtempest": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "searxng": {
     "status": "up",

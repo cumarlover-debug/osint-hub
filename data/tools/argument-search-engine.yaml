@@ -1,0 +1,10 @@
+name: Argument Search Engine
+url: https://argumentsearch.com/
+description: 'Searches for arguments rather than pages: it returns the claims made about a topic and whether each one supports or attacks it.'
+category: research
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Built by the ULB research group, and the reason it belongs here is that it finds the position a person has taken on a subject, which is a different question from what they appear in.

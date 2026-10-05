@@ -1,0 +1,10 @@
+name: All of Craigslist
+url: https://searchcraigslist.org/
+description: Searches Craigslist listings across the United States at once instead of one city at a time.
+category: search
+inputs: [keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: 'Classifieds are where things and people leave traces that social platforms do not carry: a vehicle, a rental, a business that only advertises locally. Nationwide beats city-by-city.'

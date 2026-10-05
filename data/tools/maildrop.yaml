@@ -1,0 +1,10 @@
+name: MailDrop
+url: https://maildrop.cc/
+description: A disposable inbox you can read in the browser without registering, for the confirmation step of a signup you do not intend to keep.
+category: opsec
+inputs: [email]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Nothing here is private — anyone who guesses the address can read it — so it belongs in the category of "receive the code, use it, walk away" rather than anywhere a real reply will land.

@@ -1,0 +1,10 @@
+name: OctoSearch
+url: https://octosearch.dootech.com/
+description: Searches the repositories that a GitHub user has starred, which surfaces what a person pays attention to rather than what they publish.
+category: code-security
+inputs: [username, keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Stars are public, personal and rarely curated for an audience, so they say more about interest than a profile does. Give it a username, or search the starred content of everyone.
