@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: 'The other half of a vulnerability question: not whether a flaw exists, but whether someone has already published working code for it and where.'

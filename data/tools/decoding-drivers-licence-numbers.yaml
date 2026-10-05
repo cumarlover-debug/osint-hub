@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: The numbering schemes differ by state and several are derived from the holder's name and birth date, so a licence number can confirm a name rather than needing one. It explains the schemes; it does not look anyone up.

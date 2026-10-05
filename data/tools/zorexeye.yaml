@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: It has been around long enough to be a known name in the field, and its pitch is reading the page rather than the index. Paid tiers; the free search is a form, so it is a by-hand entry.

@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: 'The radius control is the useful part: it answers "is anything like this advertised near there", which is often the question behind a location.'

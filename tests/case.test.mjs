@@ -8,6 +8,7 @@ import {
   summariseRows,
   groupByCategory,
   isSensitive,
+  splitByHand,
   dossierMarkdown,
   resultsAnnex,
   reportHTML,
@@ -444,6 +445,23 @@ describe('reportHTML', () => {
       sections: [{ value: 'x', type: 'Username', rows: [], runs: [{ name: 'Maigret', status: 'ok', exitCode: 0, output: 'lots', truncated: true, file: 'runs/01-maigret.txt' }] }],
     });
     assert.match(html, /output \(trimmed — full text in runs\/01-maigret\.txt\)/);
+  });
+
+  it('splits by-hand work into what the agent may try and what needs a person', () => {
+    const rows = [
+      { slug: 'a', manual: 'post-form' },
+      { slug: 'b', manual: 'captcha' },
+      { slug: 'c', manual: 'login' },
+      { slug: 'd', manual: 'api-key' },
+      { slug: 'e', manual: 'interactive' },
+      { slug: 'f' },
+    ];
+    const { attemptable, humanOnly } = splitByHand(rows);
+    // A form can be filled and submitted; a credential-gated service is never attempted, because attempting it would
+    // mean the agent handling a login it has no business holding.
+    assert.deepEqual(attemptable.map((r) => r.slug), ['a', 'b']);
+    assert.deepEqual(humanOnly.map((r) => r.slug), ['c', 'd', 'e']);
+    assert.deepEqual(splitByHand([]), { attemptable: [], humanOnly: [] });
   });
 
   it('records the findings', () => {

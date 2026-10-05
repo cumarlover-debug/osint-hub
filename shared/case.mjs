@@ -22,6 +22,28 @@ export const SENSITIVE_TAGS = ['face-recognition', 'personal-data', 'leak-data',
 export const isSensitive = (tool) =>
   tool.category === 'people' || (tool.tags ?? []).some((tag) => SENSITIVE_TAGS.includes(tag));
 
+/**
+ * The by-hand work the agent may attempt, and the work it must leave to a person.
+ *
+ * A form can be driven: fill the box, submit, read the answer. A bot check may be got past by a real browser, so it
+ * is attempted and honestly reported when it is not. A service that wants a login, an API key or an interactive
+ * console is never attempted, because attempting it would mean handling credentials the agent has no business
+ * holding. The line lives here, where it can be tested, rather than inside the loop that uses it.
+ */
+export const MANUAL_ATTEMPTABLE = ['post-form', 'captcha'];
+export const MANUAL_HUMAN_ONLY = ['login', 'api-key', 'interactive'];
+
+/** Split by-hand rows into what the agent may try and what stays with the investigator. */
+export function splitByHand(rows) {
+  const attemptable = [];
+  const humanOnly = [];
+  for (const row of rows ?? []) {
+    if (!row?.manual) continue;
+    (MANUAL_ATTEMPTABLE.includes(row.manual) ? attemptable : humanOnly).push(row);
+  }
+  return { attemptable, humanOnly };
+}
+
 /** What can be said about a tool's outcome, and how it reads in a report. */
 export const FINDING_STATUS = {
   todo: { label: 'To do', mark: '- [ ]' },

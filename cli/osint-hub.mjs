@@ -7,7 +7,7 @@ import { homedir, tmpdir } from 'node:os';
 import { spawn } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import { detect, launchable, templatesFor, applies, buildLink, commandsFor, SHELLS, MATCH_LABELS } from '../shared/launcher.mjs';
-import { sanitiseCaseState, activeCase, capabilityRows, resultsAnnex, reportHTML } from '../shared/case.mjs';
+import { sanitiseCaseState, activeCase, capabilityRows, resultsAnnex, reportHTML, splitByHand } from '../shared/case.mjs';
 import { extractFindings } from '../shared/extract.mjs';
 import { emptyProfile, addFindings, profileCounts, profileByKind, toolsRunFor, pivotCandidates, dossierMarkdown, PROFILE_VERSION } from '../shared/profile.mjs';
 
@@ -68,7 +68,7 @@ for (let i = 0; i < argv.length; i++) {
   else if (repeatable.includes(a)) {
     const key = a.slice(2);
     flags[key] = [...(flags[key] ?? []), argv[++i]];
-  } else if (['--input', '--category', '--type', '--as', '--value', '--api', '--shell', '--only', '--out', '--timeout', '--data', '--limit', '--delay', '--settle', '--port'].includes(a)) flags[a.slice(2)] = argv[++i];
+  } else if (['--input', '--category', '--type', '--as', '--value', '--api', '--shell', '--only', '--out', '--timeout', '--data', '--limit', '--delay', '--settle', '--port', '--max', '--seconds'].includes(a)) flags[a.slice(2)] = argv[++i];
   else flags[a.slice(2)] = true;
 }
 const [command, ...rest] = positional;
@@ -244,7 +244,7 @@ function runCommand(row, value, outDir, index, timeout, shell, live = false) {
 const UA = 'Mozilla/5.0 (compatible; osint-hub-cli/1.0; +https://osinthub.pages.dev)';
 
 /** A bot check dressed up as a page: it must not be counted as a result, whoever fetched it. */
-const CHALLENGE = /just a moment|checking your browser|attention required|enable javascript and cookies|verify you are human|are you a robot|cf-browser-verification|datadome|px-captcha|perimeterx|incapsula|kasada|_pxhd|access denied/i;
+const CHALLENGE = /just a moment|checking your browser|attention required|enable javascript and cookies|verify you are human|are you a robot|cf-browser-verification|datadome|px-captcha|perimeterx|incapsula|kasada|_pxhd|access denied|automated traffic is not allowed|unusual traffic|access blocked/i;
 
 /** An error page served with a 200, common with proxies and CDNs. */
 const ERROR_PAGE = /^\s*(4\d\d|5\d\d)\b|bad gateway|service unavailable|internal server error|site can.?t be reached/i;
@@ -618,6 +618,149 @@ async function renderPage(cdp, row, value, outDir, index, timeout, settle) {
   }
 }
 
+// ---- Driving the services that answer only a form -------------------------------------------------------
+// Everything else in the agent either runs a command or requests a URL. A third of the directory cannot be reached
+// that way: the service wants a form filled in and submitted, and until now that was left entirely to a person. The
+// agent can do the typing and the reading; what it cannot do is solve a captcha or sign in, and it says so plainly
+// rather than pretending the attempt failed for another reason.
+
+/** Injected into the page: dismiss an obvious consent gate, find the search box, type the value, submit. */
+const formFillScript = (value) => `(() => {
+  const out = { filled: false, submitted: false, how: '', what: '', note: '' };
+  const visible = (el) => {
+    if (!el || el.disabled || el.readOnly) return false;
+    const r = el.getBoundingClientRect();
+    return r.width > 8 && r.height > 8 && getComputedStyle(el).visibility !== 'hidden';
+  };
+  const consent = /^(accept|accept all|agree|i agree|allow all|allow|consent|got it|continue|ok|okay)$/i;
+  for (const b of document.querySelectorAll('button, [role="button"]')) {
+    if (visible(b) && consent.test((b.innerText || b.textContent || '').trim())) { b.click(); out.note = 'answered a consent gate'; break; }
+  }
+  const score = (el) => {
+    const t = (el.type || '').toLowerCase();
+    const s = ((el.name || '') + ' ' + (el.id || '') + ' ' + (el.placeholder || '') + ' ' + (el.getAttribute('aria-label') || '')).toLowerCase();
+    let n = 0;
+    if (['search', 'email', 'text', 'tel', 'url'].includes(t)) n += 2;
+    if (/search|query|lookup|email|phone|username|domain|url|name|target|handle/.test(s)) n += 4;
+    if (/captcha|newsletter|zip|postal|card/.test(s)) n -= 6;
+    if (el.tagName === 'TEXTAREA') n -= 1;
+    return n;
+  };
+  const fields = [...document.querySelectorAll('input, textarea')].filter(visible).map((el) => [score(el), el]).sort((a, b) => b[0] - a[0]);
+  const field = fields.length ? fields[0][1] : null;
+  if (!field || fields[0][0] < 0) { out.note = (out.note ? out.note + '; ' : '') + 'no search box found'; return out; }
+  const label = (field.name || field.id || field.placeholder || field.type || 'field').toString().slice(0, 40);
+  try {
+    const proto = field.tagName === 'TEXTAREA' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype;
+    const setter = Object.getOwnPropertyDescriptor(proto, 'value').set;
+    setter.call(field, ${JSON.stringify(value)});
+  } catch { field.value = ${JSON.stringify(value)}; }
+  field.dispatchEvent(new Event('input', { bubbles: true }));
+  field.dispatchEvent(new Event('change', { bubbles: true }));
+  field.focus();
+  out.filled = true;
+  out.what = 'typed into "' + label + '"';
+  const submit = [...document.querySelectorAll('button, input[type=submit], [role=button], a.button')]
+    .filter(visible)
+    .find((b) => /search|look ?up|check|find|look|go|submit|scan|track/i.test((b.innerText || b.value || b.textContent || '')));
+  if (submit) { submit.click(); out.submitted = true; out.how = 'button'; }
+  else {
+    for (const type of ['keydown', 'keypress', 'keyup']) {
+      field.dispatchEvent(new KeyboardEvent(type, { key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true }));
+    }
+    if (field.form && typeof field.form.requestSubmit === 'function') { try { field.form.requestSubmit(); out.how = 'form'; } catch { out.how = 'enter'; } }
+    else out.how = 'enter';
+    out.submitted = true;
+  }
+  return out;
+})()`;
+
+/**
+ * Drives one form-driven service: open it, type the value, submit, and read what comes back.
+ *
+ * @returns the same shape as renderPage, plus `attempt` describing what was done, so the report can say whether a
+ *          wall was reached or whether the page simply had nothing to fill in.
+ */
+async function driveForm(cdp, row, toolUrl, value, outDir, index, timeout, settle) {
+  const target = row.link ?? toolUrl;
+  const base = { value: value.value, type: value.type, slug: row.slug, name: row.name, link: target, byhand: true };
+  const shot = join(outDir, 'browser', `${String(index).padStart(2, '0')}-${row.slug}-byhand.png`);
+  let sessionId;
+  try {
+    const { targetId } = await cdp.send('Target.createTarget', { url: 'about:blank' });
+    ({ sessionId } = await cdp.send('Target.attachToTarget', { targetId, flatten: true }));
+    await cdp.send('Page.enable', {}, sessionId);
+    await cdp.send('Runtime.enable', {}, sessionId);
+
+    const loaded = new Promise((resolve) => cdp.on((m) => m.method === 'Page.loadEventFired' && m.sessionId === sessionId && resolve()));
+    await cdp.send('Page.navigate', { url: target }, sessionId);
+    await Promise.race([loaded, sleep(timeout)]);
+    await sleep(1500); // let a client-side app boot before hunting for its search box
+
+    const read = async () => {
+      const { result } = await cdp.send(
+        'Runtime.evaluate',
+        {
+          expression:
+            'JSON.stringify({title: document.title || "", text: (document.body ? document.body.innerText : "") || "", html: document.documentElement ? document.documentElement.outerHTML : ""})',
+          returnByValue: true,
+        },
+        sessionId,
+      );
+      const parsed = JSON.parse(result.value);
+      return { title: String(parsed.title).replace(/\s+/g, ' ').trim(), text: String(parsed.text).replace(/\s+/g, ' ').trim(), html: String(parsed.html ?? '') };
+    };
+
+    const before = await read();
+    const fill = await cdp.send('Runtime.evaluate', { expression: formFillScript(value.value), returnByValue: true }, sessionId);
+    const attempt = fill.result?.value ?? {};
+
+    // Wait for the answer. A submitted form usually navigates or repaints; a page that never changes was probably
+    // refused, so the ceiling is the same `settle` the renderer uses.
+    const deadline = Date.now() + Math.max(settle, 3000);
+    let best = before;
+    while (Date.now() < deadline) {
+      await sleep(500);
+      const now = await read();
+      if (now.text.length > best.text.length) best = now;
+      const challenged = CHALLENGE.test(now.title) || CHALLENGE.test(now.text.slice(0, 400));
+      if (!challenged && now.text !== before.text && now.text.length > 200) break;
+      if (Date.now() > deadline - 500) best = now.text.length > best.text.length ? now : best;
+    }
+
+    const image = await cdp.send('Page.captureScreenshot', { format: 'png' }, sessionId);
+    writeFileSync(shot, Buffer.from(image.data, 'base64'));
+
+    let dom;
+    if (best.html && (best.html.match(/href="https?:\/\//g) ?? []).length > 5) {
+      dom = join('browser', `${String(index).padStart(2, '0')}-${row.slug}-byhand.html`);
+      writeFileSync(join(outDir, dom), best.html);
+    }
+
+    const challenged = CHALLENGE.test(best.title) || CHALLENGE.test(best.text.slice(0, 400));
+    const status = challenged ? 'blocked' : classify({ text: best.text, title: best.title });
+    const bits = [attempt.note, attempt.what, attempt.submitted ? `submitted with ${attempt.how}` : 'could not submit'].filter(Boolean);
+    const note = challenged
+      ? `still a bot check after submitting — this one needs a person${bits.length ? ` (${bits.join('; ')})` : ''}`
+      : bits.join('; ') || 'nothing to fill in';
+
+    return {
+      ...base,
+      status,
+      title: best.title,
+      excerpt: best.text.slice(0, 2000),
+      screenshot: join('browser', `${String(index).padStart(2, '0')}-${row.slug}-byhand.png`),
+      note,
+      formFill: { filled: !!attempt.filled, submitted: !!attempt.submitted, how: attempt.how || '' },
+      ...(dom && { dom }),
+    };
+  } catch (e) {
+    return { ...base, status: 'failed', note: e.name === 'TimeoutError' ? 'timeout' : e.message };
+  } finally {
+    if (sessionId) cdp.send('Target.closeTarget', { targetId: sessionId }).catch(() => {});
+  }
+}
+
 // ---- Formatting ----
 const badges = (t) =>
   [!t.passive && yellow('active'), t.account_required && dim('account'), t.cost !== 'free' && dim(t.cost), t.status === 'down' && red('down')]
@@ -835,8 +978,8 @@ async function main() {
   // ---- agent: read what the case already collected, build the profile, and say what to do next ----
   if (command === 'agent') {
     const [action, file] = rest;
-    if (!['next', 'profile', 'run'].includes(action)) {
-      fail('usage: osint-hub agent next|profile|run <case.json> [--yes --max N --seconds S --only a,b --out DIR]');
+    if (!['next', 'profile', 'run', 'hands'].includes(action)) {
+      fail('usage: osint-hub agent next|profile|run|hands <case.json> [--yes --max N --seconds S --only a,b --out DIR]');
     }
     if (!file) fail('point at the JSON backup exported from the workbench: /case → Back up (JSON).');
     if (!existsSync(file)) fail(`no such file: ${file}`);
@@ -952,7 +1095,7 @@ async function main() {
           out(`${bold(theCase.title)} ${dim(`· ${queue.length} unattended job${queue.length === 1 ? '' : 's'} queued (budget ${budget} tools, ${seconds}s)`)}`);
           out(dim('every job is a request from your connection to that site; add --yes to run them without asking'));
         }
-        if (!flags.yes && !process.stdin.isTTY) fail('there is no terminal to confirm on: add --yes to run these unattended, or --max 0 to only plan.');
+        if (!flags.yes && !process.stdin.isTTY && budget > 0) fail('there is no terminal to confirm on: add --yes to run these unattended, or --max 0 to only plan.');
         // The runners write into these, so they have to exist before the first job starts.
         mkdirSync(join(outDir, 'runs'), { recursive: true });
         mkdirSync(join(outDir, 'url-results'), { recursive: true });
@@ -1020,6 +1163,81 @@ async function main() {
     }
 
     const gaps = [];
+    // ---- hands: drive the services that answer only a form ----
+    // Only the two reasons the agent can attempt: a form, and a form behind a bot check it might get past. A service
+    // that wants a login or an API key is not attempted, because the agent holds no credentials and should not.
+    const handsSummary = { attempted: 0, ok: 0, blocked: 0, other: 0, findings: 0, skipped: 0 };
+    if (action === 'hands') {
+      const only = flags.only ? String(flags.only).split(',').map((s) => s.trim()).filter(Boolean) : [];
+      const bySlug = new Map(tools.map((t) => [t.slug, t]));
+      const list = plan.flatMap((p) =>
+        splitByHand(p.byHand)
+          .attemptable.filter((r) => !only.length || only.includes(r.slug))
+          .filter((r) => bySlug.get(r.slug)?.url)
+          .map((r) => ({ value: p.v, row: r, toolUrl: bySlug.get(r.slug)?.url })),
+      );
+      handsSummary.skipped = plan.reduce((n, p) => n + splitByHand(p.byHand).humanOnly.length, 0);
+
+      if (!list.length) {
+        if (!flags.json) out(dim('No form-driven work for these values: nothing marked as a form, or everything already tried.'));
+      } else {
+        const budget = Number(flags.max ?? 6);
+        const seconds = Number(flags.seconds ?? 300);
+        const deadline = Date.now() + seconds * 1000;
+        const settle = Number(flags.settle ?? 8000);
+        if (!flags.json) {
+          out(`${bold(theCase.title)} ${dim(`· ${list.length} form-driven service${list.length === 1 ? '' : 's'} to try (budget ${budget}, ${seconds}s)`)}`);
+          out(dim('the agent fills the box and reads the answer; a captcha or a login will stop it, and it will say so'));
+        }
+        if (!flags.yes && !process.stdin.isTTY && budget > 0) fail('there is no terminal to confirm on: add --yes to try these unattended, or --max 0 to only plan.');
+        if (budget <= 0 && !flags.json) out(dim('--max 0: planned only, nothing attempted'));
+        mkdirSync(join(outDir, 'browser'), { recursive: true });
+        let browser;
+        if (budget > 0) {
+          try {
+            browser = await launchBrowser(Number(flags.port ?? 9333), 20_000, !!flags.show);
+          } catch (e) {
+            fail(`could not start the browser: ${e.message} — install Chrome or Edge, or use case fetch instead`);
+          }
+        }
+        const hands = [];
+        const delay = Number(flags.delay ?? 500);
+        try {
+          for (const job of list) {
+            if (handsSummary.attempted >= budget) break;
+            if (Date.now() > deadline) break;
+            if (!flags.yes) {
+              const answer = (await ask(`  try ${bold(job.row.name)} for ${job.value.value}? [y]es / [n]o / [q]uit `)).trim().toLowerCase();
+              if (answer === 'q') break;
+              if (answer !== 'y' && answer !== 'yes') continue;
+            }
+            handsSummary.attempted += 1;
+            const result = await driveForm(browser.cdp, job.row, job.toolUrl, job.value, outDir, hands.length + 1, Number(flags.timeout ?? 35) * 1000, settle);
+            hands.push(result);
+            if (result.status === 'ok') handsSummary.ok += 1;
+            else if (result.status === 'blocked') handsSummary.blocked += 1;
+            else handsSummary.other += 1;
+
+            // Kept in the rendered-pages file so the single report shows the attempt beside the pages it already
+            // holds, and saved at once so an interrupted run keeps what it got.
+            mergeResults(join(outDir, 'agent.json'), [result], { case: theCase.title, rendered: new Date().toISOString(), safe, outDir });
+            const found = extractFindings({ slug: result.slug, name: result.name, text: result.excerpt ?? '', value: result.value, at: new Date().toISOString(), source: 'by-hand' });
+            addFindings(profile, { value: result.value, valueType: job.value.type, tool: result.name ?? result.slug, slug: result.slug, status: result.status, findings: found, at: new Date().toISOString(), source: 'by-hand' });
+            handsSummary.findings += found.length;
+            writeFileSync(profilePath, `${JSON.stringify(profile, null, 2)}\n`);
+
+            if (!flags.json) {
+              const mark = result.status === 'ok' ? green('ok') : result.status === 'blocked' ? yellow('blocked') : red(result.status);
+              out(`  ${mark.padEnd(3)} ${job.row.name.padEnd(24)} ${dim(result.note ?? '')}`);
+            }
+            if (delay) await sleep(delay);
+          }
+        } finally {
+          if (browser) closeBrowser(browser);
+        }
+      }
+    }
+
     for (const p of plan) {
       for (const r of p.canRun) if (r.readiness.state !== 'ready') gaps.push(`${r.name} (${p.v.value}) — ${r.readiness.state === 'needs-package' ? 'install its package' : r.readiness.state === 'needs-files' ? 'needs its own files' : 'not installed'}${r.install ? `: ${r.install}` : ''}`);
     }
@@ -1050,6 +1268,16 @@ async function main() {
       if (runSummary.other) out(yellow(`  ${runSummary.other} returned nothing readable — a wall, a login or an empty result, all recorded in the report`));
     } else if (action === 'run') {
       out(`\n${dim(runSummary.stopped ? `nothing run: ${runSummary.stopped}` : 'nothing run')}`);
+    }
+
+    if (action === 'hands') {
+      if (handsSummary.attempted) {
+        out(`\n${bold(`${handsSummary.ok}/${handsSummary.attempted} answered`)} ${dim(`· ${handsSummary.blocked} still a bot check · ${handsSummary.findings} findings folded into the profile`)}`);
+        out(dim('  pages the agent could not get past are listed in the report with the reason, not counted as empty'));
+      } else {
+        out(`\n${dim('nothing attempted')}`);
+      }
+      if (handsSummary.skipped) out(dim(`  ${handsSummary.skipped} skipped on purpose: they need a login or an API key, and the agent holds no credentials`));
     }
 
     out(`${bold(theCase.title)} ${dim(`· ${counts.leads} leads from ${counts.toolsRun} tool runs`)}`);

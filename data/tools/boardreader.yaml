@@ -7,4 +7,5 @@ type: web
 cost: free
 passive: true
 account_required: false
+manual: post-form
 notes: It indexes discussion platforms specifically, so it is the tool for the question "has anyone talked about this", and for finding a username or handle discussed somewhere other than the platforms you already thought of.

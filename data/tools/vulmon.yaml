@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: Good for the question "is this product or version known to be broken", and for tracking what a vendor has not fixed yet.

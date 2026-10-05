@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: 'This is the step that settles a disputed location: a skyline is hard to fake and easy to compare. Give it coordinates and a view direction, and it labels what should be in frame.'

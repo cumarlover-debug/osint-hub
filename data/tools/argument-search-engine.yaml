@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: Built by the ULB research group, and the reason it belongs here is that it finds the position a person has taken on a subject, which is a different question from what they appear in.
