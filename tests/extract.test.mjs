@@ -71,6 +71,27 @@ test('does not mistake an identifier for a phone number', () => {
   assert.ok(formatted.some((f) => f.kind === 'phone'), 'a formatted number still reads as one');
 });
 
+test('lifts the hostnames a certificate or DNS tool answers with', () => {
+  // The answer to "what is under this domain" is the list of names, so they are the findings - and a subdomain found
+  // here is what the next stage searches for.
+  const text = ['*.example.com   example.com   SSL Corporation   7/30/2026', 'api.example.com   Let us Encrypt   1/2/2026', 'assets/logo.png'].join('\n');
+  const found = extractFindings({ slug: 'certkit-ct-search', text, value: 'example.com' });
+  const domains = found.filter((f) => f.kind === 'domain').map((f) => f.value);
+  // The wildcard is kept because it says the certificate covers every subdomain, and the bare parent is not a
+  // finding: it is the value being searched for.
+  assert.deepEqual(domains, ['*.example.com', 'api.example.com']);
+  assert.ok(!domains.some((d) => d.endsWith('.png')), 'an asset filename is not a host');
+});
+
+test('does not read a DNS tool\u2019s numeric columns as telephone numbers', () => {
+  // dnstwist prints a table with numeric identifiers in it, and an earlier version turned every one into a phone lead.
+  const text = ['10316817237   example.com   1.2.3.4', '103224182241   exxample.com   5.6.7.8'].join('\n');
+  const found = extractFindings({ slug: 'dnstwist', text, value: 'example.com' });
+  assert.equal(found.filter((f) => f.kind === 'phone').length, 0);
+  const domains = found.filter((f) => f.kind === 'domain').map((f) => f.value);
+  assert.ok(domains.includes('exxample.com'), 'the domains, which are the point, are still found');
+});
+
 test('folds findings into a profile, keeping every source', () => {
   const profile = emptyProfile('Test target', 'Written consent, 2026-10-05');
   addFindings(profile, { value: 'ada@example.org', valueType: 'email', slug: 'holehe', tool: 'Holehe', status: 'ok', findings: [{ kind: 'account', value: 'https://github.com/ada', evidence: '[+] github', tool: 'holehe' }] });
