@@ -188,3 +188,10 @@ http://zorexeye.com/  # ZorexEye
 # refused:   wpimeigenerator, mmarvick wa-drivers-license, fakeinfo fake tiktok/twitter/youtube profile
 #            generators (forged platform pages), fauxid.com/tools, elfqrin fakeid, coronavirus.jhu.edu (retired)
 # duplicate: metadefender.opswat.com was a second entry for the already-listed MetaDefender Cloud
+
+# --- blocked candidates retried through the browser agent, 2026-10-05 ---
+# recovered: keys.openpgp.org (published as OpenPGP Keyserver)
+# refused:   btdig.com and libgen.is (do not answer), gopit.com (refuses connections), meganzsearch.com
+#            (placeholder page), geocreepy.com (now redirects into Flashpoint), searchatlas.org (SEO product)
+# still blocked to automation, so left queued: 10minutemail.com, smstome.com, milled.com, tfljamcams.net,
+#            liveuamap-syria (already covered by the liveuamap entry)

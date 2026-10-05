@@ -1,0 +1,10 @@
+name: OpenPGP Keyserver
+url: https://keys.openpgp.org/
+description: A public OpenPGP keyserver that verifies an address before publishing the key for it, so a key can be checked against the address it claims rather than taken on trust.
+category: opsec
+inputs: [email]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: 'The verified-address model is the useful part: unlike the older keyservers, it only publishes a key once the owner has confirmed control of each address on it, so "this key belongs to this address" means something here. Worth knowing when checking a signed message, or when deciding whether a contact is who they claim.'

@@ -72,3 +72,4 @@ https://start.me/p/L1rEYQ/osint4all  # now https://stevemorse.org/ssn/ssn.html (
 https://start.me/p/L1rEYQ/osint4all  # now https://vulmon.com/ (vulmon)
 https://start.me/p/L1rEYQ/osint4all  # now https://www.waze.com/live-map (waze-live-map)
 https://start.me/p/L1rEYQ/osint4all  # now https://www.windy.com/-Webcams/webcams (windy-webcams)
+https://start.me/p/L1rEYQ/osint4all  # now https://keys.openpgp.org/ (openpgp-keyserver)
