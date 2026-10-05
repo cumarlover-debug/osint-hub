@@ -1,0 +1,10 @@
+name: gpx.studio
+url: https://gpx.studio/
+description: 'An online GPX editor: load a recorded track, split or trim it, correct the timestamps and elevation, and read the route back as points rather than a squiggle.'
+category: geolocation
+inputs: [document]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: A recorded track is evidence about where someone was, so being able to clean and inspect it is the difference between a file you can describe and one you can only attach. It runs in the browser, so the track does not have to be uploaded anywhere else.

@@ -1,0 +1,10 @@
+name: Earth Engine Data Catalog
+url: https://developers.google.com/earth-engine/datasets/
+description: The catalogue of satellite and geophysical datasets that Earth Engine can query, with each one's coverage, resolution, update cadence and licence stated.
+category: geolocation
+inputs: [keyword, location]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: 'A reference for what imagery exists and what it can settle: whether a dataset is fine enough to see a building, how far back it goes, and whether the licence lets you use the result. Point the tool at a place, and this says which layer is capable of answering.'

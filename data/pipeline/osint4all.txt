@@ -161,3 +161,10 @@ http://zorexeye.com/  # ZorexEye
 #            chris927 generate-sa-idnumbers, elfqrin US SSN/licence generator, fakeinfo drivers-licence generator (fraud tooling)
 # skipped:   itools.com/search/people-search - serves http only, and every tool URL in the directory must be https,
 #            which is a rule worth keeping: a link over plain http can be rewritten in transit
+
+# --- batch B (geospatial), 2026-10-05 ---
+# published: geoseer.net, gpx.studio, developers.google.com/earth-engine/datasets, data.isric.org
+# refused:   datacore-gn.unepgrid.ch (404, service gone)
+# skipped:   inspire-geoportal.eu - serves http only, and every tool URL must be https
+# left for a person, not for automation: the ArcGIS dashboards (two render empty even in a browser, one asks for an
+#            ArcGIS Online sign-in) and inciweb.nwcg.gov (403 to both a plain request and the browser)
