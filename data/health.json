@@ -526,6 +526,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "aware-online-people-search": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "awsbucketdump": {
     "status": "up",
     "failures": 0,
@@ -808,6 +815,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "boardreader": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "bop-inmate-locator": {
     "status": "up",
     "failures": 0,
@@ -919,6 +933,13 @@
     "last_checked": "2026-09-28",
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
+  },
+  "cachedviews": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "canada411": {
     "status": "up",
@@ -2349,6 +2370,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)"
   },
+  "fnd": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "focsec": {
     "status": "up",
     "failures": 0,
@@ -3310,6 +3338,13 @@
       "pushed_at": "2025-09-05"
     }
   },
+  "information-operations-archive": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "informer": {
     "status": "up",
     "failures": 0,
@@ -3388,6 +3423,13 @@
       "archived": false,
       "pushed_at": "2026-09-28"
     }
+  },
+  "inteltechniques-search-tool": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "internect": {
     "status": "up",
@@ -3942,6 +3984,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "mac-address-lookup": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "maigret": {
     "status": "up",

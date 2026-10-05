@@ -1,0 +1,10 @@
+name: fnd
+url: https://www.fnd.io/
+description: Searches the App Store, Apple Music and Apple TV from any browser, without an Apple device.
+category: search
+inputs: [keyword]
+type: web
+cost: free
+passive: true
+account_required: false
+notes: 'Useful for the side of a person that platforms do not show: which apps an organisation publishes, when an app was last updated, and which artist or label name is attached to a release.'
