@@ -1099,6 +1099,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "chronoverify": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "circl-bgp-ranking": {
     "status": "up",
     "failures": 0,
@@ -1691,6 +1698,13 @@
     "http": 403,
     "reason": "HTTP 403 (bot protection)",
     "last_ok": "2026-09-27"
+  },
+  "dropbase": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "dualmaps": {
     "status": "unverified",
@@ -2365,6 +2379,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "footprintiq": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "forensic-osint": {
     "status": "up",
     "failures": 0,
@@ -2633,6 +2654,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "gitleak": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "gitleaks": {
     "status": "up",
@@ -7144,6 +7172,13 @@
       "archived": false,
       "pushed_at": "2026-09-21"
     }
+  },
+  "waytrace": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "weakpass": {
     "status": "up",

@@ -1,0 +1,11 @@
+name: WayTrace
+url: https://waytrace.org/
+description: Reconstructs a domain's public history from what the Wayback Machine has already archived, pulling the changes out as a timeline rather than a list of snapshots.
+category: archives
+inputs: [domain, url]
+type: web
+cost: free
+passive: true
+account_required: false
+manual: post-form
+notes: 'Where the Wayback Machine itself gives you snapshots one at a time, this is aimed at the story between them: what a site used to say and when it changed. Answers a form rather than a URL, so run it by hand.'

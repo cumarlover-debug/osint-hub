@@ -551,3 +551,4 @@ https://github.com/ppwwyyxx/wechat-dump  # wechat-dump (not a lookup tool: it an
 https://telegram.me/datxpertbot  # datXpert Telegram bot (no verifiable operator and nothing to read: a chat bot answering with leaked personal data, reached through an anonymous Telegram account), 2026-10-05
 https://telegram.me/Leak_SSINTbot  # Leak OSINT Telegram bot (no verifiable operator and nothing to read: a chat bot answering with leaked personal data, reached through an anonymous Telegram account), 2026-10-05
 https://telegram.me/PasswordSearchBot  # PasswordSearch Telegram bot (no verifiable operator and nothing to read: a chat bot answering with leaked credentials, reached through an anonymous Telegram account), 2026-10-05
+https://trace.manus.space  # TRACE (out of scope: it builds a design process journal, which has nothing to do with investigating a target), 2026-10-05
