@@ -2599,6 +2599,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "generate-a-panorama": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "geoclip": {
     "status": "up",
     "failures": 0,
@@ -2645,6 +2652,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "geoplatform": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "geoseer": {
     "status": "up",
@@ -4396,6 +4410,13 @@
     "http": 200,
     "last_ok": "2026-09-28"
   },
+  "military-bases-worldwide": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "million-short": {
     "status": "unverified",
     "failures": 0,
@@ -5371,6 +5392,13 @@
       "pushed_at": "2026-09-04"
     }
   },
+  "pic-cic-code-database": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
   "pic2map": {
     "status": "up",
     "failures": 0,
@@ -5623,6 +5651,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "radio-garden": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "radioreference": {
     "status": "up",
@@ -6221,6 +6256,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "smappen": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "sms-activate": {
     "status": "up",
@@ -7078,6 +7120,20 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "ukraine-live-cams": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
+  },
+  "ukraine-war-heatmap": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "umbra-open-data": {
     "status": "up",
@@ -7993,6 +8049,13 @@
     "last_checked": "2026-09-28",
     "http": 200,
     "last_ok": "2026-09-28"
+  },
+  "zorexeye": {
+    "status": "up",
+    "failures": 0,
+    "last_checked": "2026-10-05",
+    "http": 200,
+    "last_ok": "2026-10-05"
   },
   "zscaler-zulu": {
     "status": "up",

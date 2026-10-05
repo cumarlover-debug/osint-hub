@@ -1,0 +1,10 @@
+name: Radio Garden
+url: https://radio.garden/search
+description: Live local radio from anywhere on the map, by rotating a globe and picking a place.
+category: geolocation
+inputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: The atmosphere of a place at a moment, and occasionally a report of something the written sources have not carried yet. It is also the fastest way to hear what a location sounds like when you cannot be there.

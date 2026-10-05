@@ -1,0 +1,10 @@
+name: Smappen
+url: https://smappen.com/
+description: 'Travel-time and territory mapping: draw how far you can get from a point in ten, thirty or sixty minutes, by car, on foot or by bike, and compare areas.'
+category: geolocation
+inputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: 'This is where the OALLEY entry now leads, and the question it answers is the one behind a lot of location work: not where someone was, but whether being somewhere else was possible in the time available. Commercial territory software, with a free tier, so read it as a geometry tool rather than an intelligence product.'

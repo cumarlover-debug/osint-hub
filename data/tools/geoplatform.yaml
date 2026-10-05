@@ -1,0 +1,10 @@
+name: GeoPlatform
+url: https://www.geoplatform.gov/
+description: 'The United States federal geospatial portal: findable, accessible government geodata with the agency that published each layer.'
+category: geolocation
+inputs: [location, keyword]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: Where INSPIRE covers Europe, this is the American equivalent, and it is the index of record for federal layers - boundaries, infrastructure, environment - that a state or agency site would otherwise make you hunt for.

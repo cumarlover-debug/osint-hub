@@ -1,0 +1,10 @@
+name: Generate a Panorama
+url: https://www.udeuschle.de/panoramas/makepanoramas_en.htm
+description: Renders the panorama you would see from a given point, naming the peaks on the horizon, so a photograph can be checked against what should be visible from where it claims to be.
+category: geolocation
+inputs: [location]
+type: web
+cost: freemium
+passive: true
+account_required: false
+notes: 'This is the step that settles a disputed location: a skyline is hard to fake and easy to compare. Give it coordinates and a view direction, and it labels what should be in frame.'
