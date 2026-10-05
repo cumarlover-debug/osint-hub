@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: 'The piece that turns a phone number into an operator: the prefix routes to a carrier, and the carrier is often the first fact that is checkable independently of the number itself.'

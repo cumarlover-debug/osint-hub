@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: Worth reading before treating an SSN as a location clue, because the common belief that it encodes where someone was born is wrong for most numbers issued since 2011.

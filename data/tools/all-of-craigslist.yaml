@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: 'Classifieds are where things and people leave traces that social platforms do not carry: a vehicle, a rental, a business that only advertises locally. Nationwide beats city-by-city.'

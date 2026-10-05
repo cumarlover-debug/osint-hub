@@ -7,4 +7,5 @@ type: web
 cost: freemium
 passive: true
 account_required: false
+manual: post-form
 notes: Stars are public, personal and rarely curated for an audience, so they say more about interest than a profile does. Give it a username, or search the starred content of everyone.
