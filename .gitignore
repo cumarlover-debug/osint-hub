@@ -8,3 +8,6 @@ dist/
 # you investigated. They are written next to the project by default, so they must never be committed or pushed.
 osint-hub-*/
 osint-hub-*.json
+
+# Local defaults for this machine: which remote host to run tools on, a standing basis. Never shared.
+.osint-hub.local.json

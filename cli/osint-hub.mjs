@@ -2,7 +2,8 @@
 // osint-hub CLI: search the directory, turn a value into search links, and read playbooks from the terminal.
 // No dependencies. Data comes from https://osinthub.pages.dev/api/*.json and is cached for a day.
 import { mkdirSync, readFileSync, writeFileSync, existsSync, statSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { homedir, tmpdir } from 'node:os';
 import { spawn } from 'node:child_process';
 import { createInterface } from 'node:readline';
@@ -11,6 +12,7 @@ import { sanitiseCaseState, activeCase, capabilityRows, resultsAnnex, reportHTML
 import { extractFindings } from '../shared/extract.mjs';
 import { matchIntents, resolveTask, taskProgress } from '../shared/tasks.mjs';
 import { commandBinary, parseRemote, probeBinaries, remoteScript, runnerArgv } from '../shared/remote.mjs';
+import { loadConfig, mergeFlags } from '../shared/config.mjs';
 import { emptyProfile, addFindings, profileCounts, profileByKind, toolsRunFor, pivotCandidates, dossierMarkdown, PROFILE_VERSION } from '../shared/profile.mjs';
 
 const VERSION = '1.0.0';
@@ -94,6 +96,14 @@ for (let i = 0; i < argv.length; i++) {
     flags[a.slice(2)] = argv[++i];
   }
 }
+// Local defaults first, so a machine can say once "run the tools on my Kali VM" and every command obeys -
+// including a tool in a harness that loaded its plugin before this argument existed.
+const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const localConfig = loadConfig(repoRoot, { warn: (m) => process.stderr.write(`warning: ${m}\n`) });
+const eff = mergeFlags(flags, localConfig);
+for (const key of Object.keys(flags)) delete flags[key];
+Object.assign(flags, eff);
+
 const [command, ...rest] = positional;
 const API = (flags.api ?? process.env.OSINT_HUB_API ?? 'https://osinthub.pages.dev').replace(/\/+$/, '');
 
@@ -1156,7 +1166,8 @@ async function main() {
     // Readiness is a question for whichever machine will run these, asked once for all of them.
     let remoteUse;
     {
-      const probed = remote ? await remoteReady(remote, plan.flatMap((p) => p.canRun.map((r) => r.command)), !!flags.json) : undefined;
+      const willRun = action === 'next' || action === 'run';
+      const probed = remote && willRun ? await remoteReady(remote, plan.flatMap((p) => p.canRun.map((r) => r.command)), !!flags.json) : undefined;
       remoteUse = probed ? { label: probed.label, found: probed.found, total: probed.total } : undefined;
       for (const p of plan) for (const r of p.canRun) r.readiness = probed ? readiness(r.command, probed.has) : readiness(r.command);
     }
@@ -1256,7 +1267,7 @@ async function main() {
           const target = join(outDir, job.how === 'run' ? 'manifest.json' : 'fetch.json');
           mergeResults(target, [result], {
             case: theCase.title,
-            ...(job.how === 'run' ? { ran: new Date().toISOString(), shell } : { fetched: new Date().toISOString() }),
+            ...(job.how === 'run' ? { ran: new Date().toISOString(), shell, ...(remote && { remote }) } : { fetched: new Date().toISOString() }),
             safe,
             outDir,
           });
