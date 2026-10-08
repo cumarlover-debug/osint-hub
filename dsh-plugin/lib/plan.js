@@ -172,6 +172,9 @@ export function buildInvocation(args, { root, data }) {
   const out = typeof args.out === 'string' && args.out ? args.out : outFor(args.case);
   const common = ['--json'];
   if (data) common.push('--data', data);
+  // Where the command-line tools run. Accepting the argument without passing it on is how a tool promises to use Kali
+  // and quietly uses the local machine instead, so it belongs in the arguments every action gets.
+  if (args.remote) common.push('--remote', String(args.remote));
 
   // The basis is the line between an investigation and a fishing trip, and the agent prints it in every report, so a
   // case cannot be opened without one.
@@ -283,13 +286,22 @@ export function summarise(action, data, out) {
   if (action === 'plan') {
     const counts = d.counts ?? {};
     const plan = Array.isArray(d.plan) ? d.plan : [];
-    const lines = plan.map((p) => `  ${p.value} (${p.type}): ${p.canRun} runnable, ${p.canFetch} fetchable, ${p.byHand} by hand, ${p.done} already tried`);
-    return `${d.case ?? 'case'}: ${counts.leads ?? 0} leads from ${counts.toolsRun ?? 0} tool runs\n${lines.join('\n')}`;
+    const where = d.remote ? ` — tools run on ${d.remote.label}, which has ${d.remote.found} of the ${d.remote.total} this case needs` : '';
+    const lines = plan.map(
+      (p) =>
+        `  ${p.value} (${p.type}): ${p.canRun} runnable${typeof p.ready === 'number' ? ` (${p.ready} ready${d.remote ? ' there' : ' here'})` : ''}, ${p.canFetch} fetchable, ${p.byHand} by hand, ${p.done} already tried`,
+    );
+    const warning =
+      d.remote && plan.length && plan.every((p) => (p.ready ?? 0) === 0)
+        ? `\nNo tool this case needs is installed on ${d.remote.label}. Install them there (node scripts/kali-setup.sh --pipx, and --apt with sudo), or run locally.`
+        : '';
+    return `${d.case ?? 'case'}: ${counts.leads ?? 0} leads from ${counts.toolsRun ?? 0} tool runs${where}\n${lines.join('\n')}${warning}`;
   }
   if (action === 'profile' || NEEDS_CONFIRM.includes(action)) {
     const counts = d.counts ?? {};
     const run = d.run;
-    const head = run ? `${run.ok}/${run.attempted} finished cleanly, ${run.findings} findings folded in${run.stopped ? ` (stopped: ${run.stopped})` : ''}\n` : '';
+    const where = d.remote ? `on ${d.remote.label}` : 'locally';
+    const head = run ? `${run.ok}/${run.attempted} finished cleanly ${where}, ${run.findings} findings folded in${run.stopped ? ` (stopped: ${run.stopped})` : ''}\n` : '';
     const kinds = counts.byKind ? Object.entries(counts.byKind).map(([k, n]) => `${n} ${k}`).join(', ') : 'none yet';
     return `${head}${counts.leads ?? 0} leads from ${counts.toolsRun ?? 0} tool runs${counts.byKind ? `: ${kinds}` : ''}\nProfile: ${d.profile ?? '-'}\nDossier: ${d.dossier ?? '-'}${d.report ? `\nReport: ${d.report}` : ''}`;
   }

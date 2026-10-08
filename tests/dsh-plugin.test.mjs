@@ -51,6 +51,18 @@ test('the plugin imports nothing from the harness', () => {
   assert.ok(TOOL_DESCRIPTION.length > 300, 'the model needs a real description to know when to call it');
 });
 
+test('passes the remote through, so a promise to use Kali is kept', () => {
+  // The tool advertised `remote` and silently dropped it: a plan then reported this machine's readiness while the user
+  // believed it had asked their Kali. The flag now rides along with every action.
+  for (const action of ['plan', 'run', 'hands', 'profile']) {
+    const r = buildInvocation({ action, case: CASE, confirm: true, remote: 'wsl:kali-linux' }, env);
+    const at = r.argv.indexOf('--remote');
+    assert.ok(at > -1, `${action} should pass --remote`);
+    assert.equal(r.argv[at + 1], 'wsl:kali-linux');
+  }
+  assert.ok(!buildInvocation({ action: 'plan', case: CASE }, env).argv.includes('--remote'), 'no remote means no flag');
+});
+
 const root = 'C:\\repo\\osint-hub';
 const env = { root, data: 'C:\\repo\\osint-hub\\dist\\api\\tools.json' };
 const CASE = 'C:\\cases\\ada.json';
