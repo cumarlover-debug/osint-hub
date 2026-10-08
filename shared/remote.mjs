@@ -5,6 +5,95 @@
 // to another machine, how the remote shell is quoted, and how readiness is asked about once instead of a hundred
 // times.
 import { spawn } from 'node:child_process';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+
+/**
+ * Run a script and read its output without ever asking Node for a pipe.
+ *
+ * A confined harness forbids named pipes, so `spawn` with `stdio: 'pipe'` fails with EPERM before the program starts -
+ * which is what made the remote path unusable from inside one, however healthy the machine on the other end was. The
+ * script goes to a file, the shell redirects the output to another file, and the answer is read with the filesystem.
+ * Live output is polling that file rather than streaming a pipe.
+ *
+ * @returns {Promise<{code: number|null, text: string, timedOut: boolean}>}
+ */
+export function runViaFiles(commandLine, { timeoutMs = 60000, outPath, tmpDir = tmpdir(), live, spawnImpl = spawn } = {}) {
+  const dir = mkdtempSync(join(tmpDir, 'osint-run-'));
+  const scriptPath = join(dir, 'run.sh');
+  const outFile = outPath ?? join(dir, 'out.txt');
+  writeFileSync(scriptPath, String(commandLine.script ?? '').replace(/\r\n/g, '\n'));
+
+  const quote = (v) => `"${String(v).replace(/"/g, '""')}"`;
+  const line = `${commandLine.argv.map(quote).join(' ')} < ${quote(scriptPath)} > ${quote(outFile)} 2>&1`;
+
+  return new Promise((resolve) => {
+    let child;
+    try {
+      // stdio ignored: the shell owns the redirection, so no pipe is created and nothing needs to be captured.
+      child = spawnImpl(line, { shell: true, stdio: 'ignore', windowsHide: true, detached: process.platform !== 'win32' });
+    } catch (e) {
+      rmSync(dir, { recursive: true, force: true });
+      return resolve({ code: null, text: '', timedOut: false, error: e.message });
+    }
+
+    let timedOut = false;
+    let printed = 0;
+    const poll = live
+      ? setInterval(() => {
+          try {
+            const text = readFileSync(outFile, 'utf8');
+            if (text.length > printed) {
+              process.stdout.write(text.slice(printed));
+              printed = text.length;
+            }
+          } catch {
+            /* not written yet */
+          }
+        }, 700)
+      : undefined;
+
+    const killTree = () => {
+      try {
+        if (process.platform === 'win32') spawn('taskkill', ['/pid', String(child.pid), '/t', '/f'], { stdio: 'ignore' });
+        else process.kill(-child.pid, 'SIGKILL');
+      } catch {
+        try {
+          child.kill('SIGKILL');
+        } catch {
+          /* already gone */
+        }
+      }
+    };
+    const alarm = setTimeout(() => {
+      timedOut = true;
+      killTree();
+    }, timeoutMs);
+    alarm.unref?.();
+
+    child.on('error', (e) => {
+      clearTimeout(alarm);
+      clearInterval(poll);
+      rmSync(dir, { recursive: true, force: true });
+      resolve({ code: null, text: '', timedOut, error: e.message });
+    });
+
+    child.on('close', (code) => {
+      clearTimeout(alarm);
+      clearInterval(poll);
+      let text = '';
+      try {
+        text = readFileSync(outFile, 'utf8');
+      } catch {
+        /* the redirect file is only created once the shell starts */
+      }
+      // The output file may be the caller's own (the run log), so only the scratch directory is removed.
+      if (!outPath) rmSync(dir, { recursive: true, force: true });
+      resolve({ code, text, timedOut });
+    });
+  });
+}
 
 /** Options every ssh call gets. BatchMode means it fails instead of hanging on a password prompt. */
 export const SSH_OPTS = [
@@ -110,51 +199,31 @@ export function parseProbe(stdout) {
  * @param {string} remote - an ssh host, or `wsl:<distro>`.
  * @returns {Promise<{ok: boolean, bins: Map<string,string>, error?: string}>}
  */
-export function probeBinaries(remote, binaries, { timeoutMs = 20000, spawnImpl = spawn } = {}) {
+export function probeBinaries(remote, binaries, { timeoutMs = 20000, run = runViaFiles } = {}) {
   const list = [...new Set(binaries.filter(Boolean))];
   if (!list.length) return Promise.resolve({ ok: true, bins: new Map() });
-  const spec = parseRemote(remote);
-  const argv = runnerArgv(spec);
-  // LF only. A carriage return would ride along on every line and bash would read `done\r` as a command of its own,
-  // which is exactly how a piped script fails on WSL.
-  //
-  // The probe's answer is its output, not its exit status: a `for` loop reports the status of its last iteration, so
-  // one absent binary at the end of the list made a perfectly good probe look like a failed connection.
-  const script = `${REMOTE_PATH}\nfor b in ${list.map(shellQuote).join(' ')}; do p=$(command -v "$b" 2>/dev/null) && printf '%s=%s\\n' "$b" "$p"; done\nexit 0\n`.replace(/\r\n/g, '\n');
+  let spec;
+  try {
+    spec = parseRemote(remote);
+  } catch (e) {
+    return Promise.resolve({ ok: false, bins: new Map(), error: e.message });
+  }
+  // The answer is the output, not the exit status: a `for` loop reports its last iteration, so one absent binary at the
+  // end of the list would make a good probe look like a failed connection.
+  const script = [
+    REMOTE_PATH,
+    `for b in ${list.map(shellQuote).join(' ')}; do p=$(command -v "$b" 2>/dev/null) && printf '%s=%s\\n' "$b" "$p"; done`,
+    'exit 0',
+    '',
+  ].join('\n');
 
-  return new Promise((resolve) => {
-    let child;
-    try {
-      child = spawnImpl(argv[0], argv.slice(1), { stdio: ['pipe', 'pipe', 'pipe'], windowsHide: true });
-    } catch (e) {
-      return resolve({ ok: false, bins: new Map(), error: e.message });
+  return run({ argv: runnerArgv(spec), script }, { timeoutMs }).then(({ code, text, timedOut, error }) => {
+    if (timedOut) return { ok: false, bins: new Map(), error: `timed out after ${Math.round(timeoutMs / 1000)}s` };
+    if (error) return { ok: false, bins: new Map(), error };
+    if (code !== 0) {
+      const why = text.split('\n').map((l) => l.trim()).filter(Boolean).pop() ?? `${spec.label} exited ${code}`;
+      return { ok: false, bins: new Map(), error: why };
     }
-    let stdout = '';
-    let stderr = '';
-    let done = false;
-    const finish = (result) => {
-      if (done) return;
-      done = true;
-      clearTimeout(timer);
-      resolve(result);
-    };
-    const timer = setTimeout(() => {
-      try {
-        child.kill();
-      } catch {
-        /* already gone */
-      }
-      finish({ ok: false, bins: new Map(), error: `timed out after ${Math.round(timeoutMs / 1000)}s` });
-    }, timeoutMs);
-
-    child.stdout?.on('data', (d) => (stdout += d));
-    child.stderr?.on('data', (d) => (stderr += d));
-    child.on('error', (e) => finish({ ok: false, bins: new Map(), error: e.message }));
-    child.on('close', (code) => {
-      if (code === 0) return finish({ ok: true, bins: parseProbe(stdout) });
-      const why = stderr.split('\n').map((l) => l.trim()).filter(Boolean).pop() ?? `${spec.label} exited ${code}`;
-      finish({ ok: false, bins: new Map(), error: why });
-    });
-    child.stdin?.end(script);
+    return { ok: true, bins: parseProbe(text) };
   });
 }
