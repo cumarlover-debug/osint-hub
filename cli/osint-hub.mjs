@@ -1536,9 +1536,11 @@ async function main() {
       opened.title = title;
       opened.updated = new Date().toISOString();
       opened.values = values;
-      // The basis is what makes the difference between an investigation and a fishing trip, so it is asked for here
-      // and carried into every report the agent writes.
-      if (typeof flags.basis === 'string') opened.notes = flags.basis;
+      // The basis is what makes the difference between an investigation and a fishing trip, and it is carried into
+      // every report. It is asked for, not demanded: OSINT_BASIS states it once for someone who is always the same
+      // requester, and a case opened without one says so in the report rather than inventing a line to fill the gap.
+      const basis = typeof flags.basis === 'string' ? flags.basis : process.env.OSINT_BASIS;
+      if (basis) opened.notes = basis;
       if (flags.safe === true) opened.safe = true;
       const path = typeof flags.out === 'string' ? flags.out : `osint-hub-${slugifyName(title)}.json`;
       writeFileSync(path, `${JSON.stringify(state, null, 2)}\n`);
@@ -1548,7 +1550,7 @@ async function main() {
       for (const v of values) out(`  ${v.value.padEnd(34)} ${dim(taxonomy.inputs[v.type] ?? v.type)}`);
       out(dim(`\n  saved to ${path}`));
       if (opened.notes) out(dim(`  basis: ${opened.notes}`));
-      else out(yellow('  no basis recorded — the dossier carries this line, and it should say who asked and on what authority'));
+      else out(dim('  no basis recorded — the report will say so; set OSINT_BASIS or pass --basis to record who asked'));
       out(`\n${bold('Next')}`);
       out(`  osint-hub agent task add "find accounts for this username" ${path}`);
       out(`  osint-hub agent run ${path} --yes --max 6`);

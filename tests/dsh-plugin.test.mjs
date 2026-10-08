@@ -73,7 +73,7 @@ test('finds the checkout, and says how to fix it when it cannot', () => {
   assert.throws(() => resolveRoot({}, () => false), /Set OSINT_HUB/);
 });
 
-test('opens a case only with identifiers and a stated basis', () => {
+test('opens a case with identifiers, and takes the basis when it is offered', () => {
   const ok = buildInvocation({ action: 'case_new', title: 'Ada', values: ['ada@example.org', 'shiineslife'], basis: 'Mandate 4412', out: 'C:\\cases\\ada-out' }, env);
   assert.deepEqual(ok.argv, [
     'case', 'new', 'Ada',
@@ -82,10 +82,18 @@ test('opens a case only with identifiers and a stated basis', () => {
     '--out', 'C:\\cases\\ada-out',
     '--json', '--data', env.data,
   ]);
-  // The basis is the difference between an investigation and a fishing trip, so a case cannot be opened without one.
-  assert.throws(() => buildInvocation({ action: 'case_new', title: 'Ada', values: ['x'] }, env), /basis/);
+  // Title and values are what it cannot work without.
   assert.throws(() => buildInvocation({ action: 'case_new', title: 'Ada', basis: 'b' }, env), /values/);
   assert.throws(() => buildInvocation({ action: 'case_new', values: ['x'], basis: 'b' }, env), /title/);
+});
+
+test('does not demand a basis, because a demanded basis gets invented', () => {
+  // Refusing to run without one pushes people to type an authority they do not have, and a fabricated basis in the
+  // record is worse than an honest "not stated" - which the report prints. The flag is simply left off, so the CLI can
+  // apply OSINT_BASIS when the user has set one.
+  const r = buildInvocation({ action: 'case_new', title: 'Ada', values: ['ada@example.org'] }, env);
+  assert.ok(!r.argv.includes('--basis'));
+  assert.deepEqual(r.argv.slice(0, 5), ['case', 'new', 'Ada', '--value', 'ada@example.org']);
 });
 
 test('assigns a task in the user\u2019s words', () => {

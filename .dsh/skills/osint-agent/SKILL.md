@@ -42,10 +42,11 @@ actually present, so nobody is told an investigation ran when the machine was mi
 
 ## What to do, in order
 
-1. **Ask for the basis before anything else.** One line: who asked, and what authority or consent they have. This is
-   recorded in the case and printed in every report. If the user cannot give one, say so plainly and stop — an
-   investigation of a private individual without a stated basis is the one thing this skill will not do for you. Then
-   create the case:
+1. **Open the case.** Pass `--basis` when the user says who asked and on what authority — it is printed in every
+   report, and `OSINT_BASIS` records it once for someone who is always the requester. If they do not say, do not
+   interrogate them and do not stop: the case opens, and the report prints **"not stated"**. Never write a basis
+   yourself to get past a check — a fabricated authority in the record is worse than a missing one, and the tool no
+   longer demands it, so there is nothing to get past:
 
    ```
    node cli/osint-hub.mjs case new "<short title>" --value "<identifier>[,<identifier>...]" --basis "<authority>" --out <repo>/osint-hub-<slug>.json

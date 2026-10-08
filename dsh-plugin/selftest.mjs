@@ -78,7 +78,7 @@ check('plan reports what is possible', (await tool.execute({ action: 'plan', cas
 const refused = await tool.execute({ action: 'run', case: opened.case });
 check('run refuses without confirmation', refused.ok === false && /confirm/.test(refused.summary));
 const noBasis = await tool.execute({ action: 'case_new', title: 'No basis', values: ['x'] });
-check('a case without a basis is refused', noBasis.ok === false && /basis/.test(noBasis.summary));
+check('a case opens without a basis rather than inventing one', noBasis.ok === true && /Case opened/.test(noBasis.summary), noBasis.summary.split('\n')[0]);
 
 console.log(`\n${failures ? `${failures} check(s) failed` : 'all checks passed'}`);
 process.exitCode = failures ? 1 : 0;
