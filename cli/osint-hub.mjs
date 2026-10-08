@@ -11,7 +11,7 @@ import { detect, launchable, templatesFor, applies, buildLink, commandsFor, SHEL
 import { sanitiseCaseState, activeCase, capabilityRows, resultsAnnex, reportHTML, splitByHand, emptyCaseState, uid } from '../shared/case.mjs';
 import { extractFindings } from '../shared/extract.mjs';
 import { matchIntents, resolveTask, taskProgress } from '../shared/tasks.mjs';
-import { commandBinary, parseRemote, probeBinaries, remoteScript, runnerArgv } from '../shared/remote.mjs';
+import { commandBinary, parseRemote, probeBinaries, remoteScript, runViaFiles, runnerArgv } from '../shared/remote.mjs';
 import { loadConfig, mergeFlags } from '../shared/config.mjs';
 import { emptyProfile, addFindings, profileCounts, profileByKind, toolsRunFor, pivotCandidates, dossierMarkdown, PROFILE_VERSION } from '../shared/profile.mjs';
 
@@ -185,14 +185,39 @@ function runCommand(row, value, outDir, index, timeout, shell, live = false, rem
     // A command sent to another machine is a script on that machine's stdin: `bash -s` means the command text is data
     // rather than something either shell re-parses. Its own `timeout` bounds the tool, because killing ssh here does
     // not reliably kill what it started there.
-    const remoteArgv = remote ? runnerArgv(remote) : null;
-    const [cmd, args, opts, stdinScript] = remote
-      ? [remoteArgv[0], remoteArgv.slice(1), {}, remoteScript(row.command, { timeoutSeconds: Math.ceil(timeout / 1000) })]
-      : shell === 'powershell'
-        ? ['powershell', ['-NoProfile', '-NonInteractive', '-Command', row.command], {}]
-        : [row.command, [], { shell: true }];
+    // Where the command runs decides how it is handed over, and how its output is collected. Both paths avoid Node's
+    // pipes: a confined harness forbids them, so a piped spawn fails with EPERM before the tool starts - which is what
+    // made the remote runner unusable from inside one.
+    if (remote) {
+      const script = remoteScript(row.command, { timeoutSeconds: Math.ceil(timeout / 1000) });
+      runViaFiles({ argv: runnerArgv(remote), script }, { timeoutMs: timeout, outPath: file, live }).then(({ code, text, timedOut }) => {
+        const ms = Date.now() - started;
+        const full = timedOut ? `${text}\n--- stopped at the ${Math.round(timeout / 1000)}s deadline ---` : text;
+        writeFileSync(file, `# ${row.name} (${row.slug})\n# ${row.command}\n# on ${remote} · exit ${code ?? '-'} in ${ms} ms\n\n${full}`);
+        const inline = full.slice(0, 60_000);
+        resolve({
+          value: value.value,
+          type: value.type,
+          slug: row.slug,
+          name: row.name,
+          command: row.command,
+          on: remote,
+          ms,
+          file,
+          ...(inline && { output: inline }),
+          ...(full.length > inline.length && { truncated: true }),
+          status: timedOut ? 'failed' : code === 0 ? 'ok' : 'failed',
+          exitCode: code,
+          ...(timedOut && { note: `stopped at the ${Math.round(timeout / 1000)}s deadline` }),
+        });
+      });
+      return;
+    }
+    const [cmd, args, opts] = shell === 'powershell'
+      ? ['powershell', ['-NoProfile', '-NonInteractive', '-Command', row.command], {}]
+      : [row.command, [], { shell: true }];
     const child = spawn(cmd, args, {
-      stdio: [stdinScript ? 'pipe' : 'ignore', 'pipe', 'pipe'],
+      stdio: 'ignore',
       // A tool that retries, waits or spawns helpers keeps its own process group on POSIX, so the whole tree can be
       // stopped at the deadline. Without this, killing the shell left the real process running: instaloader was told
       // by Instagram to retry in 666 seconds and outlived a 20 minute timeout by two and a half minutes.
@@ -259,7 +284,18 @@ function runCommand(row, value, outDir, index, timeout, shell, live = false, rem
         ...result,
       });
     };
-    child.on('error', (e) => finish({ status: 'failed', note: e.message }));
+    child.on('error', async (e) => {
+      clearTimeout(alarm);
+      // EPERM means the harness forbade the pipe, not that the tool failed. Retry through files, which needs none.
+      if (/EPERM|not permitted/i.test(e.message) && !remote) {
+        const { code, text, timedOut: late } = await runViaFiles(
+          { argv: shell === 'powershell' ? ['powershell', '-NoProfile', '-NonInteractive', '-Command', row.command] : [row.command], script: '' },
+          { timeoutMs: timeout, outPath: file, live },
+        );
+        return finish({ status: late ? 'failed' : code === 0 ? 'ok' : 'failed', exitCode: code, note: late ? 'stopped at the deadline' : 'ran without pipes (the harness forbids them)' });
+      }
+      finish({ status: 'failed', note: e.message });
+    });
     child.on('close', (code, signal) =>
       finish({
         status: code === 0 ? 'ok' : 'failed',

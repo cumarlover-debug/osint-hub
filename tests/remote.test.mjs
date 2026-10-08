@@ -65,51 +65,62 @@ test('reads the probe output, including binaries that are not there', () => {
   assert.equal(bins.has('holehe'), false, 'a binary with no path is absent, not present-and-empty');
 });
 
-/** A stand-in for ssh that answers with a fixed probe result. */
-function fakeSsh({ stdout = '', code = 0, stderr = '' } = {}) {
-  return () => {
-    const child = new EventEmitter();
-    child.stdout = new EventEmitter();
-    child.stderr = new EventEmitter();
-    child.stdin = { end: (script) => { child.script = script; } };
-    child.kill = () => {};
-    setImmediate(() => {
-      if (stdout) child.stdout.emit('data', stdout);
-      if (stderr) child.stderr.emit('data', stderr);
-      child.emit('close', code);
-    });
-    return child;
-  };
-}
-
 test('asks about every binary in one connection', async () => {
-  const seen = {};
+  let asked;
   const result = await probeBinaries('osint-kali', ['sherlock', 'holehe', 'sherlock'], {
-    spawnImpl: (cmd, args, opts) => {
-      seen.cmd = cmd;
-      seen.args = args;
-      seen.opts = opts;
-      return fakeSsh({ stdout: 'sherlock=/usr/bin/sherlock\n' })();
+    run: async (commandLine) => {
+      asked = commandLine;
+      return { code: 0, text: 'sherlock=/usr/bin/sherlock\n', timedOut: false };
     },
   });
-  assert.equal(seen.cmd, 'ssh');
   assert.equal(result.ok, true);
   assert.equal(result.bins.get('sherlock'), '/usr/bin/sherlock');
   assert.equal(result.bins.has('holehe'), false);
+  // One connection, and the list is de-duplicated before it is asked.
+  assert.equal(asked.argv[0], 'ssh');
+  assert.ok(asked.argv.includes('osint-kali'));
+  assert.equal((asked.script.match(/sherlock/g) ?? []).length, 1);
+  assert.match(asked.script, /holehe/);
 });
 
 test('an unreachable host is reported as unreachable, not as a machine without tools', async () => {
   const result = await probeBinaries('osint-kali', ['sherlock'], {
-    spawnImpl: fakeSsh({ code: 255, stderr: 'ssh: connect to host 192.168.86.128 port 22: Connection timed out' }),
+    run: async () => ({ code: 255, text: 'ssh: connect to host 192.168.86.128 port 22: Connection timed out', timedOut: false }),
   });
   assert.equal(result.ok, false);
   assert.match(result.error, /Connection timed out/);
   assert.equal(result.bins.size, 0);
 });
 
+test('never asks Node for a pipe, because a confined harness refuses them', async () => {
+  // This is the bug that made the remote runner unusable inside the harness: spawn with stdio 'pipe' fails with EPERM
+  // before the command starts. The script goes to a file and the shell redirects its output to another.
+  const { runViaFiles } = await import('../shared/remote.mjs');
+  let seen;
+  const finished = runViaFiles(
+    { argv: ['ssh', '-o', 'BatchMode=yes', 'osint-kali', 'bash', '-s'], script: ['echo hi', ''].join('\n') },
+    {
+      timeoutMs: 5000,
+      spawnImpl: (line, opts) => {
+        seen = { line, opts };
+        const child = new EventEmitter();
+        child.pid = 4242;
+        child.kill = () => {};
+        setImmediate(() => child.emit('close', 0));
+        return child;
+      },
+    },
+  );
+  const result = await finished;
+  assert.equal(seen.opts.stdio, 'ignore', 'no pipe may be requested');
+  assert.match(seen.line, /^"ssh" .*"bash" "-s" < ".*run\.sh" > ".*" 2>&1$/);
+  assert.equal(result.code, 0);
+  assert.equal(typeof result.text, 'string');
+});
+
 test('no binaries to ask about costs no connection', async () => {
   let called = false;
-  const result = await probeBinaries('osint-kali', [], { spawnImpl: () => (called = true) });
+  const result = await probeBinaries('osint-kali', [], { run: async () => ((called = true), { code: 0, text: '', timedOut: false }) });
   assert.deepEqual(result, { ok: true, bins: new Map() });
   assert.equal(called, false);
 });
