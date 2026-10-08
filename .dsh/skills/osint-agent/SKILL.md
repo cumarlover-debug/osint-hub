@@ -33,6 +33,16 @@ none are. Tools installed with pipx (`~/.local/bin`), go (`~/go/bin`) or into a 
 found, because the remote shell puts those directories on PATH first — a non-login shell does not read `~/.zshrc`, so
 without that a machine full of tools looks empty.
 
+**State it once instead of on every call.** `<repo>/.osint-hub.local.json` (gitignored) or
+`~/.config/osint-hub/config.json`:
+
+```json
+{ "remote": "osint-kali" }
+```
+
+The CLI reads it on every invocation, so it applies to the tool, the skill and a terminal alike — and it takes effect
+immediately, without waiting for a harness to restart. An explicit flag always wins over it.
+
 For a bare machine, `node scripts/kali-setup.sh --pipx` installs the user-level Python tools (maigret, holehe,
 socialscan, h8mail, sherlock, nexfil, instaloader, toutatis) without a password; `--apt` needs sudo and adds nmap,
 dnsutils, exiftool, theHarvester and the rest.
