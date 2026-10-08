@@ -2,16 +2,54 @@
 // with no harness imports precisely so this can run wherever the project runs.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import {
   ACTIONS,
   NEEDS_CONFIRM,
+  OUTPUT_SCHEMA,
+  PARAMETERS,
+  TOOL_DESCRIPTION,
+  TOOL_NAME,
   buildInvocation,
   errorSummary,
   outFor,
   parseJsonOutput,
   resolveRoot,
   summarise,
+  toJsonSchema,
 } from '../dsh-plugin/lib/plan.js';
+
+test('converts a parameter map the way the harness does', () => {
+  const schema = toJsonSchema(PARAMETERS);
+  assert.equal(schema.type, 'object');
+  // The harness hoists each property's inline `required: true` into one array at the root, and does not close the root
+  // object. Both details matter: they are what its registry validates the model's arguments against.
+  assert.deepEqual(schema.required, ['action']);
+  assert.equal(schema.additionalProperties, undefined);
+  assert.equal(schema.properties.action.required, undefined);
+  assert.deepEqual(schema.properties.action.enum, ['case_new', 'task_add', 'task_list', 'plan', 'profile', 'run', 'hands']);
+  assert.deepEqual(schema.properties.values.items, { type: 'string' });
+  assert.equal(schema.properties.max.type, 'integer');
+});
+
+test('converts an output schema that names its own type', () => {
+  const schema = toJsonSchema(OUTPUT_SCHEMA);
+  assert.equal(schema.type, 'object');
+  assert.equal(schema.additionalProperties, false, 'what the spec asked for is kept');
+  assert.deepEqual(schema.required, ['ok', 'action', 'summary']);
+  assert.deepEqual(Object.keys(schema.properties), ['ok', 'action', 'summary', 'case', 'out', 'data']);
+});
+
+test('the plugin imports nothing from the harness', () => {
+  // This is the bug that made the tool invisible: `@deepseek-ai/dsh-tools` cannot be resolved from a profile, the
+  // import throws during boot, and the session simply has no such tool. Nothing warns the user.
+  const source = readFileSync(join(import.meta.dirname, '..', 'dsh-plugin', 'lib', 'index.js'), 'utf8');
+  assert.ok(!/from\s+['"]@deepseek-ai\//.test(source), 'a bare harness import cannot resolve from a profile');
+  assert.match(source, /ctx\.tools\.register\(tool\)/, 'the tool is still registered');
+  assert.equal(TOOL_NAME, 'osint_agent');
+  assert.ok(TOOL_DESCRIPTION.length > 300, 'the model needs a real description to know when to call it');
+});
 
 const root = 'C:\\repo\\osint-hub';
 const env = { root, data: 'C:\\repo\\osint-hub\\dist\\api\\tools.json' };
