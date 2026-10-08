@@ -908,7 +908,7 @@ async function remoteReady(remote, commands, json) {
     fail(`cannot reach ${spec.label} (${spec.kind === 'wsl' ? 'WSL' : 'ssh'}): ${probe.error}\n  the tools run there, so nothing can be planned until it answers. ${hint}`);
   }
   if (!json) out(dim(`commands run on ${remote} \u00b7 ${probe.bins.size} of ${new Set(binaries).size} tools found there`));
-  return (program) => probe.bins.has(program);
+  return { has: (program) => probe.bins.has(program), label: spec.label, found: probe.bins.size, total: new Set(binaries).size };
 }
 
 function toolLine(t, width = 28) {
@@ -1154,9 +1154,11 @@ async function main() {
     });
 
     // Readiness is a question for whichever machine will run these, asked once for all of them.
+    let remoteUse;
     {
-      const has = remote ? await remoteReady(remote, plan.flatMap((p) => p.canRun.map((r) => r.command)), !!flags.json) : undefined;
-      for (const p of plan) for (const r of p.canRun) r.readiness = has ? readiness(r.command, has) : readiness(r.command);
+      const probed = remote ? await remoteReady(remote, plan.flatMap((p) => p.canRun.map((r) => r.command)), !!flags.json) : undefined;
+      remoteUse = probed ? { label: probed.label, found: probed.found, total: probed.total } : undefined;
+      for (const p of plan) for (const r of p.canRun) r.readiness = probed ? readiness(r.command, probed.has) : readiness(r.command);
     }
 
     // ---- assigned tasks: the investigator's own words, mapped to the directory ----
@@ -1448,7 +1450,16 @@ async function main() {
         ...(report && { report }),
         counts,
         ...(action === 'run' && { run: runSummary }),
-        plan: plan.map((p) => ({ value: p.v.value, type: p.v.type, done: p.done, canRun: p.canRun.length, canFetch: p.canFetch.length, byHand: p.byHand.length })),
+        ...(remoteUse && { remote: remoteUse }),
+        plan: plan.map((p) => ({
+          value: p.v.value,
+          type: p.v.type,
+          done: p.done,
+          canRun: p.canRun.length,
+          ready: p.canRun.filter((r) => r.readiness?.state === 'ready').length,
+          canFetch: p.canFetch.length,
+          byHand: p.byHand.length,
+        })),
       });
     }
 
@@ -1582,10 +1593,10 @@ async function main() {
 
     // One connection answers readiness for every command this case might run, on whichever machine will run them.
     {
-      const has = remote
+      const probed = remote
         ? await remoteReady(remote, plan.flatMap((p) => p.runnable.map((r) => r.command)), !!flags.json)
         : undefined;
-      for (const p of plan) for (const r of p.runnable) r.readiness = has ? readiness(r.command, has) : readiness(r.command);
+      for (const p of plan) for (const r of p.runnable) r.readiness = probed ? readiness(r.command, probed.has) : readiness(r.command);
     }
 
     // --extra "slug=arguments" lets one tool run with flags the directory does not carry, so a narrower or deeper
