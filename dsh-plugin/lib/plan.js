@@ -176,12 +176,13 @@ export function buildInvocation(args, { root, data }) {
   // and quietly uses the local machine instead, so it belongs in the arguments every action gets.
   if (args.remote) common.push('--remote', String(args.remote));
 
-  // The basis is the line between an investigation and a fishing trip, and the agent prints it in every report, so a
-  // case cannot be opened without one.
+  // Opening a case needs something to look into, and nothing else. The basis is asked for and printed in the report,
+  // but it is not a toll gate: refusing to work without it pushes people (and assistants) to type an authority they do
+  // not have, and a fabricated basis in the record is worse than an honest "not stated". Substantive limits - not
+  // enumerating a private person's intimate or credential material - do not live in an argument check.
   if (action === 'case_new') {
     if (!args.title) throw new Error('case_new needs a title');
     if (!Array.isArray(args.values) || !args.values.length) throw new Error('case_new needs values: the identifiers the user holds');
-    if (!args.basis) throw new Error('case_new needs a basis: who asked, and what authority or consent they have');
     const argv = ['case', 'new', String(args.title), '--value', args.values.join(',')];
     push(argv, '--basis', args.basis);
     push(argv, '--out', args.out);

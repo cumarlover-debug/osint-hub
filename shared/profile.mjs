@@ -145,10 +145,10 @@ export function dossierMarkdown(profile, { gaps = [], manual = [], tasks = [] } 
   lines.push('');
   lines.push(`Compiled ${profile.updated} · ${counts.leads} leads from ${counts.toolsRun} tool runs`);
   lines.push('');
-  if (profile.basis) {
-    lines.push(`**Authority and basis.** ${profile.basis}`);
-    lines.push('');
-  }
+  // Always printed, so an absent basis is recorded as absent rather than passing unnoticed. A report that quietly
+  // omits the line reads as though the question was never asked.
+  lines.push(`**Authority and basis.** ${profile.basis || 'not stated'}`);
+  lines.push('');
   lines.push('Everything below is a **candidate**. A finding records what a tool returned about a value, with the line');
   lines.push('it came from; none of it is a conclusion until a person confirms it against a second, independent source.');
   lines.push('');

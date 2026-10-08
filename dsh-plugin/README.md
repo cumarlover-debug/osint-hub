@@ -29,7 +29,7 @@ than an error the model could mistake for "no results".
 
 | Action | What it runs | Reaches the network |
 |---|---|---|
-| `case_new` | Opens a case from the identifiers the user holds. **Needs `values` and a `basis`** — who asked, and on what authority. | no |
+| `case_new` | Opens a case from the identifiers the user holds. Needs `values` and `title`; `basis` is recorded when given. | no |
 | `task_add` | Turns the user's words into a family of tools and reports how it read them. | no |
 | `task_list` | The assigned tasks and how much of each has been tried. | no |
 | `plan` | What is possible before anything runs: runnable, fetchable, form-only, not installed, pivots. | no |
@@ -42,7 +42,10 @@ than an error the model could mistake for "no results".
 
 ## Rules the tool enforces, not the model
 
-- **No case without a basis.** `case_new` refuses without one; the CLI records it and prints it in every report.
+- **The basis is recorded, not demanded.** `case_new` takes `basis` when the user states who asked and on what
+  authority, and `OSINT_BASIS` records it once for someone who is always the requester. Without one the case still
+  opens and the report prints "not stated" — a gate that refuses to work invites an invented authority, and a fabricated
+  basis in the record is worse than an absent one.
 - **No unattended requests without confirmation.** `run` and `hands` refuse unless `confirm: true` is passed, because
   they spend the user's connection and their time.
 - **A refused call is a result.** Rule violations come back as `ok: false` with the reason, so the model can tell the
