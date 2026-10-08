@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, writeFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { CONFIG_KEYS, describeConfig, loadConfig, mergeFlags, readConfig } from '../shared/config.mjs';
+import { CONFIG_KEYS, isLocalRemote, describeConfig, loadConfig, mergeFlags, readConfig } from '../shared/config.mjs';
 
 const scratch = mkdtempSync(join(tmpdir(), 'osint-config-'));
 const write = (name, body) => {
@@ -73,3 +73,14 @@ test('describes what is in force, for the places that report it', () => {
 });
 
 test.after(() => rmSync(scratch, { recursive: true, force: true }));
+
+test('the word for "here" is not a host name', () => {
+  // A machine defaulting to a VM still needs the run that should not use it. Treating "local" as a host would open an
+  // ssh connection to a machine by that name.
+  assert.equal(isLocalRemote('local'), true);
+  assert.equal(isLocalRemote('here'), true);
+  assert.equal(isLocalRemote('OSINT-KALI'), false);
+  assert.equal(isLocalRemote('wsl:kali-linux'), false);
+  assert.equal(isLocalRemote(undefined), false);
+});
+

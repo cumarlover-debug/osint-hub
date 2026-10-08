@@ -12,7 +12,7 @@ import { sanitiseCaseState, activeCase, capabilityRows, resultsAnnex, reportHTML
 import { extractFindings } from '../shared/extract.mjs';
 import { matchIntents, resolveTask, taskProgress } from '../shared/tasks.mjs';
 import { commandBinary, parseRemote, probeBinaries, remoteScript, runViaFiles, runnerArgv } from '../shared/remote.mjs';
-import { loadConfig, mergeFlags } from '../shared/config.mjs';
+import { isLocalRemote, loadConfig, mergeFlags } from '../shared/config.mjs';
 import { emptyProfile, addFindings, profileCounts, profileByKind, toolsRunFor, pivotCandidates, dossierMarkdown, PROFILE_VERSION } from '../shared/profile.mjs';
 
 const VERSION = '1.0.0';
@@ -103,6 +103,8 @@ const localConfig = loadConfig(repoRoot, { warn: (m) => process.stderr.write(`wa
 const eff = mergeFlags(flags, localConfig);
 for (const key of Object.keys(flags)) delete flags[key];
 Object.assign(flags, eff);
+// "local" is a decision, not a host: a machine that defaults to a VM still needs the run that should not use it.
+if (isLocalRemote(flags.remote)) delete flags.remote;
 
 const [command, ...rest] = positional;
 const API = (flags.api ?? process.env.OSINT_HUB_API ?? 'https://osinthub.pages.dev').replace(/\/+$/, '');
