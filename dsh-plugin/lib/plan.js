@@ -46,6 +46,115 @@ export function outFor(casePath) {
   return join(dirname(casePath), `${basename(casePath).replace(/\.json$/i, '')}-out`);
 }
 
+/** The tool's identity, as the harness sees it. */
+export const TOOL_NAME = 'osint_agent';
+
+export const TOOL_DESCRIPTION =
+  'Run the local osint-hub OSINT agent against identifiers the user holds. ' +
+  'case_new opens an investigation (needs values and a basis: who asked and on what authority). ' +
+  "task_add turns the user's own words into a family of tools and shows how it read them. " +
+  'plan reports what is possible before anything runs: runnable commands, fetchable search links, form-only services, ' +
+  'what is not installed, and which identifiers are worth pivoting on. ' +
+  'run executes the unattended tools and fetches search links. hands opens a browser to fill and submit the services ' +
+  'that answer only a form. profile reads every result into a target profile with provenance and writes the dossier. ' +
+  "Both run and hands reach the network from the user's own connection and require confirm: true. " +
+  'Everything returned is a candidate with provenance, never a conclusion, and a non-result is still recorded as a result. ' +
+  'Pass remote "wsl:kali-linux" (or an ssh host) to run the command-line tools on the machine that has them.';
+
+/** The tool's parameters in the harness's spec form: each property carries `required`, which is what its registry reads. */
+export const PARAMETERS = {
+  action: {
+    type: 'string',
+    required: true,
+    enum: ACTIONS,
+    description: 'case_new | task_add | task_list | plan | profile | run | hands',
+  },
+  values: {
+    type: 'array',
+    items: { type: 'string' },
+    description: 'case_new: the identifiers the user holds — emails, usernames, domains, phones, names.',
+  },
+  basis: {
+    type: 'string',
+    description: 'case_new: who asked, and the authority or consent for looking. Recorded and printed in the report.',
+  },
+  title: { type: 'string', description: 'case_new: a short title for the investigation.' },
+  case: { type: 'string', description: 'Path to the case JSON. case_new returns it; every other action needs it.' },
+  text: {
+    type: 'string',
+    description: 'task_add: the task in the user\'s own words, e.g. "find every account this username has".',
+  },
+  task: { type: 'string', description: 'A task id from task_add, to narrow plan/run/hands to that piece of work.' },
+  out: { type: 'string', description: 'Directory for profile.json, dossier.md and report.html. Defaults beside the case.' },
+  max: { type: 'integer', description: 'run/hands: how many tools to attempt. Defaults to 8 and 4.' },
+  seconds: { type: 'integer', description: 'run/hands: the time budget in seconds. Defaults to 240.' },
+  confirm: {
+    type: 'boolean',
+    description: 'run/hands: must be true. Confirms the user agreed to real requests going out from their connection.',
+  },
+  remote: {
+    type: 'string',
+    description: 'Run the command-line tools elsewhere: "wsl:<distro>" for a distro on this computer, or an ssh host.',
+  },
+};
+
+/** What a call returns. The detail rides in `data` as JSON, so the shape stays small. */
+export const OUTPUT_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  properties: {
+    ok: { type: 'boolean', required: true },
+    action: { type: 'string', required: true },
+    summary: { type: 'string', required: true },
+    case: { type: 'string' },
+    out: { type: 'string' },
+    data: { type: 'string', description: 'The command\'s JSON result, for detail the summary leaves out.' },
+  },
+};
+
+/** One property, in the order the harness writes it, with inline `required` removed. */
+function propertyOf(def) {
+  const { required: _required, ...rest } = def ?? {};
+  const prop = {};
+  for (const key of ['type', 'description', 'enum', 'items']) if (rest[key] !== undefined) prop[key] = rest[key];
+  for (const [k, v] of Object.entries(rest)) if (!(k in prop)) prop[k] = v;
+  return prop;
+}
+
+function propertiesOf(spec) {
+  const properties = {};
+  const required = [];
+  for (const [key, def] of Object.entries(spec ?? {})) {
+    properties[key] = propertyOf(def);
+    if (def?.required === true) required.push(key);
+  }
+  return { properties, required };
+}
+
+/**
+ * Turn a spec in the harness's author-facing form into the JSON Schema its registry validates against.
+ *
+ * Written out here rather than imported from the harness. A plugin that imports `@deepseek-ai/dsh-tools` cannot resolve
+ * it from a profile - the harness's packages live inside the harness installation, not beside the plugin - and that
+ * failure is quiet at boot: the tool simply never appears in any session. The selftest checks this conversion against
+ * the harness's own, so the two cannot drift without a test failing.
+ *
+ * Two shapes arrive here: a parameter map, whose keys are argument names, and an output schema that already names its
+ * own `type`.
+ */
+export function toJsonSchema(spec) {
+  const source = spec ?? {};
+  const isNamedSchema = 'type' in source || 'additionalProperties' in source;
+  if (!isNamedSchema) {
+    const { properties, required } = propertiesOf(source);
+    return { type: 'object', properties, ...(required.length ? { required } : {}) };
+  }
+  const { properties, ...rest } = source;
+  if (!properties) return { ...rest };
+  const built = propertiesOf(properties);
+  return { ...rest, properties: built.properties, ...(built.required.length ? { required: built.required } : {}) };
+}
+
 /**
  * Turn one tool call into the command that answers it.
  *
