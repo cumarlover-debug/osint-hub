@@ -16,6 +16,24 @@ Call it as `node <repo>/cli/osint-hub.mjs …` from anywhere. If the working dir
 `node cli/osint-hub.mjs …` works. Add `--data <repo>/dist/api/tools.json` to work from the local copy instead of
 re-downloading the tool data (faster, and correct offline).
 
+## Where the tools run
+
+Most of the command-line tools here are not installed on the desktop, so `--remote` hands them to the machine that has
+them. Readiness is checked **there** before anything runs, every command runs **there**, and the network requests
+therefore come from that machine's address rather than this one's.
+
+| Flag | The machine |
+|---|---|
+| `--remote wsl:kali-linux` | a Kali distro on this computer — no ssh, no sshd, no address that can go stale |
+| `--remote <ssh-host>` | a machine over ssh (fails fast rather than prompting for a password) |
+
+Inside Kali, `node scripts/kali-setup.sh --pipx` installs the user-level Python tools (maigret, holehe, socialscan,
+h8mail, sherlock, nexfil, instaloader, toutatis) without a password; `--apt` needs sudo and adds nmap, dnsutils,
+exiftool, theHarvester and the rest. Run it as `wsl -d kali-linux -- bash <repo>/scripts/kali-setup.sh --pipx --verify`.
+
+Always run `agent next --remote …` before `agent run --remote …`: it reports how many of the tools the case needs are
+actually present, so nobody is told an investigation ran when the machine was missing half of it.
+
 ## What to do, in order
 
 1. **Ask for the basis before anything else.** One line: who asked, and what authority or consent they have. This is

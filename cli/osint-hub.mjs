@@ -10,6 +10,7 @@ import { detect, launchable, templatesFor, applies, buildLink, commandsFor, SHEL
 import { sanitiseCaseState, activeCase, capabilityRows, resultsAnnex, reportHTML, splitByHand, emptyCaseState, uid } from '../shared/case.mjs';
 import { extractFindings } from '../shared/extract.mjs';
 import { matchIntents, resolveTask, taskProgress } from '../shared/tasks.mjs';
+import { commandBinary, parseRemote, probeBinaries, remoteScript, runnerArgv } from '../shared/remote.mjs';
 import { emptyProfile, addFindings, profileCounts, profileByKind, toolsRunFor, pivotCandidates, dossierMarkdown, PROFILE_VERSION } from '../shared/profile.mjs';
 
 const VERSION = '1.0.0';
@@ -47,7 +48,11 @@ Options for "launch": --as <type>  pick the type yourself (e.g. --as company)
 Options for "commands": --as <type>  --active  --docker (use Docker images where available)
                       --shell <posix|powershell> (default: powershell on Windows, posix elsewhere)
                       --plain (commands only, one per line)
-Options for "case run": --yes (no prompt)  --dry-run (plan only)  --safe / --no-safe (default: as exported
+Options for "case run": --remote <ssh-host|wsl:distro> runs the tools on that machine, where the command-line
+                      tools are actually installed, e.g. --remote wsl:kali-linux for a Kali distro on this
+                      computer or --remote osint-kali for one over ssh. Readiness is checked there, and the
+                      same flag works for "agent run" and "agent next"
+                      --yes (no prompt)  --dry-run (plan only)  --safe / --no-safe (default: as exported
                       from the workbench)  --only a,b  --input <type>  --timeout <seconds>  --out <dir>
                       --extra "slug=arguments" (add flags to one tool, e.g. --extra "maigret=--tags dating";
                       repeatable)  --force (run even when the tool is not installed)
@@ -161,24 +166,30 @@ function ask(question) {
 
 /** Runs one generated command in the user's shell, capturing what it prints. The child gets no stdin, so a tool
  *  that asks a question fails instead of hanging the run. */
-function runCommand(row, value, outDir, index, timeout, shell, live = false) {
+function runCommand(row, value, outDir, index, timeout, shell, live = false, remote) {
   const file = join(outDir, 'runs', `${String(index).padStart(2, '0')}-${row.slug}.txt`);
   const started = Date.now();
   return new Promise((resolve) => {
     // The command was quoted for the shell that will run it: PowerShell needs to be invoked as the shell itself,
     // because `shell: true` would hand it to cmd.exe on Windows.
-    const [cmd, args, opts] =
-      shell === 'powershell'
+    // A command sent to another machine is a script on that machine's stdin: `bash -s` means the command text is data
+    // rather than something either shell re-parses. Its own `timeout` bounds the tool, because killing ssh here does
+    // not reliably kill what it started there.
+    const remoteArgv = remote ? runnerArgv(remote) : null;
+    const [cmd, args, opts, stdinScript] = remote
+      ? [remoteArgv[0], remoteArgv.slice(1), {}, remoteScript(row.command, { timeoutSeconds: Math.ceil(timeout / 1000) })]
+      : shell === 'powershell'
         ? ['powershell', ['-NoProfile', '-NonInteractive', '-Command', row.command], {}]
         : [row.command, [], { shell: true }];
     const child = spawn(cmd, args, {
-      stdio: ['ignore', 'pipe', 'pipe'],
+      stdio: [stdinScript ? 'pipe' : 'ignore', 'pipe', 'pipe'],
       // A tool that retries, waits or spawns helpers keeps its own process group on POSIX, so the whole tree can be
       // stopped at the deadline. Without this, killing the shell left the real process running: instaloader was told
       // by Instagram to retry in 666 seconds and outlived a 20 minute timeout by two and a half minutes.
       detached: process.platform !== 'win32',
       ...opts,
     });
+    if (stdinScript) child.stdin.end(stdinScript);
     let timedOut = false;
     const killTree = () => {
       if (process.platform === 'win32') {
@@ -860,7 +871,7 @@ function machineSummary() {
  *                  has to be cloned
  *   missing        there is no such program on PATH
  */
-function readiness(command) {
+function readiness(command, has) {
   const parts = command.trim().split(/\s+/);
   const program = parts[0]?.replace(/^['"]|['"]$/g, '') ?? '';
   const second = (parts[1] ?? '').replace(/^['"]|['"]$/g, '');
@@ -869,8 +880,35 @@ function readiness(command) {
     if (second === '-m') return { state: 'needs-package', program };
     if (/\.(py|sh|js|rb|pl|php|jar)$/i.test(second)) return { state: 'needs-files', program };
   }
+  // Where a tool lives is a question for the machine that will run it: locally that is this PATH, and remotely it is
+  // what the caller probed over ssh.
+  if (has) return { state: has(program) ? 'ready' : 'missing', program };
   const path = resolveProgram(program);
   return { state: path ? 'ready' : 'missing', program, path };
+}
+
+/**
+ * Readiness on the machine that will run the commands. One connection answers it for every tool, and a machine that
+ * does not answer stops the run rather than looking like one with nothing installed.
+ */
+async function remoteReady(remote, commands, json) {
+  const binaries = commands.map((command) => commandBinary(command)).filter(Boolean);
+  let spec;
+  try {
+    spec = parseRemote(remote);
+  } catch (e) {
+    return fail(e.message);
+  }
+  const probe = await probeBinaries(remote, binaries);
+  if (!probe.ok) {
+    const hint =
+      spec.kind === 'wsl'
+        ? 'Is the distro installed and does it start? Check with: wsl -l -v'
+        : 'Check the machine is running and that the host name matches your ssh config.';
+    fail(`cannot reach ${spec.label} (${spec.kind === 'wsl' ? 'WSL' : 'ssh'}): ${probe.error}\n  the tools run there, so nothing can be planned until it answers. ${hint}`);
+  }
+  if (!json) out(dim(`commands run on ${remote} \u00b7 ${probe.bins.size} of ${new Set(binaries).size} tools found there`));
+  return (program) => probe.bins.has(program);
 }
 
 function toolLine(t, width = 28) {
@@ -1040,7 +1078,10 @@ async function main() {
     const theCase = activeCase(state);
     const { tools, taxonomy } = await loadTools();
     const order = Object.keys(taxonomy.categories);
-    const shell = flags.shell ?? (process.platform === 'win32' ? 'powershell' : 'posix');
+    let shell = flags.shell ?? (process.platform === 'win32' ? 'powershell' : 'posix');
+    // --remote runs the tools on the machine that has them, so the command forms must be that machine's.
+    const remote = typeof flags.remote === 'string' ? flags.remote : undefined;
+    if (remote && shell !== 'posix') shell = 'posix';
     if (!(shell in SHELLS)) fail(`unknown shell "${shell}"; use ${Object.keys(SHELLS).join(' or ')}`);
     const safe = flags['no-safe'] ? false : flags.safe === true || theCase.safe === true;
     const outDir = flags.out ?? `osint-hub-${slugifyName(theCase.title)}`;
@@ -1105,12 +1146,18 @@ async function main() {
         v,
         rows,
         done: rows.filter((r) => done.has(r.slug)).length,
-        canRun: fresh.filter((r) => r.kind === 'command' && r.command && !r.manual).map((r) => ({ ...r, readiness: readiness(r.command) })),
+        canRun: fresh.filter((r) => r.kind === 'command' && r.command && !r.manual).map((r) => ({ ...r })),
         canFetch: fresh.filter((r) => r.kind === 'link' && r.link && !r.manual),
         byHand: fresh.filter((r) => r.manual),
         links: fresh.filter((r) => r.kind === 'link' && r.link && !r.manual).length,
       };
     });
+
+    // Readiness is a question for whichever machine will run these, asked once for all of them.
+    {
+      const has = remote ? await remoteReady(remote, plan.flatMap((p) => p.canRun.map((r) => r.command)), !!flags.json) : undefined;
+      for (const p of plan) for (const r of p.canRun) r.readiness = has ? readiness(r.command, has) : readiness(r.command);
+    }
 
     // ---- assigned tasks: the investigator's own words, mapped to the directory ----
     const tasksPath = join(outDir, 'tasks.json');
@@ -1195,7 +1242,7 @@ async function main() {
 
           const result =
             job.how === 'run'
-              ? await runCommand(job.row, job.value, outDir, index, Number(flags.timeout ?? 300) * 1000, shell, !flags.json)
+              ? await runCommand(job.row, job.value, outDir, index, Number(flags.timeout ?? 300) * 1000, shell, !flags.json, remote)
               : await fetchPage(job.row, job.value, outDir, index, Number(flags.timeout ?? 60) * 1000);
           index += 1;
           runSummary.attempted += 1;
@@ -1511,7 +1558,10 @@ async function main() {
     const theCase = activeCase(state);
     const { tools, taxonomy } = await loadTools();
     const order = Object.keys(taxonomy.categories);
-    const shell = flags.shell ?? (process.platform === 'win32' ? 'powershell' : 'posix');
+    let shell = flags.shell ?? (process.platform === 'win32' ? 'powershell' : 'posix');
+    // --remote hands the commands to the machine that has the tools, whose shell forms are not this machine's.
+    const remote = typeof flags.remote === 'string' ? flags.remote : undefined;
+    if (remote && shell !== 'posix') shell = 'posix';
     if (!(shell in SHELLS)) fail(`unknown shell "${shell}"; use ${Object.keys(SHELLS).join(' or ')}`);
     // The workbench saves the case's safe-mode setting for a reason, so it applies here too: --safe forces it on,
     // --no-safe forces it off, and otherwise the exported case decides.
@@ -1526,9 +1576,17 @@ async function main() {
           // A tool marked "by hand" is never started automatically, even when it has a command: that marking is a
           // statement that a person has to drive it. --include-manual overrides.
           .filter((r) => r.kind === 'command' && r.command && (flags['include-manual'] || !r.manual) && (!only.length || only.includes(r.slug)))
-          .map((r) => ({ ...r, readiness: readiness(r.command) }));
+          .map((r) => ({ ...r }));
         return { value: v, rows, runnable };
       });
+
+    // One connection answers readiness for every command this case might run, on whichever machine will run them.
+    {
+      const has = remote
+        ? await remoteReady(remote, plan.flatMap((p) => p.runnable.map((r) => r.command)), !!flags.json)
+        : undefined;
+      for (const p of plan) for (const r of p.runnable) r.readiness = has ? readiness(r.command, has) : readiness(r.command);
+    }
 
     // --extra "slug=arguments" lets one tool run with flags the directory does not carry, so a narrower or deeper
     // pass still lands in the same report. The arguments are appended to the command the tool data already built.
@@ -1781,7 +1839,7 @@ async function main() {
         // output as it arrives. Each result is also written to the manifest straight away, so an interrupted run
         // keeps everything it had already collected.
         say(`  ${dim('running')} ${bold(row.name)} ${dim(row.command)}`);
-        const result = await runCommand(row, p.value, outDir, results.length + 1, Number(flags.timeout ?? 300) * 1000, shell, !flags.json);
+        const result = await runCommand(row, p.value, outDir, results.length + 1, Number(flags.timeout ?? 300) * 1000, shell, !flags.json, remote);
         results.push(result);
         mergeResults(join(outDir, 'manifest.json'), [result], { case: theCase.title, ran: new Date().toISOString(), shell, safe, outDir });
         say(`  ${result.status === 'ok' ? green('ok') : red('failed')} ${row.name} ${dim(`→ ${result.file}`)}\n`);
