@@ -44,6 +44,15 @@ export function loadConfig(root, { warn, home } = {}) {
 }
 
 /**
+ * Is this the word for "here", rather than a host to connect to?
+ *
+ * A machine-wide default of "run on my Kali VM" needs an escape hatch for the run that should not use it: `--remote
+ * local` is a decision, not a host name, and treating it as a host would open an ssh connection to a machine called
+ * "local".
+ */
+export const isLocalRemote = (value) => typeof value === 'string' && /^(local|here|none|off|this)$/i.test(value.trim());
+
+/**
  * Fill in what the command line did not say. An explicit flag always wins, including a deliberate `--no-safe`, so a
  * default can never override a decision made for one run.
  *
