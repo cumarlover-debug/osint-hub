@@ -25,11 +25,17 @@ therefore come from that machine's address rather than this one's.
 | Flag | The machine |
 |---|---|
 | `--remote wsl:kali-linux` | a Kali distro on this computer — no ssh, no sshd, no address that can go stale |
-| `--remote <ssh-host>` | a machine over ssh (fails fast rather than prompting for a password) |
+| `--remote osint-kali` | a Kali VM over ssh (the host name from `~/.ssh/config`) |
 
-Inside Kali, `node scripts/kali-setup.sh --pipx` installs the user-level Python tools (maigret, holehe, socialscan,
-h8mail, sherlock, nexfil, instaloader, toutatis) without a password; `--apt` needs sudo and adds nmap, dnsutils,
-exiftool, theHarvester and the rest. Run it as `wsl -d kali-linux -- bash <repo>/scripts/kali-setup.sh --pipx --verify`.
+A Kali VM usually already has the tools, so try it before installing anything: `agent next --remote <host>` reports how
+many of the ones this case needs are present ("13 of 22"), and per value ("9 ready there"), and says so plainly when
+none are. Tools installed with pipx (`~/.local/bin`), go (`~/go/bin`) or into a virtualenv (`~/.venvs/*/bin`) are all
+found, because the remote shell puts those directories on PATH first — a non-login shell does not read `~/.zshrc`, so
+without that a machine full of tools looks empty.
+
+For a bare machine, `node scripts/kali-setup.sh --pipx` installs the user-level Python tools (maigret, holehe,
+socialscan, h8mail, sherlock, nexfil, instaloader, toutatis) without a password; `--apt` needs sudo and adds nmap,
+dnsutils, exiftool, theHarvester and the rest.
 
 Always run `agent next --remote …` before `agent run --remote …`: it reports how many of the tools the case needs are
 actually present, so nobody is told an investigation ran when the machine was missing half of it.

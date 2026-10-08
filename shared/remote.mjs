@@ -18,12 +18,17 @@ export const SSH_OPTS = [
 export const shellQuote = (value) => `'${String(value).replace(/'/g, `'\\''`)}'`;
 
 /**
- * Where user-level tools land, prepended on the far side before anything is looked up or run.
+ * What the far side's shell is told before anything is looked up or run.
  *
  * A shell started for one command does not read ~/.zshrc or ~/.bashrc, so pipx, cargo and go binaries - which is how
- * most of this directory's tools are installed - would look missing on a machine that has them.
+ * most of this directory's tools are installed - would look missing on a machine that has them. Virtualenvs are the
+ * other common home for them, and their bin directories are never on a non-login PATH, so every venv under ~/.venvs is
+ * added too: a Kali box with the tools spread between pipx and a venv looks empty without this.
  */
-export const REMOTE_PATH = 'export PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:$PATH"';
+export const REMOTE_PATH = [
+  'export PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:$PATH"',
+  'for d in "$HOME"/.venvs/*/bin; do [ -d "$d" ] && PATH="$d:$PATH"; done',
+].join('\n');
 
 /**
  * Where a command is handed to. Two transports, because the machine that was configured years ago may not be the
