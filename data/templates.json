@@ -1,46 +1,47 @@
 {
-  "generated": "2026-10-05T11:07:20.714Z",
+  "generated": "2026-10-12T15:52:10.820Z",
   "tested": 177,
-  "ok": 120,
-  "changed": 28,
+  "ok": 117,
+  "changed": 27,
   "dead": 4,
-  "blocked": 25,
-  "failing": 0,
+  "blocked": 29,
+  "failing": 28,
   "results": {
     "1881-no": {
       "status": "changed",
       "input": "name",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "echoed the first value but not the second, so it may be a cached or generic page",
-      "failures": 1
+      "failures": 2
     },
     "1st-headlines": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "2lingual": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "3xpl": {
-      "status": "ok",
+      "status": "blocked",
       "input": "crypto_address",
-      "http": 200,
-      "checked": "2026-10-05",
+      "http": 429,
+      "checked": "2026-10-12",
+      "note": "HTTP 429 — refused this client rather than the link being wrong",
       "failures": 0
     },
     "abuseipdb": {
       "status": "blocked",
-      "input": "domain",
+      "input": "ip",
       "http": 403,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 403 — refused this client rather than the link being wrong",
       "failures": 0
     },
@@ -48,7 +49,7 @@
       "status": "blocked",
       "input": "aircraft",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "bot check instead of results",
       "failures": 0
     },
@@ -56,37 +57,37 @@
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "ahmia": {
       "status": "changed",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "alienvault-otx": {
       "status": "changed",
       "input": "hash",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "annualreports-com": {
       "status": "ok",
       "input": "company",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "arkham-intelligence": {
       "status": "blocked",
       "input": "crypto_address",
       "http": 403,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 403 — refused this client rather than the link being wrong",
       "failures": 0
     },
@@ -94,72 +95,72 @@
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "baidu": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "base": {
       "status": "changed",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "echoed the first value but not the second, so it may be a cached or generic page",
-      "failures": 1
+      "failures": 2
     },
     "bgp-tools": {
       "status": "ok",
       "input": "ip",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "bing": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "bing-maps": {
       "status": "ok",
       "input": "location",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "bing-news": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "blockchair": {
       "status": "dead",
       "input": "crypto_address",
       "http": 401,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 401",
-      "failures": 1
+      "failures": 2
     },
     "blocklist-de": {
       "status": "ok",
       "input": "ip",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "brave-search": {
       "status": "blocked",
       "input": "keyword",
       "http": 429,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 429 — refused this client rather than the link being wrong",
       "failures": 0
     },
@@ -167,28 +168,28 @@
       "status": "ok",
       "input": "company",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "builtwith": {
       "status": "ok",
       "input": "domain",
-      "http": 202,
-      "checked": "2026-10-05",
+      "http": 200,
+      "checked": "2026-10-12",
       "failures": 0
     },
     "carvertical": {
       "status": "ok",
       "input": "vehicle",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "chainabuse": {
       "status": "blocked",
       "input": "crypto_address",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "bot check instead of results",
       "failures": 0
     },
@@ -196,7 +197,7 @@
       "status": "blocked",
       "input": "domain",
       "http": 403,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 403 — refused this client rather than the link being wrong",
       "failures": 0
     },
@@ -204,28 +205,28 @@
       "status": "ok",
       "input": "company",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "companiesintheuk": {
       "status": "ok",
-      "input": "company",
+      "input": "name",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "completedns-dns-history": {
       "status": "ok",
       "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "core": {
       "status": "blocked",
       "input": "keyword",
       "http": 403,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 403 — refused this client rather than the link being wrong",
       "failures": 0
     },
@@ -233,65 +234,64 @@
       "status": "ok",
       "input": "company",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "criminal-ip": {
       "status": "ok",
       "input": "ip",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "crt-sh": {
-      "status": "dead",
+      "status": "ok",
       "input": "company",
-      "http": null,
-      "checked": "2026-10-05",
-      "note": "no response",
-      "failures": 1
+      "http": 200,
+      "checked": "2026-10-12",
+      "failures": 0
     },
     "das-oertliche": {
       "status": "ok",
       "input": "name",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "daum": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "db-ip": {
       "status": "blocked",
       "input": "ip",
       "http": 403,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 403 — refused this client rather than the link being wrong",
       "failures": 0
     },
     "disconnect-search": {
       "status": "ok",
       "input": "keyword",
-      "http": 202,
-      "checked": "2026-10-05",
+      "http": 200,
+      "checked": "2026-10-12",
       "failures": 0
     },
     "distributed-denial-of-secrets": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "dnshistory": {
       "status": "blocked",
       "input": "domain",
       "http": 403,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 403 — refused this client rather than the link being wrong",
       "failures": 0
     },
@@ -299,42 +299,42 @@
       "status": "ok",
       "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "duckduckgo": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "earthcam": {
       "status": "ok",
       "input": "location",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "email-format": {
       "status": "ok",
       "input": "company",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "epicvin": {
       "status": "ok",
       "input": "vehicle",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "epieos": {
       "status": "blocked",
       "input": "email",
       "http": 403,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 403 — refused this client rather than the link being wrong",
       "failures": 0
     },
@@ -342,29 +342,29 @@
       "status": "ok",
       "input": "name",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "exonerator": {
       "status": "changed",
       "input": "ip",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "eyedex": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "faa-aircraft-registry": {
       "status": "blocked",
       "input": "aircraft",
       "http": 403,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 403 — refused this client rather than the link being wrong",
       "failures": 0
     },
@@ -372,36 +372,36 @@
       "status": "changed",
       "input": "name",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "find-case-law-uk": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "flickr-search": {
       "status": "ok",
       "input": "location",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "flightaware": {
       "status": "ok",
       "input": "aircraft",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "flightradar24": {
       "status": "blocked",
       "input": "aircraft",
       "http": 403,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 403 — refused this client rather than the link being wrong",
       "failures": 0
     },
@@ -409,70 +409,70 @@
       "status": "ok",
       "input": "company",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "geonames": {
       "status": "ok",
       "input": "location",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "gerdoo": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "ghnames": {
       "status": "ok",
       "input": "username",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "ghostarchive": {
       "status": "ok",
       "input": "url",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "github-code-search": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "gitleak": {
       "status": "ok",
       "input": "username",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "google-fact-check-explorer": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "google-maps": {
       "status": "ok",
       "input": "location",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "google-news": {
       "status": "blocked",
       "input": "keyword",
       "http": 429,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 429 — refused this client rather than the link being wrong",
       "failures": 0
     },
@@ -480,52 +480,53 @@
       "status": "changed",
       "input": "company",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "google-safe-browsing-site-status": {
       "status": "changed",
       "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "google-scholar": {
-      "status": "ok",
+      "status": "blocked",
       "input": "keyword",
-      "http": 200,
-      "checked": "2026-10-05",
+      "http": 403,
+      "checked": "2026-10-12",
+      "note": "HTTP 403 — refused this client rather than the link being wrong",
       "failures": 0
     },
     "google-search": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "google-trends": {
       "status": "blocked",
       "input": "keyword",
       "http": 429,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 429 — refused this client rather than the link being wrong",
       "failures": 0
     },
     "grayhatwarfare-public-buckets": {
       "status": "ok",
-      "input": "company",
+      "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "grep-app": {
       "status": "blocked",
       "input": "keyword",
       "http": 429,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 429 — refused this client rather than the link being wrong",
       "failures": 0
     },
@@ -533,28 +534,28 @@
       "status": "ok",
       "input": "ip",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "hlidac-statu": {
       "status": "ok",
       "input": "company",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "host-io": {
       "status": "ok",
       "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "hunter": {
       "status": "blocked",
       "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "bot check instead of results",
       "failures": 0
     },
@@ -562,225 +563,226 @@
       "status": "ok",
       "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "ibm-x-force-exchange": {
       "status": "changed",
       "input": "hash",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "icann-lookup": {
       "status": "changed",
       "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "idcrawl": {
-      "status": "changed",
+      "status": "blocked",
       "input": "username",
-      "http": 202,
-      "checked": "2026-10-05",
-      "note": "page answered but never echoed the value",
-      "failures": 1
+      "http": 403,
+      "checked": "2026-10-12",
+      "note": "HTTP 403 — refused this client rather than the link being wrong",
+      "failures": 0
     },
     "importgenius": {
       "status": "ok",
       "input": "company",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "internet-archive-search": {
       "status": "changed",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "ip-thc-org": {
       "status": "ok",
       "input": "ip",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "ip2location": {
       "status": "ok",
       "input": "ip",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "ipinfo": {
       "status": "ok",
       "input": "ip",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "iplocation-net": {
       "status": "ok",
       "input": "ip",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "izito": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "jstor": {
       "status": "changed",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "kakao-map": {
       "status": "ok",
       "input": "location",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "kbo-public-search": {
       "status": "ok",
       "input": "company",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "kenya-law": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "keybase": {
       "status": "ok",
       "input": "username",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "leakradar": {
       "status": "ok",
       "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "littlesis": {
       "status": "changed",
       "input": "company",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "lullar": {
       "status": "ok",
       "input": "username",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "lycos": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "malshare": {
       "status": "ok",
       "input": "hash",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "maltiverse": {
       "status": "blocked",
-      "input": "domain",
-      "http": 200,
-      "checked": "2026-10-05",
-      "note": "bot check instead of results",
+      "input": "hash",
+      "http": 403,
+      "checked": "2026-10-12",
+      "note": "HTTP 403 — refused this client rather than the link being wrong",
       "failures": 0
     },
     "mamont": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "meta-ad-library": {
       "status": "blocked",
       "input": "keyword",
       "http": 403,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 403 — refused this client rather than the link being wrong",
       "failures": 0
     },
     "mojeek": {
-      "status": "ok",
+      "status": "blocked",
       "input": "keyword",
-      "http": 200,
-      "checked": "2026-10-05",
+      "http": 403,
+      "checked": "2026-10-12",
+      "note": "HTTP 403 — refused this client rather than the link being wrong",
       "failures": 0
     },
     "moneyhouse": {
       "status": "ok",
       "input": "name",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "myallsearch": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "namecheckup": {
       "status": "ok",
       "input": "username",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "naver": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "netcraft-site-report": {
       "status": "ok",
       "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "netlas-io": {
       "status": "blocked",
-      "input": "domain",
+      "input": "ip",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "bot check instead of results",
       "failures": 0
     },
@@ -788,91 +790,92 @@
       "status": "ok",
       "input": "vehicle",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "north-data": {
       "status": "ok",
-      "input": "company",
+      "input": "name",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "nz-companies-office": {
       "status": "ok",
       "input": "name",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "open-library": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "opencorporates": {
       "status": "ok",
       "input": "name",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "openhistoricalmap": {
       "status": "ok",
       "input": "location",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "opensanctions": {
       "status": "ok",
       "input": "company",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "openstreetmap": {
       "status": "ok",
       "input": "location",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "ourairports": {
-      "status": "ok",
+      "status": "dead",
       "input": "location",
-      "http": 200,
-      "checked": "2026-10-05",
-      "failures": 0
+      "http": null,
+      "checked": "2026-10-12",
+      "note": "no response",
+      "failures": 1
     },
     "peeringdb": {
       "status": "ok",
-      "input": "ip",
+      "input": "company",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "pentest-tools-google-hacking": {
       "status": "ok",
       "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "pentest-tools-subdomain-finder": {
       "status": "ok",
       "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "planespotters-net": {
       "status": "blocked",
       "input": "aircraft",
       "http": 403,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 403 — refused this client rather than the link being wrong",
       "failures": 0
     },
@@ -880,102 +883,100 @@
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "propublica-nonprofit-explorer": {
       "status": "ok",
       "input": "name",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "pubmed": {
-      "status": "changed",
+      "status": "ok",
       "input": "keyword",
-      "http": 203,
-      "checked": "2026-10-05",
-      "note": "page answered but never echoed the value",
-      "failures": 1
+      "http": 200,
+      "checked": "2026-10-12",
+      "failures": 0
     },
     "qwant": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "radioreference": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "rapiddns": {
       "status": "ok",
       "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "redditmetis": {
       "status": "changed",
       "input": "username",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "reveddit": {
       "status": "blocked",
       "input": "username",
-      "http": 200,
-      "checked": "2026-10-05",
-      "note": "bot check instead of results",
+      "http": 403,
+      "checked": "2026-10-12",
+      "note": "HTTP 403 — refused this client rather than the link being wrong",
       "failures": 0
     },
     "ripestat": {
       "status": "ok",
       "input": "ip",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "robtex": {
       "status": "ok",
       "input": "ip",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "sans-isc-dshield": {
       "status": "ok",
       "input": "ip",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "scamalytics": {
-      "status": "blocked",
+      "status": "ok",
       "input": "ip",
-      "http": 403,
-      "checked": "2026-10-05",
-      "note": "HTTP 403 — refused this client rather than the link being wrong",
+      "http": 200,
+      "checked": "2026-10-12",
       "failures": 0
     },
     "searchfiles-de": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "sec-edgar-full-text-search": {
       "status": "blocked",
-      "input": "keyword",
+      "input": "name",
       "http": 403,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 403 — refused this client rather than the link being wrong",
       "failures": 0
     },
@@ -983,7 +984,7 @@
       "status": "blocked",
       "input": "ip",
       "http": 403,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 403 — refused this client rather than the link being wrong",
       "failures": 0
     },
@@ -991,58 +992,58 @@
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "shodan": {
-      "status": "dead",
+      "status": "blocked",
       "input": "domain",
-      "http": null,
-      "checked": "2026-10-05",
-      "note": "no response",
-      "failures": 1
+      "http": 403,
+      "checked": "2026-10-12",
+      "note": "HTTP 403 — refused this client rather than the link being wrong",
+      "failures": 0
     },
     "should-i-answer": {
       "status": "ok",
       "input": "phone",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "sogou": {
       "status": "changed",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "sogou-wechat-search": {
       "status": "ok",
       "input": "username",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "sourcegraph": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "spokeo": {
       "status": "ok",
       "input": "name",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "spur": {
       "status": "blocked",
       "input": "ip",
       "http": 429,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 429 — refused this client rather than the link being wrong",
       "failures": 0
     },
@@ -1050,258 +1051,260 @@
       "status": "changed",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
-      "note": "echoed the first value but not the second, so it may be a cached or generic page",
-      "failures": 1
+      "checked": "2026-10-12",
+      "note": "page answered but never echoed the value",
+      "failures": 2
     },
     "steamid-io": {
       "status": "ok",
       "input": "username",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "subdomain-center": {
-      "status": "ok",
+      "status": "dead",
       "input": "domain",
-      "http": 200,
-      "checked": "2026-10-05",
-      "failures": 0
+      "http": 530,
+      "checked": "2026-10-12",
+      "note": "HTTP 530",
+      "failures": 1
     },
     "sucuri-sitecheck": {
       "status": "changed",
       "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "echoed the first value but not the second, so it may be a cached or generic page",
-      "failures": 1
+      "failures": 2
     },
     "swisscows": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "sync-me": {
       "status": "ok",
       "input": "phone",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "teleteg": {
       "status": "ok",
       "input": "username",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "the-gazette": {
       "status": "ok",
       "input": "company",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "the-national-archives-discovery": {
       "status": "changed",
       "input": "keyword",
       "http": 202,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "threatfox": {
       "status": "changed",
-      "input": "hash",
+      "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "twitchtracker": {
       "status": "ok",
       "input": "username",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "urlhaus": {
       "status": "changed",
       "input": "ip",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "urlscan": {
       "status": "changed",
       "input": "ip",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "urlvoid": {
       "status": "ok",
       "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "utrace": {
       "status": "ok",
       "input": "ip",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "vesselfinder": {
       "status": "ok",
       "input": "vessel",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "vesseltracker": {
       "status": "ok",
       "input": "vessel",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "viewdns-info": {
       "status": "ok",
       "input": "name",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "virustotal": {
       "status": "changed",
       "input": "ip",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "wayback-machine": {
       "status": "changed",
       "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "web-check": {
       "status": "ok",
       "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "webmii": {
       "status": "ok",
       "input": "name",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "who-is": {
-      "status": "ok",
+      "status": "changed",
       "input": "domain",
-      "http": 200,
-      "checked": "2026-10-05",
-      "failures": 0
+      "http": 202,
+      "checked": "2026-10-12",
+      "note": "page answered but never echoed the value",
+      "failures": 1
     },
     "whoxy": {
       "status": "ok",
       "input": "domain",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "wikileaks": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "wn-world-news": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "wolfram-alpha": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "wpscan-vulnerability-database": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "xmrchain": {
       "status": "ok",
       "input": "crypto_address",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "yahoo-search": {
       "status": "dead",
       "input": "keyword",
       "http": 500,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "HTTP 500",
-      "failures": 1
+      "failures": 2
     },
     "yandex-maps": {
       "status": "ok",
       "input": "location",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "yandex-search": {
       "status": "changed",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "youtube-metadata": {
       "status": "changed",
       "input": "url",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     },
     "zapmeta": {
       "status": "ok",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "failures": 0
     },
     "zenodo": {
       "status": "changed",
       "input": "keyword",
       "http": 200,
-      "checked": "2026-10-05",
+      "checked": "2026-10-12",
       "note": "page answered but never echoed the value",
-      "failures": 1
+      "failures": 2
     }
   }
 }
